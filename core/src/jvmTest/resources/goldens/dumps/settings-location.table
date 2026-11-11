@@ -1,0 +1,12 @@
+-    FrameLayout   "Location"  #collapsing_toolbar  540,363
+tap  ImageButton   "Navigate up"  73,201
+tap  LinearLayout  #switch_bar  540,738
+-    TextView      "Use location"  #switch_text  450,738
+-    Switch        #switch_widget  916,738  [check checked]
+-    TextView      "Recent access"  #title  550,967
+-    TextView      "No apps recently accessed location"  #title  481,1091
+-    TextView      "See all"  #title  266,1246
+-    TextView      "App location permissions"  #title  362,1401
+-    TextView      "5 of 12 apps have access to location"  #summary  362,1462
+-    TextView      "Location services"  #title  270,1607
+-    TextView      "When Location Accuracy is on, apps and services get a more a…"  #title  550,2069

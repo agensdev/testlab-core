@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{APP}}: setup</title>
+<style>
+  :root { --bg:#fbfbfd; --panel:#fff; --fg:#1d2228; --mut:#5f6b7a; --line:#d9dee5; --accent:#5b4bb7; --ok:#1f7a3a; --warn:#b26a00; --bad:#c62828; --code:#f2f4f7; color-scheme: light dark; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#0e1116; --panel:#161b22; --fg:#cdd9e5; --mut:#8b949e; --line:#2a313c; --accent:#b4a7ff; --ok:#3fb950; --warn:#d29922; --bad:#f85149; --code:#0b0e13; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.5 system-ui, -apple-system, Segoe UI, sans-serif; }
+  main { max-width: 900px; margin: 0 auto; padding: 24px 16px 80px; }
+  h1 { font-size: 24px; margin: 0 0 4px; } h2 { font-size: 17px; margin: 0 0 4px; }
+  .mut { color: var(--mut); font-size: 13px; } .ok { color: var(--ok); } .bad { color: var(--bad); } .warn { color: var(--warn); }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px; margin: 16px 0; scroll-margin-top: 12px; }
+  .toc { display: flex; gap: 6px; flex-wrap: wrap; margin: 12px 0; } .toc a { font-size: 13px; color: var(--mut); text-decoration: none; border: 1px solid var(--line); border-radius: 14px; padding: 2px 10px; }
+  .f { display: grid; grid-template-columns: 220px 1fr; gap: 6px 14px; align-items: center; margin: 10px 0; }
+  .f label { font-size: 14px; } .f .help { grid-column: 2; font-size: 12px; color: var(--mut); margin-top: -4px; }
+  input[type=text], input[type=password], input[type=number], select, textarea { font: inherit; font-size: 14px; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; width: 100%; }
+  textarea { min-height: 80px; font-family: ui-monospace, Menlo, monospace; font-size: 13px; }
+  textarea.big { min-height: 380px; }
+  input[type=checkbox] { width: 18px; height: 18px; }
+  button { font: inherit; font-size: 14px; color: var(--fg); background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; cursor: pointer; margin-right: 6px; }
+  button.primary { background: var(--accent); color: var(--panel); border-color: var(--accent); }
+  .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 10px; }
+  .todo { display: grid; grid-template-columns: 18px 1fr; gap: 2px 8px; padding: 4px 0; font-size: 14px; }
+  .note { font-size: 13px; background: var(--code); border-radius: 8px; padding: 8px 10px; margin-top: 8px; }
+  .res { font-size: 13px; margin-top: 8px; white-space: pre-wrap; }
+  @media (max-width: 640px) { .f { grid-template-columns: 1fr; } .f .help { grid-column: 1; } }
+  .step { display: grid; grid-template-columns: 28px 1fr; gap: 4px 10px; }
+  .badge { width: 24px; height: 24px; border-radius: 12px; display: grid; place-items: center; font-size: 13px; font-weight: 600; border: 1px solid var(--line); }
+  .badge.ok { background: var(--ok); color: var(--panel); border-color: var(--ok); }
+  .badge.bad { background: var(--bad); color: var(--panel); border-color: var(--bad); }
+  .badge.todo { color: var(--mut); }
+  .st { font-size: 13px; margin: 2px 0 6px; }
+  .acc { font-size: 13px; padding: 4px 0; border-top: 1px solid var(--line); }
+  .hide { display: none; }
+  .ex { cursor: pointer; display: inline-block; padding: 2px 6px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Set up {{APP}}</h1>
+  <div class="mut">Each step saves on this computer as you go. Keys and passwords go to the vault and are never shown again. When the steps you need are green, go back to the terminal: <code>{{SLUG}} setup</code> carries on with the devices, Claude and the background service.</div>
+  <div id="msg" class="mut"></div>
+
+  <section class="card step" id="s-github"><div class="badge todo" id="b-github">1</div><div>
+    <h2>GitHub</h2><div class="st mut" id="t-github">Checking…</div>
+    <div class="f"><label for="github">Token</label><input id="github" type="password" autocomplete="off">
+      <div class="help">Classic token with the «repo» scope (<a href="https://github.com/settings/tokens/new?scopes=repo&description={{APP}}" target="_blank" rel="noopener">make one</a>); authorize it for your organisation's SSO if it uses one.</div></div>
+    <div class="row"><button class="primary" id="saveGithub">Save and check</button></div>
+  </div></section>
+
+  <section class="card step" id="s-project"><div class="badge todo" id="b-project">2</div><div>
+    <h2>Project</h2><div class="st mut" id="t-project">Checking…</div>
+    <div class="row"><a href="/ui/profiles"><button id="toProfiles">Make or import a profile</button></a></div>
+  </div></section>
+
+  <section class="card step hide" id="s-jira"><div class="badge todo" id="b-jira">3</div><div>
+    <h2>Jira</h2><div class="st mut" id="t-jira"></div>
+    <div class="f"><label for="jemail">E-mail</label><input id="jemail" type="text" autocomplete="off"></div>
+    <div class="f"><label for="jtoken">API token</label><input id="jtoken" type="password" autocomplete="off">
+      <div class="help"><a href="https://id.atlassian.com/manage-profile/security/api-tokens" target="_blank" rel="noopener">Make one</a> (a plain API token, not «with scopes»).</div></div>
+    <div class="row"><button class="primary" id="saveJira">Save and check</button></div>
+  </div></section>
+
+  <section class="card step" id="s-autopilot"><div class="badge todo" id="b-autopilot">4</div><div>
+    <h2>Autopilot</h2><div class="st mut" id="t-autopilot"></div>
+    <div class="f"><label for="typesafe">TypeSafe API key</label><input id="typesafe" type="password" autocomplete="off">
+      <div class="help">Jev picks what to tap toward a goal. No key? Use a local model instead.</div></div>
+    <div class="row"><button class="primary" id="saveTypesafe">Save</button><button id="useOllama">Use a local Ollama model</button></div>
+    <div class="f"><label for="openai">Or an OpenAI API key</label><input id="openai" type="password" autocomplete="off">
+      <div class="help">Uses OpenAI's Decisions API (<code>gpt-6-luna</code>) for the same choices instead of Jev.
+        <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener">Make a key</a>: sign in, pick the project, «Create new secret key», copy it now (OpenAI shows it once) and paste it here.
+        The API is paid per use and billed apart from ChatGPT: the account needs <a href="https://platform.openai.com/settings/organization/billing/overview" target="_blank" rel="noopener">API credit</a>.</div></div>
+    <div class="row"><button id="saveOpenai">Save, check and use OpenAI</button></div>
+  </div></section>
+
+  <section class="card step hide" id="s-accounts"><div class="badge todo" id="b-accounts">5</div><div>
+    <h2>Test accounts</h2><div class="st mut" id="t-accounts"></div>
+    <div id="accList"></div>
+    <div class="f"><label for="accName">Account name</label><input id="accName" type="text" autocomplete="off" placeholder="qa"></div>
+    <div id="accFields"></div>
+    <div class="f"><label for="accNote">What it is for</label><input id="accNote" type="text" autocomplete="off" placeholder="optional, e.g. team leader on the Pixel"></div>
+    <div class="row"><button class="primary" id="saveAccount">Save account</button></div>
+  </div></section>
+
+  <section class="card step hide" id="s-ios"><div class="badge todo" id="b-ios">6</div><div>
+    <h2>Real iPhones</h2><div class="st mut" id="t-ios"></div>
+    <div class="f"><label for="team">Apple team id</label><input id="team" type="text" autocomplete="off" maxlength="10" placeholder="ABCDE12345">
+      <div class="help">Xcode signs WebDriverAgent with this team, so a paired iPhone's screen can be read and tapped. 10 letters and digits: developer.apple.com → Account → Membership, or Xcode → Settings → Accounts. Sign in to Xcode with that Apple ID first.</div></div>
+    <div class="row"><button class="primary" id="saveTeam">Save</button></div>
+  </div></section>
+
+  <section class="card"><h2>Then</h2>
+    <div class="mut">Back in the terminal, <code>{{SLUG}} setup</code> connects your devices, adds {{APP}} to Claude and installs the background service. <a href="/ui/guide">The guide</a> explains the whole flow.</div>
+  </section>
+
+  <section class="card"><h2>What to ask Claude</h2>
+    <div class="mut">Once it's set up, ask in plain words in Claude Code or Claude Desktop. These use your project's own screens and Jira; click one to copy it.</div>
+    <div id="examples"></div>
+  </section>
+</main>
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  document.addEventListener("click", (e) => {
+    const c = e.target.closest(".ex");
+    if (c && navigator.clipboard) navigator.clipboard.writeText(c.textContent).then(() => { const t = c.textContent; c.textContent = "copied"; setTimeout(() => { c.textContent = t; }, 900); }).catch(() => {});
+  });
+  const esc = (s) => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  async function api(method, path, body) {
+    const r = await fetch("/api/v1" + path, { method, credentials: "same-origin", headers: body ? { "content-type": "application/json" } : {}, body: body ? JSON.stringify(body) : undefined });
+    const b = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error((b.error && b.error.message) || "HTTP " + r.status);
+    return b;
+  }
+  const say = (t, bad) => { $("msg").textContent = t || ""; $("msg").className = bad ? "bad" : "ok"; };
+  const mark = (id, state, text) => {
+    const b = $("b-" + id), t = $("t-" + id);
+    b.className = "badge " + (state === "ok" ? "ok" : state === "problem" ? "bad" : "todo");
+    if (state === "ok") b.textContent = "✓"; else if (state === "problem") b.textContent = "!";
+    t.className = "st " + (state === "ok" ? "ok" : state === "problem" ? "bad" : "mut");
+    t.textContent = text;
+  };
+  let S = null;
+
+  function render(s) {
+    S = s;
+    $("examples").innerHTML = (s.examples || []).map(e => `<div class="f"><label>${esc(e.what)}</label><code class="ex" title="Click to copy">${esc(e.prompt)}</code></div>`).join("");
+    mark("github", s.github.state, s.github.state === "missing" ? "Not set." : s.github.text);
+    mark("project", s.project.set ? "ok" : "missing", s.project.set
+      ? `${s.project.name} · ${s.project.repo} · ${s.project.platforms.map(p => p === "ios" ? "iOS" : "Android").join(" + ")}`
+      : "No project yet: make a profile from one of your repos, or import your team's.");
+    $("toProfiles").textContent = s.project.set ? "Change or edit the profile" : "Make or import a profile";
+    $("s-jira").classList.toggle("hide", !s.jira);
+    if (s.jira) mark("jira", s.jira.state, (s.jira.state === "missing" ? "Not set" : s.jira.text) + ` (${s.jira.site})`);
+    const b = s.autopilot.backend;
+    if (b === "openai") {
+      if (!s.autopilot.openai_key) mark("autopilot", "missing", "OpenAI chosen, but no OpenAI key yet.");
+      else if (s.autopilot.openai_state === "ok") mark("autopilot", "ok", "Using OpenAI's Decisions API: " + s.autopilot.openai_text + ".");
+      else mark("autopilot", "problem", (s.autopilot.openai_text || "The OpenAI key could not be checked.") + (s.autopilot.openai_fix ? " (" + s.autopilot.openai_fix + ")" : ""));
+    }
+    else if (b !== "typesafe") mark("autopilot", "ok", `Using a local model (${b}).`);
+    else mark("autopilot", s.autopilot.key ? "ok" : "missing", s.autopilot.key ? "TypeSafe key saved." : "Not set: plans and goals need the autopilot.");
+    const a = s.accounts;
+    $("s-accounts").classList.toggle("hide", !a.needed && a.list.length === 0);
+    const ready = a.list.filter(x => x.ready_on.length);
+    mark("accounts", ready.length ? "ok" : "missing", ready.length ? `${ready.length} ready to log in.` : "None complete yet: the login needs these fields.");
+    $("accList").innerHTML = a.list.map(x => `<div class="acc"><b>${esc(x.name)}</b>${x.note ? " · " + esc(x.note) : ""} — ${x.ready_on.length ? '<span class="ok">ready on ' + x.ready_on.map(p => p === "ios" ? "iOS" : "Android").join(" + ") + "</span>" : '<span class="warn">missing ' + esc(a.fields.filter(f => !x.set.includes(f.key)).map(f => f.label).join(", ")) + "</span>"}</div>`).join("");
+    if (!$("accFields").dataset.done) {
+      $("accFields").innerHTML = a.fields.map(f => `<div class="f"><label for="af-${esc(f.key)}">${esc(f.label)}</label><input id="af-${esc(f.key)}" data-key="${esc(f.key)}" type="${f.secret ? "password" : "text"}" autocomplete="off"></div>`).join("");
+      $("accFields").dataset.done = "1";
+    }
+    const ios = s.ios;
+    $("s-ios").classList.toggle("hide", !ios.covered);
+    if (ios.covered) mark("ios", ios.team ? "ok" : "missing", (ios.team ? `Team ${ios.team}.` : "Not set: iPhones take builds and app starts only.") + (ios.mac ? "" : " (This computer is not a Mac: set it where the iPhones are.)"));
+    if (ios.team && !$("team").value) $("team").value = ios.team;
+  }
+  const reload = async () => { try { render(await api("GET", "/setup/state")); } catch (e) { say(e.message, true); } };
+  const act = (btn, work) => $(btn).onclick = async () => {
+    $(btn).disabled = true; say("Saving…");
+    try { await work(); say("Saved"); await reload(); } catch (e) { say(e.message, true); } finally { $(btn).disabled = false; }
+  };
+
+  act("saveGithub", async () => { const v = $("github").value.trim(); if (!v) throw new Error("Paste the token first"); await api("POST", "/secrets/github.token", { value: v }); $("github").value = ""; });
+  act("saveJira", async () => {
+    const site = S.jira.site, e = $("jemail").value.trim(), t = $("jtoken").value.trim();
+    if (!e || !t) throw new Error("Both the e-mail and the token");
+    await api("POST", "/secrets/" + encodeURIComponent("jira.email@" + site), { value: e });
+    await api("POST", "/secrets/" + encodeURIComponent("jira.token@" + site), { value: t }); $("jtoken").value = "";
+  });
+  act("saveTypesafe", async () => { const v = $("typesafe").value.trim(); if (!v) throw new Error("Paste the key first"); await api("POST", "/secrets/jev.key", { value: v }); await api("POST", "/settings", { jev: { backend: "typesafe" } }); $("typesafe").value = ""; });
+  act("useOllama", async () => { await api("POST", "/settings", { jev: { backend: "ollama" } }); });
+  act("saveOpenai", async () => { const v = $("openai").value.trim(); if (!v) throw new Error("Paste the key first"); await api("POST", "/secrets/openai.key", { value: v }); await api("POST", "/settings", { jev: { backend: "openai" } }); $("openai").value = ""; });
+  act("saveAccount", async () => {
+    const name = $("accName").value.trim(); if (!name) throw new Error("Give the account a name");
+    const fields = {}; document.querySelectorAll("#accFields input").forEach(i => { if (i.value) fields[i.dataset.key] = i.value; });
+    await api("POST", "/accounts", { name, note: $("accNote").value.trim() || null, fields });
+    document.querySelectorAll("#accFields input, #accName, #accNote").forEach(i => i.value = "");
+  });
+  act("saveTeam", async () => {
+    const v = $("team").value.trim().toUpperCase();
+    if (v && !/^[A-Z0-9]{10}$/.test(v)) throw new Error("A team id is 10 letters and digits");
+    await api("POST", "/settings", { device: { iosTeamId: v || null } });
+  });
+  reload();
+  // Saved from the terminal or another tab meanwhile: catch up when the page is looked at again.
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) reload(); });
+})();
+</script>
+</body>
+</html>

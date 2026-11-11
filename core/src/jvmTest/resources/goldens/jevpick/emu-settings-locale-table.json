@@ -1,0 +1,335 @@
+{
+ "dump": "-    FrameLayout  \"Languages\"  #collapsing_toolbar  540,363\ntap  ImageButton  \"Navigate up\"  73,201\n-    TextView     \"Your device, apps, and websites use the first supported lang…\"  #title  550,819\n-    TextView     \"Preferred language order\"  #title  550,1149\n-    TextView     \"1\"  #miniLabel  94,1322\n-    TextView     \"English (United States)\"  #label  476,1291\n-    TextView     \"System language\"  #default_locale  351,1363\ntap  Button       \"Add a language\"  #add_language  540,1512\n-    TextView     \"To select a language for each app, go to app language settin…\"  #title  550,1769\n-    TextView     \"Learn more about app languages\"  #settingslib_learn_more  333,1884\n",
+ "nodes": [
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "Languages",
+   "rid": "collapsing_toolbar",
+   "x": 540,
+   "y": 363,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "ImageButton",
+   "text": "Navigate up",
+   "rid": "",
+   "x": 73,
+   "y": 201,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Your device, apps, and websites use the first supported lang…",
+   "rid": "title",
+   "x": 550,
+   "y": 819,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Preferred language order",
+   "rid": "title",
+   "x": 550,
+   "y": 1149,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "1",
+   "rid": "miniLabel",
+   "x": 94,
+   "y": 1322,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "English (United States)",
+   "rid": "label",
+   "x": 476,
+   "y": 1291,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "System language",
+   "rid": "default_locale",
+   "x": 351,
+   "y": 1363,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "Button",
+   "text": "Add a language",
+   "rid": "add_language",
+   "x": 540,
+   "y": 1512,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "To select a language for each app, go to app language settin…",
+   "rid": "title",
+   "x": 550,
+   "y": 1769,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Learn more about app languages",
+   "rid": "settingslib_learn_more",
+   "x": 333,
+   "y": 1884,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  }
+ ],
+ "unparsed": [],
+ "fingerprint": "8ca0c6b515fe",
+ "title": "Languages",
+ "selected": [],
+ "visible_texts": [
+  "Navigate up",
+  "Languages",
+  "Your device, apps, and websites use the first supported lang…",
+  "Preferred language order",
+  "English (United States)",
+  "1",
+  "System language",
+  "Add a language",
+  "To select a language for each app, go to app language settin…",
+  "Learn more about app languages"
+ ],
+ "variants": {
+  "typesafe": {
+   "criteria": {
+    "n01": "Tap ImageButton \"Navigate up\"",
+    "n02": "Tap Button \"Add a language\" [#add_language]",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 2
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Languages",
+     "selected": [],
+     "visible_texts": [
+      "Navigate up",
+      "Languages",
+      "Your device, apps, and websites use the first supported lang…",
+      "Preferred language order",
+      "English (United States)",
+      "1",
+      "System language",
+      "Add a language",
+      "To select a language for each app, go to app language settin…",
+      "Learn more about app languages"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text, paying, or confirming a purchase. Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap ImageButton \"Navigate up\"",
+      "n02": "Tap Button \"Add a language\" [#add_language]",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started."
+    }
+   }
+  },
+  "typesafe-risky": {
+   "criteria": {
+    "n01": "Tap ImageButton \"Navigate up\"",
+    "n02": "Tap Button \"Add a language\" [#add_language]",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 2
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Languages",
+     "selected": [],
+     "visible_texts": [
+      "Navigate up",
+      "Languages",
+      "Your device, apps, and websites use the first supported lang…",
+      "Preferred language order",
+      "English (United States)",
+      "1",
+      "System language",
+      "Add a language",
+      "To select a language for each app, go to app language settin…",
+      "Learn more about app languages"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text (paying or confirming a purchase IS allowed in this step: it is what the goal asks for). Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap ImageButton \"Navigate up\"",
+      "n02": "Tap Button \"Add a language\" [#add_language]",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started."
+    }
+   }
+  },
+  "ollama": {
+   "criteria": {
+    "n01": "Tap ImageButton \"Navigate up\"",
+    "n02": "Tap Button \"Add a language\" [#add_language]",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 2
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Languages",
+     "selected": [],
+     "visible_texts": [
+      "Navigate up",
+      "Languages",
+      "Your device, apps, and websites use the first supported lang…",
+      "Preferred language order",
+      "English (United States)",
+      "1",
+      "System language",
+      "Add a language",
+      "To select a language for each app, go to app language settin…",
+      "Learn more about app languages"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text, paying, or confirming a purchase. Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap ImageButton \"Navigate up\"",
+      "n02": "Tap Button \"Add a language\" [#add_language]",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started.",
+     "criteria": {
+      "false": "No - the goal is not accomplished yet on this screen",
+      "true": "Yes - the screen/section the goal asks for is already open"
+     }
+    }
+   }
+  }
+ }
+}

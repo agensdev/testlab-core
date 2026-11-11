@@ -1,0 +1,10 @@
+-    FrameLayout  "Languages"  #collapsing_toolbar  540,363
+tap  ImageButton  "Navigate up"  73,201
+-    TextView     "Your device, apps, and websites use the first supported lang…"  #title  550,819
+-    TextView     "Preferred language order"  #title  550,1149
+-    TextView     "1"  #miniLabel  94,1322
+-    TextView     "English (United States)"  #label  476,1291
+-    TextView     "System language"  #default_locale  351,1363
+tap  Button       "Add a language"  #add_language  540,1512
+-    TextView     "To select a language for each app, go to app language settin…"  #title  550,1769
+-    TextView     "Learn more about app languages"  #settingslib_learn_more  333,1884

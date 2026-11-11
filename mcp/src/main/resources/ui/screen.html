@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{APP}}: live screen</title>
+<style>
+  :root {
+    --bg: var(--color-background-primary, #ffffff);
+    --bg2: var(--color-background-secondary, #f4f4f5);
+    --fg: var(--color-text-primary, #18181b);
+    --fg2: var(--color-text-secondary, #71717a);
+    --line: var(--color-border-primary, #e4e4e7);
+    --ok: #16a34a; --bad: #dc2626; --accent: #6750a4;
+    color-scheme: light dark;
+  }
+  :root[data-theme="dark"] {
+    --bg: var(--color-background-primary, #1f1f22); --bg2: var(--color-background-secondary, #2a2a2e);
+    --fg: var(--color-text-primary, #f4f4f5); --fg2: var(--color-text-secondary, #a1a1aa); --line: var(--color-border-primary, #3f3f46);
+    --accent: #c4b5fd;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 13px/1.4 var(--font-sans, system-ui, -apple-system, sans-serif); }
+  .wrap { display: flex; gap: 14px; padding: 12px; align-items: flex-start; flex-wrap: wrap; }
+  .phone { position: relative; flex: 0 0 auto; width: min(320px, 100%); }
+  .screen { display: block; width: 100%; border-radius: 18px; border: 6px solid #111; background: #111; cursor: crosshair; user-select: none; -webkit-user-drag: none; touch-action: none; min-height: 200px; }
+  .ripple { position: absolute; width: 28px; height: 28px; margin: -14px 0 0 -14px; border-radius: 50%; border: 3px solid #22c55e; pointer-events: none; animation: r .5s ease-out forwards; }
+  @keyframes r { from { transform: scale(.4); opacity: 1 } to { transform: scale(1.6); opacity: 0 } }
+  .keys { display: flex; justify-content: center; gap: 6px; margin-top: 8px; }
+  button { font: inherit; color: var(--fg); background: var(--bg2); border: 1px solid var(--line); border-radius: 8px; padding: 5px 10px; cursor: pointer; }
+  button:hover { border-color: var(--accent); }
+  button:disabled { opacity: .5; cursor: default; }
+  .side { flex: 1 1 220px; min-width: 200px; }
+  .head { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--fg2); }
+  .dot.live { background: var(--ok); }
+  .dot.err { background: var(--bad); }
+  .muted { color: var(--fg2); }
+  h2 { font-size: 14px; margin: 0; }
+  ul { list-style: none; margin: 8px 0 0; padding: 0; border-top: 1px solid var(--line); }
+  li { padding: 5px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 14px 1fr auto; gap: 6px; }
+  li .t { font-size: 13px; }
+  li .why { grid-column: 2 / 4; color: var(--accent); font-size: 12px; }
+  li .s { color: var(--fg2); font-size: 11px; font-family: var(--font-mono, ui-monospace, monospace); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; grid-column: 2 / 4; }
+  .msg { margin-top: 8px; color: var(--bad); }
+  .rewind { margin-top: 8px; }
+  .track { position: relative; height: 22px; }
+  .track input { position: absolute; inset: 0; width: 100%; margin: 0; }
+  .mark { position: absolute; top: 0; width: 2px; height: 6px; background: var(--accent); pointer-events: none; }
+  .mark.bad { background: var(--bad); }
+  .when { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--fg2); }
+  .past .screen { border-color: #b45309; }
+  li.act { cursor: pointer; }
+  li.act:hover .t { color: var(--accent); }
+  li.on { background: var(--bg2); }
+  .hint { margin-top: 10px; font-size: 12px; color: var(--fg2); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="phone">
+    <img id="screen" class="screen" alt="The phone's screen" draggable="false">
+    <div class="rewind">
+      <div class="track" id="track"><input id="scrub" type="range" min="0" max="0" value="0" aria-label="Rewind"></div>
+      <div class="when"><span id="when">live</span><span><button id="prev" title="Previous frame">‹</button> <button id="next" title="Next frame">›</button> <button id="live" disabled>● Live</button></span></div>
+    </div>
+    <div class="keys">
+      <button data-key="back" title="Back">◀</button>
+      <button data-key="home" title="Home">●</button>
+      <button data-key="recents" title="Recent apps">■</button>
+      <button data-swipe="up" title="Swipe up">↑</button>
+      <button data-swipe="down" title="Swipe down">↓</button>
+    </div>
+  </div>
+  <div class="side">
+    <div class="head"><span id="dot" class="dot"></span><h2 id="title">Connecting…</h2></div>
+    <div class="muted" id="sub"></div>
+    <div class="keys" style="justify-content:flex-start">
+      <button id="pause">Pause</button>
+      <button id="full" hidden>Full screen</button>
+    </div>
+    <div class="msg" id="msg" hidden></div>
+    <ul id="calls"></ul>
+    <div class="hint">Click an action to see the screen at that moment; the slider rewinds the last minute. Click the screen to tap, drag to swipe. Claude keeps driving with its tools; this view follows along.</div>
+  </div>
+</div>
+<script>
+(() => {
+  const FRAME = "handsets_view_frame", ACTIVITY = "handsets_view_activity";
+  const $ = (id) => document.getElementById(id);
+  let nextId = 1; const pending = new Map();
+  let serial = null, width = 0, height = 0, paused = false, alive = true, fails = 0, frames = 0, fpsAt = Date.now();
+  // Rewind: the last frames with when they arrived; `viewing` = an index into them, null = live.
+  const MAX_FRAMES = 400; const buf = []; let viewing = null, lastCalls = [];
+  window.__rewind = { frames: () => buf.map(f => f.t), calls: () => lastCalls };
+
+  // In a browser tab (`testlab open`) a small host stands in for the MCP Apps host.
+  function send(msg) { (window.__testlabHost || ((x) => window.parent.postMessage(x, "*")))(msg); }
+  function request(method, params) {
+    const id = nextId++;
+    send({ jsonrpc: "2.0", id, method, params });
+    return new Promise((resolve, reject) => {
+      pending.set(id, { resolve, reject });
+      setTimeout(() => { if (pending.delete(id)) reject(new Error(method + " timed out")); }, 30000);
+    });
+  }
+  function notify(method, params) { send({ jsonrpc: "2.0", method, params: params || {} }); }
+  const callTool = (name, args) => request("tools/call", { name, arguments: args || {} });
+  const textOf = (res) => (res.content || []).filter(c => c.type === "text").map(c => c.text).join("\n");
+  const json = (s) => { try { return JSON.parse(s); } catch { return null; } };
+
+  function setTheme(ctx) {
+    if (ctx && ctx.theme) document.documentElement.dataset.theme = ctx.theme;
+  }
+
+  function showError(text) {
+    const m = $("msg"); m.hidden = !text; m.textContent = text || "";
+    $("dot").className = "dot" + (text ? " err" : paused ? "" : " live");
+  }
+
+  window.addEventListener("message", (e) => {
+    const d = e.data;
+    if (!d || d.jsonrpc !== "2.0") return;
+    if (d.id != null && pending.has(d.id) && !d.method) {
+      const p = pending.get(d.id); pending.delete(d.id);
+      d.error ? p.reject(new Error(d.error.message || "error")) : p.resolve(d.result);
+      return;
+    }
+    switch (d.method) {
+      case "ui/notifications/tool-input":
+        if (d.params && d.params.arguments && d.params.arguments.serial) serial = d.params.arguments.serial;
+        break;
+      case "ui/notifications/tool-result": {
+        const r = json(textOf(d.params || {}));
+        if (d.params && d.params.isError) showError(textOf(d.params));
+        if (r && r.serial) { serial = r.serial; width = r.width; height = r.height; }
+        start();
+        break;
+      }
+      case "ui/notifications/host-context-changed": setTheme(d.params); break;
+      case "ui/resource-teardown": alive = false; send({ jsonrpc: "2.0", id: d.id, result: {} }); break;
+      default: if (d.id != null && d.method) send({ jsonrpc: "2.0", id: d.id, result: {} });
+    }
+  });
+
+  let started = false;
+  function start() { if (started) return; started = true; loop(); activity(); }
+
+  async function loop() {
+    while (alive) {
+      if (paused || document.hidden) { await sleep(400); continue; }
+      try {
+        const res = await callTool(FRAME, serial ? { serial, size: 720 } : { size: 720 });
+        if (res.isError) throw new Error(textOf(res));
+        const img = (res.content || []).find(c => c.type === "image");
+        const meta = json(textOf(res)) || {};
+        if (meta.serial) { serial = meta.serial; width = meta.width; height = meta.height; }
+        if (img) {
+          const src = "data:" + (img.mimeType || "image/jpeg") + ";base64," + img.data;
+          buf.push({ t: Date.now(), src }); if (buf.length > MAX_FRAMES) { buf.shift(); if (viewing != null) viewing = Math.max(0, viewing - 1); }
+          if (viewing == null) $("screen").src = src;
+          syncScrub();
+        }
+        frames++; fails = 0; showError("");
+        const now = Date.now();
+        if (now - fpsAt > 2000) { $("sub").textContent = `${width}×${height} · ${(frames * 1000 / (now - fpsAt)).toFixed(1)} frames/s`; frames = 0; fpsAt = now; }
+        $("title").textContent = serial || "Phone";
+        await sleep(150);
+      } catch (err) {
+        fails++; showError(err.message); await sleep(Math.min(5000, 800 * fails));
+      }
+    }
+  }
+
+  async function activity() {
+    while (alive) {
+      try {
+        const r = json(textOf(await callTool(ACTIVITY, { limit: 8 })));
+        const same = r && JSON.stringify(r.calls.map(c => [c.at, c.tool])) === JSON.stringify(lastCalls.map(c => [c.at, c.tool]));
+        if (r) { lastCalls = r.calls; marks(); }
+        // Only when it changed: a list replaced under the pointer swallows the click.
+        if (r && same) document.querySelectorAll("li.act .muted").forEach((m, i) => { if (lastCalls[i]) m.textContent = ago(lastCalls[i].at); });
+        else if (r) $("calls").innerHTML = r.calls.map((c, i) =>
+          // What it did in words and the agent's reason, the raw call under them.
+          `<li class="act" data-i="${i}" data-tool="${esc(c.tool)}"><span style="color:var(${c.ok ? "--ok" : "--bad"})">${c.ok ? "✓" : "✗"}</span><span class="t">${esc(c.title || c.tool)}</span><span class="muted">${ago(c.at)}</span>${c.why ? `<span class="why">${esc(c.why)}</span>` : ""}<span class="s" title="${esc(c.tool + " " + c.summary)}">${esc(c.title ? c.tool + " " + c.summary : c.summary)}</span></li>`).join("");
+      } catch { /* the frame loop shows errors */ }
+      await sleep(2000);
+    }
+  }
+
+  // Rewind.
+  function syncScrub() {
+    const sc = $("scrub"); sc.max = Math.max(0, buf.length - 1);
+    sc.value = viewing == null ? sc.max : viewing;
+    $("live").disabled = viewing == null;
+    document.querySelector(".phone").classList.toggle("past", viewing != null);
+    $("when").textContent = viewing == null ? "live" : ago(buf[viewing].t) + " ago" + (actionAt(buf[viewing].t) ? " · " + actionAt(buf[viewing].t) : "");
+  }
+  function show(i) {
+    if (!buf.length) return;
+    i = Math.max(0, Math.min(buf.length - 1, i));
+    viewing = i; $("screen").src = buf[i].src; syncScrub();
+    document.querySelectorAll("li.act").forEach(li => li.classList.toggle("on", lastCalls[li.dataset.i] && near(lastCalls[li.dataset.i], buf[i].t)));
+  }
+  function goLive() { viewing = null; if (buf.length) $("screen").src = buf[buf.length - 1].src; syncScrub(); document.querySelectorAll("li.on").forEach(li => li.classList.remove("on")); }
+  const startOf = (c) => c.at - c.ms;
+  const near = (c, t) => t >= startOf(c) - 200 && t <= c.at + 400;
+  function actionAt(t) { const c = lastCalls.find(c => near(c, t)); return c ? (c.title || c.tool.replace(/^handsets_/, "")) : ""; }
+  function frameAt(t) { let best = 0; for (let i = 0; i < buf.length; i++) if (buf[i].t <= t) best = i; return best; }
+  function marks() {
+    const tr = $("track"); tr.querySelectorAll(".mark").forEach(m => m.remove());
+    if (buf.length < 2) return;
+    const t0 = buf[0].t, t1 = buf[buf.length - 1].t;
+    for (const c of lastCalls) {
+      if (c.at < t0 || c.tool === "handsets_show_screen") continue;
+      const m = document.createElement("div"); m.className = "mark" + (c.ok ? "" : " bad");
+      m.style.left = ((c.at - t0) / Math.max(1, t1 - t0) * 100) + "%"; tr.appendChild(m);
+    }
+  }
+  $("scrub").addEventListener("input", (e) => { const i = +e.target.value; i >= buf.length - 1 ? goLive() : show(i); });
+  $("prev").onclick = () => show((viewing == null ? buf.length - 1 : viewing) - 1);
+  $("next").onclick = () => { if (viewing == null) return; viewing + 1 >= buf.length - 1 ? goLive() : show(viewing + 1); };
+  $("live").onclick = goLive;
+  $("calls").addEventListener("click", (e) => {
+    const li = e.target.closest("li.act"); if (!li) return;
+    const c = lastCalls[li.dataset.i]; if (!c) return;
+    if (!buf.length || c.at < buf[0].t) { $("when").textContent = "that was before this view kept frames"; return; }
+    // The screen just before the action, so stepping › shows what it did.
+    show(frameAt(startOf(c) - 50));
+  });
+
+  // Click = tap, drag = swipe, both mapped from the image to device pixels.
+  let down = null;
+  const scr = $("screen");
+  scr.addEventListener("pointerdown", (e) => { down = { x: e.offsetX, y: e.offsetY, t: Date.now() }; });
+  scr.addEventListener("pointerup", async (e) => {
+    if (!down || !width) return;
+    if (viewing != null) { down = null; goLive(); return; }
+    const dx = e.offsetX - down.x, dy = e.offsetY - down.y; down = null;
+    try {
+      if (Math.hypot(dx, dy) > 25) {
+        const dir = Math.abs(dy) > Math.abs(dx) ? (dy < 0 ? "up" : "down") : (dx < 0 ? "left" : "right");
+        await callTool("handsets_swipe", { direction: dir, serial });
+      } else {
+        const r = scr.getBoundingClientRect(), b = 6; // the border
+        const x = Math.round((e.clientX - r.left - b) / (r.width - 2 * b) * width);
+        const y = Math.round((e.clientY - r.top - b) / (r.height - 2 * b) * height);
+        ripple(e.clientX - r.left, e.clientY - r.top);
+        await callTool("handsets_tap_xy", { x, y, serial });
+      }
+    } catch (err) { showError(err.message); }
+  });
+  function ripple(x, y) { const d = document.createElement("div"); d.className = "ripple"; d.style.left = x + "px"; d.style.top = y + "px"; scr.parentElement.appendChild(d); setTimeout(() => d.remove(), 600); }
+
+  document.querySelectorAll("[data-key]").forEach(b => b.onclick = () => callTool("handsets_navigate", { target: b.dataset.key, serial }).catch(e => showError(e.message)));
+  document.querySelectorAll("[data-swipe]").forEach(b => b.onclick = () => callTool("handsets_swipe", { direction: b.dataset.swipe, serial }).catch(e => showError(e.message)));
+  $("pause").onclick = () => { paused = !paused; $("pause").textContent = paused ? "Resume" : "Pause"; showError(""); };
+  $("full").onclick = () => request("ui/request-display-mode", { mode: "fullscreen" }).catch(() => {});
+
+  const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+  const esc = (s) => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const ago = (t) => { const s = Math.max(0, Math.round((Date.now() - t) / 1000)); return s < 60 ? s + " s" : Math.round(s / 60) + " min"; };
+
+  new ResizeObserver(() => notify("ui/notifications/size-changed", { width: document.documentElement.scrollWidth, height: document.documentElement.scrollHeight })).observe(document.body);
+
+  request("ui/initialize", {
+    protocolVersion: "2025-06-18",
+    appInfo: { name: "{{APP}} live screen", version: "1" },
+    appCapabilities: { availableDisplayModes: ["inline", "fullscreen"] },
+  }).then((r) => {
+    setTheme(r && r.hostContext);
+    const modes = r && r.hostContext && r.hostContext.availableDisplayModes;
+    if (modes && modes.includes("fullscreen")) $("full").hidden = false;
+    notify("ui/notifications/initialized");
+    // Hosts that send no tool result still get a live view after a moment.
+    setTimeout(start, 1500);
+  }).catch((e) => { showError("The host did not answer: " + e.message); setTimeout(start, 500); });
+})();
+</script>
+</body>
+</html>

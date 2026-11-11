@@ -1,0 +1,475 @@
+{
+ "dump": "tap  LinearLayout  #search_action_bar  540,243\n-    TextView      \"Search Settings\"  #search_bar_title  383,243\n-    TextView      \"Google\"  #title  293,457\n-    TextView      \"Services & preferences\"  #summary  399,518\n-    TextView      \"Network & internet\"  #title  428,705\n-    TextView      \"Mobile, Wi‑Fi, hotspot\"  #summary  385,766\n-    TextView      \"Connected devices\"  #title  433,911\n-    TextView      \"Bluetooth, pairing\"  #summary  353,972\n-    TextView      \"Apps\"  #title  271,1159\n-    TextView      \"Assistant, recent apps, default apps\"  #summary  502,1220\n-    TextView      \"Notifications\"  #title  360,1365\n-    TextView      \"Notification history, conversations\"  #summary  488,1426\n-    TextView      \"Sound & vibration\"  #title  416,1571\n-    TextView      \"Volume and haptics\"  #summary  372,1632\n-    TextView      \"Modes\"  #title  290,1777\n-    TextView      \"Do Not Disturb, Bedtime\"  #summary  406,1838\n-    TextView      \"Display & touch\"  #title  392,1983\n-    TextView      \"Dark theme, font size, touch\"  #summary  437,2044\n-    TextView      \"Wallpaper & style\"  #title  413,2189\n-    TextView      \"Colors, themed icons, app grid\"  #summary  458,2250\n",
+ "nodes": [
+  {
+   "verb": "tap",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "search_action_bar",
+   "x": 540,
+   "y": 243,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Search Settings",
+   "rid": "search_bar_title",
+   "x": 383,
+   "y": 243,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Google",
+   "rid": "title",
+   "x": 293,
+   "y": 457,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Services & preferences",
+   "rid": "summary",
+   "x": 399,
+   "y": 518,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Network & internet",
+   "rid": "title",
+   "x": 428,
+   "y": 705,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Mobile, Wi‑Fi, hotspot",
+   "rid": "summary",
+   "x": 385,
+   "y": 766,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Connected devices",
+   "rid": "title",
+   "x": 433,
+   "y": 911,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Bluetooth, pairing",
+   "rid": "summary",
+   "x": 353,
+   "y": 972,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Apps",
+   "rid": "title",
+   "x": 271,
+   "y": 1159,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Assistant, recent apps, default apps",
+   "rid": "summary",
+   "x": 502,
+   "y": 1220,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Notifications",
+   "rid": "title",
+   "x": 360,
+   "y": 1365,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Notification history, conversations",
+   "rid": "summary",
+   "x": 488,
+   "y": 1426,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Sound & vibration",
+   "rid": "title",
+   "x": 416,
+   "y": 1571,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Volume and haptics",
+   "rid": "summary",
+   "x": 372,
+   "y": 1632,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Modes",
+   "rid": "title",
+   "x": 290,
+   "y": 1777,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Do Not Disturb, Bedtime",
+   "rid": "summary",
+   "x": 406,
+   "y": 1838,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Display & touch",
+   "rid": "title",
+   "x": 392,
+   "y": 1983,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Dark theme, font size, touch",
+   "rid": "summary",
+   "x": 437,
+   "y": 2044,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Wallpaper & style",
+   "rid": "title",
+   "x": 413,
+   "y": 2189,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Colors, themed icons, app grid",
+   "rid": "summary",
+   "x": 458,
+   "y": 2250,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  }
+ ],
+ "unparsed": [],
+ "fingerprint": "513f8d6a9c8c",
+ "title": "Search Settings",
+ "selected": [],
+ "visible_texts": [
+  "Search Settings",
+  "Google",
+  "Services & preferences",
+  "Network & internet",
+  "Mobile, Wi‑Fi, hotspot",
+  "Connected devices",
+  "Bluetooth, pairing",
+  "Apps",
+  "Assistant, recent apps, default apps",
+  "Notifications",
+  "Notification history, conversations",
+  "Sound & vibration",
+  "Volume and haptics",
+  "Modes",
+  "Do Not Disturb, Bedtime",
+  "Display & touch",
+  "Dark theme, font size, touch",
+  "Wallpaper & style",
+  "Colors, themed icons, app grid"
+ ],
+ "variants": {
+  "typesafe": {
+   "criteria": {
+    "n01": "Tap LinearLayout [#search_action_bar] near \"Search Settings\"",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 1
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Search Settings",
+     "selected": [],
+     "visible_texts": [
+      "Search Settings",
+      "Google",
+      "Services & preferences",
+      "Network & internet",
+      "Mobile, Wi‑Fi, hotspot",
+      "Connected devices",
+      "Bluetooth, pairing",
+      "Apps",
+      "Assistant, recent apps, default apps",
+      "Notifications",
+      "Notification history, conversations",
+      "Sound & vibration",
+      "Volume and haptics",
+      "Modes",
+      "Do Not Disturb, Bedtime",
+      "Display & touch",
+      "Dark theme, font size, touch",
+      "Wallpaper & style",
+      "Colors, themed icons, app grid"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text, paying, or confirming a purchase. Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap LinearLayout [#search_action_bar] near \"Search Settings\"",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started."
+    }
+   }
+  },
+  "typesafe-risky": {
+   "criteria": {
+    "n01": "Tap LinearLayout [#search_action_bar] near \"Search Settings\"",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 1
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Search Settings",
+     "selected": [],
+     "visible_texts": [
+      "Search Settings",
+      "Google",
+      "Services & preferences",
+      "Network & internet",
+      "Mobile, Wi‑Fi, hotspot",
+      "Connected devices",
+      "Bluetooth, pairing",
+      "Apps",
+      "Assistant, recent apps, default apps",
+      "Notifications",
+      "Notification history, conversations",
+      "Sound & vibration",
+      "Volume and haptics",
+      "Modes",
+      "Do Not Disturb, Bedtime",
+      "Display & touch",
+      "Dark theme, font size, touch",
+      "Wallpaper & style",
+      "Colors, themed icons, app grid"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text (paying or confirming a purchase IS allowed in this step: it is what the goal asks for). Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap LinearLayout [#search_action_bar] near \"Search Settings\"",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started."
+    }
+   }
+  },
+  "ollama": {
+   "criteria": {
+    "n01": "Tap LinearLayout [#search_action_bar] near \"Search Settings\"",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 1
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Search Settings",
+     "selected": [],
+     "visible_texts": [
+      "Search Settings",
+      "Google",
+      "Services & preferences",
+      "Network & internet",
+      "Mobile, Wi‑Fi, hotspot",
+      "Connected devices",
+      "Bluetooth, pairing",
+      "Apps",
+      "Assistant, recent apps, default apps",
+      "Notifications",
+      "Notification history, conversations",
+      "Sound & vibration",
+      "Volume and haptics",
+      "Modes",
+      "Do Not Disturb, Bedtime",
+      "Display & touch",
+      "Dark theme, font size, touch",
+      "Wallpaper & style",
+      "Colors, themed icons, app grid"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text, paying, or confirming a purchase. Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap LinearLayout [#search_action_bar] near \"Search Settings\"",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started.",
+     "criteria": {
+      "false": "No - the goal is not accomplished yet on this screen",
+      "true": "Yes - the screen/section the goal asks for is already open"
+     }
+    }
+   }
+  }
+ }
+}

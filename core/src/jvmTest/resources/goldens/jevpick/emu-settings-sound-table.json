@@ -1,0 +1,429 @@
+{
+ "dump": "-    FrameLayout  \"Sound & vibration\"  #collapsing_toolbar  540,363\ntap  ImageButton  \"Navigate up\"  73,201\n-    TextView     \"Media volume\"  #title  613,675\n-    SeekBar      \"Media volume\"  #seekbar  613,774\n-    TextView     \"Audio will play on\"  #title  268,914\n-    TextView     \"This device\"  #summary  156,975\n-    TextView     \"Call volume\"  #title  613,1120\n-    SeekBar      \"Call volume\"  #seekbar  613,1219\n-    TextView     \"Ring volume\"  #title  613,1359\n-    SeekBar      \"Ring volume\"  #seekbar  613,1458\n-    TextView     \"Notification volume\"  #title  613,1598\n-    SeekBar      \"Notification volume\"  #seekbar  613,1697\n-    TextView     \"Alarm volume\"  #title  613,1837\n-    SeekBar      \"Alarm volume\"  #seekbar  613,1936\n-    TextView     \"Phone ringtone\"  #title  241,2076\n-    TextView     \"Flutey Phone\"  #summary  169,2137\n-    TextView     \"Live Caption\"  #title  209,2282\n-    TextView     \"Automatically caption speech\"  #summary  305,2327\n",
+ "nodes": [
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "Sound & vibration",
+   "rid": "collapsing_toolbar",
+   "x": 540,
+   "y": 363,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "ImageButton",
+   "text": "Navigate up",
+   "rid": "",
+   "x": 73,
+   "y": 201,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Media volume",
+   "rid": "title",
+   "x": 613,
+   "y": 675,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "SeekBar",
+   "text": "Media volume",
+   "rid": "seekbar",
+   "x": 613,
+   "y": 774,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Audio will play on",
+   "rid": "title",
+   "x": 268,
+   "y": 914,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "This device",
+   "rid": "summary",
+   "x": 156,
+   "y": 975,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Call volume",
+   "rid": "title",
+   "x": 613,
+   "y": 1120,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "SeekBar",
+   "text": "Call volume",
+   "rid": "seekbar",
+   "x": 613,
+   "y": 1219,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Ring volume",
+   "rid": "title",
+   "x": 613,
+   "y": 1359,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "SeekBar",
+   "text": "Ring volume",
+   "rid": "seekbar",
+   "x": 613,
+   "y": 1458,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Notification volume",
+   "rid": "title",
+   "x": 613,
+   "y": 1598,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "SeekBar",
+   "text": "Notification volume",
+   "rid": "seekbar",
+   "x": 613,
+   "y": 1697,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Alarm volume",
+   "rid": "title",
+   "x": 613,
+   "y": 1837,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "SeekBar",
+   "text": "Alarm volume",
+   "rid": "seekbar",
+   "x": 613,
+   "y": 1936,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Phone ringtone",
+   "rid": "title",
+   "x": 241,
+   "y": 2076,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Flutey Phone",
+   "rid": "summary",
+   "x": 169,
+   "y": 2137,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Live Caption",
+   "rid": "title",
+   "x": 209,
+   "y": 2282,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Automatically caption speech",
+   "rid": "summary",
+   "x": 305,
+   "y": 2327,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  }
+ ],
+ "unparsed": [],
+ "fingerprint": "748fc03ed154",
+ "title": "Sound & vibration",
+ "selected": [],
+ "visible_texts": [
+  "Navigate up",
+  "Sound & vibration",
+  "Media volume",
+  "Audio will play on",
+  "This device",
+  "Call volume",
+  "Ring volume",
+  "Notification volume",
+  "Alarm volume",
+  "Phone ringtone",
+  "Flutey Phone",
+  "Live Caption",
+  "Automatically caption speech"
+ ],
+ "variants": {
+  "typesafe": {
+   "criteria": {
+    "n01": "Tap ImageButton \"Navigate up\"",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 1
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Sound & vibration",
+     "selected": [],
+     "visible_texts": [
+      "Navigate up",
+      "Sound & vibration",
+      "Media volume",
+      "Audio will play on",
+      "This device",
+      "Call volume",
+      "Ring volume",
+      "Notification volume",
+      "Alarm volume",
+      "Phone ringtone",
+      "Flutey Phone",
+      "Live Caption",
+      "Automatically caption speech"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text, paying, or confirming a purchase. Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap ImageButton \"Navigate up\"",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started."
+    }
+   }
+  },
+  "typesafe-risky": {
+   "criteria": {
+    "n01": "Tap ImageButton \"Navigate up\"",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 1
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Sound & vibration",
+     "selected": [],
+     "visible_texts": [
+      "Navigate up",
+      "Sound & vibration",
+      "Media volume",
+      "Audio will play on",
+      "This device",
+      "Call volume",
+      "Ring volume",
+      "Notification volume",
+      "Alarm volume",
+      "Phone ringtone",
+      "Flutey Phone",
+      "Live Caption",
+      "Automatically caption speech"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text (paying or confirming a purchase IS allowed in this step: it is what the goal asks for). Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap ImageButton \"Navigate up\"",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started."
+    }
+   }
+  },
+  "ollama": {
+   "criteria": {
+    "n01": "Tap ImageButton \"Navigate up\"",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 1
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Sound & vibration",
+     "selected": [],
+     "visible_texts": [
+      "Navigate up",
+      "Sound & vibration",
+      "Media volume",
+      "Audio will play on",
+      "This device",
+      "Call volume",
+      "Ring volume",
+      "Notification volume",
+      "Alarm volume",
+      "Phone ringtone",
+      "Flutey Phone",
+      "Live Caption",
+      "Automatically caption speech"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text, paying, or confirming a purchase. Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap ImageButton \"Navigate up\"",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started.",
+     "criteria": {
+      "false": "No - the goal is not accomplished yet on this screen",
+      "true": "Yes - the screen/section the goal asks for is already open"
+     }
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,390 @@
+{
+ "dump": "-    TextView     \"Sport\"  #title  540,240\ntap  FrameLayout  \"Bikes\"  #tile_bikes  270,700\ntap  FrameLayout  \"Tennis\"  #tile_tipping  810,700\ntap  FrameLayout  \"Mountain bikes\"  #tile_mtb  270,1100\n-    TextView     \"Kampstart 20:45\"  540,1500\ntap  Button       \"Confirm purchase\"  #confirm_buy  540,1800\ntap  FrameLayout  \"Hjem\"  #fragment_home  108,2896\ntap  FrameLayout  \"Shop\"  #fragment_games  324,2896\ntap  FrameLayout  \"Sport\"  #fragment_sport  540,2896\ntap  FrameLayout  \"My shop\"  #fragment_mine  756,2896\ntap  FrameLayout  \"Profil\"  #fragment_profile  972,2896\n",
+ "nodes": [
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Sport",
+   "rid": "title",
+   "x": 540,
+   "y": 240,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "FrameLayout",
+   "text": "Bikes",
+   "rid": "tile_bikes",
+   "x": 270,
+   "y": 700,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "FrameLayout",
+   "text": "Tennis",
+   "rid": "tile_tipping",
+   "x": 810,
+   "y": 700,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "FrameLayout",
+   "text": "Mountain bikes",
+   "rid": "tile_mtb",
+   "x": 270,
+   "y": 1100,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Kampstart 20:45",
+   "rid": "",
+   "x": 540,
+   "y": 1500,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "Button",
+   "text": "Confirm purchase",
+   "rid": "confirm_buy",
+   "x": 540,
+   "y": 1800,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "FrameLayout",
+   "text": "Hjem",
+   "rid": "fragment_home",
+   "x": 108,
+   "y": 2896,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "FrameLayout",
+   "text": "Shop",
+   "rid": "fragment_games",
+   "x": 324,
+   "y": 2896,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "FrameLayout",
+   "text": "Sport",
+   "rid": "fragment_sport",
+   "x": 540,
+   "y": 2896,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "FrameLayout",
+   "text": "My shop",
+   "rid": "fragment_mine",
+   "x": 756,
+   "y": 2896,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "FrameLayout",
+   "text": "Profil",
+   "rid": "fragment_profile",
+   "x": 972,
+   "y": 2896,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  }
+ ],
+ "unparsed": [],
+ "fingerprint": "3f31d0a4aba5",
+ "title": "Sport",
+ "selected": [],
+ "visible_texts": [
+  "Sport",
+  "Bikes",
+  "Tennis",
+  "Mountain bikes",
+  "Kampstart 20:45",
+  "Confirm purchase",
+  "Hjem",
+  "Shop",
+  "My shop",
+  "Profil"
+ ],
+ "variants": {
+  "typesafe": {
+   "criteria": {
+    "n01": "Tap FrameLayout \"Bikes\" [#tile_bikes]",
+    "n02": "Tap FrameLayout \"Tennis\" [#tile_tipping]",
+    "n03": "Tap FrameLayout \"Mountain bikes\" [#tile_mtb]",
+    "n04": "Tap FrameLayout \"Hjem\" [#fragment_home]",
+    "n05": "Tap FrameLayout \"Shop\" [#fragment_games]",
+    "n06": "Tap FrameLayout \"Sport\" [#fragment_sport]",
+    "n07": "Tap FrameLayout \"My shop\" [#fragment_mine]",
+    "n08": "Tap FrameLayout \"Profil\" [#fragment_profile]",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [
+     "Confirm purchase"
+    ],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 9
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Sport",
+     "selected": [],
+     "visible_texts": [
+      "Sport",
+      "Bikes",
+      "Tennis",
+      "Mountain bikes",
+      "Kampstart 20:45",
+      "Confirm purchase",
+      "Hjem",
+      "Shop",
+      "My shop",
+      "Profil"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text, paying, or confirming a purchase. Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap FrameLayout \"Bikes\" [#tile_bikes]",
+      "n02": "Tap FrameLayout \"Tennis\" [#tile_tipping]",
+      "n03": "Tap FrameLayout \"Mountain bikes\" [#tile_mtb]",
+      "n04": "Tap FrameLayout \"Hjem\" [#fragment_home]",
+      "n05": "Tap FrameLayout \"Shop\" [#fragment_games]",
+      "n06": "Tap FrameLayout \"Sport\" [#fragment_sport]",
+      "n07": "Tap FrameLayout \"My shop\" [#fragment_mine]",
+      "n08": "Tap FrameLayout \"Profil\" [#fragment_profile]",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started."
+    }
+   }
+  },
+  "typesafe-risky": {
+   "criteria": {
+    "n01": "Tap FrameLayout \"Bikes\" [#tile_bikes]",
+    "n02": "Tap FrameLayout \"Tennis\" [#tile_tipping]",
+    "n03": "Tap FrameLayout \"Mountain bikes\" [#tile_mtb]",
+    "n04": "Tap Button \"Confirm purchase\" [#confirm_buy]",
+    "n05": "Tap FrameLayout \"Hjem\" [#fragment_home]",
+    "n06": "Tap FrameLayout \"Shop\" [#fragment_games]",
+    "n07": "Tap FrameLayout \"Sport\" [#fragment_sport]",
+    "n08": "Tap FrameLayout \"My shop\" [#fragment_mine]",
+    "n09": "Tap FrameLayout \"Profil\" [#fragment_profile]",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [
+    "n04"
+   ],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 9
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Sport",
+     "selected": [],
+     "visible_texts": [
+      "Sport",
+      "Bikes",
+      "Tennis",
+      "Mountain bikes",
+      "Kampstart 20:45",
+      "Confirm purchase",
+      "Hjem",
+      "Shop",
+      "My shop",
+      "Profil"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text (paying or confirming a purchase IS allowed in this step: it is what the goal asks for). Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap FrameLayout \"Bikes\" [#tile_bikes]",
+      "n02": "Tap FrameLayout \"Tennis\" [#tile_tipping]",
+      "n03": "Tap FrameLayout \"Mountain bikes\" [#tile_mtb]",
+      "n04": "Tap Button \"Confirm purchase\" [#confirm_buy]",
+      "n05": "Tap FrameLayout \"Hjem\" [#fragment_home]",
+      "n06": "Tap FrameLayout \"Shop\" [#fragment_games]",
+      "n07": "Tap FrameLayout \"Sport\" [#fragment_sport]",
+      "n08": "Tap FrameLayout \"My shop\" [#fragment_mine]",
+      "n09": "Tap FrameLayout \"Profil\" [#fragment_profile]",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started."
+    }
+   }
+  },
+  "ollama": {
+   "criteria": {
+    "n01": "Tap FrameLayout \"Bikes\" [#tile_bikes]",
+    "n02": "Tap FrameLayout \"Tennis\" [#tile_tipping]",
+    "n03": "Tap FrameLayout \"Mountain bikes\" [#tile_mtb]",
+    "n04": "Tap FrameLayout \"Hjem\" [#fragment_home]",
+    "n05": "Tap FrameLayout \"Shop\" [#fragment_games]",
+    "n06": "Tap FrameLayout \"Sport\" [#fragment_sport]",
+    "n07": "Tap FrameLayout \"My shop\" [#fragment_mine]",
+    "n08": "Tap FrameLayout \"Profil\" [#fragment_profile]",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [
+     "Confirm purchase"
+    ],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 9
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Sport",
+     "selected": [],
+     "visible_texts": [
+      "Sport",
+      "Bikes",
+      "Tennis",
+      "Mountain bikes",
+      "Kampstart 20:45",
+      "Confirm purchase",
+      "Hjem",
+      "Shop",
+      "My shop",
+      "Profil"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text, paying, or confirming a purchase. Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap FrameLayout \"Bikes\" [#tile_bikes]",
+      "n02": "Tap FrameLayout \"Tennis\" [#tile_tipping]",
+      "n03": "Tap FrameLayout \"Mountain bikes\" [#tile_mtb]",
+      "n04": "Tap FrameLayout \"Hjem\" [#fragment_home]",
+      "n05": "Tap FrameLayout \"Shop\" [#fragment_games]",
+      "n06": "Tap FrameLayout \"Sport\" [#fragment_sport]",
+      "n07": "Tap FrameLayout \"My shop\" [#fragment_mine]",
+      "n08": "Tap FrameLayout \"Profil\" [#fragment_profile]",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started.",
+     "criteria": {
+      "false": "No - the goal is not accomplished yet on this screen",
+      "true": "Yes - the screen/section the goal asks for is already open"
+     }
+    }
+   }
+  }
+ }
+}

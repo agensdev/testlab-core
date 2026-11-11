@@ -1,0 +1,188 @@
+[
+ {
+  "note": "benchmark 4: fresh app data -> INT -> Login QA login -> PIN -> Books 1 uke + Gifts Lordag -> receipt -> My shop -> Transaksjoner"
+ },
+ {
+  "open": "com.example.shop.feature"
+ },
+ {
+  "sleep": 5
+ },
+ {
+  "step": "Confirm you are over 18 years old (accept the age gate)"
+ },
+ {
+  "goal": "Open the Lab tab"
+ },
+ {
+  "step": "Tap the Environment row in the Lab list"
+ },
+ {
+  "step": "Tap Int in the environment list"
+ },
+ {
+  "step": "Tap the Restart button at the bottom"
+ },
+ {
+  "sleep": 4
+ },
+ {
+  "open": "com.example.shop.feature"
+ },
+ {
+  "wait_for": "Lab | int",
+  "timeout": 20
+ },
+ {
+  "step": "Open the login sheet (tap Logg inn)"
+ },
+ {
+  "step": "Choose Logg inn med Login"
+ },
+ {
+  "wait_for": "#nnin",
+  "timeout": 25
+ },
+ {
+  "step": "Focus the national identity number input field"
+ },
+ {
+  "type": {
+   "cred": "demo.nnin"
+  }
+ },
+ {
+  "hide_keyboard": true
+ },
+ {
+  "step": "Press Continue"
+ },
+ {
+  "wait_for": "One Time Code",
+  "timeout": 25
+ },
+ {
+  "step": "Focus the one time code input field"
+ },
+ {
+  "type": {
+   "cred": "demo.login_one_time_code"
+  }
+ },
+ {
+  "hide_keyboard": true
+ },
+ {
+  "step": "Press Next"
+ },
+ {
+  "wait_for": "Password",
+  "timeout": 25
+ },
+ {
+  "step": "Focus the Login password input field"
+ },
+ {
+  "type": {
+   "cred": "demo.login_password"
+  }
+ },
+ {
+  "hide_keyboard": true
+ },
+ {
+  "step": "Press Next to finish the Login login"
+ },
+ {
+  "wait_for": "Lag en personlig kode",
+  "timeout": 30
+ },
+ {
+  "sleep": 1
+ },
+ {
+  "type": {
+   "cred": "demo.app_personal_code"
+  }
+ },
+ {
+  "sleep": 3
+ },
+ {
+  "type": {
+   "cred": "demo.app_personal_code"
+  }
+ },
+ {
+  "sleep": 4
+ },
+ {
+  "step": "Skip enabling biometrics"
+ },
+ {
+  "sleep": 2
+ },
+ {
+  "step": "Dismiss the notifications prompt (Ikke nå)"
+ },
+ {
+  "wait_for": "Hjem",
+  "timeout": 15
+ },
+ {
+  "screenshot": "logged in"
+ },
+ {
+  "goal": "Open the Shop tab"
+ },
+ {
+  "goal": "Open Books"
+ },
+ {
+  "step": "Choose the 1 uke, 50 kr quickpick"
+ },
+ {
+  "wait_for": "Gifts L",
+  "timeout": 15
+ },
+ {
+  "step": "Tick the Gifts Lørdag + 25 kr add-on checkbox"
+ },
+ {
+  "wait_for": "Betal 75 kr",
+  "timeout": 10
+ },
+ {
+  "screenshot": "payment sheet 75 kr"
+ },
+ {
+  "step": "Tap the Betal 75 kr button",
+  "allow_risky": true
+ },
+ {
+  "wait_for": "shop er kjøpt",
+  "timeout": 25
+ },
+ {
+  "screenshot": "receipt"
+ },
+ {
+  "step": "Open My shop from the receipt"
+ },
+ {
+  "wait_for": "Ny",
+  "timeout": 15
+ },
+ {
+  "screenshot": "My shop"
+ },
+ {
+  "goal": "Open the Profil tab"
+ },
+ {
+  "goal": "Open Transaksjoner (the transactions list)"
+ },
+ {
+  "screenshot": "Transaksjoner"
+ }
+]

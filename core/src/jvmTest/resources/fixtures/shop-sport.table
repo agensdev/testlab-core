@@ -1,0 +1,11 @@
+-    TextView     "Sport"  #title  540,240
+tap  FrameLayout  "Bikes"  #tile_bikes  270,700
+tap  FrameLayout  "Tennis"  #tile_tipping  810,700
+tap  FrameLayout  "Mountain bikes"  #tile_mtb  270,1100
+-    TextView     "Kampstart 20:45"  540,1500
+tap  Button       "Confirm purchase"  #confirm_buy  540,1800
+tap  FrameLayout  "Hjem"  #fragment_home  108,2896
+tap  FrameLayout  "Shop"  #fragment_games  324,2896
+tap  FrameLayout  "Sport"  #fragment_sport  540,2896
+tap  FrameLayout  "My shop"  #fragment_mine  756,2896
+tap  FrameLayout  "Profil"  #fragment_profile  972,2896

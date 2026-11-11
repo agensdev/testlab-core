@@ -1,0 +1,985 @@
+{
+ "dump": "FrameLayout  @(540,1200)\n  ViewGroup #decor_content_parent  @(540,1200)\n    FrameLayout #content  @(540,1200)\n      ScrollView #content_parent  [scroll]  @(540,1232)\n        LinearLayout #app_bar  @(540,418)\n          FrameLayout #collapsing_toolbar  desc=\"About emulated device\"  @(540,418)\n            ViewGroup #action_bar  @(540,201)\n              ImageButton  desc=\"Navigate up\"  [click,focusable]  @(73,201)\n              View  @(634,201)\n              TextView  \"About emulated device\"  @(189,201)\n              LinearLayout  @(1080,201)\n        FrameLayout #content_frame  @(540,1523)\n          LinearLayout  @(540,1523)\n            FrameLayout #main_content  @(540,1523)\n              LinearLayout #container_material  @(540,1523)\n                FrameLayout #list_container  @(540,1523)\n                  RecyclerView #recycler_view  [scroll,focusable,focused]  @(540,1523)\n                    LinearLayout  @(540,797)\n                      RelativeLayout  @(550,797)\n                        TextView #title  \"Basic info\"  @(550,797)\n                    LinearLayout  [click,long,focusable]  @(540,947)\n                      RelativeLayout  @(550,947)\n                        TextView #title  \"Device name\"  @(214,921)\n                        TextView #summary  \"sdk_gphone64_x86_64\"  @(251,982)\n                    LinearLayout  [click,long,focusable]  @(540,1153)\n                      RelativeLayout  @(550,1153)\n                        TextView #title  \"Phone number\"  @(234,1127)\n                        TextView #summary  \"+1 555-123-4567\"  @(203,1188)\n                    LinearLayout  @(540,1344)\n                      RelativeLayout  @(550,1344)\n                        TextView #title  \"Legal & regulatory\"  @(550,1344)\n                    LinearLayout  [click,focusable]  @(540,1468)\n                      RelativeLayout  @(550,1468)\n                        TextView #title  \"Legal information\"  @(270,1468)\n                    LinearLayout  @(540,1634)\n                      RelativeLayout  @(550,1634)\n                        TextView #title  \"Device details\"  @(550,1634)\n                    LinearLayout  [click,long,focusable]  @(540,1784)\n                      RelativeLayout  @(550,1784)\n                        TextView #title  \"SIM status\"  @(188,1758)\n                        TextView #summary  \"T-Mobile\"  @(133,1819)\n                    LinearLayout  [click,long,focusable]  @(540,1990)\n                      RelativeLayout  @(550,1990)\n                        TextView #title  \"Model\"  @(136,1964)\n                        TextView #summary  \"sdk_gphone64_x86_64\"  @(251,2025)\n                    LinearLayout  [click,long,focusable]  @(540,2196)\n                      RelativeLayout  @(550,2196)\n                        TextView #title  \"IMEI\"  @(115,2170)\n                        TextView #summary  \"867400022047199\"  @(220,2231)\n                    LinearLayout  [click,focusable]  @(540,2318)\n                      RelativeLayout  @(550,2318)\n                        TextView #title  \"Android version\"  @(247,2339)\n                        TextView #summary  \"16\"  @(84,2374)\n                    LinearLayout  @(540,2442)\n                      RelativeLayout  @(550,2442)\n                        TextView #title  \"Device identifiers\"  @(550,2452)\n                    LinearLayout  [long]  @(540,2488)\n                      RelativeLayout  @(550,2488)\n                        TextView #title  \"IP address\"  @(187,2509)\n                        TextView #summary  \"fe80::29aa:2ebf:8c95:c760↵fec0::f9e:ad84:587d:ca8↵fec0::7fdc:5319:e4b0:4b3f↵10.0…\"  @(283,2545)\n",
+ "nodes": [
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1200,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "ViewGroup",
+   "text": "",
+   "rid": "decor_content_parent",
+   "x": 540,
+   "y": 1200,
+   "flags": "",
+   "desc": "",
+   "depth": 2
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "content",
+   "x": 540,
+   "y": 1200,
+   "flags": "",
+   "desc": "",
+   "depth": 4
+  },
+  {
+   "verb": "-",
+   "widget": "ScrollView",
+   "text": "",
+   "rid": "content_parent",
+   "x": 540,
+   "y": 1232,
+   "flags": "scroll",
+   "desc": "",
+   "depth": 6
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "app_bar",
+   "x": 540,
+   "y": 418,
+   "flags": "",
+   "desc": "",
+   "depth": 8
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "collapsing_toolbar",
+   "x": 540,
+   "y": 418,
+   "flags": "",
+   "desc": "About emulated device",
+   "depth": 10
+  },
+  {
+   "verb": "-",
+   "widget": "ViewGroup",
+   "text": "",
+   "rid": "action_bar",
+   "x": 540,
+   "y": 201,
+   "flags": "",
+   "desc": "",
+   "depth": 12
+  },
+  {
+   "verb": "tap",
+   "widget": "ImageButton",
+   "text": "Navigate up",
+   "rid": "",
+   "x": 73,
+   "y": 201,
+   "flags": "click focusable",
+   "desc": "Navigate up",
+   "depth": 14
+  },
+  {
+   "verb": "-",
+   "widget": "View",
+   "text": "",
+   "rid": "",
+   "x": 634,
+   "y": 201,
+   "flags": "",
+   "desc": "",
+   "depth": 14
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "About emulated device",
+   "rid": "",
+   "x": 189,
+   "y": 201,
+   "flags": "",
+   "desc": "",
+   "depth": 14
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 1080,
+   "y": 201,
+   "flags": "",
+   "desc": "",
+   "depth": 14
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "content_frame",
+   "x": 540,
+   "y": 1523,
+   "flags": "",
+   "desc": "",
+   "depth": 8
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1523,
+   "flags": "",
+   "desc": "",
+   "depth": 10
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "main_content",
+   "x": 540,
+   "y": 1523,
+   "flags": "",
+   "desc": "",
+   "depth": 12
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "container_material",
+   "x": 540,
+   "y": 1523,
+   "flags": "",
+   "desc": "",
+   "depth": 14
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "list_container",
+   "x": 540,
+   "y": 1523,
+   "flags": "",
+   "desc": "",
+   "depth": 16
+  },
+  {
+   "verb": "-",
+   "widget": "RecyclerView",
+   "text": "",
+   "rid": "recycler_view",
+   "x": 540,
+   "y": 1523,
+   "flags": "scroll focusable focused",
+   "desc": "",
+   "depth": 18
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 797,
+   "flags": "",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 550,
+   "y": 797,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Basic info",
+   "rid": "title",
+   "x": 550,
+   "y": 797,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "tap",
+   "widget": "LinearLayout",
+   "text": "Device name / sdk_gphone64_x86_64",
+   "rid": "",
+   "x": 540,
+   "y": 947,
+   "flags": "click long focusable",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 550,
+   "y": 947,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Device name",
+   "rid": "title",
+   "x": 214,
+   "y": 921,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "sdk_gphone64_x86_64",
+   "rid": "summary",
+   "x": 251,
+   "y": 982,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "tap",
+   "widget": "LinearLayout",
+   "text": "Phone number / +1 555-123-4567",
+   "rid": "",
+   "x": 540,
+   "y": 1153,
+   "flags": "click long focusable",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 550,
+   "y": 1153,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Phone number",
+   "rid": "title",
+   "x": 234,
+   "y": 1127,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "+1 555-123-4567",
+   "rid": "summary",
+   "x": 203,
+   "y": 1188,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1344,
+   "flags": "",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 550,
+   "y": 1344,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Legal & regulatory",
+   "rid": "title",
+   "x": 550,
+   "y": 1344,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "tap",
+   "widget": "LinearLayout",
+   "text": "Legal information",
+   "rid": "",
+   "x": 540,
+   "y": 1468,
+   "flags": "click focusable",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 550,
+   "y": 1468,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Legal information",
+   "rid": "title",
+   "x": 270,
+   "y": 1468,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1634,
+   "flags": "",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 550,
+   "y": 1634,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Device details",
+   "rid": "title",
+   "x": 550,
+   "y": 1634,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "tap",
+   "widget": "LinearLayout",
+   "text": "SIM status / T-Mobile",
+   "rid": "",
+   "x": 540,
+   "y": 1784,
+   "flags": "click long focusable",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 550,
+   "y": 1784,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "SIM status",
+   "rid": "title",
+   "x": 188,
+   "y": 1758,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "T-Mobile",
+   "rid": "summary",
+   "x": 133,
+   "y": 1819,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "tap",
+   "widget": "LinearLayout",
+   "text": "Model / sdk_gphone64_x86_64",
+   "rid": "",
+   "x": 540,
+   "y": 1990,
+   "flags": "click long focusable",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 550,
+   "y": 1990,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Model",
+   "rid": "title",
+   "x": 136,
+   "y": 1964,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "sdk_gphone64_x86_64",
+   "rid": "summary",
+   "x": 251,
+   "y": 2025,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "tap",
+   "widget": "LinearLayout",
+   "text": "IMEI / 867400022047199",
+   "rid": "",
+   "x": 540,
+   "y": 2196,
+   "flags": "click long focusable",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 550,
+   "y": 2196,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "IMEI",
+   "rid": "title",
+   "x": 115,
+   "y": 2170,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "867400022047199",
+   "rid": "summary",
+   "x": 220,
+   "y": 2231,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "tap",
+   "widget": "LinearLayout",
+   "text": "Android version / 16",
+   "rid": "",
+   "x": 540,
+   "y": 2318,
+   "flags": "click focusable",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 550,
+   "y": 2318,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Android version",
+   "rid": "title",
+   "x": 247,
+   "y": 2339,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "16",
+   "rid": "summary",
+   "x": 84,
+   "y": 2374,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 2442,
+   "flags": "",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 550,
+   "y": 2442,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Device identifiers",
+   "rid": "title",
+   "x": 550,
+   "y": 2452,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 2488,
+   "flags": "long",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 550,
+   "y": 2488,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "IP address",
+   "rid": "title",
+   "x": 187,
+   "y": 2509,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "fe80::29aa:2ebf:8c95:c760↵fec0::f9e:ad84:587d:ca8↵fec0::7fdc:5319:e4b0:4b3f↵10.0…",
+   "rid": "summary",
+   "x": 283,
+   "y": 2545,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  }
+ ],
+ "unparsed": [],
+ "fingerprint": "3916b58e63d6",
+ "title": "About emulated device",
+ "selected": [],
+ "visible_texts": [
+  "Navigate up",
+  "About emulated device",
+  "Basic info",
+  "Device name",
+  "Device name / sdk_gphone64_x86_64",
+  "sdk_gphone64_x86_64",
+  "Phone number",
+  "Phone number / +1 555-123-4567",
+  "+1 555-123-4567",
+  "Legal & regulatory",
+  "Legal information",
+  "Device details",
+  "SIM status",
+  "SIM status / T-Mobile",
+  "T-Mobile",
+  "Model",
+  "Model / sdk_gphone64_x86_64",
+  "IMEI",
+  "IMEI / 867400022047199",
+  "867400022047199",
+  "Android version / 16",
+  "Android version",
+  "16",
+  "Device identifiers",
+  "IP address",
+  "fe80::29aa:2ebf:8c95:c760↵fec0::f9e:ad84:587d:ca8↵fec0::7fdc:5319:e4b0:4b3f↵10.0"
+ ],
+ "variants": {
+  "typesafe": {
+   "criteria": {
+    "n01": "Tap ImageButton \"Navigate up\"",
+    "n02": "Tap LinearLayout \"Device name / sdk_gphone64_x86_64\"",
+    "n03": "Tap LinearLayout \"Phone number / +1 555-123-4567\"",
+    "n04": "Tap LinearLayout \"Legal information\"",
+    "n05": "Tap LinearLayout \"SIM status / T-Mobile\"",
+    "n06": "Tap LinearLayout \"Model / sdk_gphone64_x86_64\"",
+    "n07": "Tap LinearLayout \"IMEI / 867400022047199\"",
+    "n08": "Tap LinearLayout \"Android version / 16\"",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 8
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "About emulated device",
+     "selected": [],
+     "visible_texts": [
+      "Navigate up",
+      "About emulated device",
+      "Basic info",
+      "Device name",
+      "Device name / sdk_gphone64_x86_64",
+      "sdk_gphone64_x86_64",
+      "Phone number",
+      "Phone number / +1 555-123-4567",
+      "+1 555-123-4567",
+      "Legal & regulatory",
+      "Legal information",
+      "Device details",
+      "SIM status",
+      "SIM status / T-Mobile",
+      "T-Mobile",
+      "Model",
+      "Model / sdk_gphone64_x86_64",
+      "IMEI",
+      "IMEI / 867400022047199",
+      "867400022047199",
+      "Android version / 16",
+      "Android version",
+      "16",
+      "Device identifiers",
+      "IP address",
+      "fe80::29aa:2ebf:8c95:c760↵fec0::f9e:ad84:587d:ca8↵fec0::7fdc:5319:e4b0:4b3f↵10.0"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text, paying, or confirming a purchase. Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap ImageButton \"Navigate up\"",
+      "n02": "Tap LinearLayout \"Device name / sdk_gphone64_x86_64\"",
+      "n03": "Tap LinearLayout \"Phone number / +1 555-123-4567\"",
+      "n04": "Tap LinearLayout \"Legal information\"",
+      "n05": "Tap LinearLayout \"SIM status / T-Mobile\"",
+      "n06": "Tap LinearLayout \"Model / sdk_gphone64_x86_64\"",
+      "n07": "Tap LinearLayout \"IMEI / 867400022047199\"",
+      "n08": "Tap LinearLayout \"Android version / 16\"",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started."
+    }
+   }
+  },
+  "typesafe-risky": {
+   "criteria": {
+    "n01": "Tap ImageButton \"Navigate up\"",
+    "n02": "Tap LinearLayout \"Device name / sdk_gphone64_x86_64\"",
+    "n03": "Tap LinearLayout \"Phone number / +1 555-123-4567\"",
+    "n04": "Tap LinearLayout \"Legal information\"",
+    "n05": "Tap LinearLayout \"SIM status / T-Mobile\"",
+    "n06": "Tap LinearLayout \"Model / sdk_gphone64_x86_64\"",
+    "n07": "Tap LinearLayout \"IMEI / 867400022047199\"",
+    "n08": "Tap LinearLayout \"Android version / 16\"",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 8
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "About emulated device",
+     "selected": [],
+     "visible_texts": [
+      "Navigate up",
+      "About emulated device",
+      "Basic info",
+      "Device name",
+      "Device name / sdk_gphone64_x86_64",
+      "sdk_gphone64_x86_64",
+      "Phone number",
+      "Phone number / +1 555-123-4567",
+      "+1 555-123-4567",
+      "Legal & regulatory",
+      "Legal information",
+      "Device details",
+      "SIM status",
+      "SIM status / T-Mobile",
+      "T-Mobile",
+      "Model",
+      "Model / sdk_gphone64_x86_64",
+      "IMEI",
+      "IMEI / 867400022047199",
+      "867400022047199",
+      "Android version / 16",
+      "Android version",
+      "16",
+      "Device identifiers",
+      "IP address",
+      "fe80::29aa:2ebf:8c95:c760↵fec0::f9e:ad84:587d:ca8↵fec0::7fdc:5319:e4b0:4b3f↵10.0"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text (paying or confirming a purchase IS allowed in this step: it is what the goal asks for). Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap ImageButton \"Navigate up\"",
+      "n02": "Tap LinearLayout \"Device name / sdk_gphone64_x86_64\"",
+      "n03": "Tap LinearLayout \"Phone number / +1 555-123-4567\"",
+      "n04": "Tap LinearLayout \"Legal information\"",
+      "n05": "Tap LinearLayout \"SIM status / T-Mobile\"",
+      "n06": "Tap LinearLayout \"Model / sdk_gphone64_x86_64\"",
+      "n07": "Tap LinearLayout \"IMEI / 867400022047199\"",
+      "n08": "Tap LinearLayout \"Android version / 16\"",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started."
+    }
+   }
+  },
+  "ollama": {
+   "criteria": {
+    "n01": "Tap ImageButton \"Navigate up\"",
+    "n02": "Tap LinearLayout \"Device name / sdk_gphone64_x86_64\"",
+    "n03": "Tap LinearLayout \"Phone number / +1 555-123-4567\"",
+    "n04": "Tap LinearLayout \"Legal information\"",
+    "n05": "Tap LinearLayout \"SIM status / T-Mobile\"",
+    "n06": "Tap LinearLayout \"Model / sdk_gphone64_x86_64\"",
+    "n07": "Tap LinearLayout \"IMEI / 867400022047199\"",
+    "n08": "Tap LinearLayout \"Android version / 16\"",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 8
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "About emulated device",
+     "selected": [],
+     "visible_texts": [
+      "Navigate up",
+      "About emulated device",
+      "Basic info",
+      "Device name",
+      "Device name / sdk_gphone64_x86_64",
+      "sdk_gphone64_x86_64",
+      "Phone number",
+      "Phone number / +1 555-123-4567",
+      "+1 555-123-4567",
+      "Legal & regulatory",
+      "Legal information",
+      "Device details",
+      "SIM status",
+      "SIM status / T-Mobile",
+      "T-Mobile",
+      "Model",
+      "Model / sdk_gphone64_x86_64",
+      "IMEI",
+      "IMEI / 867400022047199",
+      "867400022047199",
+      "Android version / 16",
+      "Android version",
+      "16",
+      "Device identifiers",
+      "IP address",
+      "fe80::29aa:2ebf:8c95:c760↵fec0::f9e:ad84:587d:ca8↵fec0::7fdc:5319:e4b0:4b3f↵10.0"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text, paying, or confirming a purchase. Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap ImageButton \"Navigate up\"",
+      "n02": "Tap LinearLayout \"Device name / sdk_gphone64_x86_64\"",
+      "n03": "Tap LinearLayout \"Phone number / +1 555-123-4567\"",
+      "n04": "Tap LinearLayout \"Legal information\"",
+      "n05": "Tap LinearLayout \"SIM status / T-Mobile\"",
+      "n06": "Tap LinearLayout \"Model / sdk_gphone64_x86_64\"",
+      "n07": "Tap LinearLayout \"IMEI / 867400022047199\"",
+      "n08": "Tap LinearLayout \"Android version / 16\"",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started.",
+     "criteria": {
+      "false": "No - the goal is not accomplished yet on this screen",
+      "true": "Yes - the screen/section the goal asks for is already open"
+     }
+    }
+   }
+  }
+ }
+}

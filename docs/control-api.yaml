@@ -1,0 +1,259 @@
+openapi: 3.1.0
+info:
+  title: Testlab control API
+  version: "1"
+  description: |
+    A JSON API for host apps (a team's own desktop tool, scripts) on the same port as the MCP
+    server. It listens on 127.0.0.1 unless `mcp.listen` (or `serve --listen`) shares it.
+    Every request needs the bearer token. Requests with a Host that is neither loopback nor in
+    `allowedHosts`, or with any browser Origin header, are refused. Find the URL and the token in
+    `<data>/control.json` (owner-only), which exists while the server runs:
+
+        {"app": "Testlab", "version": "0.9.0", "api": "http://127.0.0.1:8378/api/v1",
+         "mcp": "http://127.0.0.1:8378/mcp", "token": "…", "pid": 1234, "mode": "service"}
+
+    `mode` is always `service` (`testlab serve` or the background service, docs/SERVICE.md); it was
+    `window` when Testlab had a desktop app.
+
+    Data folders: macOS `~/Library/Application Support/Testlab`, Windows `%APPDATA%\Testlab`,
+    Linux `~/.local/share/testlab`. The API can be turned off with `mcp.controlApi`. Errors are
+    `{"error": {"message": "…"}}` with a fitting status. Writes to Jira and uninstalls are not
+    in this API. They come from Claude and wait for approval of the exact payload: on the approvals
+    page (`testlab open approvals`), with `testlab approve`, or through `/approvals` here, which is
+    how a host app answers.
+servers:
+  - url: http://127.0.0.1:8378/api/v1
+security:
+  - bearer: []
+components:
+  securitySchemes:
+    bearer: { type: http, scheme: bearer }
+  schemas:
+    Error:
+      type: object
+      properties: { error: { type: object, properties: { message: { type: string } } } }
+    Job:
+      type: object
+      properties:
+        job: { type: string }
+        key: { type: string }
+        title: { type: string }
+        serial: { type: string }
+        phase: { type: string, enum: [starting, downloading, installing, done, failed] }
+        done: { type: integer }
+        total: { type: [integer, "null"] }
+        message: { type: string }
+        problem: { type: string, description: "an INSTALL_FAILED_… code when the install failed" }
+    Approval:
+      type: object
+      properties:
+        id: { type: string, example: ap_k3x9q2mfvr }
+        action: { type: string, example: "Comment on PROJ-123" }
+        detail: { type: string, description: the exact payload (comment text, package, labels) }
+        created: { type: string, format: date-time }
+        expires: { type: string, format: date-time, description: "no answer by then counts as no (mcp.approvalTimeoutSeconds)" }
+    Devtest:
+      type: object
+      properties:
+        key: { type: string }
+        url: { type: string }
+        pr: { type: [integer, "null"] }
+        branch: { type: [string, "null"] }
+        serial: { type: [string, "null"] }
+        report_id: { type: [string, "null"] }
+        report_page: { type: [string, "null"], description: "file: URL of the written report" }
+        build: { type: [string, "null"], description: "the build line for the comment" }
+        claude_prompt: { type: [string, "null"], description: "with start=claude: what to start Claude with (the team's devtest command, or Testlab's devtest prompt)" }
+paths:
+  /status:
+    get:
+      summary: App, version, mode (service), approvals waiting, active profile and device
+      responses: { "200": { description: OK } }
+  /devices:
+    get:
+      summary: Devices adb sees (USB, Wi-Fi, IP, emulators)
+      responses: { "200": { description: OK }, "503": { description: adb not available } }
+  /devices/{serial}/connect:
+    post:
+      summary: Start the on-device helper and make the device active
+      parameters: [{ name: serial, in: path, required: true, schema: { type: string } }]
+      responses: { "200": { description: OK } }
+  /profiles:
+    get:
+      summary: Installed project profiles and the active one
+      responses: { "200": { description: OK } }
+  /profiles/{id}/activate:
+    post:
+      summary: Switch the active profile
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+      responses: { "200": { description: OK }, "400": { description: Unknown profile } }
+  /builds/branch:
+    get:
+      summary: The newest CI build of a PR or branch (does not install)
+      parameters:
+        - { name: ref, in: query, required: true, schema: { type: string }, description: "PR number, PR URL or branch" }
+        - { name: type, in: query, schema: { type: string }, description: "build type id; default = the profile's" }
+      responses: { "200": { description: OK }, "404": { description: No build, with the reason } }
+  /builds/install:
+    post:
+      summary: Download and install a PR's or branch's CI build; returns a job id at once
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [ref]
+              properties: { ref: { type: string }, type: { type: string }, serial: { type: string } }
+      responses: { "200": { description: "{job, serial, type, ref}" } }
+  /jobs:
+    get:
+      summary: Recent download/install jobs
+      responses: { "200": { description: OK } }
+  /jobs/{id}:
+    get:
+      summary: One job started through the API
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+      responses:
+        "200": { description: OK, content: { application/json: { schema: { $ref: "#/components/schemas/Job" } } } }
+        "404": { description: Unknown job }
+  /devtest:
+    post:
+      summary: Start a devtest of a ticket
+      description: |
+        Records the chosen PR/branch for the ticket. Then, depending on `start`:
+        - `report` starts the recording and a report linked to the ticket.
+        - `claude` does that too and answers with `claude_prompt`, the devtest command for the host
+          to start its own Claude with: the team's own command when the work folder has it, else
+          Testlab's devtest prompt.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [key]
+              properties:
+                key: { type: string, example: PROJ-123 }
+                pr: { type: [integer, string], description: "PR number (#123 works)" }
+                branch: { type: string }
+                serial: { type: string }
+                start: { type: string, enum: [none, report, claude], default: none }
+      responses:
+        "200": { description: OK, content: { application/json: { schema: { $ref: "#/components/schemas/Devtest" } } } }
+        "400": { description: Not a ticket key, or a bad body }
+  /devtest/{key}:
+    get:
+      summary: What Testlab knows about a devtest in progress
+      parameters: [{ name: key, in: path, required: true, schema: { type: string } }]
+      responses: { "200": { description: OK, content: { application/json: { schema: { $ref: "#/components/schemas/Devtest" } } } } }
+  /approvals:
+    get:
+      summary: Writes waiting for a yes, and the last ones answered
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pending: { type: array, items: { $ref: "#/components/schemas/Approval" } }
+                  resolved:
+                    type: array
+                    items:
+                      type: object
+                      properties: { id: { type: string }, action: { type: string }, approved: { type: boolean }, by: { type: string, description: "api, api:<by> (api:page from the approvals page), cli or timeout" }, at: { type: string, format: date-time } }
+  /approvals/{id}:
+    get:
+      summary: One waiting approval
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+      responses: { "200": { description: OK, content: { application/json: { schema: { $ref: "#/components/schemas/Approval" } } } }, "404": { description: Answered or timed out } }
+    post:
+      summary: Answer it (the first answer wins)
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [approve]
+              properties:
+                approve: { type: boolean }
+                by: { type: string, description: "who answered, for the log (e.g. your app's name)" }
+      responses:
+        "200": { description: Answered }
+        "400": { description: "No approve field" }
+        "404": { description: Answered already or timed out }
+  /ui/ticket:
+    post:
+      summary: A one-time ticket for a browser page (testlab open)
+      description: |
+        Valid a minute. `GET /ui/{page}?t=TICKET` (page: screen, report, profiles) trades it for an
+        HttpOnly, SameSite=Strict cookie and loads the page again without it. With that cookie the
+        page calls this API from its own loopback origin; other origins are refused.
+      responses:
+        "200": { description: "`{ticket}`" }
+  /profiles/{id}/json:
+    get:
+      summary: A profile's whole JSON, to edit
+      responses: { "200": { description: "`{json, bundled, dir}`" } }
+    put:
+      summary: Save a profile (checked first)
+      description: "Body `{json, activate}`. Problems come back as `{saved: false, problems: [...]}` and nothing is saved."
+      responses: { "200": { description: "`{saved, id, active}` or `{saved: false, problems}`" } }
+  /setup/repos:
+    get: { summary: "The repositories the GitHub token can read", responses: { "200": { description: "`{repos: [{name, private, language, pushed}], sso_hidden}`" } } }
+  /setup/scan:
+    post: { summary: "A repo's build candidates (workflows and their artifacts)", responses: { "200": { description: "`{repo, candidates: [{index, workflow_file, artifact, label, package}], problems}`" } } }
+  /setup/jira:
+    post: { summary: "A Jira site's projects and labels", responses: { "200": { description: "`{projects, labels, queue_labels, approved_label}`" } } }
+  /setup/draft:
+    post: { summary: "A profile from the choices, not saved", responses: { "200": { description: "`{json, problems}`" } } }
+  /handbacks:
+    get: { summary: "Plans waiting for a person (Claude's paused plans and paused runs)", responses: { "200": { description: "`{handbacks: [{id, serial, step, reason, paused_at, source, top}]}`" } } }
+  /handbacks/{id}/marks:
+    get: { summary: "The paused step's candidates where they are on the screen now", responses: { "200": { description: "`{marks: [{key, label, x, y}]}`" } } }
+  /handbacks/{id}:
+    post:
+      summary: Resolve a hand-back
+      description: "Body `{action: tap|skip|retry|stop, x, y}`. A tap is made on the phone; the plan goes on from the next step (retry: the same step) on this computer."
+      responses: { "200": { description: "`{done}`" }, "404": { description: "Not waiting any more" } }
+  /settings:
+    get: { summary: "All settings as JSON, which keys are set (never their values), Proxyman's mcp-server found", responses: { "200": { description: "`{settings, keys, proxyman, workspace_default}`" } } }
+    post: { summary: "Change settings: a partial object merged in, checked by the Settings type", responses: { "200": { description: "The new settings, as GET" }, "400": { description: "Not a valid setting; nothing saved" } } }
+  /setup:
+    get: { summary: "The setup checklist (as testlab status), offline", responses: { "200": { description: "`{items: [{group, label, state, text, cli, url, place, essential}]}`" } } }
+  /proxyman/test:
+    post: { summary: "Whether Proxyman answers, a request through it, its MCP server, the routed phones", responses: { "200": { description: "`{healthy, proxy_reachable, via_proxy_status, via_proxy_seconds, mcp, devices}`" } } }
+  /devices/{serial}/proxy:
+    post: { summary: "Route a phone through Proxyman, or stop (`{on: false}`)", responses: { "200": { description: "`{serial, proxy, ours, cert}`" }, "409": { description: "Proxyman is off" } } }
+  /view/call:
+    post:
+      summary: A live view's own tool call (frames, activity, reports, the view's keys)
+      description: |
+        Runs one of the views' tools as MCP would and returns its result: `handsets_view_frame`,
+        `handsets_view_activity`, `handsets_navigate`, `handsets_swipe`, `lab_view_report`,
+        `lab_view_report_frame`, `lab_view_report_file`. The Claude Code plugin's panes use it, so
+        their polling is not Claude's tool calls (no permission prompt for each frame). Any other
+        tool is refused.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [tool]
+              properties:
+                tool: { type: string }
+                args: { type: object }
+      responses:
+        "200": { description: "`{isError, content: [{type: text, text} | {type: image, data, mimeType}]}`" }
+        "403": { description: Not a view tool }
+  /events:
+    get:
+      summary: Server-sent events as things happen
+      description: |
+        `event: tool` (a tool call: tool, summary, ms, ok), `event: hand_back` (a plan paused for a
+        person), `event: device` (the active device changed), `event: jobs` (install progress),
+        `event: approvals` (the pending list changed: `{"pending": [Approval…]}`).
+        Data is JSON and scrubbed of stored secrets.
+      responses: { "200": { description: "text/event-stream" } }

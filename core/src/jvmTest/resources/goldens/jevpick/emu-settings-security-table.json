@@ -1,0 +1,474 @@
+{
+ "dump": "-    FrameLayout   \"Security & privacy\"  #collapsing_toolbar  540,363\ntap  ImageButton   \"Navigate up\"  73,201\n-    LinearLayout  \"Security and privacy status. Device may be at risk. Checking…\"  #status_title_and_summary  603,736\n-    TextView      \"Device may be at risk\"  567,711\n-    TextView      \"Checking device settings…\"  511,775\n-    TextView      \"Device unlock\"  #issue_card_attribution_title  477,994\ntap  ImageButton   \"Dismiss\"  #issue_card_dismiss_btn  943,1004\n-    TextView      \"Set a screen lock\"  #issue_card_title  477,1088\n-    TextView      \"For added security, set a PIN, pattern, or password for this…\"  #issue_card_summary  540,1213\ntap  Button        \"Set screen lock\"  540,1391\ntap  ViewGroup     #more_issues_card  540,1648\n-    TextView      \"More alerts\"  #title  511,1648\n-    TextView      \"3\"  #widget_title  886,1648\n-    TextView      \"Security\"  #title  550,1831\n-    TextView      \"App security\"  #title  335,1955\n-    TextView      \"No info yet\"  #summary  278,2016\n-    TextView      \"Device unlock\"  #title  352,2161\n-    TextView      \"None\"  #summary  232,2222\n-    TextView      \"Account security\"  #title  386,2334\n",
+ "nodes": [
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "Security & privacy",
+   "rid": "collapsing_toolbar",
+   "x": 540,
+   "y": 363,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "ImageButton",
+   "text": "Navigate up",
+   "rid": "",
+   "x": 73,
+   "y": 201,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "Security and privacy status. Device may be at risk. Checking…",
+   "rid": "status_title_and_summary",
+   "x": 603,
+   "y": 736,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Device may be at risk",
+   "rid": "",
+   "x": 567,
+   "y": 711,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Checking device settings…",
+   "rid": "",
+   "x": 511,
+   "y": 775,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Device unlock",
+   "rid": "issue_card_attribution_title",
+   "x": 477,
+   "y": 994,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "ImageButton",
+   "text": "Dismiss",
+   "rid": "issue_card_dismiss_btn",
+   "x": 943,
+   "y": 1004,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Set a screen lock",
+   "rid": "issue_card_title",
+   "x": 477,
+   "y": 1088,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "For added security, set a PIN, pattern, or password for this…",
+   "rid": "issue_card_summary",
+   "x": 540,
+   "y": 1213,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "Button",
+   "text": "Set screen lock",
+   "rid": "",
+   "x": 540,
+   "y": 1391,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "ViewGroup",
+   "text": "",
+   "rid": "more_issues_card",
+   "x": 540,
+   "y": 1648,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "More alerts",
+   "rid": "title",
+   "x": 511,
+   "y": 1648,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "3",
+   "rid": "widget_title",
+   "x": 886,
+   "y": 1648,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Security",
+   "rid": "title",
+   "x": 550,
+   "y": 1831,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "App security",
+   "rid": "title",
+   "x": 335,
+   "y": 1955,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "No info yet",
+   "rid": "summary",
+   "x": 278,
+   "y": 2016,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Device unlock",
+   "rid": "title",
+   "x": 352,
+   "y": 2161,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "None",
+   "rid": "summary",
+   "x": 232,
+   "y": 2222,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Account security",
+   "rid": "title",
+   "x": 386,
+   "y": 2334,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  }
+ ],
+ "unparsed": [],
+ "fingerprint": "d03b208fb64c",
+ "title": "Security & privacy",
+ "selected": [],
+ "visible_texts": [
+  "Navigate up",
+  "Security & privacy",
+  "Device may be at risk",
+  "Security and privacy status. Device may be at risk. Checking…",
+  "Checking device settings…",
+  "Device unlock",
+  "Dismiss",
+  "Set a screen lock",
+  "For added security, set a PIN, pattern, or password for this…",
+  "Set screen lock",
+  "More alerts",
+  "3",
+  "Security",
+  "App security",
+  "No info yet",
+  "None",
+  "Account security"
+ ],
+ "variants": {
+  "typesafe": {
+   "criteria": {
+    "n01": "Tap ImageButton \"Navigate up\"",
+    "n02": "Tap ImageButton \"Dismiss\" [#issue_card_dismiss_btn]",
+    "n03": "Tap Button \"Set screen lock\"",
+    "n04": "Tap ViewGroup [#more_issues_card] near \"More alerts\"",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 4
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Security & privacy",
+     "selected": [],
+     "visible_texts": [
+      "Navigate up",
+      "Security & privacy",
+      "Device may be at risk",
+      "Security and privacy status. Device may be at risk. Checking…",
+      "Checking device settings…",
+      "Device unlock",
+      "Dismiss",
+      "Set a screen lock",
+      "For added security, set a PIN, pattern, or password for this…",
+      "Set screen lock",
+      "More alerts",
+      "3",
+      "Security",
+      "App security",
+      "No info yet",
+      "None",
+      "Account security"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text, paying, or confirming a purchase. Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap ImageButton \"Navigate up\"",
+      "n02": "Tap ImageButton \"Dismiss\" [#issue_card_dismiss_btn]",
+      "n03": "Tap Button \"Set screen lock\"",
+      "n04": "Tap ViewGroup [#more_issues_card] near \"More alerts\"",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started."
+    }
+   }
+  },
+  "typesafe-risky": {
+   "criteria": {
+    "n01": "Tap ImageButton \"Navigate up\"",
+    "n02": "Tap ImageButton \"Dismiss\" [#issue_card_dismiss_btn]",
+    "n03": "Tap Button \"Set screen lock\"",
+    "n04": "Tap ViewGroup [#more_issues_card] near \"More alerts\"",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 4
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Security & privacy",
+     "selected": [],
+     "visible_texts": [
+      "Navigate up",
+      "Security & privacy",
+      "Device may be at risk",
+      "Security and privacy status. Device may be at risk. Checking…",
+      "Checking device settings…",
+      "Device unlock",
+      "Dismiss",
+      "Set a screen lock",
+      "For added security, set a PIN, pattern, or password for this…",
+      "Set screen lock",
+      "More alerts",
+      "3",
+      "Security",
+      "App security",
+      "No info yet",
+      "None",
+      "Account security"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text (paying or confirming a purchase IS allowed in this step: it is what the goal asks for). Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap ImageButton \"Navigate up\"",
+      "n02": "Tap ImageButton \"Dismiss\" [#issue_card_dismiss_btn]",
+      "n03": "Tap Button \"Set screen lock\"",
+      "n04": "Tap ViewGroup [#more_issues_card] near \"More alerts\"",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started."
+    }
+   }
+  },
+  "ollama": {
+   "criteria": {
+    "n01": "Tap ImageButton \"Navigate up\"",
+    "n02": "Tap ImageButton \"Dismiss\" [#issue_card_dismiss_btn]",
+    "n03": "Tap Button \"Set screen lock\"",
+    "n04": "Tap ViewGroup [#more_issues_card] near \"More alerts\"",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 4
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Security & privacy",
+     "selected": [],
+     "visible_texts": [
+      "Navigate up",
+      "Security & privacy",
+      "Device may be at risk",
+      "Security and privacy status. Device may be at risk. Checking…",
+      "Checking device settings…",
+      "Device unlock",
+      "Dismiss",
+      "Set a screen lock",
+      "For added security, set a PIN, pattern, or password for this…",
+      "Set screen lock",
+      "More alerts",
+      "3",
+      "Security",
+      "App security",
+      "No info yet",
+      "None",
+      "Account security"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text, paying, or confirming a purchase. Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap ImageButton \"Navigate up\"",
+      "n02": "Tap ImageButton \"Dismiss\" [#issue_card_dismiss_btn]",
+      "n03": "Tap Button \"Set screen lock\"",
+      "n04": "Tap ViewGroup [#more_issues_card] near \"More alerts\"",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started.",
+     "criteria": {
+      "false": "No - the goal is not accomplished yet on this screen",
+      "true": "Yes - the screen/section the goal asks for is already open"
+     }
+    }
+   }
+  }
+ }
+}

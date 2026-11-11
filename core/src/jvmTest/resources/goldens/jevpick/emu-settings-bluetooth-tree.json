@@ -1,0 +1,673 @@
+{
+ "dump": "FrameLayout  @(540,1200)\n  ViewGroup #decor_content_parent  @(540,1200)\n    FrameLayout #content  @(540,1200)\n      ScrollView #content_parent  [scroll]  @(540,1232)\n        LinearLayout #app_bar  @(540,363)\n          FrameLayout #collapsing_toolbar  desc=\"Connected devices\"  @(540,363)\n            ViewGroup #action_bar  @(540,201)\n              ImageButton  desc=\"Navigate up\"  [click,focusable]  @(73,201)\n              View  @(634,201)\n              TextView  \"Connected devices\"  @(189,201)\n              LinearLayout  @(1080,201)\n        FrameLayout #content_frame  @(540,1038)\n          LinearLayout  @(540,1038)\n            FrameLayout #main_content  @(540,1038)\n              LinearLayout #container_material  @(540,1038)\n                FrameLayout #list_container  @(540,1038)\n                  RecyclerView #recycler_view  [scroll,focusable,focused]  @(540,1038)\n                    FrameLayout  [click,focusable]  @(540,598)\n                    LinearLayout  [click,focusable]  @(540,675)\n                      LinearLayout #icon_frame  @(126,675)\n                        ImageView #icon  @(94,675)\n                      RelativeLayout  @(613,675)\n                        TextView #title  \"Pair new device\"  @(373,675)\n                    LinearLayout  @(540,841)\n                      RelativeLayout  @(550,841)\n                        TextView #title  \"Saved devices\"  @(550,841)\n                    LinearLayout  [click,focusable]  @(540,965)\n                      LinearLayout #icon_frame  @(126,965)\n                        ImageView #icon  @(94,965)\n                      RelativeLayout  @(613,965)\n                        TextView #title  \"See all\"  @(266,965)\n                    LinearLayout  [click,focusable]  @(540,1146)\n                      RelativeLayout  @(550,1146)\n                        TextView #title  \"Connection preferences\"  @(343,1120)\n                        TextView #summary  \"Bluetooth, Android Auto\"  @(257,1181)\n                    LinearLayout  @(540,1364)\n                      LinearLayout #icon_frame  @(136,1307)\n                        ImageView #icon  @(94,1322)\n                      LinearLayout  @(483,1422)\n                        TextView #title  \"Visible as “sdk_gphone64_x86_64” to other devices\"  @(483,1422)\n",
+ "nodes": [
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1200,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "ViewGroup",
+   "text": "",
+   "rid": "decor_content_parent",
+   "x": 540,
+   "y": 1200,
+   "flags": "",
+   "desc": "",
+   "depth": 2
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "content",
+   "x": 540,
+   "y": 1200,
+   "flags": "",
+   "desc": "",
+   "depth": 4
+  },
+  {
+   "verb": "-",
+   "widget": "ScrollView",
+   "text": "",
+   "rid": "content_parent",
+   "x": 540,
+   "y": 1232,
+   "flags": "scroll",
+   "desc": "",
+   "depth": 6
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "app_bar",
+   "x": 540,
+   "y": 363,
+   "flags": "",
+   "desc": "",
+   "depth": 8
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "collapsing_toolbar",
+   "x": 540,
+   "y": 363,
+   "flags": "",
+   "desc": "Connected devices",
+   "depth": 10
+  },
+  {
+   "verb": "-",
+   "widget": "ViewGroup",
+   "text": "",
+   "rid": "action_bar",
+   "x": 540,
+   "y": 201,
+   "flags": "",
+   "desc": "",
+   "depth": 12
+  },
+  {
+   "verb": "tap",
+   "widget": "ImageButton",
+   "text": "Navigate up",
+   "rid": "",
+   "x": 73,
+   "y": 201,
+   "flags": "click focusable",
+   "desc": "Navigate up",
+   "depth": 14
+  },
+  {
+   "verb": "-",
+   "widget": "View",
+   "text": "",
+   "rid": "",
+   "x": 634,
+   "y": 201,
+   "flags": "",
+   "desc": "",
+   "depth": 14
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Connected devices",
+   "rid": "",
+   "x": 189,
+   "y": 201,
+   "flags": "",
+   "desc": "",
+   "depth": 14
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 1080,
+   "y": 201,
+   "flags": "",
+   "desc": "",
+   "depth": 14
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "content_frame",
+   "x": 540,
+   "y": 1038,
+   "flags": "",
+   "desc": "",
+   "depth": 8
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1038,
+   "flags": "",
+   "desc": "",
+   "depth": 10
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "main_content",
+   "x": 540,
+   "y": 1038,
+   "flags": "",
+   "desc": "",
+   "depth": 12
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "container_material",
+   "x": 540,
+   "y": 1038,
+   "flags": "",
+   "desc": "",
+   "depth": 14
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "list_container",
+   "x": 540,
+   "y": 1038,
+   "flags": "",
+   "desc": "",
+   "depth": 16
+  },
+  {
+   "verb": "-",
+   "widget": "RecyclerView",
+   "text": "",
+   "rid": "recycler_view",
+   "x": 540,
+   "y": 1038,
+   "flags": "scroll focusable focused",
+   "desc": "",
+   "depth": 18
+  },
+  {
+   "verb": "tap",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 598,
+   "flags": "click focusable",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "tap",
+   "widget": "LinearLayout",
+   "text": "Pair new device",
+   "rid": "",
+   "x": 540,
+   "y": 675,
+   "flags": "click focusable",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "icon_frame",
+   "x": 126,
+   "y": 675,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "ImageView",
+   "text": "",
+   "rid": "icon",
+   "x": 94,
+   "y": 675,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 613,
+   "y": 675,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Pair new device",
+   "rid": "title",
+   "x": 373,
+   "y": 675,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 841,
+   "flags": "",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 550,
+   "y": 841,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Saved devices",
+   "rid": "title",
+   "x": 550,
+   "y": 841,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "tap",
+   "widget": "LinearLayout",
+   "text": "See all",
+   "rid": "",
+   "x": 540,
+   "y": 965,
+   "flags": "click focusable",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "icon_frame",
+   "x": 126,
+   "y": 965,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "ImageView",
+   "text": "",
+   "rid": "icon",
+   "x": 94,
+   "y": 965,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 613,
+   "y": 965,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "See all",
+   "rid": "title",
+   "x": 266,
+   "y": 965,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "tap",
+   "widget": "LinearLayout",
+   "text": "Connection preferences / Bluetooth, Android Auto",
+   "rid": "",
+   "x": 540,
+   "y": 1146,
+   "flags": "click focusable",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 550,
+   "y": 1146,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Connection preferences",
+   "rid": "title",
+   "x": 343,
+   "y": 1120,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Bluetooth, Android Auto",
+   "rid": "summary",
+   "x": 257,
+   "y": 1181,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1364,
+   "flags": "",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "icon_frame",
+   "x": 136,
+   "y": 1307,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "ImageView",
+   "text": "",
+   "rid": "icon",
+   "x": 94,
+   "y": 1322,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 483,
+   "y": 1422,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Visible as “sdk_gphone64_x86_64” to other devices",
+   "rid": "title",
+   "x": 483,
+   "y": 1422,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  }
+ ],
+ "unparsed": [],
+ "fingerprint": "047cfd4e485e",
+ "title": "Connected devices",
+ "selected": [],
+ "visible_texts": [
+  "Navigate up",
+  "Connected devices",
+  "Pair new device",
+  "Saved devices",
+  "See all",
+  "Connection preferences",
+  "Connection preferences / Bluetooth, Android Auto",
+  "Bluetooth, Android Auto",
+  "Visible as “sdk_gphone64_x86_64” to other devices"
+ ],
+ "variants": {
+  "typesafe": {
+   "criteria": {
+    "n01": "Tap ImageButton \"Navigate up\"",
+    "n02": "Tap LinearLayout \"Pair new device\"",
+    "n03": "Tap LinearLayout \"See all\"",
+    "n04": "Tap LinearLayout \"Connection preferences / Bluetooth, Android Auto\"",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 1,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 5
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Connected devices",
+     "selected": [],
+     "visible_texts": [
+      "Navigate up",
+      "Connected devices",
+      "Pair new device",
+      "Saved devices",
+      "See all",
+      "Connection preferences",
+      "Connection preferences / Bluetooth, Android Auto",
+      "Bluetooth, Android Auto",
+      "Visible as “sdk_gphone64_x86_64” to other devices"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text, paying, or confirming a purchase. Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap ImageButton \"Navigate up\"",
+      "n02": "Tap LinearLayout \"Pair new device\"",
+      "n03": "Tap LinearLayout \"See all\"",
+      "n04": "Tap LinearLayout \"Connection preferences / Bluetooth, Android Auto\"",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started."
+    }
+   }
+  },
+  "typesafe-risky": {
+   "criteria": {
+    "n01": "Tap ImageButton \"Navigate up\"",
+    "n02": "Tap LinearLayout \"Pair new device\"",
+    "n03": "Tap LinearLayout \"See all\"",
+    "n04": "Tap LinearLayout \"Connection preferences / Bluetooth, Android Auto\"",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 1,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 5
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Connected devices",
+     "selected": [],
+     "visible_texts": [
+      "Navigate up",
+      "Connected devices",
+      "Pair new device",
+      "Saved devices",
+      "See all",
+      "Connection preferences",
+      "Connection preferences / Bluetooth, Android Auto",
+      "Bluetooth, Android Auto",
+      "Visible as “sdk_gphone64_x86_64” to other devices"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text (paying or confirming a purchase IS allowed in this step: it is what the goal asks for). Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap ImageButton \"Navigate up\"",
+      "n02": "Tap LinearLayout \"Pair new device\"",
+      "n03": "Tap LinearLayout \"See all\"",
+      "n04": "Tap LinearLayout \"Connection preferences / Bluetooth, Android Auto\"",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started."
+    }
+   }
+  },
+  "ollama": {
+   "criteria": {
+    "n01": "Tap ImageButton \"Navigate up\"",
+    "n02": "Tap LinearLayout \"Pair new device\"",
+    "n03": "Tap LinearLayout \"See all\"",
+    "n04": "Tap LinearLayout \"Connection preferences / Bluetooth, Android Auto\"",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 1,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 5
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Connected devices",
+     "selected": [],
+     "visible_texts": [
+      "Navigate up",
+      "Connected devices",
+      "Pair new device",
+      "Saved devices",
+      "See all",
+      "Connection preferences",
+      "Connection preferences / Bluetooth, Android Auto",
+      "Bluetooth, Android Auto",
+      "Visible as “sdk_gphone64_x86_64” to other devices"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text, paying, or confirming a purchase. Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap ImageButton \"Navigate up\"",
+      "n02": "Tap LinearLayout \"Pair new device\"",
+      "n03": "Tap LinearLayout \"See all\"",
+      "n04": "Tap LinearLayout \"Connection preferences / Bluetooth, Android Auto\"",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started.",
+     "criteria": {
+      "false": "No - the goal is not accomplished yet on this screen",
+      "true": "Yes - the screen/section the goal asks for is already open"
+     }
+    }
+   }
+  }
+ }
+}

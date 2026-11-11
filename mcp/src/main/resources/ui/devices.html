@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{APP}}: devices</title>
+<style>
+  :root { --bg:#fbfbfd; --panel:#fff; --fg:#1d2228; --mut:#5f6b7a; --line:#d9dee5; --accent:#5b4bb7; --ok:#1f7a3a; --warn:#b26a00; --bad:#c62828; color-scheme: light dark; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#0e1116; --panel:#161b22; --fg:#cdd9e5; --mut:#8b949e; --line:#2a313c; --accent:#b4a7ff; --ok:#3fb950; --warn:#d29922; --bad:#f85149; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.5 system-ui, -apple-system, Segoe UI, sans-serif; }
+  main { max-width: 980px; margin: 0 auto; padding: 24px 16px 60px; }
+  h1 { font-size: 24px; margin: 0 0 4px; } h2 { font-size: 17px; margin: 0 0 8px; }
+  .mut { color: var(--mut); font-size: 13px; } .ok { color: var(--ok); } .bad { color: var(--bad); } .warn { color: var(--warn); }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px; margin: 16px 0; }
+  .dev { display: grid; grid-template-columns: 14px 1fr auto; gap: 4px 12px; align-items: center; padding: 10px 0; border-top: 1px solid var(--line); }
+  .dev:first-child { border-top: 0; }
+  .dot { width: 10px; height: 10px; border-radius: 5px; background: var(--mut); }
+  .dot.ready { background: var(--ok); } .dot.wait { background: var(--warn); }
+  .badge { font-size: 12px; padding: 1px 8px; border-radius: 10px; background: var(--accent); color: var(--panel); margin-left: 6px; }
+  .kind { font-size: 12px; padding: 1px 8px; border-radius: 10px; border: 1px solid var(--line); color: var(--mut); margin-left: 6px; }
+  .hint { grid-column: 2 / 4; font-size: 13px; color: var(--warn); }
+  button, .btn { font: inherit; font-size: 14px; color: var(--fg); background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; cursor: pointer; text-decoration: none; display: inline-block; margin-left: 4px; }
+  button.primary { background: var(--accent); color: var(--panel); border-color: var(--accent); }
+  input[type=text] { font: inherit; font-size: 14px; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; width: 220px; }
+  .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin: 6px 0; }
+  ol { margin: 6px 0 0; padding-left: 20px; } ol li { margin: 4px 0; font-size: 14px; }
+  details summary { cursor: pointer; color: var(--mut); font-size: 14px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Devices</h1>
+  <div class="mut">Everything adb on this computer can reach: USB, Wi-Fi (Android 11+ wireless debugging), an IP address, and emulators. Updates by itself.</div>
+  <div id="msg" class="mut" style="margin-top:8px"></div>
+
+  <section class="card"><h2>Connected</h2><div id="devices"><div class="mut">Looking…</div></div></section>
+
+  <section class="card" id="nearbyCard" hidden><h2>Nearby, not connected</h2>
+    <div class="mut">Phones on this network with Wireless debugging on. Paired before? Connect. Never paired? Pair below first.</div>
+    <div id="nearby"></div></section>
+
+  <section class="card"><h2>Connect over Wi-Fi</h2>
+    <div class="mut">On the phone: Developer options → Wireless debugging. The first time, «Pair device with pairing code» shows a code and an address for pairing; the Wireless debugging screen shows the address to connect to (another port).</div>
+    <div class="row"><input id="addr" type="text" placeholder="IP:port to connect to"><button id="connect" class="primary">Connect</button></div>
+    <details><summary>First time: pair with a code</summary>
+      <div class="row"><input id="pairAddr" type="text" placeholder="pairing IP:port"><input id="pairCode" type="text" placeholder="6-digit code" inputmode="numeric"><button id="pair">Pair and connect</button></div>
+    </details>
+  </section>
+
+  <section class="card"><details><summary>Can't see your phone?</summary><ol id="help"></ol></details></section>
+</main>
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  async function api(method, path, body) {
+    const r = await fetch("/api/v1" + path, { method, credentials: "same-origin", headers: body ? { "content-type": "application/json" } : {}, body: body ? JSON.stringify(body) : undefined });
+    const b = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error((b.error && b.error.message) || "HTTP " + r.status);
+    return b;
+  }
+  const say = (t, bad) => { $("msg").textContent = t || ""; $("msg").className = bad ? "bad" : "ok"; };
+  const KIND = { usb: "USB", wifi: "Wi-Fi", ip: "IP", emulator: "emulator" };
+
+  async function load() {
+    try {
+      const d = await api("GET", "/devices");
+      const px = await api("GET", "/devices/proxy").catch(() => null);
+      const proxied = new Map(((px && px.devices) || []).map(p => [p.serial, p]));
+      $("devices").innerHTML = d.devices.map(x => {
+        const name = (x.model || x.serial).replace(/_/g, " ");
+        // Shared phones: another client's space holds it (not named), or this space does until released.
+        if (x.lease === "other") return `<div class="dev"><span class="dot wait"></span>
+          <span><b>${esc(name)}</b><span class="badge">another client</span><br><span class="mut">${esc(x.serial)} · in use by another client's space</span></span><span></span>
+          <span class="hint">They free it with <code>devices release</code> in their space; then it is handed over clean.</span></div>`;
+        return `<div class="dev"><span class="dot ${x.ready ? "ready" : "wait"}"></span>
+          <span><b>${esc(name)}</b>${d.active === x.serial ? '<span class="badge">in use</span>' : ""}${x.lease === "yours" ? '<span class="badge" title="other clients\' spaces can\'t use it until it is released">this space</span>' : ""}<span class="kind">${esc(KIND[x.transport] || x.transport)}</span>
+            <br><span class="mut">${esc(x.serial)} · ${esc(x.state)}</span></span>
+          <span>${x.lease === "yours" ? `<button data-release="${esc(x.serial)}" title="clears this client's apps, proxy, TalkBack and font size, then frees it">Release</button>` : ""}${x.ready ? `<a class="btn" href="/ui/screen?serial=${encodeURIComponent(x.serial)}">Show screen</a>${d.active === x.serial ? "" : `<button data-use="${esc(x.serial)}">Use</button>`}` : ""}
+            ${x.ready && px && px.enabled ? (proxied.get(x.serial) && proxied.get(x.serial).proxy ? `<button data-unproxy="${esc(x.serial)}" title="through ${esc(proxied.get(x.serial).proxy)}">Stop Proxyman</button>` : `<button data-proxy="${esc(x.serial)}">Through Proxyman</button>`) : ""}
+            ${x.transport === "wifi" || x.transport === "ip" ? `<button data-drop="${esc(x.serial)}">Disconnect</button>` : ""}</span>
+          ${proxied.get(x.serial) && proxied.get(x.serial).proxy ? `<span class="hint" style="color:var(--accent)">Traffic goes through Proxyman (${esc(proxied.get(x.serial).proxy)})</span>` : ""}
+          ${x.hint ? `<span class="hint">${esc(x.hint)}</span>` : ""}</div>`;
+      }).join("") || '<div class="mut">Nothing connected. Plug a phone in with USB debugging on, or connect one over Wi-Fi below.</div>';
+    } catch (e) { $("devices").innerHTML = `<div class="bad">${esc(e.message)}</div>`; }
+  }
+  async function nearby() {
+    try {
+      const n = (await api("GET", "/devices/nearby")).nearby;
+      $("nearbyCard").hidden = !n.length;
+      $("nearby").innerHTML = n.map(x => `<div class="row"><b>${esc(x.name)}</b><span class="mut">${esc(x.address)}</span><button data-connect="${esc(x.address)}">Connect</button></div>`).join("");
+    } catch { /* no mDNS on this computer */ }
+  }
+  document.addEventListener("click", async (e) => {
+    const b = e.target.closest("button"); if (!b) return;
+    try {
+      if (b.dataset.use) { await api("POST", `/devices/${encodeURIComponent(b.dataset.use)}/connect`); say("Using " + b.dataset.use); }
+      if (b.dataset.drop) { say((await api("POST", "/devices/disconnect", { address: b.dataset.drop })).said); }
+      if (b.dataset.connect) { const r = await api("POST", "/devices/wireless", { address: b.dataset.connect }); say(r.said, !r.connected); }
+      if (b.dataset.proxy) { const r = await api("POST", `/devices/${encodeURIComponent(b.dataset.proxy)}/proxy`, { on: "true" }); say(`${r.serial} goes through Proxyman (${r.proxy}). ${r.cert}`); }
+      if (b.dataset.release) { const r = await api("POST", `/devices/${encodeURIComponent(b.dataset.release)}/release`); say(`${r.serial} released: ${r.steps.join("; ") || "nothing to undo"}`); }
+      if (b.dataset.unproxy) { await api("POST", `/devices/${encodeURIComponent(b.dataset.unproxy)}/proxy`, { on: "false" }); say(`${b.dataset.unproxy} no longer goes through Proxyman`); }
+      if (b.dataset.use || b.dataset.drop || b.dataset.connect || b.dataset.proxy || b.dataset.unproxy || b.dataset.release) { await load(); await nearby(); }
+    } catch (err) { say(err.message, true); }
+  });
+  $("connect").onclick = async () => {
+    try { const r = await api("POST", "/devices/wireless", { address: $("addr").value.trim() }); say(r.said, !r.connected); await load(); } catch (e) { say(e.message, true); }
+  };
+  $("pair").onclick = async () => {
+    try {
+      const r = await api("POST", "/devices/wireless", { address: $("addr").value.trim() || $("pairAddr").value.trim(), pairing_address: $("pairAddr").value.trim(), pairing_code: $("pairCode").value.trim() });
+      say(r.said, !r.connected); $("pairCode").value = ""; await load();
+    } catch (e) { say(e.message, true); }
+  };
+  $("help").innerHTML = /*{{DEVICE_HELP}}*/"";
+  load(); nearby(); setInterval(load, 3000); setInterval(nearby, 10000);
+})();
+</script>
+</body>
+</html>

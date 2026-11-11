@@ -1,0 +1,1 @@
+{ "description": "Testlab panes", "modules": ["./register.js"] }

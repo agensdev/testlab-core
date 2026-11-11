@@ -1,0 +1,37 @@
+tap   LinearLayout  #dialpad_view  540,1766
+fill  EditText      "Phone Number"  #digits  540,1268  [long]
+tap   ImageButton   "backspace"  #deleteButton  1006,1268  [long]
+tap   FrameLayout   "1,"  #one  193,1459  [long]
+-     TextView      "1"  #dialpad_key_number  193,1429
+tap   FrameLayout   "2,ABC"  #two  539,1459
+-     TextView      "2"  #dialpad_key_number  538,1430
+-     TextView      "ABC"  #dialpad_key_letters  538,1497
+tap   FrameLayout   "3,DEF"  #three  885,1459
+-     TextView      "3"  #dialpad_key_number  884,1431
+-     TextView      "DEF"  #dialpad_key_letters  885,1498
+tap   FrameLayout   "4,GHI"  #four  193,1649
+-     TextView      "4"  #dialpad_key_number  193,1619
+-     TextView      "GHI"  #dialpad_key_letters  193,1686
+tap   FrameLayout   "5,JKL"  #five  539,1649
+-     TextView      "5"  #dialpad_key_number  538,1620
+-     TextView      "JKL"  #dialpad_key_letters  539,1688
+tap   FrameLayout   "6,MNO"  #six  885,1649
+-     TextView      "6"  #dialpad_key_number  885,1620
+-     TextView      "MNO"  #dialpad_key_letters  885,1687
+tap   FrameLayout   "7,PQRS"  #seven  193,1839
+-     TextView      "7"  #dialpad_key_number  193,1809
+-     TextView      "PQRS"  #dialpad_key_letters  193,1877
+tap   FrameLayout   "8,TUV"  #eight  539,1839
+-     TextView      "8"  #dialpad_key_number  539,1811
+-     TextView      "TUV"  #dialpad_key_letters  539,1878
+tap   FrameLayout   "9,WXYZ"  #nine  885,1839
+-     TextView      "9"  #dialpad_key_number  885,1810
+-     TextView      "WXYZ"  #dialpad_key_letters  885,1877
+tap   FrameLayout   "*"  #star  193,2029
+-     TextView      "*"  #dialpad_key_number  193,2011
+tap   FrameLayout   "0"  #zero  539,2029  [long]
+-     TextView      "0"  #dialpad_key_number  539,2001
+-     TextView      "+"  #dialpad_key_letters  538,2068
+tap   FrameLayout   "#"  #pound  885,2029
+-     TextView      "#"  #dialpad_key_number  884,2011
+tap   Button        "Call"  #dialpad_voice_call_button  540,2231

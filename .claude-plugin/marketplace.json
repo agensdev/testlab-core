@@ -1,0 +1,12 @@
+{
+  "name": "testlab",
+  "description": "Testlab for Claude Code: the phone's screen live in a pane and test reports inline",
+  "owner": { "name": "agensdev" },
+  "plugins": [
+    {
+      "name": "testlab",
+      "source": "./claude-plugin",
+      "description": "The phone's screen live in a Claude Code pane (keys, swipes, rewind through what was done) and test reports chapter by chapter; starts the testlab MCP server"
+    }
+  ]
+}

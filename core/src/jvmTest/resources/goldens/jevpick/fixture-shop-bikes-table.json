@@ -1,0 +1,308 @@
+{
+ "dump": "-    TextView     \"Bikes\"  #title  540,240\n-    TextView     \"Live nå: 3 kamper\"  540,400\ntap  View         \"Brann - Rosenborg 1.85 3.40 4.10\"  #outcome_container  540,800\ntap  View         \"Molde - Bodø/Glimt 2.10 3.30 3.25\"  #outcome_container  540,1000\ntap  Button       \"Se \\\"alle\\\" kamper\"  #see_all  540,1400\ntap  FrameLayout  \"Hjem\"  #fragment_home  108,2896\ntap  FrameLayout  \"Sport\"  #fragment_sport  540,2896\n",
+ "nodes": [
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Bikes",
+   "rid": "title",
+   "x": 540,
+   "y": 240,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Live nå: 3 kamper",
+   "rid": "",
+   "x": 540,
+   "y": 400,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "View",
+   "text": "Brann - Rosenborg 1.85 3.40 4.10",
+   "rid": "outcome_container",
+   "x": 540,
+   "y": 800,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "View",
+   "text": "Molde - Bodø/Glimt 2.10 3.30 3.25",
+   "rid": "outcome_container",
+   "x": 540,
+   "y": 1000,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "Button",
+   "text": "Se \\\"alle\\\" kamper",
+   "rid": "see_all",
+   "x": 540,
+   "y": 1400,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "FrameLayout",
+   "text": "Hjem",
+   "rid": "fragment_home",
+   "x": 108,
+   "y": 2896,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "FrameLayout",
+   "text": "Sport",
+   "rid": "fragment_sport",
+   "x": 540,
+   "y": 2896,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  }
+ ],
+ "unparsed": [],
+ "fingerprint": "7da535a7fcff",
+ "title": "Bikes",
+ "selected": [],
+ "visible_texts": [
+  "Bikes",
+  "Live nå: 3 kamper",
+  "Brann - Rosenborg 1.85 3.40 4.10",
+  "Molde - Bodø/Glimt 2.10 3.30 3.25",
+  "Se \\\"alle\\\" kamper",
+  "Hjem",
+  "Sport"
+ ],
+ "variants": {
+  "typesafe": {
+   "criteria": {
+    "n01": "Tap View \"Brann - Rosenborg 1.85 3.40 4.10\" [#outcome_container]",
+    "n02": "Tap View \"Molde - Bodø/Glimt 2.10 3.30 3.25\" [#outcome_container]",
+    "n03": "Tap Button \"Se \\\"alle\\\" kamper\" [#see_all]",
+    "n04": "Tap FrameLayout \"Hjem\" [#fragment_home]",
+    "n05": "Tap FrameLayout \"Sport\" [#fragment_sport]",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 5
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Bikes",
+     "selected": [],
+     "visible_texts": [
+      "Bikes",
+      "Live nå: 3 kamper",
+      "Brann - Rosenborg 1.85 3.40 4.10",
+      "Molde - Bodø/Glimt 2.10 3.30 3.25",
+      "Se \\\"alle\\\" kamper",
+      "Hjem",
+      "Sport"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text, paying, or confirming a purchase. Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap View \"Brann - Rosenborg 1.85 3.40 4.10\" [#outcome_container]",
+      "n02": "Tap View \"Molde - Bodø/Glimt 2.10 3.30 3.25\" [#outcome_container]",
+      "n03": "Tap Button \"Se \\\"alle\\\" kamper\" [#see_all]",
+      "n04": "Tap FrameLayout \"Hjem\" [#fragment_home]",
+      "n05": "Tap FrameLayout \"Sport\" [#fragment_sport]",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started."
+    }
+   }
+  },
+  "typesafe-risky": {
+   "criteria": {
+    "n01": "Tap View \"Brann - Rosenborg 1.85 3.40 4.10\" [#outcome_container]",
+    "n02": "Tap View \"Molde - Bodø/Glimt 2.10 3.30 3.25\" [#outcome_container]",
+    "n03": "Tap Button \"Se \\\"alle\\\" kamper\" [#see_all]",
+    "n04": "Tap FrameLayout \"Hjem\" [#fragment_home]",
+    "n05": "Tap FrameLayout \"Sport\" [#fragment_sport]",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 5
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Bikes",
+     "selected": [],
+     "visible_texts": [
+      "Bikes",
+      "Live nå: 3 kamper",
+      "Brann - Rosenborg 1.85 3.40 4.10",
+      "Molde - Bodø/Glimt 2.10 3.30 3.25",
+      "Se \\\"alle\\\" kamper",
+      "Hjem",
+      "Sport"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text (paying or confirming a purchase IS allowed in this step: it is what the goal asks for). Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap View \"Brann - Rosenborg 1.85 3.40 4.10\" [#outcome_container]",
+      "n02": "Tap View \"Molde - Bodø/Glimt 2.10 3.30 3.25\" [#outcome_container]",
+      "n03": "Tap Button \"Se \\\"alle\\\" kamper\" [#see_all]",
+      "n04": "Tap FrameLayout \"Hjem\" [#fragment_home]",
+      "n05": "Tap FrameLayout \"Sport\" [#fragment_sport]",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started."
+    }
+   }
+  },
+  "ollama": {
+   "criteria": {
+    "n01": "Tap View \"Brann - Rosenborg 1.85 3.40 4.10\" [#outcome_container]",
+    "n02": "Tap View \"Molde - Bodø/Glimt 2.10 3.30 3.25\" [#outcome_container]",
+    "n03": "Tap Button \"Se \\\"alle\\\" kamper\" [#see_all]",
+    "n04": "Tap FrameLayout \"Hjem\" [#fragment_home]",
+    "n05": "Tap FrameLayout \"Sport\" [#fragment_sport]",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 5
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Bikes",
+     "selected": [],
+     "visible_texts": [
+      "Bikes",
+      "Live nå: 3 kamper",
+      "Brann - Rosenborg 1.85 3.40 4.10",
+      "Molde - Bodø/Glimt 2.10 3.30 3.25",
+      "Se \\\"alle\\\" kamper",
+      "Hjem",
+      "Sport"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text, paying, or confirming a purchase. Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap View \"Brann - Rosenborg 1.85 3.40 4.10\" [#outcome_container]",
+      "n02": "Tap View \"Molde - Bodø/Glimt 2.10 3.30 3.25\" [#outcome_container]",
+      "n03": "Tap Button \"Se \\\"alle\\\" kamper\" [#see_all]",
+      "n04": "Tap FrameLayout \"Hjem\" [#fragment_home]",
+      "n05": "Tap FrameLayout \"Sport\" [#fragment_sport]",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started.",
+     "criteria": {
+      "false": "No - the goal is not accomplished yet on this screen",
+      "true": "Yes - the screen/section the goal asks for is already open"
+     }
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,1 @@
+{ "mcpServers": { "testlab": { "command": "testlab", "args": ["--mcp-stdio"], "env": {} } } }

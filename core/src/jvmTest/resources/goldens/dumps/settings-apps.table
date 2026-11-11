@@ -1,0 +1,25 @@
+-  TextView  "Android Auto"  347,668
+-  TextView  "295 kB"  245,725
+-  TextView  "Android System WebView"  499,867
+-  TextView  "127 MB"  251,924
+-  TextView  "Calendar"  297,1066
+-  TextView  "65.54 kB"  260,1123
+-  TextView  "Camera"  283,1265
+-  TextView  "119 kB"  245,1322
+-  TextView  "Chrome"  284,1464
+-  TextView  "74.48 MB"  267,1521
+-  TextView  "Clock"  257,1663
+-  TextView  "65.54 kB"  260,1720
+-  TextView  "Contacts"  298,1862
+-  TextView  "1.65 MB"  257,1919
+-  TextView  "Digital Wellbeing"  391,2061
+-  TextView  "2.30 MB"  257,2118
+-  TextView  "Drive"  250,2260
+-  TextView  "65.54 kB"  260,2317
+-  View      "Navigate up"  74,201
+-  Button      74,201
+-  View      "Search"  880,201
+-  Button      880,201
+-  View      "More options"  1006,201
+-  Button      1006,201
+-  TextView  "All apps"  232,484

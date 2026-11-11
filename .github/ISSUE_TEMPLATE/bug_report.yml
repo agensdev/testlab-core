@@ -1,0 +1,34 @@
+name: Bug report
+description: Something in Testlab does not work as it should
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks! Please leave out tokens, passwords, test-account details and anything from your
+        company's app or tracker you may not share. The diagnostics zip has secrets and e-mail
+        addresses removed, but look through it before you attach it.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what you got instead.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Testlab version and OS
+      placeholder: 0.9.0 on macOS 15 (Apple silicon)
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options: [Devices, Plans / autopilot, Builds, Devtest / Jira, Reports, Claude / MCP, Proxyman, Profiles / setup, Install / update, Other]
+  - type: textarea
+    id: diag
+    attributes:
+      label: Diagnostics
+      description: Settings → Updates and support → Save diagnostics… (or `testlab diag`), and any log lines.

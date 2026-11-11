@@ -1,0 +1,458 @@
+{
+ "dump": "FrameLayout  @(540,1200)\n  LinearLayout  @(540,1168)\n    FrameLayout  @(540,1232)\n      LinearLayout  @(540,1232)\n        FrameLayout #content  @(540,1232)\n          FrameLayout  @(540,1232)\n            FrameLayout  @(540,1232)\n              ViewPager #fre_pager  @(540,1232)\n                RecyclerView  [scroll,focusable]  @(540,1232)\n                  FrameLayout  @(540,1232)\n                    FrameLayout  @(540,1232)\n                      RelativeLayout  @(540,1232)\n                        ScrollView  [focusable]  @(540,1139)\n                          LinearLayout  @(540,1139)\n                            ImageView #fre_logo  @(540,731)\n                            TextView #title  \"Make Chrome your own\"  @(540,981)\n                            TextView #subtitle  \"Sign in to get your bookmarks, passwords, and more on all your devices\"  @(540,1089)\n                            Button #signin_fre_continue_button  \"Add account to device\"  [click,focusable]  @(540,1962)\n                            Button #signin_fre_dismiss_button  \"Use without an account\"  [click,focusable]  @(540,2088)\n                        FrameLayout #fre_footer_viewgroup  @(540,2223)\n                          TextView #signin_fre_footer  \"By continuing, you agree to the Terms of Service. To help improve the app, Chrom…\"  [long,focusable]  @(540,2228)\n  View #statusBarBackground  @(540,64)\n  View #navigationBarBackground  @(540,2368)\n",
+ "nodes": [
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1200,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1168,
+   "flags": "",
+   "desc": "",
+   "depth": 2
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1232,
+   "flags": "",
+   "desc": "",
+   "depth": 4
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1232,
+   "flags": "",
+   "desc": "",
+   "depth": 6
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "content",
+   "x": 540,
+   "y": 1232,
+   "flags": "",
+   "desc": "",
+   "depth": 8
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1232,
+   "flags": "",
+   "desc": "",
+   "depth": 10
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1232,
+   "flags": "",
+   "desc": "",
+   "depth": 12
+  },
+  {
+   "verb": "-",
+   "widget": "ViewPager",
+   "text": "",
+   "rid": "fre_pager",
+   "x": 540,
+   "y": 1232,
+   "flags": "",
+   "desc": "",
+   "depth": 14
+  },
+  {
+   "verb": "-",
+   "widget": "RecyclerView",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1232,
+   "flags": "scroll focusable",
+   "desc": "",
+   "depth": 16
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1232,
+   "flags": "",
+   "desc": "",
+   "depth": 18
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1232,
+   "flags": "",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1232,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "ScrollView",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1139,
+   "flags": "focusable",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1139,
+   "flags": "",
+   "desc": "",
+   "depth": 26
+  },
+  {
+   "verb": "-",
+   "widget": "ImageView",
+   "text": "",
+   "rid": "fre_logo",
+   "x": 540,
+   "y": 731,
+   "flags": "",
+   "desc": "",
+   "depth": 28
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Make Chrome your own",
+   "rid": "title",
+   "x": 540,
+   "y": 981,
+   "flags": "",
+   "desc": "",
+   "depth": 28
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Sign in to get your bookmarks, passwords, and more on all your devices",
+   "rid": "subtitle",
+   "x": 540,
+   "y": 1089,
+   "flags": "",
+   "desc": "",
+   "depth": 28
+  },
+  {
+   "verb": "tap",
+   "widget": "Button",
+   "text": "Add account to device",
+   "rid": "signin_fre_continue_button",
+   "x": 540,
+   "y": 1962,
+   "flags": "click focusable",
+   "desc": "",
+   "depth": 28
+  },
+  {
+   "verb": "tap",
+   "widget": "Button",
+   "text": "Use without an account",
+   "rid": "signin_fre_dismiss_button",
+   "x": 540,
+   "y": 2088,
+   "flags": "click focusable",
+   "desc": "",
+   "depth": 28
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "fre_footer_viewgroup",
+   "x": 540,
+   "y": 2223,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "By continuing, you agree to the Terms of Service. To help improve the app, Chrom…",
+   "rid": "signin_fre_footer",
+   "x": 540,
+   "y": 2228,
+   "flags": "long focusable",
+   "desc": "",
+   "depth": 26
+  },
+  {
+   "verb": "-",
+   "widget": "View",
+   "text": "",
+   "rid": "statusBarBackground",
+   "x": 540,
+   "y": 64,
+   "flags": "",
+   "desc": "",
+   "depth": 2
+  },
+  {
+   "verb": "-",
+   "widget": "View",
+   "text": "",
+   "rid": "navigationBarBackground",
+   "x": 540,
+   "y": 2368,
+   "flags": "",
+   "desc": "",
+   "depth": 2
+  }
+ ],
+ "unparsed": [],
+ "fingerprint": "5bc465a4e1b2",
+ "title": "",
+ "selected": [],
+ "visible_texts": [
+  "Make Chrome your own",
+  "Sign in to get your bookmarks, passwords, and more on all your devices",
+  "Add account to device",
+  "Use without an account",
+  "By continuing, you agree to the Terms of Service. To help improve the app, Chrom"
+ ],
+ "variants": {
+  "typesafe": {
+   "criteria": {
+    "n01": "Tap Button \"Add account to device\" [#signin_fre_continue_button]",
+    "n02": "Tap Button \"Use without an account\" [#signin_fre_dismiss_button]",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 2
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "",
+     "selected": [],
+     "visible_texts": [
+      "Make Chrome your own",
+      "Sign in to get your bookmarks, passwords, and more on all your devices",
+      "Add account to device",
+      "Use without an account",
+      "By continuing, you agree to the Terms of Service. To help improve the app, Chrom"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text, paying, or confirming a purchase. Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap Button \"Add account to device\" [#signin_fre_continue_button]",
+      "n02": "Tap Button \"Use without an account\" [#signin_fre_dismiss_button]",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started."
+    }
+   }
+  },
+  "typesafe-risky": {
+   "criteria": {
+    "n01": "Tap Button \"Add account to device\" [#signin_fre_continue_button]",
+    "n02": "Tap Button \"Use without an account\" [#signin_fre_dismiss_button]",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 2
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "",
+     "selected": [],
+     "visible_texts": [
+      "Make Chrome your own",
+      "Sign in to get your bookmarks, passwords, and more on all your devices",
+      "Add account to device",
+      "Use without an account",
+      "By continuing, you agree to the Terms of Service. To help improve the app, Chrom"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text (paying or confirming a purchase IS allowed in this step: it is what the goal asks for). Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap Button \"Add account to device\" [#signin_fre_continue_button]",
+      "n02": "Tap Button \"Use without an account\" [#signin_fre_dismiss_button]",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started."
+    }
+   }
+  },
+  "ollama": {
+   "criteria": {
+    "n01": "Tap Button \"Add account to device\" [#signin_fre_continue_button]",
+    "n02": "Tap Button \"Use without an account\" [#signin_fre_dismiss_button]",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 2
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "",
+     "selected": [],
+     "visible_texts": [
+      "Make Chrome your own",
+      "Sign in to get your bookmarks, passwords, and more on all your devices",
+      "Add account to device",
+      "Use without an account",
+      "By continuing, you agree to the Terms of Service. To help improve the app, Chrom"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text, paying, or confirming a purchase. Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap Button \"Add account to device\" [#signin_fre_continue_button]",
+      "n02": "Tap Button \"Use without an account\" [#signin_fre_dismiss_button]",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started.",
+     "criteria": {
+      "false": "No - the goal is not accomplished yet on this screen",
+      "true": "Yes - the screen/section the goal asks for is already open"
+     }
+    }
+   }
+  }
+ }
+}

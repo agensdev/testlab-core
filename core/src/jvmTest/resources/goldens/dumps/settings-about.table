@@ -1,0 +1,16 @@
+-    FrameLayout  "About emulated device"  #collapsing_toolbar  540,418
+tap  ImageButton  "Navigate up"  73,201
+-    TextView     "Basic info"  #title  550,797
+-    TextView     "Device name"  #title  214,921
+-    TextView     "sdk_gphone64_x86_64"  #summary  251,982
+-    TextView     "Phone number"  #title  234,1127
+-    TextView     "+1 555-123-4567"  #summary  203,1188
+-    TextView     "Legal & regulatory"  #title  550,1344
+-    TextView     "Legal information"  #title  270,1468
+-    TextView     "Device details"  #title  550,1634
+-    TextView     "SIM status"  #title  188,1758
+-    TextView     "T-Mobile"  #summary  133,1819
+-    TextView     "Model"  #title  136,1964
+-    TextView     "sdk_gphone64_x86_64"  #summary  251,2025
+-    TextView     "IMEI"  #title  115,2170
+-    TextView     "867400022047199"  #summary  220,2231

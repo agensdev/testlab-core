@@ -1,0 +1,9016 @@
+{
+ "matrix_dump": "tap  View  \"Go back\"  98,257\ntap  Button  \"Shop\"  #fragment_games  324,2896\ntap  Button  \"Sport\"  #fragment_sport  540,2896\ntap  View  \"Betal 50 kr\"  700,2900\n-  TextView  \"Totalt\"  100,100",
+ "after_dump": "-    TextView     \"Sport\"  #title  540,240\ntap  FrameLayout  \"Bikes\"  #tile_bikes  270,700\ntap  FrameLayout  \"Tennis\"  #tile_tipping  810,700\ntap  FrameLayout  \"Mountain bikes\"  #tile_mtb  270,1100\n-    TextView     \"Kampstart 20:45\"  540,1500\ntap  Button       \"Confirm purchase\"  #confirm_buy  540,1800\ntap  FrameLayout  \"Hjem\"  #fragment_home  108,2896\ntap  FrameLayout  \"Shop\"  #fragment_games  324,2896\ntap  FrameLayout  \"Sport\"  #fragment_sport  540,2896\ntap  FrameLayout  \"My shop\"  #fragment_mine  756,2896\ntap  FrameLayout  \"Profil\"  #fragment_profile  972,2896\n",
+ "cases": [
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n01",
+    "confidence": 0.25,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.25,
+    "n03": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n01",
+    "confidence": 0.25,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.25,
+    "n03": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n01",
+    "confidence": 0.25,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.25,
+    "n03": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n01",
+    "confidence": 0.25,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.25,
+    "n03": 0.45,
+    "blocked": 0.3
+   },
+   "status": "goal_done",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n01",
+    "confidence": 0.35,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.35,
+    "n03": 0.39,
+    "blocked": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n01",
+    "confidence": 0.35,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.35,
+    "n03": 0.39,
+    "blocked": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n01",
+    "confidence": 0.35,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.35,
+    "n03": 0.39,
+    "blocked": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n01",
+    "confidence": 0.35,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.35,
+    "n03": 0.39,
+    "blocked": 0.26
+   },
+   "status": "goal_done",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n01",
+    "confidence": 0.49,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.49,
+    "n03": 0.306,
+    "blocked": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n01",
+    "confidence": 0.49,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.49,
+    "n03": 0.306,
+    "blocked": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n01",
+    "confidence": 0.49,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.49,
+    "n03": 0.306,
+    "blocked": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n01",
+    "confidence": 0.49,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.49,
+    "n03": 0.306,
+    "blocked": 0.204
+   },
+   "status": "goal_done",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n01",
+    "confidence": 0.6,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.6,
+    "n03": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "98",
+     "257"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n01",
+    "confidence": 0.6,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.6,
+    "n03": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "98",
+     "257"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n01",
+    "confidence": 0.6,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.6,
+    "n03": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "98",
+     "257"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n01",
+    "confidence": 0.6,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.6,
+    "n03": 0.24,
+    "blocked": 0.16
+   },
+   "status": "goal_done",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n01",
+    "confidence": 0.9,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.9,
+    "n03": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "98",
+     "257"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n01",
+    "confidence": 0.9,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.9,
+    "n03": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "98",
+     "257"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n01",
+    "confidence": 0.9,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.9,
+    "n03": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "98",
+     "257"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n01",
+    "confidence": 0.9,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.9,
+    "n03": 0.06,
+    "blocked": 0.04
+   },
+   "status": "goal_done",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n03",
+    "confidence": 0.25,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.25,
+    "n01": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n03",
+    "confidence": 0.25,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.25,
+    "n01": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n03",
+    "confidence": 0.25,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.25,
+    "n01": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n03",
+    "confidence": 0.25,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.25,
+    "n01": 0.45,
+    "blocked": 0.3
+   },
+   "status": "goal_done",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n03",
+    "confidence": 0.35,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.35,
+    "n01": 0.39,
+    "blocked": 0.26
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n03",
+    "confidence": 0.35,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.35,
+    "n01": 0.39,
+    "blocked": 0.26
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n03",
+    "confidence": 0.35,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.35,
+    "n01": 0.39,
+    "blocked": 0.26
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n03",
+    "confidence": 0.35,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.35,
+    "n01": 0.39,
+    "blocked": 0.26
+   },
+   "status": "goal_done",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n03",
+    "confidence": 0.49,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.49,
+    "n01": 0.306,
+    "blocked": 0.204
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n03",
+    "confidence": 0.49,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.49,
+    "n01": 0.306,
+    "blocked": 0.204
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n03",
+    "confidence": 0.49,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.49,
+    "n01": 0.306,
+    "blocked": 0.204
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n03",
+    "confidence": 0.49,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.49,
+    "n01": 0.306,
+    "blocked": 0.204
+   },
+   "status": "goal_done",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n03",
+    "confidence": 0.6,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.6,
+    "n01": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n03",
+    "confidence": 0.6,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.6,
+    "n01": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n03",
+    "confidence": 0.6,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.6,
+    "n01": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n03",
+    "confidence": 0.6,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.6,
+    "n01": 0.24,
+    "blocked": 0.16
+   },
+   "status": "goal_done",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n03",
+    "confidence": 0.9,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.9,
+    "n01": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n03",
+    "confidence": 0.9,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.9,
+    "n01": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n03",
+    "confidence": 0.9,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.9,
+    "n01": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n03",
+    "confidence": 0.9,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.9,
+    "n01": 0.06,
+    "blocked": 0.04
+   },
+   "status": "goal_done",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.25,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.25,
+    "n03": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.25,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.25,
+    "n01": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.25,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.25,
+    "n03": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.25,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.25,
+    "n01": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.25,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.25,
+    "n03": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.25,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.25,
+    "n01": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.25,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.25,
+    "n03": 0.45,
+    "blocked": 0.3
+   },
+   "status": "goal_done",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.25,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.25,
+    "n01": 0.45,
+    "blocked": 0.3
+   },
+   "status": "goal_done",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.35,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.35,
+    "n03": 0.39,
+    "blocked": 0.26
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.35,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.35,
+    "n01": 0.39,
+    "blocked": 0.26
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.35,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.35,
+    "n03": 0.39,
+    "blocked": 0.26
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.35,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.35,
+    "n01": 0.39,
+    "blocked": 0.26
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.35,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.35,
+    "n03": 0.39,
+    "blocked": 0.26
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.35,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.35,
+    "n01": 0.39,
+    "blocked": 0.26
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.35,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.35,
+    "n03": 0.39,
+    "blocked": 0.26
+   },
+   "status": "goal_done",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.35,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.35,
+    "n01": 0.39,
+    "blocked": 0.26
+   },
+   "status": "goal_done",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.49,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.49,
+    "n03": 0.306,
+    "blocked": 0.204
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.49,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.49,
+    "n01": 0.306,
+    "blocked": 0.204
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.49,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.49,
+    "n03": 0.306,
+    "blocked": 0.204
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.49,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.49,
+    "n01": 0.306,
+    "blocked": 0.204
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.49,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.49,
+    "n03": 0.306,
+    "blocked": 0.204
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.49,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.49,
+    "n01": 0.306,
+    "blocked": 0.204
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.49,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.49,
+    "n03": 0.306,
+    "blocked": 0.204
+   },
+   "status": "goal_done",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.49,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.49,
+    "n01": 0.306,
+    "blocked": 0.204
+   },
+   "status": "goal_done",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.6,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.6,
+    "n03": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.6,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.6,
+    "n01": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.6,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.6,
+    "n03": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.6,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.6,
+    "n01": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.6,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.6,
+    "n03": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.6,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.6,
+    "n01": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.6,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.6,
+    "n03": 0.24,
+    "blocked": 0.16
+   },
+   "status": "goal_done",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.6,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.6,
+    "n01": 0.24,
+    "blocked": 0.16
+   },
+   "status": "goal_done",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.9,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.9,
+    "n03": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.9,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.9,
+    "n01": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.9,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.9,
+    "n03": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.9,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.9,
+    "n01": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.9,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.9,
+    "n03": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.9,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.9,
+    "n01": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.9,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.9,
+    "n03": 0.06,
+    "blocked": 0.04
+   },
+   "status": "goal_done",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "n04",
+    "confidence": 0.9,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.9,
+    "n01": 0.06,
+    "blocked": 0.04
+   },
+   "status": "goal_done",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.25,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.25,
+    "n03": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.25,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.25,
+    "n01": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.25,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.25,
+    "n03": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.25,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.25,
+    "n01": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.25,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.25,
+    "n03": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.25,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.25,
+    "n01": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.25,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.25,
+    "n03": 0.45,
+    "blocked": 0.3
+   },
+   "status": "goal_done",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.25,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.25,
+    "n01": 0.45,
+    "blocked": 0.3
+   },
+   "status": "goal_done",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.35,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.35,
+    "n03": 0.39,
+    "blocked": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.35,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.35,
+    "n01": 0.39,
+    "blocked": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.35,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.35,
+    "n03": 0.39,
+    "blocked": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.35,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.35,
+    "n01": 0.39,
+    "blocked": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.35,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.35,
+    "n03": 0.39,
+    "blocked": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.35,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.35,
+    "n01": 0.39,
+    "blocked": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.35,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.35,
+    "n03": 0.39,
+    "blocked": 0.26
+   },
+   "status": "goal_done",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.35,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.35,
+    "n01": 0.39,
+    "blocked": 0.26
+   },
+   "status": "goal_done",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.49,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.49,
+    "n03": 0.306,
+    "blocked": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.49,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.49,
+    "n01": 0.306,
+    "blocked": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.49,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.49,
+    "n03": 0.306,
+    "blocked": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.49,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.49,
+    "n01": 0.306,
+    "blocked": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.49,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.49,
+    "n03": 0.306,
+    "blocked": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.49,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.49,
+    "n01": 0.306,
+    "blocked": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.49,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.49,
+    "n03": 0.306,
+    "blocked": 0.204
+   },
+   "status": "goal_done",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.49,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.49,
+    "n01": 0.306,
+    "blocked": 0.204
+   },
+   "status": "goal_done",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.6,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.6,
+    "n03": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "swipe",
+     "up"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.6,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.6,
+    "n01": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "swipe",
+     "up"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.6,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.6,
+    "n03": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "swipe",
+     "up"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.6,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.6,
+    "n01": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "swipe",
+     "up"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.6,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.6,
+    "n03": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "swipe",
+     "up"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.6,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.6,
+    "n01": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "swipe",
+     "up"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.6,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.6,
+    "n03": 0.24,
+    "blocked": 0.16
+   },
+   "status": "goal_done",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.6,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.6,
+    "n01": 0.24,
+    "blocked": 0.16
+   },
+   "status": "goal_done",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.9,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.9,
+    "n03": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "swipe",
+     "up"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.9,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.9,
+    "n01": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "swipe",
+     "up"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.9,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.9,
+    "n03": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "swipe",
+     "up"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.9,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.9,
+    "n01": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "swipe",
+     "up"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.9,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.9,
+    "n03": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "swipe",
+     "up"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.9,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.9,
+    "n01": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "swipe",
+     "up"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.9,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.9,
+    "n03": 0.06,
+    "blocked": 0.04
+   },
+   "status": "goal_done",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "scroll_down",
+    "confidence": 0.9,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.9,
+    "n01": 0.06,
+    "blocked": 0.04
+   },
+   "status": "goal_done",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.25,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.25,
+    "n03": 0.45,
+    "blocked": 0.3
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "goal_done",
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.25,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.25,
+    "n01": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.25,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.25,
+    "n03": 0.45,
+    "blocked": 0.3
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "goal_done",
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.25,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.25,
+    "n01": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.25,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.25,
+    "n03": 0.45,
+    "blocked": 0.3
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "goal_done",
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.25,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.25,
+    "n01": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.25,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.25,
+    "n03": 0.45,
+    "blocked": 0.3
+   },
+   "status": "goal_done",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.25,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.25,
+    "n01": 0.45,
+    "blocked": 0.3
+   },
+   "status": "goal_done",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.35,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.35,
+    "n03": 0.39,
+    "blocked": 0.26
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "goal_done",
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.35,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.35,
+    "n01": 0.39,
+    "blocked": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.35,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.35,
+    "n03": 0.39,
+    "blocked": 0.26
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "goal_done",
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.35,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.35,
+    "n01": 0.39,
+    "blocked": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.35,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.35,
+    "n03": 0.39,
+    "blocked": 0.26
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "goal_done",
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.35,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.35,
+    "n01": 0.39,
+    "blocked": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.35,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.35,
+    "n03": 0.39,
+    "blocked": 0.26
+   },
+   "status": "goal_done",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.35,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.35,
+    "n01": 0.39,
+    "blocked": 0.26
+   },
+   "status": "goal_done",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.49,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.49,
+    "n03": 0.306,
+    "blocked": 0.204
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "goal_done",
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.49,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.49,
+    "n01": 0.306,
+    "blocked": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.49,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.49,
+    "n03": 0.306,
+    "blocked": 0.204
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "goal_done",
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.49,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.49,
+    "n01": 0.306,
+    "blocked": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.49,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.49,
+    "n03": 0.306,
+    "blocked": 0.204
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "goal_done",
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.49,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.49,
+    "n01": 0.306,
+    "blocked": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.49,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.49,
+    "n03": 0.306,
+    "blocked": 0.204
+   },
+   "status": "goal_done",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.49,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.49,
+    "n01": 0.306,
+    "blocked": 0.204
+   },
+   "status": "goal_done",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.6,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.6,
+    "n03": 0.24,
+    "blocked": 0.16
+   },
+   "status": "goal_done",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.6,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.6,
+    "n01": 0.24,
+    "blocked": 0.16
+   },
+   "status": "goal_done",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.6,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.6,
+    "n03": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "goal_done",
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.6,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.6,
+    "n01": 0.24,
+    "blocked": 0.16
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.6,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.6,
+    "n03": 0.24,
+    "blocked": 0.16
+   },
+   "status": "goal_done",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.6,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.6,
+    "n01": 0.24,
+    "blocked": 0.16
+   },
+   "status": "goal_done",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.6,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.6,
+    "n03": 0.24,
+    "blocked": 0.16
+   },
+   "status": "goal_done",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.6,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.6,
+    "n01": 0.24,
+    "blocked": 0.16
+   },
+   "status": "goal_done",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.9,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.9,
+    "n03": 0.06,
+    "blocked": 0.04
+   },
+   "status": "goal_done",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.9,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.9,
+    "n01": 0.06,
+    "blocked": 0.04
+   },
+   "status": "goal_done",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.9,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.9,
+    "n03": 0.06,
+    "blocked": 0.04
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.9,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.9,
+    "n01": 0.06,
+    "blocked": 0.04
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.9,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.9,
+    "n03": 0.06,
+    "blocked": 0.04
+   },
+   "status": "goal_done",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.9,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.9,
+    "n01": 0.06,
+    "blocked": 0.04
+   },
+   "status": "goal_done",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.9,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.9,
+    "n03": 0.06,
+    "blocked": 0.04
+   },
+   "status": "goal_done",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "goal_done",
+    "confidence": 0.9,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.9,
+    "n01": 0.06,
+    "blocked": 0.04
+   },
+   "status": "goal_done",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.25,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.25,
+    "n03": 0.45,
+    "goal_done": 0.3
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "blocked",
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.25,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.25,
+    "n01": 0.45,
+    "goal_done": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.25,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.25,
+    "n03": 0.45,
+    "goal_done": 0.3
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "blocked",
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.25,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.25,
+    "n01": 0.45,
+    "goal_done": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.25,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.25,
+    "n03": 0.45,
+    "goal_done": 0.3
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "blocked",
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.25,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.25,
+    "n01": 0.45,
+    "goal_done": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.25,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.25,
+    "n03": 0.45,
+    "goal_done": 0.3
+   },
+   "status": "goal_done",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.25,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.25,
+    "n01": 0.45,
+    "goal_done": 0.3
+   },
+   "status": "goal_done",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.35,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.35,
+    "n03": 0.39,
+    "goal_done": 0.26
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "blocked",
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.35,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.35,
+    "n01": 0.39,
+    "goal_done": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.35,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.35,
+    "n03": 0.39,
+    "goal_done": 0.26
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "blocked",
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.35,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.35,
+    "n01": 0.39,
+    "goal_done": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.35,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.35,
+    "n03": 0.39,
+    "goal_done": 0.26
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "blocked",
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.35,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.35,
+    "n01": 0.39,
+    "goal_done": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.35,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.35,
+    "n03": 0.39,
+    "goal_done": 0.26
+   },
+   "status": "goal_done",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.35,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.35,
+    "n01": 0.39,
+    "goal_done": 0.26
+   },
+   "status": "goal_done",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.49,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.49,
+    "n03": 0.306,
+    "goal_done": 0.204
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "blocked",
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.49,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.49,
+    "n01": 0.306,
+    "goal_done": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.49,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.49,
+    "n03": 0.306,
+    "goal_done": 0.204
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "blocked",
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.49,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.49,
+    "n01": 0.306,
+    "goal_done": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.49,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.49,
+    "n03": 0.306,
+    "goal_done": 0.204
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "blocked",
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.49,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.49,
+    "n01": 0.306,
+    "goal_done": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.49,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.49,
+    "n03": 0.306,
+    "goal_done": 0.204
+   },
+   "status": "goal_done",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.49,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.49,
+    "n01": 0.306,
+    "goal_done": 0.204
+   },
+   "status": "goal_done",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.6,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.6,
+    "n03": 0.24,
+    "goal_done": 0.16
+   },
+   "status": "blocked",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.6,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.6,
+    "n01": 0.24,
+    "goal_done": 0.16
+   },
+   "status": "blocked",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.6,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.6,
+    "n03": 0.24,
+    "goal_done": 0.16
+   },
+   "status": "blocked",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.6,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.6,
+    "n01": 0.24,
+    "goal_done": 0.16
+   },
+   "status": "blocked",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.6,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.6,
+    "n03": 0.24,
+    "goal_done": 0.16
+   },
+   "status": "blocked",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.6,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.6,
+    "n01": 0.24,
+    "goal_done": 0.16
+   },
+   "status": "blocked",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.6,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.6,
+    "n03": 0.24,
+    "goal_done": 0.16
+   },
+   "status": "goal_done",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.6,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.6,
+    "n01": 0.24,
+    "goal_done": 0.16
+   },
+   "status": "goal_done",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.9,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.9,
+    "n03": 0.06,
+    "goal_done": 0.04
+   },
+   "status": "blocked",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.9,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.9,
+    "n01": 0.06,
+    "goal_done": 0.04
+   },
+   "status": "blocked",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.9,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.9,
+    "n03": 0.06,
+    "goal_done": 0.04
+   },
+   "status": "blocked",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.9,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.9,
+    "n01": 0.06,
+    "goal_done": 0.04
+   },
+   "status": "blocked",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.9,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.9,
+    "n03": 0.06,
+    "goal_done": 0.04
+   },
+   "status": "blocked",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.9,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.9,
+    "n01": 0.06,
+    "goal_done": 0.04
+   },
+   "status": "blocked",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.9,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.9,
+    "n03": 0.06,
+    "goal_done": 0.04
+   },
+   "status": "goal_done",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Open the Sport tab",
+    "choice": "blocked",
+    "confidence": 0.9,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.9,
+    "n01": 0.06,
+    "goal_done": 0.04
+   },
+   "status": "goal_done",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n01",
+    "confidence": 0.25,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.25,
+    "n03": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n01",
+    "confidence": 0.25,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.25,
+    "n03": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n01",
+    "confidence": 0.25,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.25,
+    "n03": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n01",
+    "confidence": 0.25,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.25,
+    "n03": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n01",
+    "confidence": 0.35,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.35,
+    "n03": 0.39,
+    "blocked": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n01",
+    "confidence": 0.35,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.35,
+    "n03": 0.39,
+    "blocked": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n01",
+    "confidence": 0.35,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.35,
+    "n03": 0.39,
+    "blocked": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n01",
+    "confidence": 0.35,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.35,
+    "n03": 0.39,
+    "blocked": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n01",
+    "confidence": 0.49,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.49,
+    "n03": 0.306,
+    "blocked": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n01",
+    "confidence": 0.49,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.49,
+    "n03": 0.306,
+    "blocked": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n01",
+    "confidence": 0.49,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.49,
+    "n03": 0.306,
+    "blocked": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n01",
+    "confidence": 0.49,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.49,
+    "n03": 0.306,
+    "blocked": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n01",
+    "confidence": 0.6,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.6,
+    "n03": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "98",
+     "257"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n01",
+    "confidence": 0.6,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.6,
+    "n03": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "98",
+     "257"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n01",
+    "confidence": 0.6,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.6,
+    "n03": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "98",
+     "257"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n01",
+    "confidence": 0.6,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.6,
+    "n03": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "98",
+     "257"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n01",
+    "confidence": 0.9,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.9,
+    "n03": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "98",
+     "257"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n01",
+    "confidence": 0.9,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.9,
+    "n03": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "98",
+     "257"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n01",
+    "confidence": 0.9,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.9,
+    "n03": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "98",
+     "257"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n01",
+    "confidence": 0.9,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n01": 0.9,
+    "n03": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "n01",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "98",
+     "257"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n03",
+    "confidence": 0.25,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.25,
+    "n01": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n03",
+    "confidence": 0.25,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.25,
+    "n01": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n03",
+    "confidence": 0.25,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.25,
+    "n01": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n03",
+    "confidence": 0.25,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.25,
+    "n01": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n03",
+    "confidence": 0.35,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.35,
+    "n01": 0.39,
+    "blocked": 0.26
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n03",
+    "confidence": 0.35,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.35,
+    "n01": 0.39,
+    "blocked": 0.26
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n03",
+    "confidence": 0.35,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.35,
+    "n01": 0.39,
+    "blocked": 0.26
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n03",
+    "confidence": 0.35,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.35,
+    "n01": 0.39,
+    "blocked": 0.26
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n03",
+    "confidence": 0.49,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.49,
+    "n01": 0.306,
+    "blocked": 0.204
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n03",
+    "confidence": 0.49,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.49,
+    "n01": 0.306,
+    "blocked": 0.204
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n03",
+    "confidence": 0.49,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.49,
+    "n01": 0.306,
+    "blocked": 0.204
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n03",
+    "confidence": 0.49,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.49,
+    "n01": 0.306,
+    "blocked": 0.204
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n03",
+    "confidence": 0.6,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.6,
+    "n01": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n03",
+    "confidence": 0.6,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.6,
+    "n01": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n03",
+    "confidence": 0.6,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.6,
+    "n01": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n03",
+    "confidence": 0.6,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.6,
+    "n01": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n03",
+    "confidence": 0.9,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.9,
+    "n01": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n03",
+    "confidence": 0.9,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.9,
+    "n01": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n03",
+    "confidence": 0.9,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.9,
+    "n01": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n03",
+    "confidence": 0.9,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n03": 0.9,
+    "n01": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.25,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.25,
+    "n03": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.25,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.25,
+    "n01": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.25,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.25,
+    "n03": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.25,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.25,
+    "n01": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.25,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.25,
+    "n03": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.25,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.25,
+    "n01": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.25,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.25,
+    "n03": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.25,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.25,
+    "n01": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.35,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.35,
+    "n03": 0.39,
+    "blocked": 0.26
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.35,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.35,
+    "n01": 0.39,
+    "blocked": 0.26
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.35,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.35,
+    "n03": 0.39,
+    "blocked": 0.26
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.35,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.35,
+    "n01": 0.39,
+    "blocked": 0.26
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.35,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.35,
+    "n03": 0.39,
+    "blocked": 0.26
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.35,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.35,
+    "n01": 0.39,
+    "blocked": 0.26
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.35,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.35,
+    "n03": 0.39,
+    "blocked": 0.26
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.35,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.35,
+    "n01": 0.39,
+    "blocked": 0.26
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.49,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.49,
+    "n03": 0.306,
+    "blocked": 0.204
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.49,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.49,
+    "n01": 0.306,
+    "blocked": 0.204
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.49,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.49,
+    "n03": 0.306,
+    "blocked": 0.204
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.49,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.49,
+    "n01": 0.306,
+    "blocked": 0.204
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.49,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.49,
+    "n03": 0.306,
+    "blocked": 0.204
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.49,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.49,
+    "n01": 0.306,
+    "blocked": 0.204
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.49,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.49,
+    "n03": 0.306,
+    "blocked": 0.204
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.49,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.49,
+    "n01": 0.306,
+    "blocked": 0.204
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.6,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.6,
+    "n03": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.6,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.6,
+    "n01": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.6,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.6,
+    "n03": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.6,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.6,
+    "n01": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.6,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.6,
+    "n03": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.6,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.6,
+    "n01": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.6,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.6,
+    "n03": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.6,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.6,
+    "n01": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.9,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.9,
+    "n03": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.9,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.9,
+    "n01": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.9,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.9,
+    "n03": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.9,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.9,
+    "n01": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.9,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.9,
+    "n03": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.9,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.9,
+    "n01": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.9,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "n04": 0.9,
+    "n03": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "n04",
+    "confidence": 0.9,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "n04": 0.9,
+    "n01": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "n04",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "700",
+     "2900"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.25,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.25,
+    "n03": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.25,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.25,
+    "n01": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.25,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.25,
+    "n03": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.25,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.25,
+    "n01": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.25,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.25,
+    "n03": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.25,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.25,
+    "n01": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.25,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.25,
+    "n03": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.25,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.25,
+    "n01": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.35,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.35,
+    "n03": 0.39,
+    "blocked": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.35,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.35,
+    "n01": 0.39,
+    "blocked": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.35,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.35,
+    "n03": 0.39,
+    "blocked": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.35,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.35,
+    "n01": 0.39,
+    "blocked": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.35,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.35,
+    "n03": 0.39,
+    "blocked": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.35,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.35,
+    "n01": 0.39,
+    "blocked": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.35,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.35,
+    "n03": 0.39,
+    "blocked": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.35,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.35,
+    "n01": 0.39,
+    "blocked": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.49,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.49,
+    "n03": 0.306,
+    "blocked": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.49,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.49,
+    "n01": 0.306,
+    "blocked": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.49,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.49,
+    "n03": 0.306,
+    "blocked": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.49,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.49,
+    "n01": 0.306,
+    "blocked": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.49,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.49,
+    "n03": 0.306,
+    "blocked": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.49,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.49,
+    "n01": 0.306,
+    "blocked": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.49,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.49,
+    "n03": 0.306,
+    "blocked": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.49,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.49,
+    "n01": 0.306,
+    "blocked": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.6,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.6,
+    "n03": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "swipe",
+     "up"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.6,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.6,
+    "n01": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "swipe",
+     "up"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.6,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.6,
+    "n03": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "swipe",
+     "up"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.6,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.6,
+    "n01": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "swipe",
+     "up"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.6,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.6,
+    "n03": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "swipe",
+     "up"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.6,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.6,
+    "n01": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "swipe",
+     "up"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.6,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.6,
+    "n03": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "swipe",
+     "up"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.6,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.6,
+    "n01": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "swipe",
+     "up"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.9,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.9,
+    "n03": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "swipe",
+     "up"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.9,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.9,
+    "n01": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "swipe",
+     "up"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.9,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.9,
+    "n03": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "swipe",
+     "up"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.9,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.9,
+    "n01": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "swipe",
+     "up"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.9,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.9,
+    "n03": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "swipe",
+     "up"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.9,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.9,
+    "n01": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "swipe",
+     "up"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.9,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "scroll_down": 0.9,
+    "n03": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "swipe",
+     "up"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "scroll_down",
+    "confidence": 0.9,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "scroll_down": 0.9,
+    "n01": 0.06,
+    "blocked": 0.04
+   },
+   "status": "acted",
+   "choice": "scroll_down",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "swipe",
+     "up"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.25,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.25,
+    "n03": 0.45,
+    "blocked": 0.3
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "goal_done",
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.25,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.25,
+    "n01": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.25,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.25,
+    "n03": 0.45,
+    "blocked": 0.3
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "goal_done",
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.25,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.25,
+    "n01": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.25,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.25,
+    "n03": 0.45,
+    "blocked": 0.3
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "goal_done",
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.25,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.25,
+    "n01": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.25,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.25,
+    "n03": 0.45,
+    "blocked": 0.3
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "goal_done",
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.25,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.25,
+    "n01": 0.45,
+    "blocked": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.35,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.35,
+    "n03": 0.39,
+    "blocked": 0.26
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "goal_done",
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.35,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.35,
+    "n01": 0.39,
+    "blocked": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.35,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.35,
+    "n03": 0.39,
+    "blocked": 0.26
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "goal_done",
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.35,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.35,
+    "n01": 0.39,
+    "blocked": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.35,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.35,
+    "n03": 0.39,
+    "blocked": 0.26
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "goal_done",
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.35,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.35,
+    "n01": 0.39,
+    "blocked": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.35,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.35,
+    "n03": 0.39,
+    "blocked": 0.26
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "goal_done",
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.35,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.35,
+    "n01": 0.39,
+    "blocked": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.49,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.49,
+    "n03": 0.306,
+    "blocked": 0.204
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "goal_done",
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.49,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.49,
+    "n01": 0.306,
+    "blocked": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.49,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.49,
+    "n03": 0.306,
+    "blocked": 0.204
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "goal_done",
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.49,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.49,
+    "n01": 0.306,
+    "blocked": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.49,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.49,
+    "n03": 0.306,
+    "blocked": 0.204
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "goal_done",
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.49,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.49,
+    "n01": 0.306,
+    "blocked": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.49,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.49,
+    "n03": 0.306,
+    "blocked": 0.204
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "goal_done",
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.49,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.49,
+    "n01": 0.306,
+    "blocked": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.6,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.6,
+    "n03": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "goal_done",
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.6,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.6,
+    "n01": 0.24,
+    "blocked": 0.16
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.6,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.6,
+    "n03": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "goal_done",
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.6,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.6,
+    "n01": 0.24,
+    "blocked": 0.16
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.6,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.6,
+    "n03": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "goal_done",
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.6,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.6,
+    "n01": 0.24,
+    "blocked": 0.16
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.6,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.6,
+    "n03": 0.24,
+    "blocked": 0.16
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "goal_done",
+   "low_confidence_act": false,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.6,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.6,
+    "n01": 0.24,
+    "blocked": 0.16
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.9,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.9,
+    "n03": 0.06,
+    "blocked": 0.04
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.9,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.9,
+    "n01": 0.06,
+    "blocked": 0.04
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.9,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.9,
+    "n03": 0.06,
+    "blocked": 0.04
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.9,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.9,
+    "n01": 0.06,
+    "blocked": 0.04
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.9,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.9,
+    "n03": 0.06,
+    "blocked": 0.04
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.9,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.9,
+    "n01": 0.06,
+    "blocked": 0.04
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.9,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "goal_done": 0.9,
+    "n03": 0.06,
+    "blocked": 0.04
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "goal_done",
+    "confidence": 0.9,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "goal_done": 0.9,
+    "n01": 0.06,
+    "blocked": 0.04
+   },
+   "status": "needs_decision",
+   "choice": "goal_done",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.25,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.25,
+    "n03": 0.45,
+    "goal_done": 0.3
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "blocked",
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.25,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.25,
+    "n01": 0.45,
+    "goal_done": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.25,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.25,
+    "n03": 0.45,
+    "goal_done": 0.3
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "blocked",
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.25,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.25,
+    "n01": 0.45,
+    "goal_done": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.25,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.25,
+    "n03": 0.45,
+    "goal_done": 0.3
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "blocked",
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.25,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.25,
+    "n01": 0.45,
+    "goal_done": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.25,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.25,
+    "n03": 0.45,
+    "goal_done": 0.3
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "blocked",
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.25,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.25,
+    "n01": 0.45,
+    "goal_done": 0.3
+   },
+   "status": "needs_decision",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.35,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.35,
+    "n03": 0.39,
+    "goal_done": 0.26
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "blocked",
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.35,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.35,
+    "n01": 0.39,
+    "goal_done": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.35,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.35,
+    "n03": 0.39,
+    "goal_done": 0.26
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "blocked",
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.35,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.35,
+    "n01": 0.39,
+    "goal_done": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.35,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.35,
+    "n03": 0.39,
+    "goal_done": 0.26
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "blocked",
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.35,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.35,
+    "n01": 0.39,
+    "goal_done": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.35,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.35,
+    "n03": 0.39,
+    "goal_done": 0.26
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "blocked",
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.35,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.35,
+    "n01": 0.39,
+    "goal_done": 0.26
+   },
+   "status": "needs_decision",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.49,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.49,
+    "n03": 0.306,
+    "goal_done": 0.204
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "blocked",
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.49,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.49,
+    "n01": 0.306,
+    "goal_done": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.49,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.49,
+    "n03": 0.306,
+    "goal_done": 0.204
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "blocked",
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.49,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.49,
+    "n01": 0.306,
+    "goal_done": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.49,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.49,
+    "n03": 0.306,
+    "goal_done": 0.204
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "blocked",
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.49,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.49,
+    "n01": 0.306,
+    "goal_done": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.49,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.49,
+    "n03": 0.306,
+    "goal_done": 0.204
+   },
+   "status": "acted",
+   "choice": "n03",
+   "fallback_from": "blocked",
+   "low_confidence_act": true,
+   "executed": true,
+   "calls": [
+    [
+     "tap",
+     "540",
+     "2896"
+    ]
+   ]
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.49,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.49,
+    "n01": 0.306,
+    "goal_done": 0.204
+   },
+   "status": "needs_decision",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.6,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.6,
+    "n03": 0.24,
+    "goal_done": 0.16
+   },
+   "status": "blocked",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.6,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.6,
+    "n01": 0.24,
+    "goal_done": 0.16
+   },
+   "status": "blocked",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.6,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.6,
+    "n03": 0.24,
+    "goal_done": 0.16
+   },
+   "status": "blocked",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.6,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.6,
+    "n01": 0.24,
+    "goal_done": 0.16
+   },
+   "status": "blocked",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.6,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.6,
+    "n03": 0.24,
+    "goal_done": 0.16
+   },
+   "status": "blocked",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.6,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.6,
+    "n01": 0.24,
+    "goal_done": 0.16
+   },
+   "status": "blocked",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.6,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.6,
+    "n03": 0.24,
+    "goal_done": 0.16
+   },
+   "status": "blocked",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.6,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.6,
+    "n01": 0.24,
+    "goal_done": 0.16
+   },
+   "status": "blocked",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.9,
+    "done": null,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.9,
+    "n03": 0.06,
+    "goal_done": 0.04
+   },
+   "status": "blocked",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.9,
+    "done": null,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.9,
+    "n01": 0.06,
+    "goal_done": 0.04
+   },
+   "status": "blocked",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.9,
+    "done": 0.1,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.9,
+    "n03": 0.06,
+    "goal_done": 0.04
+   },
+   "status": "blocked",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.9,
+    "done": 0.1,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.9,
+    "n01": 0.06,
+    "goal_done": 0.04
+   },
+   "status": "blocked",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.9,
+    "done": 0.3,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.9,
+    "n03": 0.06,
+    "goal_done": 0.04
+   },
+   "status": "blocked",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.9,
+    "done": 0.3,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.9,
+    "n01": 0.06,
+    "goal_done": 0.04
+   },
+   "status": "blocked",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.9,
+    "done": 0.7,
+    "second": "n03"
+   },
+   "probabilities": {
+    "blocked": 0.9,
+    "n03": 0.06,
+    "goal_done": 0.04
+   },
+   "status": "blocked",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  },
+  {
+   "case": {
+    "goal": "Tap the Sport row",
+    "choice": "blocked",
+    "confidence": 0.9,
+    "done": 0.7,
+    "second": "n01"
+   },
+   "probabilities": {
+    "blocked": 0.9,
+    "n01": 0.06,
+    "goal_done": 0.04
+   },
+   "status": "blocked",
+   "choice": "blocked",
+   "fallback_from": null,
+   "low_confidence_act": false,
+   "executed": false,
+   "calls": []
+  }
+ ]
+}

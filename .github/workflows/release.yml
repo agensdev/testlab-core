@@ -1,0 +1,63 @@
+name: release
+
+# A tag vMAJOR.MINOR.PATCH builds the CLI packages (build.yml: Linux tests, then one job per OS)
+# and publishes them on a GitHub Release with SHA256SUMS, marked as the latest release (so
+# releases/latest always leads to the newest one).
+# Budget on a private repo: about 150 of the 2,000 free minutes (macOS counts ×10, Windows ×2).
+on:
+  push:
+    tags: ['v[0-9]+.[0-9]+.[0-9]+']
+
+permissions:
+  contents: read
+
+jobs:
+  version:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.v.outputs.version }}
+    steps:
+      - id: v
+        run: echo "version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+
+  build:
+    needs: version
+    uses: ./.github/workflows/build.yml
+    with:
+      version: ${{ needs.version.outputs.version }}
+    secrets: inherit
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/download-artifact@v7
+        with:
+          pattern: dist-*
+          merge-multiple: true
+          path: dist
+      - name: Every OS delivered
+        run: |
+          set -euo pipefail
+          ls -la dist
+          # The CLI for macOS and Linux (Windows only with build.yml all-platforms).
+          for pat in '*-cli-*-macos-arm64.tar.gz' '*-cli-*-linux-x64.tar.gz'; do
+            compgen -G "dist/$pat" >/dev/null || { echo "missing $pat" >&2; exit 1; }
+          done
+      - name: Installer
+        run: cp scripts/install.sh dist/install.sh
+      - name: Checksums
+        run: cd dist && sha256sum * | tee SHA256SUMS
+      - name: Create the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          name=$(sed -n 's/^testlab\.name=//p' gradle.properties)
+          gh release create "$GITHUB_REF_NAME" dist/* \
+            --title "$name ${GITHUB_REF_NAME#v}" \
+            --notes-file docs/release-notes-header.md \
+            --generate-notes \
+            --latest

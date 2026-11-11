@@ -1,0 +1,792 @@
+{
+ "dump": "tap   LinearLayout  #dialpad_view  540,1766\nfill  EditText      \"Phone Number\"  #digits  540,1268  [long]\ntap   ImageButton   \"backspace\"  #deleteButton  1006,1268  [long]\ntap   FrameLayout   \"1,\"  #one  193,1459  [long]\n-     TextView      \"1\"  #dialpad_key_number  193,1429\ntap   FrameLayout   \"2,ABC\"  #two  539,1459\n-     TextView      \"2\"  #dialpad_key_number  538,1430\n-     TextView      \"ABC\"  #dialpad_key_letters  538,1497\ntap   FrameLayout   \"3,DEF\"  #three  885,1459\n-     TextView      \"3\"  #dialpad_key_number  884,1431\n-     TextView      \"DEF\"  #dialpad_key_letters  885,1498\ntap   FrameLayout   \"4,GHI\"  #four  193,1649\n-     TextView      \"4\"  #dialpad_key_number  193,1619\n-     TextView      \"GHI\"  #dialpad_key_letters  193,1686\ntap   FrameLayout   \"5,JKL\"  #five  539,1649\n-     TextView      \"5\"  #dialpad_key_number  538,1620\n-     TextView      \"JKL\"  #dialpad_key_letters  539,1688\ntap   FrameLayout   \"6,MNO\"  #six  885,1649\n-     TextView      \"6\"  #dialpad_key_number  885,1620\n-     TextView      \"MNO\"  #dialpad_key_letters  885,1687\ntap   FrameLayout   \"7,PQRS\"  #seven  193,1839\n-     TextView      \"7\"  #dialpad_key_number  193,1809\n-     TextView      \"PQRS\"  #dialpad_key_letters  193,1877\ntap   FrameLayout   \"8,TUV\"  #eight  539,1839\n-     TextView      \"8\"  #dialpad_key_number  539,1811\n-     TextView      \"TUV\"  #dialpad_key_letters  539,1878\ntap   FrameLayout   \"9,WXYZ\"  #nine  885,1839\n-     TextView      \"9\"  #dialpad_key_number  885,1810\n-     TextView      \"WXYZ\"  #dialpad_key_letters  885,1877\ntap   FrameLayout   \"*\"  #star  193,2029\n-     TextView      \"*\"  #dialpad_key_number  193,2011\ntap   FrameLayout   \"0\"  #zero  539,2029  [long]\n-     TextView      \"0\"  #dialpad_key_number  539,2001\n-     TextView      \"+\"  #dialpad_key_letters  538,2068\ntap   FrameLayout   \"#\"  #pound  885,2029\n-     TextView      \"#\"  #dialpad_key_number  884,2011\ntap   Button        \"Call\"  #dialpad_voice_call_button  540,2231\n",
+ "nodes": [
+  {
+   "verb": "tap",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "dialpad_view",
+   "x": 540,
+   "y": 1766,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "fill",
+   "widget": "EditText",
+   "text": "Phone Number",
+   "rid": "digits",
+   "x": 540,
+   "y": 1268,
+   "flags": "long",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "ImageButton",
+   "text": "backspace",
+   "rid": "deleteButton",
+   "x": 1006,
+   "y": 1268,
+   "flags": "long",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "FrameLayout",
+   "text": "1,",
+   "rid": "one",
+   "x": 193,
+   "y": 1459,
+   "flags": "long",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "1",
+   "rid": "dialpad_key_number",
+   "x": 193,
+   "y": 1429,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "FrameLayout",
+   "text": "2,ABC",
+   "rid": "two",
+   "x": 539,
+   "y": 1459,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "2",
+   "rid": "dialpad_key_number",
+   "x": 538,
+   "y": 1430,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "ABC",
+   "rid": "dialpad_key_letters",
+   "x": 538,
+   "y": 1497,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "FrameLayout",
+   "text": "3,DEF",
+   "rid": "three",
+   "x": 885,
+   "y": 1459,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "3",
+   "rid": "dialpad_key_number",
+   "x": 884,
+   "y": 1431,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "DEF",
+   "rid": "dialpad_key_letters",
+   "x": 885,
+   "y": 1498,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "FrameLayout",
+   "text": "4,GHI",
+   "rid": "four",
+   "x": 193,
+   "y": 1649,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "4",
+   "rid": "dialpad_key_number",
+   "x": 193,
+   "y": 1619,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "GHI",
+   "rid": "dialpad_key_letters",
+   "x": 193,
+   "y": 1686,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "FrameLayout",
+   "text": "5,JKL",
+   "rid": "five",
+   "x": 539,
+   "y": 1649,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "5",
+   "rid": "dialpad_key_number",
+   "x": 538,
+   "y": 1620,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "JKL",
+   "rid": "dialpad_key_letters",
+   "x": 539,
+   "y": 1688,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "FrameLayout",
+   "text": "6,MNO",
+   "rid": "six",
+   "x": 885,
+   "y": 1649,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "6",
+   "rid": "dialpad_key_number",
+   "x": 885,
+   "y": 1620,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "MNO",
+   "rid": "dialpad_key_letters",
+   "x": 885,
+   "y": 1687,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "FrameLayout",
+   "text": "7,PQRS",
+   "rid": "seven",
+   "x": 193,
+   "y": 1839,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "7",
+   "rid": "dialpad_key_number",
+   "x": 193,
+   "y": 1809,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "PQRS",
+   "rid": "dialpad_key_letters",
+   "x": 193,
+   "y": 1877,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "FrameLayout",
+   "text": "8,TUV",
+   "rid": "eight",
+   "x": 539,
+   "y": 1839,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "8",
+   "rid": "dialpad_key_number",
+   "x": 539,
+   "y": 1811,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "TUV",
+   "rid": "dialpad_key_letters",
+   "x": 539,
+   "y": 1878,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "FrameLayout",
+   "text": "9,WXYZ",
+   "rid": "nine",
+   "x": 885,
+   "y": 1839,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "9",
+   "rid": "dialpad_key_number",
+   "x": 885,
+   "y": 1810,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "WXYZ",
+   "rid": "dialpad_key_letters",
+   "x": 885,
+   "y": 1877,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "FrameLayout",
+   "text": "*",
+   "rid": "star",
+   "x": 193,
+   "y": 2029,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "*",
+   "rid": "dialpad_key_number",
+   "x": 193,
+   "y": 2011,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "FrameLayout",
+   "text": "0",
+   "rid": "zero",
+   "x": 539,
+   "y": 2029,
+   "flags": "long",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "0",
+   "rid": "dialpad_key_number",
+   "x": 539,
+   "y": 2001,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "+",
+   "rid": "dialpad_key_letters",
+   "x": 538,
+   "y": 2068,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "FrameLayout",
+   "text": "#",
+   "rid": "pound",
+   "x": 885,
+   "y": 2029,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "#",
+   "rid": "dialpad_key_number",
+   "x": 884,
+   "y": 2011,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "Button",
+   "text": "Call",
+   "rid": "dialpad_voice_call_button",
+   "x": 540,
+   "y": 2231,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  }
+ ],
+ "unparsed": [],
+ "fingerprint": "3e90f1741b48",
+ "title": "",
+ "selected": [],
+ "visible_texts": [
+  "Phone Number",
+  "backspace",
+  "1",
+  "2",
+  "3",
+  "1,",
+  "2,ABC",
+  "3,DEF",
+  "ABC",
+  "DEF",
+  "4",
+  "5",
+  "6",
+  "4,GHI",
+  "5,JKL",
+  "6,MNO",
+  "GHI",
+  "MNO",
+  "JKL",
+  "7",
+  "9",
+  "8",
+  "7,PQRS",
+  "8,TUV",
+  "9,WXYZ",
+  "PQRS",
+  "WXYZ",
+  "TUV",
+  "0",
+  "Call"
+ ],
+ "variants": {
+  "typesafe": {
+   "criteria": {
+    "n01": "Tap FrameLayout \"1,\" [#one]",
+    "n02": "Tap FrameLayout \"2,ABC\" [#two]",
+    "n03": "Tap FrameLayout \"3,DEF\" [#three]",
+    "n04": "Tap FrameLayout \"4,GHI\" [#four]",
+    "n05": "Tap FrameLayout \"5,JKL\" [#five]",
+    "n06": "Tap FrameLayout \"6,MNO\" [#six]",
+    "n07": "Tap LinearLayout [#dialpad_view] near \"JKL\"",
+    "n08": "Tap FrameLayout \"7,PQRS\" [#seven]",
+    "n09": "Tap FrameLayout \"8,TUV\" [#eight]",
+    "n10": "Tap FrameLayout \"9,WXYZ\" [#nine]",
+    "n11": "Tap FrameLayout \"*\" [#star]",
+    "n12": "Tap FrameLayout \"0\" [#zero]",
+    "n13": "Tap FrameLayout \"#\" [#pound]",
+    "n14": "Tap Button \"Call\" [#dialpad_voice_call_button]",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [
+     "backspace"
+    ],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 15
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "",
+     "selected": [],
+     "visible_texts": [
+      "Phone Number",
+      "backspace",
+      "1",
+      "2",
+      "3",
+      "1,",
+      "2,ABC",
+      "3,DEF",
+      "ABC",
+      "DEF",
+      "4",
+      "5",
+      "6",
+      "4,GHI",
+      "5,JKL",
+      "6,MNO",
+      "GHI",
+      "MNO",
+      "JKL",
+      "7",
+      "9",
+      "8",
+      "7,PQRS",
+      "8,TUV",
+      "9,WXYZ",
+      "PQRS",
+      "WXYZ",
+      "TUV",
+      "0",
+      "Call"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text, paying, or confirming a purchase. Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap FrameLayout \"1,\" [#one]",
+      "n02": "Tap FrameLayout \"2,ABC\" [#two]",
+      "n03": "Tap FrameLayout \"3,DEF\" [#three]",
+      "n04": "Tap FrameLayout \"4,GHI\" [#four]",
+      "n05": "Tap FrameLayout \"5,JKL\" [#five]",
+      "n06": "Tap FrameLayout \"6,MNO\" [#six]",
+      "n07": "Tap LinearLayout [#dialpad_view] near \"JKL\"",
+      "n08": "Tap FrameLayout \"7,PQRS\" [#seven]",
+      "n09": "Tap FrameLayout \"8,TUV\" [#eight]",
+      "n10": "Tap FrameLayout \"9,WXYZ\" [#nine]",
+      "n11": "Tap FrameLayout \"*\" [#star]",
+      "n12": "Tap FrameLayout \"0\" [#zero]",
+      "n13": "Tap FrameLayout \"#\" [#pound]",
+      "n14": "Tap Button \"Call\" [#dialpad_voice_call_button]",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started."
+    }
+   }
+  },
+  "typesafe-risky": {
+   "criteria": {
+    "n01": "Tap ImageButton \"backspace\" [#deleteButton]",
+    "n02": "Tap FrameLayout \"1,\" [#one]",
+    "n03": "Tap FrameLayout \"2,ABC\" [#two]",
+    "n04": "Tap FrameLayout \"3,DEF\" [#three]",
+    "n05": "Tap FrameLayout \"4,GHI\" [#four]",
+    "n06": "Tap FrameLayout \"5,JKL\" [#five]",
+    "n07": "Tap FrameLayout \"6,MNO\" [#six]",
+    "n08": "Tap LinearLayout [#dialpad_view] near \"JKL\"",
+    "n09": "Tap FrameLayout \"7,PQRS\" [#seven]",
+    "n10": "Tap FrameLayout \"8,TUV\" [#eight]",
+    "n11": "Tap FrameLayout \"9,WXYZ\" [#nine]",
+    "n12": "Tap FrameLayout \"*\" [#star]",
+    "n13": "Tap FrameLayout \"0\" [#zero]",
+    "n14": "Tap FrameLayout \"#\" [#pound]",
+    "n15": "Tap Button \"Call\" [#dialpad_voice_call_button]",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [
+    "n01"
+   ],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 15
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "",
+     "selected": [],
+     "visible_texts": [
+      "Phone Number",
+      "backspace",
+      "1",
+      "2",
+      "3",
+      "1,",
+      "2,ABC",
+      "3,DEF",
+      "ABC",
+      "DEF",
+      "4",
+      "5",
+      "6",
+      "4,GHI",
+      "5,JKL",
+      "6,MNO",
+      "GHI",
+      "MNO",
+      "JKL",
+      "7",
+      "9",
+      "8",
+      "7,PQRS",
+      "8,TUV",
+      "9,WXYZ",
+      "PQRS",
+      "WXYZ",
+      "TUV",
+      "0",
+      "Call"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text (paying or confirming a purchase IS allowed in this step: it is what the goal asks for). Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap ImageButton \"backspace\" [#deleteButton]",
+      "n02": "Tap FrameLayout \"1,\" [#one]",
+      "n03": "Tap FrameLayout \"2,ABC\" [#two]",
+      "n04": "Tap FrameLayout \"3,DEF\" [#three]",
+      "n05": "Tap FrameLayout \"4,GHI\" [#four]",
+      "n06": "Tap FrameLayout \"5,JKL\" [#five]",
+      "n07": "Tap FrameLayout \"6,MNO\" [#six]",
+      "n08": "Tap LinearLayout [#dialpad_view] near \"JKL\"",
+      "n09": "Tap FrameLayout \"7,PQRS\" [#seven]",
+      "n10": "Tap FrameLayout \"8,TUV\" [#eight]",
+      "n11": "Tap FrameLayout \"9,WXYZ\" [#nine]",
+      "n12": "Tap FrameLayout \"*\" [#star]",
+      "n13": "Tap FrameLayout \"0\" [#zero]",
+      "n14": "Tap FrameLayout \"#\" [#pound]",
+      "n15": "Tap Button \"Call\" [#dialpad_voice_call_button]",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started."
+    }
+   }
+  },
+  "ollama": {
+   "criteria": {
+    "n01": "Tap FrameLayout \"1,\" [#one]",
+    "n02": "Tap FrameLayout \"2,ABC\" [#two]",
+    "n03": "Tap FrameLayout \"3,DEF\" [#three]",
+    "n04": "Tap FrameLayout \"4,GHI\" [#four]",
+    "n05": "Tap FrameLayout \"5,JKL\" [#five]",
+    "n06": "Tap FrameLayout \"6,MNO\" [#six]",
+    "n07": "Tap LinearLayout [#dialpad_view] near \"JKL\"",
+    "n08": "Tap FrameLayout \"7,PQRS\" [#seven]",
+    "n09": "Tap FrameLayout \"8,TUV\" [#eight]",
+    "n10": "Tap FrameLayout \"9,WXYZ\" [#nine]",
+    "n11": "Tap FrameLayout \"*\" [#star]",
+    "n12": "Tap FrameLayout \"0\" [#zero]",
+    "n13": "Tap FrameLayout \"#\" [#pound]",
+    "n14": "Tap Button \"Call\" [#dialpad_voice_call_button]",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [
+     "backspace"
+    ],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 15
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "",
+     "selected": [],
+     "visible_texts": [
+      "Phone Number",
+      "backspace",
+      "1",
+      "2",
+      "3",
+      "1,",
+      "2,ABC",
+      "3,DEF",
+      "ABC",
+      "DEF",
+      "4",
+      "5",
+      "6",
+      "4,GHI",
+      "5,JKL",
+      "6,MNO",
+      "GHI",
+      "MNO",
+      "JKL",
+      "7",
+      "9",
+      "8",
+      "7,PQRS",
+      "8,TUV",
+      "9,WXYZ",
+      "PQRS",
+      "WXYZ",
+      "TUV",
+      "0",
+      "Call"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text, paying, or confirming a purchase. Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap FrameLayout \"1,\" [#one]",
+      "n02": "Tap FrameLayout \"2,ABC\" [#two]",
+      "n03": "Tap FrameLayout \"3,DEF\" [#three]",
+      "n04": "Tap FrameLayout \"4,GHI\" [#four]",
+      "n05": "Tap FrameLayout \"5,JKL\" [#five]",
+      "n06": "Tap FrameLayout \"6,MNO\" [#six]",
+      "n07": "Tap LinearLayout [#dialpad_view] near \"JKL\"",
+      "n08": "Tap FrameLayout \"7,PQRS\" [#seven]",
+      "n09": "Tap FrameLayout \"8,TUV\" [#eight]",
+      "n10": "Tap FrameLayout \"9,WXYZ\" [#nine]",
+      "n11": "Tap FrameLayout \"*\" [#star]",
+      "n12": "Tap FrameLayout \"0\" [#zero]",
+      "n13": "Tap FrameLayout \"#\" [#pound]",
+      "n14": "Tap Button \"Call\" [#dialpad_voice_call_button]",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started.",
+     "criteria": {
+      "false": "No - the goal is not accomplished yet on this screen",
+      "true": "Yes - the screen/section the goal asks for is already open"
+     }
+    }
+   }
+  }
+ }
+}

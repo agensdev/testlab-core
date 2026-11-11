@@ -1,0 +1,16 @@
+name: Feature request
+description: An idea for Testlab, e.g. support for another tracker or CI
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do
+      description: The testing task, and where Testlab gets in the way or falls short.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would help
+      description: A sketch of the feature. Say whether it belongs in the core or in a profile (see docs/PROFILES.md).

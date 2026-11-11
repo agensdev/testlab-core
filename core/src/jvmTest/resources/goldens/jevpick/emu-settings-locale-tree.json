@@ -1,0 +1,697 @@
+{
+ "dump": "FrameLayout  @(540,1200)\n  ViewGroup #decor_content_parent  @(540,1200)\n    FrameLayout #content  @(540,1200)\n      ScrollView #content_parent  [scroll]  @(540,1232)\n        LinearLayout #app_bar  @(540,363)\n          FrameLayout #collapsing_toolbar  desc=\"Languages\"  @(540,363)\n            ViewGroup #action_bar  @(540,201)\n              ImageButton  desc=\"Navigate up\"  [click,focusable]  @(73,201)\n              View  @(634,201)\n              TextView  \"Languages\"  @(189,201)\n              LinearLayout  @(1080,201)\n        FrameLayout #content_frame  @(540,1259)\n          LinearLayout  @(540,1259)\n            FrameLayout #main_content  @(540,1259)\n              LinearLayout #container_material  @(540,1259)\n                FrameLayout #list_container  @(540,1259)\n                  RecyclerView #recycler_view  [focusable]  @(540,1259)\n                    LinearLayout  @(540,829)\n                      ViewGroup #collapsable_text_view  @(550,829)\n                        ViewGroup  @(550,829)\n                          TextView #title  \"Your device, apps, and websites use the first supported language from your prefe…\"  @(550,819)\n                    LinearLayout  @(540,1149)\n                      RelativeLayout  @(550,1149)\n                        TextView #title  \"Preferred language order\"  @(550,1149)\n                    FrameLayout  [click,focusable]  @(540,1385)\n                      FrameLayout  @(540,1385)\n                        LinearLayout  @(540,1385)\n                          RecyclerView #dragList  [focusable,focused]  @(540,1322)\n                            RelativeLayout  [click,focusable]  @(540,1322)\n                              LinearLayout #numberLayout  @(63,1322)\n                                TextView #miniLabel  \"1\"  @(94,1322)\n                              ViewGroup  @(519,1322)\n                                LinearLayout  @(561,1322)\n                                  TextView #label  \"English (United States)\"  @(476,1291)\n                                  TextView #default_locale  \"System language\"  @(351,1363)\n                          Button #add_language  \"Add a language\"  [click,focusable]  @(540,1512)\n                    LinearLayout  @(540,1747)\n                      LinearLayout #icon_frame  @(136,1633)\n                        ImageView #icon  @(94,1648)\n                      LinearLayout  @(550,1805)\n                        TextView #title  \"To select a language for each app, go to app language settings.\"  @(550,1769)\n                        TextView #settingslib_learn_more  \"Learn more about app languages\"  [focusable]  @(333,1884)\n",
+ "nodes": [
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1200,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "ViewGroup",
+   "text": "",
+   "rid": "decor_content_parent",
+   "x": 540,
+   "y": 1200,
+   "flags": "",
+   "desc": "",
+   "depth": 2
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "content",
+   "x": 540,
+   "y": 1200,
+   "flags": "",
+   "desc": "",
+   "depth": 4
+  },
+  {
+   "verb": "-",
+   "widget": "ScrollView",
+   "text": "",
+   "rid": "content_parent",
+   "x": 540,
+   "y": 1232,
+   "flags": "scroll",
+   "desc": "",
+   "depth": 6
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "app_bar",
+   "x": 540,
+   "y": 363,
+   "flags": "",
+   "desc": "",
+   "depth": 8
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "collapsing_toolbar",
+   "x": 540,
+   "y": 363,
+   "flags": "",
+   "desc": "Languages",
+   "depth": 10
+  },
+  {
+   "verb": "-",
+   "widget": "ViewGroup",
+   "text": "",
+   "rid": "action_bar",
+   "x": 540,
+   "y": 201,
+   "flags": "",
+   "desc": "",
+   "depth": 12
+  },
+  {
+   "verb": "tap",
+   "widget": "ImageButton",
+   "text": "Navigate up",
+   "rid": "",
+   "x": 73,
+   "y": 201,
+   "flags": "click focusable",
+   "desc": "Navigate up",
+   "depth": 14
+  },
+  {
+   "verb": "-",
+   "widget": "View",
+   "text": "",
+   "rid": "",
+   "x": 634,
+   "y": 201,
+   "flags": "",
+   "desc": "",
+   "depth": 14
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Languages",
+   "rid": "",
+   "x": 189,
+   "y": 201,
+   "flags": "",
+   "desc": "",
+   "depth": 14
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 1080,
+   "y": 201,
+   "flags": "",
+   "desc": "",
+   "depth": 14
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "content_frame",
+   "x": 540,
+   "y": 1259,
+   "flags": "",
+   "desc": "",
+   "depth": 8
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1259,
+   "flags": "",
+   "desc": "",
+   "depth": 10
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "main_content",
+   "x": 540,
+   "y": 1259,
+   "flags": "",
+   "desc": "",
+   "depth": 12
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "container_material",
+   "x": 540,
+   "y": 1259,
+   "flags": "",
+   "desc": "",
+   "depth": 14
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "list_container",
+   "x": 540,
+   "y": 1259,
+   "flags": "",
+   "desc": "",
+   "depth": 16
+  },
+  {
+   "verb": "-",
+   "widget": "RecyclerView",
+   "text": "",
+   "rid": "recycler_view",
+   "x": 540,
+   "y": 1259,
+   "flags": "focusable",
+   "desc": "",
+   "depth": 18
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 829,
+   "flags": "",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "ViewGroup",
+   "text": "",
+   "rid": "collapsable_text_view",
+   "x": 550,
+   "y": 829,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "ViewGroup",
+   "text": "",
+   "rid": "",
+   "x": 550,
+   "y": 829,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Your device, apps, and websites use the first supported language from your prefe…",
+   "rid": "title",
+   "x": 550,
+   "y": 819,
+   "flags": "",
+   "desc": "",
+   "depth": 26
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1149,
+   "flags": "",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 550,
+   "y": 1149,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Preferred language order",
+   "rid": "title",
+   "x": 550,
+   "y": 1149,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "tap",
+   "widget": "FrameLayout",
+   "text": "1 / English (United States) / System language",
+   "rid": "",
+   "x": 540,
+   "y": 1385,
+   "flags": "click focusable",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1385,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1385,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "RecyclerView",
+   "text": "",
+   "rid": "dragList",
+   "x": 540,
+   "y": 1322,
+   "flags": "focusable focused",
+   "desc": "",
+   "depth": 26
+  },
+  {
+   "verb": "tap",
+   "widget": "RelativeLayout",
+   "text": "1 / English (United States) / System language",
+   "rid": "",
+   "x": 540,
+   "y": 1322,
+   "flags": "click focusable",
+   "desc": "",
+   "depth": 28
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "numberLayout",
+   "x": 63,
+   "y": 1322,
+   "flags": "",
+   "desc": "",
+   "depth": 30
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "1",
+   "rid": "miniLabel",
+   "x": 94,
+   "y": 1322,
+   "flags": "",
+   "desc": "",
+   "depth": 32
+  },
+  {
+   "verb": "-",
+   "widget": "ViewGroup",
+   "text": "",
+   "rid": "",
+   "x": 519,
+   "y": 1322,
+   "flags": "",
+   "desc": "",
+   "depth": 30
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 561,
+   "y": 1322,
+   "flags": "",
+   "desc": "",
+   "depth": 32
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "English (United States)",
+   "rid": "label",
+   "x": 476,
+   "y": 1291,
+   "flags": "",
+   "desc": "",
+   "depth": 34
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "System language",
+   "rid": "default_locale",
+   "x": 351,
+   "y": 1363,
+   "flags": "",
+   "desc": "",
+   "depth": 34
+  },
+  {
+   "verb": "tap",
+   "widget": "Button",
+   "text": "Add a language",
+   "rid": "add_language",
+   "x": 540,
+   "y": 1512,
+   "flags": "click focusable",
+   "desc": "",
+   "depth": 26
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1747,
+   "flags": "",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "icon_frame",
+   "x": 136,
+   "y": 1633,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "ImageView",
+   "text": "",
+   "rid": "icon",
+   "x": 94,
+   "y": 1648,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 550,
+   "y": 1805,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "To select a language for each app, go to app language settings.",
+   "rid": "title",
+   "x": 550,
+   "y": 1769,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Learn more about app languages",
+   "rid": "settingslib_learn_more",
+   "x": 333,
+   "y": 1884,
+   "flags": "focusable",
+   "desc": "",
+   "depth": 24
+  }
+ ],
+ "unparsed": [],
+ "fingerprint": "6d82bd369836",
+ "title": "Languages",
+ "selected": [],
+ "visible_texts": [
+  "Navigate up",
+  "Languages",
+  "Your device, apps, and websites use the first supported language from your prefe",
+  "Preferred language order",
+  "English (United States)",
+  "1",
+  "1 / English (United States) / System language",
+  "System language",
+  "Add a language",
+  "To select a language for each app, go to app language settings.",
+  "Learn more about app languages"
+ ],
+ "variants": {
+  "typesafe": {
+   "criteria": {
+    "n01": "Tap ImageButton \"Navigate up\"",
+    "n02": "Tap RelativeLayout \"1 / English (United States) / System language\"",
+    "n03": "Tap Button \"Add a language\" [#add_language]",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 4
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Languages",
+     "selected": [],
+     "visible_texts": [
+      "Navigate up",
+      "Languages",
+      "Your device, apps, and websites use the first supported language from your prefe",
+      "Preferred language order",
+      "English (United States)",
+      "1",
+      "1 / English (United States) / System language",
+      "System language",
+      "Add a language",
+      "To select a language for each app, go to app language settings.",
+      "Learn more about app languages"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text, paying, or confirming a purchase. Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap ImageButton \"Navigate up\"",
+      "n02": "Tap RelativeLayout \"1 / English (United States) / System language\"",
+      "n03": "Tap Button \"Add a language\" [#add_language]",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started."
+    }
+   }
+  },
+  "typesafe-risky": {
+   "criteria": {
+    "n01": "Tap ImageButton \"Navigate up\"",
+    "n02": "Tap RelativeLayout \"1 / English (United States) / System language\"",
+    "n03": "Tap Button \"Add a language\" [#add_language]",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 4
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Languages",
+     "selected": [],
+     "visible_texts": [
+      "Navigate up",
+      "Languages",
+      "Your device, apps, and websites use the first supported language from your prefe",
+      "Preferred language order",
+      "English (United States)",
+      "1",
+      "1 / English (United States) / System language",
+      "System language",
+      "Add a language",
+      "To select a language for each app, go to app language settings.",
+      "Learn more about app languages"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text (paying or confirming a purchase IS allowed in this step: it is what the goal asks for). Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap ImageButton \"Navigate up\"",
+      "n02": "Tap RelativeLayout \"1 / English (United States) / System language\"",
+      "n03": "Tap Button \"Add a language\" [#add_language]",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started."
+    }
+   }
+  },
+  "ollama": {
+   "criteria": {
+    "n01": "Tap ImageButton \"Navigate up\"",
+    "n02": "Tap RelativeLayout \"1 / English (United States) / System language\"",
+    "n03": "Tap Button \"Add a language\" [#add_language]",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 4
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Languages",
+     "selected": [],
+     "visible_texts": [
+      "Navigate up",
+      "Languages",
+      "Your device, apps, and websites use the first supported language from your prefe",
+      "Preferred language order",
+      "English (United States)",
+      "1",
+      "1 / English (United States) / System language",
+      "System language",
+      "Add a language",
+      "To select a language for each app, go to app language settings.",
+      "Learn more about app languages"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text, paying, or confirming a purchase. Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap ImageButton \"Navigate up\"",
+      "n02": "Tap RelativeLayout \"1 / English (United States) / System language\"",
+      "n03": "Tap Button \"Add a language\" [#add_language]",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started.",
+     "criteria": {
+      "false": "No - the goal is not accomplished yet on this screen",
+      "true": "Yes - the screen/section the goal asks for is already open"
+     }
+    }
+   }
+  }
+ }
+}

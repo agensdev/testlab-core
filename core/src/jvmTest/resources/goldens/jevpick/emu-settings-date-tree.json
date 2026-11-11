@@ -1,0 +1,966 @@
+{
+ "dump": "FrameLayout  @(540,1200)\n  ViewGroup #decor_content_parent  @(540,1200)\n    FrameLayout #content  @(540,1200)\n      ScrollView #content_parent  [scroll]  @(540,1232)\n        LinearLayout #app_bar  @(540,363)\n          FrameLayout #collapsing_toolbar  desc=\"Date & time\"  @(540,363)\n            ViewGroup #action_bar  @(540,201)\n              ImageButton  desc=\"Navigate up\"  [click,focusable]  @(73,201)\n              View  @(634,201)\n              TextView  \"Date & time\"  @(189,201)\n              LinearLayout  @(1080,201)\n        FrameLayout #content_frame  @(540,1467)\n          LinearLayout  @(540,1467)\n            FrameLayout #main_content  @(540,1467)\n              LinearLayout #container_material  @(540,1467)\n                FrameLayout #list_container  @(540,1467)\n                  RecyclerView #recycler_view  [focusable,focused]  @(540,1467)\n                    LinearLayout  [click,focusable]  @(540,722)\n                      RelativeLayout  @(461,722)\n                        TextView #title  \"Automatic date and time\"  @(352,675)\n                        TextView #summary  \"Set automatically using your network and wireless signals\"  @(461,758)\n                      LinearLayout #widget_frame  @(948,722)\n                        Switch #switchWidget  [check,checked]  @(969,722)\n                    LinearLayout  [click,focusable]  @(540,950)\n                      RelativeLayout  @(550,950)\n                        TextView #title  \"Date\"  @(117,924)\n                        TextView #summary  \"October 2, 2026\"  @(193,985)\n                    LinearLayout  [click,focusable]  @(540,1156)\n                      RelativeLayout  @(550,1156)\n                        TextView #title  \"Time\"  @(122,1130)\n                        TextView #summary  \"1:41 AM\"  @(131,1191)\n                    LinearLayout  @(540,1347)\n                      RelativeLayout  @(550,1347)\n                        TextView #title  \"Time zone\"  @(550,1347)\n                    LinearLayout  [click,focusable]  @(540,1518)\n                      RelativeLayout  @(461,1518)\n                        TextView #title  \"Automatic time zone\"  @(306,1471)\n                        TextView #summary  \"Set automatically based on mobile networks near you\"  @(461,1554)\n                      LinearLayout #widget_frame  @(948,1518)\n                        Switch #switchWidget  [check,checked]  @(969,1518)\n                    LinearLayout  [click,focusable]  @(540,1767)\n                      RelativeLayout  @(461,1767)\n                        TextView #title  \"Use location for time zone\"  @(369,1720)\n                        TextView #summary  \"If your device location is available, it may be used to set your time zone\"  @(461,1803)\n                      LinearLayout #widget_frame  @(948,1767)\n                        Switch #switchWidget  [check]  @(969,1767)\n                    LinearLayout  [click,focusable]  @(540,1995)\n                      RelativeLayout  @(550,1995)\n                        TextView #title  \"Time zone\"  @(185,1969)\n                        TextView #summary  \"GMT+00:00 Coordinated Universal Time\"  @(391,2030)\n                    LinearLayout  @(540,2186)\n                      RelativeLayout  @(550,2186)\n                        TextView #title  \"Time format\"  @(550,2186)\n                    LinearLayout  [click,focusable]  @(540,2285)\n                      RelativeLayout  @(461,2285)\n                        TextView #title  \"Use 24-hour format\"  @(290,2306)\n                        TextView #summary  \"1:00 PM\"  @(131,2341)\n                      LinearLayout #widget_frame  @(948,2285)\n                        Switch #switchWidget  [check]  @(969,2305)\n",
+ "nodes": [
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1200,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "ViewGroup",
+   "text": "",
+   "rid": "decor_content_parent",
+   "x": 540,
+   "y": 1200,
+   "flags": "",
+   "desc": "",
+   "depth": 2
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "content",
+   "x": 540,
+   "y": 1200,
+   "flags": "",
+   "desc": "",
+   "depth": 4
+  },
+  {
+   "verb": "-",
+   "widget": "ScrollView",
+   "text": "",
+   "rid": "content_parent",
+   "x": 540,
+   "y": 1232,
+   "flags": "scroll",
+   "desc": "",
+   "depth": 6
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "app_bar",
+   "x": 540,
+   "y": 363,
+   "flags": "",
+   "desc": "",
+   "depth": 8
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "collapsing_toolbar",
+   "x": 540,
+   "y": 363,
+   "flags": "",
+   "desc": "Date & time",
+   "depth": 10
+  },
+  {
+   "verb": "-",
+   "widget": "ViewGroup",
+   "text": "",
+   "rid": "action_bar",
+   "x": 540,
+   "y": 201,
+   "flags": "",
+   "desc": "",
+   "depth": 12
+  },
+  {
+   "verb": "tap",
+   "widget": "ImageButton",
+   "text": "Navigate up",
+   "rid": "",
+   "x": 73,
+   "y": 201,
+   "flags": "click focusable",
+   "desc": "Navigate up",
+   "depth": 14
+  },
+  {
+   "verb": "-",
+   "widget": "View",
+   "text": "",
+   "rid": "",
+   "x": 634,
+   "y": 201,
+   "flags": "",
+   "desc": "",
+   "depth": 14
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Date & time",
+   "rid": "",
+   "x": 189,
+   "y": 201,
+   "flags": "",
+   "desc": "",
+   "depth": 14
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 1080,
+   "y": 201,
+   "flags": "",
+   "desc": "",
+   "depth": 14
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "content_frame",
+   "x": 540,
+   "y": 1467,
+   "flags": "",
+   "desc": "",
+   "depth": 8
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1467,
+   "flags": "",
+   "desc": "",
+   "depth": 10
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "main_content",
+   "x": 540,
+   "y": 1467,
+   "flags": "",
+   "desc": "",
+   "depth": 12
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "container_material",
+   "x": 540,
+   "y": 1467,
+   "flags": "",
+   "desc": "",
+   "depth": 14
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "list_container",
+   "x": 540,
+   "y": 1467,
+   "flags": "",
+   "desc": "",
+   "depth": 16
+  },
+  {
+   "verb": "-",
+   "widget": "RecyclerView",
+   "text": "",
+   "rid": "recycler_view",
+   "x": 540,
+   "y": 1467,
+   "flags": "focusable focused",
+   "desc": "",
+   "depth": 18
+  },
+  {
+   "verb": "tap",
+   "widget": "LinearLayout",
+   "text": "Automatic date and time / Set automatically using your network and wireless signals",
+   "rid": "",
+   "x": 540,
+   "y": 722,
+   "flags": "click focusable",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 461,
+   "y": 722,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Automatic date and time",
+   "rid": "title",
+   "x": 352,
+   "y": 675,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Set automatically using your network and wireless signals",
+   "rid": "summary",
+   "x": 461,
+   "y": 758,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "widget_frame",
+   "x": 948,
+   "y": 722,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "Switch",
+   "text": "",
+   "rid": "switchWidget",
+   "x": 969,
+   "y": 722,
+   "flags": "check checked",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "tap",
+   "widget": "LinearLayout",
+   "text": "Date / October 2, 2026",
+   "rid": "",
+   "x": 540,
+   "y": 950,
+   "flags": "click focusable",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 550,
+   "y": 950,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Date",
+   "rid": "title",
+   "x": 117,
+   "y": 924,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "October 2, 2026",
+   "rid": "summary",
+   "x": 193,
+   "y": 985,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "tap",
+   "widget": "LinearLayout",
+   "text": "Time / 1:41 AM",
+   "rid": "",
+   "x": 540,
+   "y": 1156,
+   "flags": "click focusable",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 550,
+   "y": 1156,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Time",
+   "rid": "title",
+   "x": 122,
+   "y": 1130,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "1:41 AM",
+   "rid": "summary",
+   "x": 131,
+   "y": 1191,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1347,
+   "flags": "",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 550,
+   "y": 1347,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Time zone",
+   "rid": "title",
+   "x": 550,
+   "y": 1347,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "tap",
+   "widget": "LinearLayout",
+   "text": "Automatic time zone / Set automatically based on mobile networks near you",
+   "rid": "",
+   "x": 540,
+   "y": 1518,
+   "flags": "click focusable",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 461,
+   "y": 1518,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Automatic time zone",
+   "rid": "title",
+   "x": 306,
+   "y": 1471,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Set automatically based on mobile networks near you",
+   "rid": "summary",
+   "x": 461,
+   "y": 1554,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "widget_frame",
+   "x": 948,
+   "y": 1518,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "Switch",
+   "text": "",
+   "rid": "switchWidget",
+   "x": 969,
+   "y": 1518,
+   "flags": "check checked",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "tap",
+   "widget": "LinearLayout",
+   "text": "Use location for time zone / If your device location is available, it may be used to set your time zone",
+   "rid": "",
+   "x": 540,
+   "y": 1767,
+   "flags": "click focusable",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 461,
+   "y": 1767,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Use location for time zone",
+   "rid": "title",
+   "x": 369,
+   "y": 1720,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "If your device location is available, it may be used to set your time zone",
+   "rid": "summary",
+   "x": 461,
+   "y": 1803,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "widget_frame",
+   "x": 948,
+   "y": 1767,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "Switch",
+   "text": "",
+   "rid": "switchWidget",
+   "x": 969,
+   "y": 1767,
+   "flags": "check",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "tap",
+   "widget": "LinearLayout",
+   "text": "Time zone / GMT+00:00 Coordinated Universal Time",
+   "rid": "",
+   "x": 540,
+   "y": 1995,
+   "flags": "click focusable",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 550,
+   "y": 1995,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Time zone",
+   "rid": "title",
+   "x": 185,
+   "y": 1969,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "GMT+00:00 Coordinated Universal Time",
+   "rid": "summary",
+   "x": 391,
+   "y": 2030,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 2186,
+   "flags": "",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 550,
+   "y": 2186,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Time format",
+   "rid": "title",
+   "x": 550,
+   "y": 2186,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "tap",
+   "widget": "LinearLayout",
+   "text": "Use 24-hour format / 1:00 PM",
+   "rid": "",
+   "x": 540,
+   "y": 2285,
+   "flags": "click focusable",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 461,
+   "y": 2285,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Use 24-hour format",
+   "rid": "title",
+   "x": 290,
+   "y": 2306,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "1:00 PM",
+   "rid": "summary",
+   "x": 131,
+   "y": 2341,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "widget_frame",
+   "x": 948,
+   "y": 2285,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "Switch",
+   "text": "",
+   "rid": "switchWidget",
+   "x": 969,
+   "y": 2305,
+   "flags": "check",
+   "desc": "",
+   "depth": 24
+  }
+ ],
+ "unparsed": [],
+ "fingerprint": "44895323255d",
+ "title": "Date & time",
+ "selected": [],
+ "visible_texts": [
+  "Navigate up",
+  "Date & time",
+  "Automatic date and time",
+  "Automatic date and time / Set automatically using your network and wireless sign",
+  "Set automatically using your network and wireless signals",
+  "Date",
+  "Date / October 2, 2026",
+  "October 2, 2026",
+  "Time",
+  "Time / 1:41 AM",
+  "1:41 AM",
+  "Time zone",
+  "Automatic time zone",
+  "Automatic time zone / Set automatically based on mobile networks near you",
+  "Set automatically based on mobile networks near you",
+  "Use location for time zone",
+  "Use location for time zone / If your device location is available, it may be use",
+  "If your device location is available, it may be used to set your time zone",
+  "Time zone / GMT+00:00 Coordinated Universal Time",
+  "GMT+00:00 Coordinated Universal Time",
+  "Time format",
+  "Use 24-hour format / 1:00 PM",
+  "Use 24-hour format",
+  "1:00 PM"
+ ],
+ "variants": {
+  "typesafe": {
+   "criteria": {
+    "n01": "Tap ImageButton \"Navigate up\"",
+    "n02": "Tap LinearLayout \"Automatic date and time / Set automatically using your netwo\"",
+    "n03": "Tap LinearLayout \"Date / October 2, 2026\"",
+    "n04": "Tap LinearLayout \"Time / 1:41 AM\"",
+    "n05": "Tap LinearLayout \"Automatic time zone / Set automatically based on mobile netw\"",
+    "n06": "Tap LinearLayout \"Use location for time zone / If your device location is avai\"",
+    "n07": "Tap LinearLayout \"Time zone / GMT+00:00 Coordinated Universal Time\"",
+    "n08": "Tap LinearLayout \"Use 24-hour format / 1:00 PM\"",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 8
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Date & time",
+     "selected": [],
+     "visible_texts": [
+      "Navigate up",
+      "Date & time",
+      "Automatic date and time",
+      "Automatic date and time / Set automatically using your network and wireless sign",
+      "Set automatically using your network and wireless signals",
+      "Date",
+      "Date / October 2, 2026",
+      "October 2, 2026",
+      "Time",
+      "Time / 1:41 AM",
+      "1:41 AM",
+      "Time zone",
+      "Automatic time zone",
+      "Automatic time zone / Set automatically based on mobile networks near you",
+      "Set automatically based on mobile networks near you",
+      "Use location for time zone",
+      "Use location for time zone / If your device location is available, it may be use",
+      "If your device location is available, it may be used to set your time zone",
+      "Time zone / GMT+00:00 Coordinated Universal Time",
+      "GMT+00:00 Coordinated Universal Time",
+      "Time format",
+      "Use 24-hour format / 1:00 PM",
+      "Use 24-hour format",
+      "1:00 PM"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text, paying, or confirming a purchase. Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap ImageButton \"Navigate up\"",
+      "n02": "Tap LinearLayout \"Automatic date and time / Set automatically using your netwo\"",
+      "n03": "Tap LinearLayout \"Date / October 2, 2026\"",
+      "n04": "Tap LinearLayout \"Time / 1:41 AM\"",
+      "n05": "Tap LinearLayout \"Automatic time zone / Set automatically based on mobile netw\"",
+      "n06": "Tap LinearLayout \"Use location for time zone / If your device location is avai\"",
+      "n07": "Tap LinearLayout \"Time zone / GMT+00:00 Coordinated Universal Time\"",
+      "n08": "Tap LinearLayout \"Use 24-hour format / 1:00 PM\"",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started."
+    }
+   }
+  },
+  "typesafe-risky": {
+   "criteria": {
+    "n01": "Tap ImageButton \"Navigate up\"",
+    "n02": "Tap LinearLayout \"Automatic date and time / Set automatically using your netwo\"",
+    "n03": "Tap LinearLayout \"Date / October 2, 2026\"",
+    "n04": "Tap LinearLayout \"Time / 1:41 AM\"",
+    "n05": "Tap LinearLayout \"Automatic time zone / Set automatically based on mobile netw\"",
+    "n06": "Tap LinearLayout \"Use location for time zone / If your device location is avai\"",
+    "n07": "Tap LinearLayout \"Time zone / GMT+00:00 Coordinated Universal Time\"",
+    "n08": "Tap LinearLayout \"Use 24-hour format / 1:00 PM\"",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 8
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Date & time",
+     "selected": [],
+     "visible_texts": [
+      "Navigate up",
+      "Date & time",
+      "Automatic date and time",
+      "Automatic date and time / Set automatically using your network and wireless sign",
+      "Set automatically using your network and wireless signals",
+      "Date",
+      "Date / October 2, 2026",
+      "October 2, 2026",
+      "Time",
+      "Time / 1:41 AM",
+      "1:41 AM",
+      "Time zone",
+      "Automatic time zone",
+      "Automatic time zone / Set automatically based on mobile networks near you",
+      "Set automatically based on mobile networks near you",
+      "Use location for time zone",
+      "Use location for time zone / If your device location is available, it may be use",
+      "If your device location is available, it may be used to set your time zone",
+      "Time zone / GMT+00:00 Coordinated Universal Time",
+      "GMT+00:00 Coordinated Universal Time",
+      "Time format",
+      "Use 24-hour format / 1:00 PM",
+      "Use 24-hour format",
+      "1:00 PM"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text (paying or confirming a purchase IS allowed in this step: it is what the goal asks for). Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap ImageButton \"Navigate up\"",
+      "n02": "Tap LinearLayout \"Automatic date and time / Set automatically using your netwo\"",
+      "n03": "Tap LinearLayout \"Date / October 2, 2026\"",
+      "n04": "Tap LinearLayout \"Time / 1:41 AM\"",
+      "n05": "Tap LinearLayout \"Automatic time zone / Set automatically based on mobile netw\"",
+      "n06": "Tap LinearLayout \"Use location for time zone / If your device location is avai\"",
+      "n07": "Tap LinearLayout \"Time zone / GMT+00:00 Coordinated Universal Time\"",
+      "n08": "Tap LinearLayout \"Use 24-hour format / 1:00 PM\"",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started."
+    }
+   }
+  },
+  "ollama": {
+   "criteria": {
+    "n01": "Tap ImageButton \"Navigate up\"",
+    "n02": "Tap LinearLayout \"Automatic date and time / Set automatically using your netwo\"",
+    "n03": "Tap LinearLayout \"Date / October 2, 2026\"",
+    "n04": "Tap LinearLayout \"Time / 1:41 AM\"",
+    "n05": "Tap LinearLayout \"Automatic time zone / Set automatically based on mobile netw\"",
+    "n06": "Tap LinearLayout \"Use location for time zone / If your device location is avai\"",
+    "n07": "Tap LinearLayout \"Time zone / GMT+00:00 Coordinated Universal Time\"",
+    "n08": "Tap LinearLayout \"Use 24-hour format / 1:00 PM\"",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 8
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Date & time",
+     "selected": [],
+     "visible_texts": [
+      "Navigate up",
+      "Date & time",
+      "Automatic date and time",
+      "Automatic date and time / Set automatically using your network and wireless sign",
+      "Set automatically using your network and wireless signals",
+      "Date",
+      "Date / October 2, 2026",
+      "October 2, 2026",
+      "Time",
+      "Time / 1:41 AM",
+      "1:41 AM",
+      "Time zone",
+      "Automatic time zone",
+      "Automatic time zone / Set automatically based on mobile networks near you",
+      "Set automatically based on mobile networks near you",
+      "Use location for time zone",
+      "Use location for time zone / If your device location is available, it may be use",
+      "If your device location is available, it may be used to set your time zone",
+      "Time zone / GMT+00:00 Coordinated Universal Time",
+      "GMT+00:00 Coordinated Universal Time",
+      "Time format",
+      "Use 24-hour format / 1:00 PM",
+      "Use 24-hour format",
+      "1:00 PM"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text, paying, or confirming a purchase. Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap ImageButton \"Navigate up\"",
+      "n02": "Tap LinearLayout \"Automatic date and time / Set automatically using your netwo\"",
+      "n03": "Tap LinearLayout \"Date / October 2, 2026\"",
+      "n04": "Tap LinearLayout \"Time / 1:41 AM\"",
+      "n05": "Tap LinearLayout \"Automatic time zone / Set automatically based on mobile netw\"",
+      "n06": "Tap LinearLayout \"Use location for time zone / If your device location is avai\"",
+      "n07": "Tap LinearLayout \"Time zone / GMT+00:00 Coordinated Universal Time\"",
+      "n08": "Tap LinearLayout \"Use 24-hour format / 1:00 PM\"",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started.",
+     "criteria": {
+      "false": "No - the goal is not accomplished yet on this screen",
+      "true": "Yes - the screen/section the goal asks for is already open"
+     }
+    }
+   }
+  }
+ }
+}

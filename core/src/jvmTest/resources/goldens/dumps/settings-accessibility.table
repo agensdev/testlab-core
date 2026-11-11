@@ -1,0 +1,17 @@
+-    FrameLayout  "Accessibility"  #collapsing_toolbar  540,363
+tap  ImageButton  "Navigate up"  73,201
+-    TextView     "Screen reader"  #title  550,686
+-    TextView     "TalkBack"  #title  297,810
+-    TextView     "Off / Speak items on screen"  #summary  417,871
+-    TextView     "Display"  #title  550,1027
+-    TextView     "Display size and text"  #title  429,1151
+-    TextView     "Color and motion"  #title  391,1306
+-    TextView     "Magnification"  #title  350,1461
+-    TextView     "Off / Zoom in on the screen"  #summary  413,1522
+-    TextView     "Select to Speak"  #title  370,1667
+-    TextView     "Off / Hear selected text"  #summary  380,1728
+-    TextView     "Interaction controls"  #title  550,1884
+-    TextView     "Accessibility Menu"  #title  410,2008
+-    TextView     "Off / Control device via large menu"  #summary  473,2069
+-    TextView     "Voice Access"  #title  348,2214
+-    TextView     "Off / Control device with voice"  #summary  436,2275

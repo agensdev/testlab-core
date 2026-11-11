@@ -1,0 +1,8 @@
+-    FrameLayout  "Connected devices"  #collapsing_toolbar  540,363
+tap  ImageButton  "Navigate up"  73,201
+-    TextView     "Pair new device"  #title  373,675
+-    TextView     "Saved devices"  #title  550,841
+-    TextView     "See all"  #title  266,965
+-    TextView     "Connection preferences"  #title  343,1120
+-    TextView     "Bluetooth, Android Auto"  #summary  257,1181
+-    TextView     "Visible as “sdk_gphone64_x86_64” to other devices"  #title  483,1422

@@ -1,0 +1,66 @@
+name: ios-e2e
+
+# A real iOS Simulator end to end (scripts/dev/ios-e2e.sh): only a macOS runner has Xcode, so this
+# is where the simulator support is proven. Runs when the iOS code changes, and by hand.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'device/src/main/kotlin/no/agens/testlab/device/ios/**'
+      - 'services/src/main/kotlin/no/agens/testlab/services/runtime/**'
+      - 'services/src/main/kotlin/no/agens/testlab/services/builds/**'
+      - 'tools/testapp-ios/**'
+      - 'scripts/dev/ios-e2e.sh'
+      - '.github/workflows/ios-e2e.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: ios-e2e-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  simulator:
+    # AXe (screens and input without WebDriverAgent) needs Xcode 26; the other leg proves the
+    # WebDriverAgent-only path a Mac without AXe takes.
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - driver: axe
+            os: macos-26
+          - driver: wda
+            os: macos-15
+    name: simulator (${{ matrix.driver }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 60
+    env:
+      TESTLAB_IOS_DRIVER: ${{ matrix.driver }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - uses: gradle/actions/setup-gradle@v6
+      - name: Build the CLI
+        run: ./gradlew :cli:installDist --stacktrace
+      - name: AXe
+        if: matrix.driver == 'axe'
+        run: brew install cameroncooke/axe/axe && axe --version
+      - name: Simulator end to end
+        run: bash scripts/dev/ios-e2e.sh
+        env:
+          E2E_ARTIFACTS: ${{ github.workspace }}/e2e-artifacts
+      - name: Screens and logs of a failure
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: ios-e2e-${{ matrix.driver }}
+          path: e2e-artifacts
+          if-no-files-found: ignore

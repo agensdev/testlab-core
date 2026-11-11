@@ -1,0 +1,15 @@
+-    ViewPager    "At a glance"  #smartspace_card_pager  540,359  [long]
+tap  ViewGroup    #base_template_card_with_date  540,359
+tap  TextView     "Fri, Oct 2"  #date  186,360
+tap  TextView     "Gmail"  416,1619  [long]
+tap  TextView     "Photos"  663,1619  [long]
+tap  TextView     "YouTube"  910,1619  [long]
+-    View         "Home"  #accessibility_action_view  540,1232
+tap  TextView     "Phone"  169,1970  [long]
+tap  TextView     "Messages"  416,1970  [long]
+tap  TextView     "Chrome"  663,1970  [long]
+tap  TextView     "Gmail"  910,1970  [long]
+tap  FrameLayout  "Google search"  #search_container_hotseat  540,2207  [long]
+tap  ImageView    "Google app"  #g_icon  164,2207
+tap  ImageView    "Voice search"  #mic_icon  790,2207
+tap  ImageButton  "Google Lens"  #lens_icon  916,2207

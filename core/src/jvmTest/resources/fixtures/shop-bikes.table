@@ -1,0 +1,7 @@
+-    TextView     "Bikes"  #title  540,240
+-    TextView     "Live nå: 3 kamper"  540,400
+tap  View         "Brann - Rosenborg 1.85 3.40 4.10"  #outcome_container  540,800
+tap  View         "Molde - Bodø/Glimt 2.10 3.30 3.25"  #outcome_container  540,1000
+tap  Button       "Se \"alle\" kamper"  #see_all  540,1400
+tap  FrameLayout  "Hjem"  #fragment_home  108,2896
+tap  FrameLayout  "Sport"  #fragment_sport  540,2896

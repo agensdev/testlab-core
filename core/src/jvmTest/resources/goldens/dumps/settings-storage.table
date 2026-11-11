@@ -1,0 +1,18 @@
+-    FrameLayout  "Storage"  #collapsing_toolbar  540,363
+tap  ImageButton  "Navigate up"  73,201
+-    TextView     "3.3 GB used"  #usage_summary  252,710
+-    TextView     "8.0 GB total"  #total_summary  739,761
+-    TextView     "Free up space"  #title  603,1002
+-    TextView     "Go to Files app to manage and free up space"  #summary  603,1071
+-    TextView     "Apps"  #title  522,1252
+-    TextView     "804 MB"  #summary  947,1252
+-    TextView     "Images"  #title  575,1440
+-    TextView     "0 B"  #summary  1000,1440
+-    TextView     "Videos"  #title  575,1628
+-    TextView     "0 B"  #summary  1000,1628
+-    TextView     "Audio"  #title  575,1816
+-    TextView     "0 B"  #summary  1000,1816
+-    TextView     "Games"  #title  575,2004
+-    TextView     "0 B"  #summary  1000,2004
+-    TextView     "Documents"  #title  575,2192
+-    TextView     "0 B"  #summary  1000,2192

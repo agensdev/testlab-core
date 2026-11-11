@@ -1,0 +1,27 @@
+name: package
+
+# Manual test packaging of any commit, through the same per-OS jobs as a release (build.yml);
+# the CLI packages are kept as workflow artifacts for 14 days, nothing is published.
+# macOS minutes count ×10 and Windows ×2 against the private-repo budget, so this is not on push.
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to stamp (MAJOR.MINOR.PATCH), defaults to gradle.properties'
+        required: false
+      all-platforms:
+        description: 'Also build Windows'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    uses: ./.github/workflows/build.yml
+    with:
+      version: ${{ github.event.inputs.version }}
+      retention-days: 14
+      all-platforms: ${{ inputs.all-platforms }}
+    secrets: inherit

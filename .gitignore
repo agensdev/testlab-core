@@ -1,0 +1,19 @@
+.gradle/
+.kotlin/
+build/
+out/
+local.properties
+*.iml
+.idea/
+.vscode/
+.DS_Store
+# never commit secrets or captures with personal data
+*.vault
+.env
+.env.*
+lab-credentials.json
+/captures/
+__pycache__/
+*.pyc
+# the private word list of scripts/scrub-audit.sh
+/.scrub-private

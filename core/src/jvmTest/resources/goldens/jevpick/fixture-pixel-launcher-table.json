@@ -1,0 +1,653 @@
+{
+ "dump": "-    ViewPager                  \"At a glance\"  #smartspace_card_pager  720,346  [long scroll]\ntap  ViewGroup                  #base_template_card_with_date  720,346\ntap  TextView                   \"Wed, Sep 30\"  #date  262,346\n-    LauncherAppWidgetHostView  \"Current weather\"  380,1623\ntap  FrameLayout                #background  380,1623\n-    ImageView                  \"Cloudy\"  266,1737\n-    TextView                   \"65°\"  436,1545\ntap  TextView                   \"Play Store\"  210,2171  [long]\ntap  TextView                   \"Gmail\"  550,2171  [long]\ntap  TextView                   \"Photos\"  890,2171  [long]\ntap  TextView                   \"YouTube\"  1230,2171  [long]\n-    View                       \"Home\"  #accessibility_action_view  720,1590\n-    TextView                   \"No recent items\"  #empty_recents_content  719,1548\ntap  TextView                   \"Phone\"  210,2588  [long]\ntap  TextView                   \"Messages\"  550,2588  [long]\ntap  TextView                   \"Chrome\"  890,2588  [long]\ntap  TextView                   \"Camera\"  1230,2588  [long]\n-    OseWidgetView              \"Google\"  719,2862\ntap  ImageView                  \"Google search\"  #googleapp_search_widget_background  719,2862\ntap  ImageButton                \"Google app\"  #googleapp_search_widget_google_logo  187,2862\ntap  ImageButton                \"Voice search\"  #googleapp_search_widget_voice_btn  1084,2862\ntap  ImageButton                \"Camera search\"  #googleapp_search_widget_lens_btn  1252,2862\ntap  FrameLayout                #googleapp_search_widget_ghost_google_logo  215,2862\ntap  FrameLayout                #googleapp_search_widget_ghost_text_search  628,2862\ntap  FrameLayout                #googleapp_search_widget_ghost_voice_search  1042,2862\ntap  FrameLayout                #googleapp_search_widget_ghost_lens  1217,2862\n",
+ "nodes": [
+  {
+   "verb": "-",
+   "widget": "ViewPager",
+   "text": "At a glance",
+   "rid": "smartspace_card_pager",
+   "x": 720,
+   "y": 346,
+   "flags": "long scroll",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "ViewGroup",
+   "text": "",
+   "rid": "base_template_card_with_date",
+   "x": 720,
+   "y": 346,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "TextView",
+   "text": "Wed, Sep 30",
+   "rid": "date",
+   "x": 262,
+   "y": 346,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "LauncherAppWidgetHostView",
+   "text": "Current weather",
+   "rid": "",
+   "x": 380,
+   "y": 1623,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "background",
+   "x": 380,
+   "y": 1623,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "ImageView",
+   "text": "Cloudy",
+   "rid": "",
+   "x": 266,
+   "y": 1737,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "65°",
+   "rid": "",
+   "x": 436,
+   "y": 1545,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "TextView",
+   "text": "Play Store",
+   "rid": "",
+   "x": 210,
+   "y": 2171,
+   "flags": "long",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "TextView",
+   "text": "Gmail",
+   "rid": "",
+   "x": 550,
+   "y": 2171,
+   "flags": "long",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "TextView",
+   "text": "Photos",
+   "rid": "",
+   "x": 890,
+   "y": 2171,
+   "flags": "long",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "TextView",
+   "text": "YouTube",
+   "rid": "",
+   "x": 1230,
+   "y": 2171,
+   "flags": "long",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "View",
+   "text": "Home",
+   "rid": "accessibility_action_view",
+   "x": 720,
+   "y": 1590,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "No recent items",
+   "rid": "empty_recents_content",
+   "x": 719,
+   "y": 1548,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "TextView",
+   "text": "Phone",
+   "rid": "",
+   "x": 210,
+   "y": 2588,
+   "flags": "long",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "TextView",
+   "text": "Messages",
+   "rid": "",
+   "x": 550,
+   "y": 2588,
+   "flags": "long",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "TextView",
+   "text": "Chrome",
+   "rid": "",
+   "x": 890,
+   "y": 2588,
+   "flags": "long",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "TextView",
+   "text": "Camera",
+   "rid": "",
+   "x": 1230,
+   "y": 2588,
+   "flags": "long",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "OseWidgetView",
+   "text": "Google",
+   "rid": "",
+   "x": 719,
+   "y": 2862,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "ImageView",
+   "text": "Google search",
+   "rid": "googleapp_search_widget_background",
+   "x": 719,
+   "y": 2862,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "ImageButton",
+   "text": "Google app",
+   "rid": "googleapp_search_widget_google_logo",
+   "x": 187,
+   "y": 2862,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "ImageButton",
+   "text": "Voice search",
+   "rid": "googleapp_search_widget_voice_btn",
+   "x": 1084,
+   "y": 2862,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "ImageButton",
+   "text": "Camera search",
+   "rid": "googleapp_search_widget_lens_btn",
+   "x": 1252,
+   "y": 2862,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "googleapp_search_widget_ghost_google_logo",
+   "x": 215,
+   "y": 2862,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "googleapp_search_widget_ghost_text_search",
+   "x": 628,
+   "y": 2862,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "googleapp_search_widget_ghost_voice_search",
+   "x": 1042,
+   "y": 2862,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "googleapp_search_widget_ghost_lens",
+   "x": 1217,
+   "y": 2862,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  }
+ ],
+ "unparsed": [],
+ "fingerprint": "10541a87b1f0",
+ "title": "At a glance",
+ "selected": [],
+ "visible_texts": [
+  "Wed, Sep 30",
+  "At a glance",
+  "65°",
+  "No recent items",
+  "Home",
+  "Current weather",
+  "Cloudy",
+  "Play Store",
+  "Gmail",
+  "Photos",
+  "YouTube",
+  "Phone",
+  "Messages",
+  "Chrome",
+  "Camera",
+  "Google app",
+  "Google",
+  "Google search",
+  "Voice search",
+  "Camera search"
+ ],
+ "variants": {
+  "typesafe": {
+   "criteria": {
+    "n01": "Tap TextView \"Wed, Sep 30\" [#date]",
+    "n02": "Tap ViewGroup [#base_template_card_with_date] near \"At a glance\"",
+    "n03": "Tap FrameLayout [#background] near \"Current weather\"",
+    "n04": "Tap TextView \"Play Store\"",
+    "n05": "Tap TextView \"Gmail\"",
+    "n06": "Tap TextView \"Photos\"",
+    "n07": "Tap TextView \"YouTube\"",
+    "n08": "Tap TextView \"Phone\"",
+    "n09": "Tap TextView \"Messages\"",
+    "n10": "Tap TextView \"Chrome\"",
+    "n11": "Tap TextView \"Camera\"",
+    "n12": "Tap ImageButton \"Google app\" [#googleapp_search_widget_google_logo]",
+    "n13": "Tap FrameLayout [#googleapp_search_widget_ghost_google_logo] near \"Google\"",
+    "n14": "Tap FrameLayout [#googleapp_search_widget_ghost_text_search] near \"Google\"",
+    "n15": "Tap ImageView \"Google search\" [#googleapp_search_widget_background]",
+    "n16": "Tap FrameLayout [#googleapp_search_widget_ghost_voice_search] near \"Google\"",
+    "n17": "Tap ImageButton \"Voice search\" [#googleapp_search_widget_voice_btn]",
+    "n18": "Tap FrameLayout [#googleapp_search_widget_ghost_lens] near \"Google\"",
+    "n19": "Tap ImageButton \"Camera search\" [#googleapp_search_widget_lens_btn]",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 19
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "At a glance",
+     "selected": [],
+     "visible_texts": [
+      "Wed, Sep 30",
+      "At a glance",
+      "65°",
+      "No recent items",
+      "Home",
+      "Current weather",
+      "Cloudy",
+      "Play Store",
+      "Gmail",
+      "Photos",
+      "YouTube",
+      "Phone",
+      "Messages",
+      "Chrome",
+      "Camera",
+      "Google app",
+      "Google",
+      "Google search",
+      "Voice search",
+      "Camera search"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text, paying, or confirming a purchase. Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap TextView \"Wed, Sep 30\" [#date]",
+      "n02": "Tap ViewGroup [#base_template_card_with_date] near \"At a glance\"",
+      "n03": "Tap FrameLayout [#background] near \"Current weather\"",
+      "n04": "Tap TextView \"Play Store\"",
+      "n05": "Tap TextView \"Gmail\"",
+      "n06": "Tap TextView \"Photos\"",
+      "n07": "Tap TextView \"YouTube\"",
+      "n08": "Tap TextView \"Phone\"",
+      "n09": "Tap TextView \"Messages\"",
+      "n10": "Tap TextView \"Chrome\"",
+      "n11": "Tap TextView \"Camera\"",
+      "n12": "Tap ImageButton \"Google app\" [#googleapp_search_widget_google_logo]",
+      "n13": "Tap FrameLayout [#googleapp_search_widget_ghost_google_logo] near \"Google\"",
+      "n14": "Tap FrameLayout [#googleapp_search_widget_ghost_text_search] near \"Google\"",
+      "n15": "Tap ImageView \"Google search\" [#googleapp_search_widget_background]",
+      "n16": "Tap FrameLayout [#googleapp_search_widget_ghost_voice_search] near \"Google\"",
+      "n17": "Tap ImageButton \"Voice search\" [#googleapp_search_widget_voice_btn]",
+      "n18": "Tap FrameLayout [#googleapp_search_widget_ghost_lens] near \"Google\"",
+      "n19": "Tap ImageButton \"Camera search\" [#googleapp_search_widget_lens_btn]",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started."
+    }
+   }
+  },
+  "typesafe-risky": {
+   "criteria": {
+    "n01": "Tap TextView \"Wed, Sep 30\" [#date]",
+    "n02": "Tap ViewGroup [#base_template_card_with_date] near \"At a glance\"",
+    "n03": "Tap FrameLayout [#background] near \"Current weather\"",
+    "n04": "Tap TextView \"Play Store\"",
+    "n05": "Tap TextView \"Gmail\"",
+    "n06": "Tap TextView \"Photos\"",
+    "n07": "Tap TextView \"YouTube\"",
+    "n08": "Tap TextView \"Phone\"",
+    "n09": "Tap TextView \"Messages\"",
+    "n10": "Tap TextView \"Chrome\"",
+    "n11": "Tap TextView \"Camera\"",
+    "n12": "Tap ImageButton \"Google app\" [#googleapp_search_widget_google_logo]",
+    "n13": "Tap FrameLayout [#googleapp_search_widget_ghost_google_logo] near \"Google\"",
+    "n14": "Tap FrameLayout [#googleapp_search_widget_ghost_text_search] near \"Google\"",
+    "n15": "Tap ImageView \"Google search\" [#googleapp_search_widget_background]",
+    "n16": "Tap FrameLayout [#googleapp_search_widget_ghost_voice_search] near \"Google\"",
+    "n17": "Tap ImageButton \"Voice search\" [#googleapp_search_widget_voice_btn]",
+    "n18": "Tap FrameLayout [#googleapp_search_widget_ghost_lens] near \"Google\"",
+    "n19": "Tap ImageButton \"Camera search\" [#googleapp_search_widget_lens_btn]",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 19
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "At a glance",
+     "selected": [],
+     "visible_texts": [
+      "Wed, Sep 30",
+      "At a glance",
+      "65°",
+      "No recent items",
+      "Home",
+      "Current weather",
+      "Cloudy",
+      "Play Store",
+      "Gmail",
+      "Photos",
+      "YouTube",
+      "Phone",
+      "Messages",
+      "Chrome",
+      "Camera",
+      "Google app",
+      "Google",
+      "Google search",
+      "Voice search",
+      "Camera search"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text (paying or confirming a purchase IS allowed in this step: it is what the goal asks for). Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap TextView \"Wed, Sep 30\" [#date]",
+      "n02": "Tap ViewGroup [#base_template_card_with_date] near \"At a glance\"",
+      "n03": "Tap FrameLayout [#background] near \"Current weather\"",
+      "n04": "Tap TextView \"Play Store\"",
+      "n05": "Tap TextView \"Gmail\"",
+      "n06": "Tap TextView \"Photos\"",
+      "n07": "Tap TextView \"YouTube\"",
+      "n08": "Tap TextView \"Phone\"",
+      "n09": "Tap TextView \"Messages\"",
+      "n10": "Tap TextView \"Chrome\"",
+      "n11": "Tap TextView \"Camera\"",
+      "n12": "Tap ImageButton \"Google app\" [#googleapp_search_widget_google_logo]",
+      "n13": "Tap FrameLayout [#googleapp_search_widget_ghost_google_logo] near \"Google\"",
+      "n14": "Tap FrameLayout [#googleapp_search_widget_ghost_text_search] near \"Google\"",
+      "n15": "Tap ImageView \"Google search\" [#googleapp_search_widget_background]",
+      "n16": "Tap FrameLayout [#googleapp_search_widget_ghost_voice_search] near \"Google\"",
+      "n17": "Tap ImageButton \"Voice search\" [#googleapp_search_widget_voice_btn]",
+      "n18": "Tap FrameLayout [#googleapp_search_widget_ghost_lens] near \"Google\"",
+      "n19": "Tap ImageButton \"Camera search\" [#googleapp_search_widget_lens_btn]",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started."
+    }
+   }
+  },
+  "ollama": {
+   "criteria": {
+    "n01": "Tap TextView \"Wed, Sep 30\" [#date]",
+    "n02": "Tap ViewGroup [#base_template_card_with_date] near \"At a glance\"",
+    "n03": "Tap FrameLayout [#background] near \"Current weather\"",
+    "n04": "Tap TextView \"Play Store\"",
+    "n05": "Tap TextView \"Gmail\"",
+    "n06": "Tap TextView \"Photos\"",
+    "n07": "Tap TextView \"YouTube\"",
+    "n08": "Tap TextView \"Phone\"",
+    "n09": "Tap TextView \"Messages\"",
+    "n10": "Tap TextView \"Chrome\"",
+    "n11": "Tap TextView \"Camera\"",
+    "n12": "Tap ImageButton \"Google app\" [#googleapp_search_widget_google_logo]",
+    "n13": "Tap FrameLayout [#googleapp_search_widget_ghost_google_logo] near \"Google\"",
+    "n14": "Tap FrameLayout [#googleapp_search_widget_ghost_text_search] near \"Google\"",
+    "n15": "Tap ImageView \"Google search\" [#googleapp_search_widget_background]",
+    "n16": "Tap FrameLayout [#googleapp_search_widget_ghost_voice_search] near \"Google\"",
+    "n17": "Tap ImageButton \"Voice search\" [#googleapp_search_widget_voice_btn]",
+    "n18": "Tap FrameLayout [#googleapp_search_widget_ghost_lens] near \"Google\"",
+    "n19": "Tap ImageButton \"Camera search\" [#googleapp_search_widget_lens_btn]",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 19
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "At a glance",
+     "selected": [],
+     "visible_texts": [
+      "Wed, Sep 30",
+      "At a glance",
+      "65°",
+      "No recent items",
+      "Home",
+      "Current weather",
+      "Cloudy",
+      "Play Store",
+      "Gmail",
+      "Photos",
+      "YouTube",
+      "Phone",
+      "Messages",
+      "Chrome",
+      "Camera",
+      "Google app",
+      "Google",
+      "Google search",
+      "Voice search",
+      "Camera search"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text, paying, or confirming a purchase. Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap TextView \"Wed, Sep 30\" [#date]",
+      "n02": "Tap ViewGroup [#base_template_card_with_date] near \"At a glance\"",
+      "n03": "Tap FrameLayout [#background] near \"Current weather\"",
+      "n04": "Tap TextView \"Play Store\"",
+      "n05": "Tap TextView \"Gmail\"",
+      "n06": "Tap TextView \"Photos\"",
+      "n07": "Tap TextView \"YouTube\"",
+      "n08": "Tap TextView \"Phone\"",
+      "n09": "Tap TextView \"Messages\"",
+      "n10": "Tap TextView \"Chrome\"",
+      "n11": "Tap TextView \"Camera\"",
+      "n12": "Tap ImageButton \"Google app\" [#googleapp_search_widget_google_logo]",
+      "n13": "Tap FrameLayout [#googleapp_search_widget_ghost_google_logo] near \"Google\"",
+      "n14": "Tap FrameLayout [#googleapp_search_widget_ghost_text_search] near \"Google\"",
+      "n15": "Tap ImageView \"Google search\" [#googleapp_search_widget_background]",
+      "n16": "Tap FrameLayout [#googleapp_search_widget_ghost_voice_search] near \"Google\"",
+      "n17": "Tap ImageButton \"Voice search\" [#googleapp_search_widget_voice_btn]",
+      "n18": "Tap FrameLayout [#googleapp_search_widget_ghost_lens] near \"Google\"",
+      "n19": "Tap ImageButton \"Camera search\" [#googleapp_search_widget_lens_btn]",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started.",
+     "criteria": {
+      "false": "No - the goal is not accomplished yet on this screen",
+      "true": "Yes - the screen/section the goal asks for is already open"
+     }
+    }
+   }
+  }
+ }
+}

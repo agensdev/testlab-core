@@ -1,0 +1,18 @@
+-    FrameLayout  "Sound & vibration"  #collapsing_toolbar  540,363
+tap  ImageButton  "Navigate up"  73,201
+-    TextView     "Media volume"  #title  613,675
+-    SeekBar      "Media volume"  #seekbar  613,774
+-    TextView     "Audio will play on"  #title  268,914
+-    TextView     "This device"  #summary  156,975
+-    TextView     "Call volume"  #title  613,1120
+-    SeekBar      "Call volume"  #seekbar  613,1219
+-    TextView     "Ring volume"  #title  613,1359
+-    SeekBar      "Ring volume"  #seekbar  613,1458
+-    TextView     "Notification volume"  #title  613,1598
+-    SeekBar      "Notification volume"  #seekbar  613,1697
+-    TextView     "Alarm volume"  #title  613,1837
+-    SeekBar      "Alarm volume"  #seekbar  613,1936
+-    TextView     "Phone ringtone"  #title  241,2076
+-    TextView     "Flutey Phone"  #summary  169,2137
+-    TextView     "Live Caption"  #title  209,2282
+-    TextView     "Automatically caption speech"  #summary  305,2327

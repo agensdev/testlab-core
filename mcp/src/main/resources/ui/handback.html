@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{APP}}: hand-back</title>
+<style>
+  :root { --bg:#fbfbfd; --panel:#fff; --fg:#1d2228; --mut:#5f6b7a; --line:#d9dee5; --accent:#5b4bb7; --ok:#1f7a3a; --bad:#c62828; --mark:#00c853; color-scheme: light dark; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#0e1116; --panel:#161b22; --fg:#cdd9e5; --mut:#8b949e; --line:#2a313c; --accent:#b4a7ff; --ok:#3fb950; --bad:#f85149; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.5 system-ui, -apple-system, Segoe UI, sans-serif; }
+  main { max-width: 1100px; margin: 0 auto; padding: 24px 16px 60px; }
+  h1 { font-size: 24px; margin: 0 0 4px; } .mut { color: var(--mut); font-size: 13px; }
+  .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin: 14px 0; }
+  .tab { border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; cursor: pointer; background: var(--panel); font-size: 14px; }
+  .tab.on { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+  .wrap { display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap; }
+  .phone { position: relative; width: min(340px, 100%); flex: 0 0 auto; }
+  .phone img { width: 100%; display: block; border-radius: 16px; border: 6px solid #111; background: #111; cursor: crosshair; }
+  .mark { position: absolute; width: 30px; height: 30px; margin: -15px 0 0 -15px; border-radius: 50%; border: 3px solid var(--mark); pointer-events: none; }
+  .mark span { position: absolute; left: 30px; top: 2px; background: var(--mark); color: #000; font-size: 11px; padding: 0 5px; border-radius: 6px; white-space: nowrap; }
+  .side { flex: 1 1 320px; min-width: 280px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px; margin-bottom: 14px; }
+  code { font-size: 12px; background: rgba(127,127,127,.12); padding: 1px 5px; border-radius: 4px; word-break: break-all; }
+  button { font: inherit; font-size: 14px; color: var(--fg); background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; cursor: pointer; margin: 3px 4px 3px 0; }
+  button.primary { background: var(--accent); color: var(--panel); border-color: var(--accent); }
+  .cand { display: block; width: 100%; text-align: left; }
+  .bad { color: var(--bad); } .ok { color: var(--ok); }
+  .empty { padding: 40px 0; text-align: center; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Hand-back</h1>
+  <div class="mut">A plan stopped where the autopilot wasn't sure. Click the element it should have tapped (the green rings are what it weighed), or do it on the phone yourself and choose «Done by hand».</div>
+  <div id="msg" class="mut" style="margin-top:8px"></div>
+  <div class="tabs" id="tabs"></div>
+  <div id="none" class="empty mut" hidden>Nothing is waiting. This page checks every few seconds.</div>
+  <div class="wrap" id="detail" hidden>
+    <div class="phone"><img id="shot" alt="The phone's screen"><div id="marks"></div></div>
+    <div class="side">
+      <div class="card"><div class="mut" id="where"></div><div><b id="reason"></b></div><div class="mut" style="margin-top:6px">Step <span id="stepNo"></span>: <code id="step"></code></div></div>
+      <div class="card"><div class="mut">What the autopilot weighed: tap one</div><div id="cands"></div></div>
+      <div class="card">
+        <button id="skip" class="primary">Done by hand: next step</button>
+        <button id="retry">Retry the step</button>
+        <button id="refresh">Refresh the screen</button>
+        <button id="stop">Stop</button>
+      </div>
+    </div>
+  </div>
+</main>
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  async function api(method, path, body) {
+    const r = await fetch("/api/v1" + path, { method, credentials: "same-origin", headers: body ? { "content-type": "application/json" } : {}, body: body ? JSON.stringify(body) : undefined });
+    const b = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error((b.error && b.error.message) || "HTTP " + r.status);
+    return b;
+  }
+  const say = (t, bad) => { $("msg").textContent = t || ""; $("msg").className = bad ? "bad" : "ok"; };
+  let list = [], current = null, frame = null;
+
+  async function poll() {
+    try {
+      list = (await api("GET", "/handbacks")).handbacks;
+      $("tabs").innerHTML = list.map(h => `<span class="tab${current === h.id ? " on" : ""}" data-id="${esc(h.id)}">${esc(h.serial)} · ${esc(h.source)}</span>`).join("");
+      $("none").hidden = list.length > 0; $("detail").hidden = !list.some(h => h.id === current);
+      if (!list.some(h => h.id === current) && list.length) select(list[0].id);
+    } catch (e) { say(e.message, true); }
+  }
+  $("tabs").addEventListener("click", (e) => { const t = e.target.closest("[data-id]"); if (t) select(t.dataset.id); });
+
+  async function select(id) {
+    current = id; const h = list.find(x => x.id === id); if (!h) return;
+    $("detail").hidden = false;
+    [...$("tabs").children].forEach(t => t.classList.toggle("on", t.dataset.id === id));
+    $("where").textContent = `${h.source} on ${h.serial}`; $("reason").textContent = h.reason; $("stepNo").textContent = h.paused_at; $("step").textContent = h.step;
+    await shot();
+  }
+  async function shot() {
+    const h = list.find(x => x.id === current); if (!h) return;
+    try {
+      const r = await api("POST", "/view/call", { tool: "handsets_view_frame", args: { serial: h.serial, size: 1080 } });
+      const img = (r.content || []).find(c => c.type === "image"), meta = JSON.parse((r.content || []).find(c => c.type === "text").text);
+      frame = meta; $("shot").src = `data:${img.mimeType};base64,${img.data}`;
+      const marks = (await api("GET", `/handbacks/${encodeURIComponent(current)}/marks`)).marks;
+      const pos = (m) => `left:${m.x / meta.width * 100}%;top:${m.y / meta.height * 100}%`;
+      $("marks").innerHTML = marks.map(m => `<div class="mark" style="${pos(m)}"><span>${esc(m.key)}</span></div>`).join("");
+      $("cands").innerHTML = marks.length ? marks.map(m => `<button class="cand" data-x="${m.x}" data-y="${m.y}">${esc(m.key)} · ${esc(m.label)}</button>`).join("") : '<div class="mut">None of them is on the screen now: tap on the picture.</div>';
+    } catch (e) { say(e.message, true); }
+  }
+  // The picture has a 6 px frame around the screen.
+  $("shot").addEventListener("click", (e) => {
+    if (!frame) return;
+    const r = $("shot").getBoundingClientRect(), b = 6;
+    const x = Math.round((e.clientX - r.left - b) / (r.width - 2 * b) * frame.width), y = Math.round((e.clientY - r.top - b) / (r.height - 2 * b) * frame.height);
+    if (x >= 0 && y >= 0 && x < frame.width && y < frame.height) resolve({ action: "tap", x: String(x), y: String(y) });
+  });
+  $("cands").addEventListener("click", (e) => { const c = e.target.closest("[data-x]"); if (c) resolve({ action: "tap", x: c.dataset.x, y: c.dataset.y }); });
+  $("skip").onclick = () => resolve({ action: "skip" });
+  $("retry").onclick = () => resolve({ action: "retry" });
+  $("stop").onclick = () => confirm("Stop this plan?") && resolve({ action: "stop" });
+  $("refresh").onclick = shot;
+
+  async function resolve(body) {
+    try { const r = await api("POST", `/handbacks/${encodeURIComponent(current)}`, body); say(r.done); current = null; await poll(); }
+    catch (e) { say(e.message, true); }
+  }
+  poll(); setInterval(poll, 3000);
+})();
+</script>
+</body>
+</html>

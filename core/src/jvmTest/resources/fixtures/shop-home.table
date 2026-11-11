@@ -1,0 +1,14 @@
+-    TextView     "Hei Kari"  #greeting  540,240
+-    TextView     "Handlekurv: 3 varer"  #balance  540,320
+tap  ImageButton  #btn_menu  1000,120
+tap  Button       "Jeg er over 18 år"  #age_gate_ok  540,2010
+tap  TextView     "Buy Books now"  #books_cta  540,900
+tap  FrameLayout  "Books 24 mill."  #tile_books  270,1200
+tap  FrameLayout  "Music 950 mill."  #tile_music  810,1200
+-    TextView     "0 kr generert hittil i år"  402,1358
+tap  FrameLayout  "Hjem"  #fragment_home  108,2896
+tap  FrameLayout  "Shop"  #fragment_games  324,2896
+tap  FrameLayout  "Sport"  #fragment_sport  540,2896
+tap  FrameLayout  "My shop"  #fragment_mine  756,2896
+tap  FrameLayout  "Profil"  #fragment_profile  972,2896
+tap  FrameLayout  "Shop"  #fragment_games  324,2896

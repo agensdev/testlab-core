@@ -1,0 +1,474 @@
+{
+ "dump": "-    FrameLayout  \"Date & time\"  #collapsing_toolbar  540,363\ntap  ImageButton  \"Navigate up\"  73,201\n-    TextView     \"Automatic date and time\"  #title  352,675\n-    TextView     \"Set automatically using your network and wireless signals\"  #summary  461,758\n-    Switch       #switchWidget  969,722  [check checked]\n-    TextView     \"Date\"  #title  117,924\n-    TextView     \"October 2, 2026\"  #summary  193,985\n-    TextView     \"Time\"  #title  122,1130\n-    TextView     \"1:41 AM\"  #summary  131,1191\n-    TextView     \"Time zone\"  #title  550,1347\n-    TextView     \"Automatic time zone\"  #title  306,1471\n-    TextView     \"Set automatically based on mobile networks near you\"  #summary  461,1554\n-    Switch       #switchWidget  969,1518  [check checked]\n-    TextView     \"Use location for time zone\"  #title  369,1720\n-    TextView     \"If your device location is available, it may be used to set …\"  #summary  461,1803\n-    Switch       #switchWidget  969,1767  [check]\n-    TextView     \"Time zone\"  #title  185,1969\n-    TextView     \"GMT+00:00 Coordinated Universal Time\"  #summary  391,2030\n-    TextView     \"Time format\"  #title  550,2186\n-    TextView     \"Use 24-hour format\"  #title  290,2306\n-    Switch       #switchWidget  969,2305  [check]\n",
+ "nodes": [
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "Date & time",
+   "rid": "collapsing_toolbar",
+   "x": 540,
+   "y": 363,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "tap",
+   "widget": "ImageButton",
+   "text": "Navigate up",
+   "rid": "",
+   "x": 73,
+   "y": 201,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Automatic date and time",
+   "rid": "title",
+   "x": 352,
+   "y": 675,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Set automatically using your network and wireless signals",
+   "rid": "summary",
+   "x": 461,
+   "y": 758,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "Switch",
+   "text": "",
+   "rid": "switchWidget",
+   "x": 969,
+   "y": 722,
+   "flags": "check checked",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Date",
+   "rid": "title",
+   "x": 117,
+   "y": 924,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "October 2, 2026",
+   "rid": "summary",
+   "x": 193,
+   "y": 985,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Time",
+   "rid": "title",
+   "x": 122,
+   "y": 1130,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "1:41 AM",
+   "rid": "summary",
+   "x": 131,
+   "y": 1191,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Time zone",
+   "rid": "title",
+   "x": 550,
+   "y": 1347,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Automatic time zone",
+   "rid": "title",
+   "x": 306,
+   "y": 1471,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Set automatically based on mobile networks near you",
+   "rid": "summary",
+   "x": 461,
+   "y": 1554,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "Switch",
+   "text": "",
+   "rid": "switchWidget",
+   "x": 969,
+   "y": 1518,
+   "flags": "check checked",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Use location for time zone",
+   "rid": "title",
+   "x": 369,
+   "y": 1720,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "If your device location is available, it may be used to set …",
+   "rid": "summary",
+   "x": 461,
+   "y": 1803,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "Switch",
+   "text": "",
+   "rid": "switchWidget",
+   "x": 969,
+   "y": 1767,
+   "flags": "check",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Time zone",
+   "rid": "title",
+   "x": 185,
+   "y": 1969,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "GMT+00:00 Coordinated Universal Time",
+   "rid": "summary",
+   "x": 391,
+   "y": 2030,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Time format",
+   "rid": "title",
+   "x": 550,
+   "y": 2186,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Use 24-hour format",
+   "rid": "title",
+   "x": 290,
+   "y": 2306,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "Switch",
+   "text": "",
+   "rid": "switchWidget",
+   "x": 969,
+   "y": 2305,
+   "flags": "check",
+   "desc": "",
+   "depth": 0
+  }
+ ],
+ "unparsed": [],
+ "fingerprint": "ddbb2cddc323",
+ "title": "Date & time",
+ "selected": [],
+ "visible_texts": [
+  "Navigate up",
+  "Date & time",
+  "Automatic date and time",
+  "Set automatically using your network and wireless signals",
+  "Date",
+  "October 2, 2026",
+  "Time",
+  "1:41 AM",
+  "Time zone",
+  "Automatic time zone",
+  "Set automatically based on mobile networks near you",
+  "Use location for time zone",
+  "If your device location is available, it may be used to set …",
+  "GMT+00:00 Coordinated Universal Time",
+  "Time format",
+  "Use 24-hour format"
+ ],
+ "variants": {
+  "typesafe": {
+   "criteria": {
+    "n01": "Tap ImageButton \"Navigate up\"",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 1
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Date & time",
+     "selected": [],
+     "visible_texts": [
+      "Navigate up",
+      "Date & time",
+      "Automatic date and time",
+      "Set automatically using your network and wireless signals",
+      "Date",
+      "October 2, 2026",
+      "Time",
+      "1:41 AM",
+      "Time zone",
+      "Automatic time zone",
+      "Set automatically based on mobile networks near you",
+      "Use location for time zone",
+      "If your device location is available, it may be used to set …",
+      "GMT+00:00 Coordinated Universal Time",
+      "Time format",
+      "Use 24-hour format"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text, paying, or confirming a purchase. Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap ImageButton \"Navigate up\"",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started."
+    }
+   }
+  },
+  "typesafe-risky": {
+   "criteria": {
+    "n01": "Tap ImageButton \"Navigate up\"",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 1
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Date & time",
+     "selected": [],
+     "visible_texts": [
+      "Navigate up",
+      "Date & time",
+      "Automatic date and time",
+      "Set automatically using your network and wireless signals",
+      "Date",
+      "October 2, 2026",
+      "Time",
+      "1:41 AM",
+      "Time zone",
+      "Automatic time zone",
+      "Set automatically based on mobile networks near you",
+      "Use location for time zone",
+      "If your device location is available, it may be used to set …",
+      "GMT+00:00 Coordinated Universal Time",
+      "Time format",
+      "Use 24-hour format"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text (paying or confirming a purchase IS allowed in this step: it is what the goal asks for). Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap ImageButton \"Navigate up\"",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started."
+    }
+   }
+  },
+  "ollama": {
+   "criteria": {
+    "n01": "Tap ImageButton \"Navigate up\"",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 1
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Date & time",
+     "selected": [],
+     "visible_texts": [
+      "Navigate up",
+      "Date & time",
+      "Automatic date and time",
+      "Set automatically using your network and wireless signals",
+      "Date",
+      "October 2, 2026",
+      "Time",
+      "1:41 AM",
+      "Time zone",
+      "Automatic time zone",
+      "Set automatically based on mobile networks near you",
+      "Use location for time zone",
+      "If your device location is available, it may be used to set …",
+      "GMT+00:00 Coordinated Universal Time",
+      "Time format",
+      "Use 24-hour format"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text, paying, or confirming a purchase. Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap ImageButton \"Navigate up\"",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started.",
+     "criteria": {
+      "false": "No - the goal is not accomplished yet on this screen",
+      "true": "Yes - the screen/section the goal asks for is already open"
+     }
+    }
+   }
+  }
+ }
+}

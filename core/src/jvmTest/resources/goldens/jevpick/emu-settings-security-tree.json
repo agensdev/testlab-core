@@ -1,0 +1,1071 @@
+{
+ "dump": "FrameLayout  @(540,1200)\n  LinearLayout  @(540,1200)\n    FrameLayout #content  @(540,1200)\n      ScrollView #content_parent  [scroll]  @(540,1232)\n        LinearLayout #app_bar  @(540,363)\n          FrameLayout #collapsing_toolbar  desc=\"Security & privacy\"  @(540,363)\n            ViewGroup #action_bar  @(540,201)\n              ImageButton  desc=\"Navigate up\"  [click,focusable]  @(73,201)\n              View  @(634,201)\n              TextView  \"Security & privacy\"  @(189,201)\n              LinearLayout  @(1080,201)\n        FrameLayout #content_frame  @(540,1467)\n          FrameLayout #fragment_container  @(540,1467)\n            LinearLayout  @(540,1467)\n              FrameLayout #list_container  @(540,1467)\n                RecyclerView #recycler_view  [scroll,focusable,focused]  @(540,1467)\n                  FrameLayout  @(540,733)\n                    ViewGroup #status_card  @(540,733)\n                      ImageView #status_image  @(178,732)\n                      LinearLayout #status_title_and_summary  desc=\"Security and privacy status. Device may be at risk. Checking device settings…\"  @(603,736)\n                        TextSwitcher #status_title  @(567,711)\n                          TextView  \"Device may be at risk\"  @(567,711)\n                        TextSwitcher #status_summary  @(511,775)\n                          TextView  \"Checking device settings…\"  @(511,775)\n                  FrameLayout  [focusable]  @(540,1198)\n                    ViewGroup #issue_card  @(540,1219)\n                      View #default_issue_content  @(105,973)\n                      TextView #issue_card_attribution_title  \"Device unlock\"  @(477,994)\n                      ImageButton #issue_card_dismiss_btn  desc=\"Dismiss\"  [click,focusable]  @(943,1004)\n                      TextView #issue_card_title  \"Set a screen lock\"  @(477,1088)\n                      TextView #issue_card_summary  \"For added security, set a PIN, pattern, or password for this device.\"  @(540,1213)\n                      LinearLayout #issue_card_action_button_list  @(540,1391)\n                        Button  \"Set screen lock\"  [click,focusable]  @(540,1391)\n                  FrameLayout  [click,focusable]  @(540,1625)\n                    ViewGroup #more_issues_card  [click,focusable]  @(540,1648)\n                      View #widget_frame  @(105,1622)\n                      ImageView #status_icon  @(131,1648)\n                      TextView #title  \"More alerts\"  @(511,1648)\n                      View #widget_background  @(920,1648)\n                      TextView #widget_title  \"3\"  @(886,1648)\n                      ImageView #widget_icon  @(933,1649)\n                  LinearLayout  @(540,1831)\n                    RelativeLayout  @(550,1831)\n                      TextView #title  \"Security\"  @(550,1831)\n                  LinearLayout  [click,focusable]  @(540,1981)\n                    LinearLayout #icon_frame  @(126,1980)\n                      ImageView #icon  @(89,1980)\n                    RelativeLayout  @(613,1981)\n                      TextView #title  \"App security\"  @(335,1955)\n                      TextView #summary  \"No info yet\"  @(278,2016)\n                  LinearLayout  [click,focusable]  @(540,2187)\n                    LinearLayout #icon_frame  @(126,2186)\n                      ImageView #icon  @(89,2186)\n                    RelativeLayout  @(613,2187)\n                      TextView #title  \"Device unlock\"  @(352,2161)\n                      TextView #summary  \"None\"  @(232,2222)\n                  LinearLayout  [click,focusable]  @(540,2313)\n                    LinearLayout #icon_frame  @(126,2346)\n                      ImageView #icon  @(89,2351)\n                    RelativeLayout  @(613,2313)\n                      TextView #title  \"Account security\"  @(386,2334)\n                      TextView #summary  \"Add a Google Account\"  @(371,2370)\n                  LinearLayout  [click,focusable]  @(540,2416)\n                    LinearLayout #icon_frame  @(126,2449)\n                      ImageView #icon  @(89,2454)\n                    RelativeLayout  @(613,2416)\n                      TextView #title  \"Device finders\"  @(355,2437)\n                      TextView #summary  \"Add a Google Account\"  @(371,2473)\n",
+ "nodes": [
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1200,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1200,
+   "flags": "",
+   "desc": "",
+   "depth": 2
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "content",
+   "x": 540,
+   "y": 1200,
+   "flags": "",
+   "desc": "",
+   "depth": 4
+  },
+  {
+   "verb": "-",
+   "widget": "ScrollView",
+   "text": "",
+   "rid": "content_parent",
+   "x": 540,
+   "y": 1232,
+   "flags": "scroll",
+   "desc": "",
+   "depth": 6
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "app_bar",
+   "x": 540,
+   "y": 363,
+   "flags": "",
+   "desc": "",
+   "depth": 8
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "collapsing_toolbar",
+   "x": 540,
+   "y": 363,
+   "flags": "",
+   "desc": "Security & privacy",
+   "depth": 10
+  },
+  {
+   "verb": "-",
+   "widget": "ViewGroup",
+   "text": "",
+   "rid": "action_bar",
+   "x": 540,
+   "y": 201,
+   "flags": "",
+   "desc": "",
+   "depth": 12
+  },
+  {
+   "verb": "tap",
+   "widget": "ImageButton",
+   "text": "Navigate up",
+   "rid": "",
+   "x": 73,
+   "y": 201,
+   "flags": "click focusable",
+   "desc": "Navigate up",
+   "depth": 14
+  },
+  {
+   "verb": "-",
+   "widget": "View",
+   "text": "",
+   "rid": "",
+   "x": 634,
+   "y": 201,
+   "flags": "",
+   "desc": "",
+   "depth": 14
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Security & privacy",
+   "rid": "",
+   "x": 189,
+   "y": 201,
+   "flags": "",
+   "desc": "",
+   "depth": 14
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 1080,
+   "y": 201,
+   "flags": "",
+   "desc": "",
+   "depth": 14
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "content_frame",
+   "x": 540,
+   "y": 1467,
+   "flags": "",
+   "desc": "",
+   "depth": 8
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "fragment_container",
+   "x": 540,
+   "y": 1467,
+   "flags": "",
+   "desc": "",
+   "depth": 10
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1467,
+   "flags": "",
+   "desc": "",
+   "depth": 12
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "list_container",
+   "x": 540,
+   "y": 1467,
+   "flags": "",
+   "desc": "",
+   "depth": 14
+  },
+  {
+   "verb": "-",
+   "widget": "RecyclerView",
+   "text": "",
+   "rid": "recycler_view",
+   "x": 540,
+   "y": 1467,
+   "flags": "scroll focusable focused",
+   "desc": "",
+   "depth": 16
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 733,
+   "flags": "",
+   "desc": "",
+   "depth": 18
+  },
+  {
+   "verb": "-",
+   "widget": "ViewGroup",
+   "text": "",
+   "rid": "status_card",
+   "x": 540,
+   "y": 733,
+   "flags": "",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "ImageView",
+   "text": "",
+   "rid": "status_image",
+   "x": 178,
+   "y": 732,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "status_title_and_summary",
+   "x": 603,
+   "y": 736,
+   "flags": "",
+   "desc": "Security and privacy status. Device may be at risk. Checking device settings…",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextSwitcher",
+   "text": "",
+   "rid": "status_title",
+   "x": 567,
+   "y": 711,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Device may be at risk",
+   "rid": "",
+   "x": 567,
+   "y": 711,
+   "flags": "",
+   "desc": "",
+   "depth": 26
+  },
+  {
+   "verb": "-",
+   "widget": "TextSwitcher",
+   "text": "",
+   "rid": "status_summary",
+   "x": 511,
+   "y": 775,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Checking device settings…",
+   "rid": "",
+   "x": 511,
+   "y": 775,
+   "flags": "",
+   "desc": "",
+   "depth": 26
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1198,
+   "flags": "focusable",
+   "desc": "",
+   "depth": 18
+  },
+  {
+   "verb": "-",
+   "widget": "ViewGroup",
+   "text": "",
+   "rid": "issue_card",
+   "x": 540,
+   "y": 1219,
+   "flags": "",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "View",
+   "text": "",
+   "rid": "default_issue_content",
+   "x": 105,
+   "y": 973,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Device unlock",
+   "rid": "issue_card_attribution_title",
+   "x": 477,
+   "y": 994,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "tap",
+   "widget": "ImageButton",
+   "text": "Dismiss",
+   "rid": "issue_card_dismiss_btn",
+   "x": 943,
+   "y": 1004,
+   "flags": "click focusable",
+   "desc": "Dismiss",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Set a screen lock",
+   "rid": "issue_card_title",
+   "x": 477,
+   "y": 1088,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "For added security, set a PIN, pattern, or password for this device.",
+   "rid": "issue_card_summary",
+   "x": 540,
+   "y": 1213,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "issue_card_action_button_list",
+   "x": 540,
+   "y": 1391,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "tap",
+   "widget": "Button",
+   "text": "Set screen lock",
+   "rid": "",
+   "x": 540,
+   "y": 1391,
+   "flags": "click focusable",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "tap",
+   "widget": "FrameLayout",
+   "text": "More alerts / 3",
+   "rid": "",
+   "x": 540,
+   "y": 1625,
+   "flags": "click focusable",
+   "desc": "",
+   "depth": 18
+  },
+  {
+   "verb": "tap",
+   "widget": "ViewGroup",
+   "text": "More alerts / 3",
+   "rid": "more_issues_card",
+   "x": 540,
+   "y": 1648,
+   "flags": "click focusable",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "View",
+   "text": "",
+   "rid": "widget_frame",
+   "x": 105,
+   "y": 1622,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "ImageView",
+   "text": "",
+   "rid": "status_icon",
+   "x": 131,
+   "y": 1648,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "More alerts",
+   "rid": "title",
+   "x": 511,
+   "y": 1648,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "View",
+   "text": "",
+   "rid": "widget_background",
+   "x": 920,
+   "y": 1648,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "3",
+   "rid": "widget_title",
+   "x": 886,
+   "y": 1648,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "ImageView",
+   "text": "",
+   "rid": "widget_icon",
+   "x": 933,
+   "y": 1649,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1831,
+   "flags": "",
+   "desc": "",
+   "depth": 18
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 550,
+   "y": 1831,
+   "flags": "",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Security",
+   "rid": "title",
+   "x": 550,
+   "y": 1831,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "tap",
+   "widget": "LinearLayout",
+   "text": "App security / No info yet",
+   "rid": "",
+   "x": 540,
+   "y": 1981,
+   "flags": "click focusable",
+   "desc": "",
+   "depth": 18
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "icon_frame",
+   "x": 126,
+   "y": 1980,
+   "flags": "",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "ImageView",
+   "text": "",
+   "rid": "icon",
+   "x": 89,
+   "y": 1980,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 613,
+   "y": 1981,
+   "flags": "",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "App security",
+   "rid": "title",
+   "x": 335,
+   "y": 1955,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "No info yet",
+   "rid": "summary",
+   "x": 278,
+   "y": 2016,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "tap",
+   "widget": "LinearLayout",
+   "text": "Device unlock / None",
+   "rid": "",
+   "x": 540,
+   "y": 2187,
+   "flags": "click focusable",
+   "desc": "",
+   "depth": 18
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "icon_frame",
+   "x": 126,
+   "y": 2186,
+   "flags": "",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "ImageView",
+   "text": "",
+   "rid": "icon",
+   "x": 89,
+   "y": 2186,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 613,
+   "y": 2187,
+   "flags": "",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Device unlock",
+   "rid": "title",
+   "x": 352,
+   "y": 2161,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "None",
+   "rid": "summary",
+   "x": 232,
+   "y": 2222,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "tap",
+   "widget": "LinearLayout",
+   "text": "Account security / Add a Google Account",
+   "rid": "",
+   "x": 540,
+   "y": 2313,
+   "flags": "click focusable",
+   "desc": "",
+   "depth": 18
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "icon_frame",
+   "x": 126,
+   "y": 2346,
+   "flags": "",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "ImageView",
+   "text": "",
+   "rid": "icon",
+   "x": 89,
+   "y": 2351,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 613,
+   "y": 2313,
+   "flags": "",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Account security",
+   "rid": "title",
+   "x": 386,
+   "y": 2334,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Add a Google Account",
+   "rid": "summary",
+   "x": 371,
+   "y": 2370,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "tap",
+   "widget": "LinearLayout",
+   "text": "Device finders / Add a Google Account",
+   "rid": "",
+   "x": 540,
+   "y": 2416,
+   "flags": "click focusable",
+   "desc": "",
+   "depth": 18
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "icon_frame",
+   "x": 126,
+   "y": 2449,
+   "flags": "",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "ImageView",
+   "text": "",
+   "rid": "icon",
+   "x": 89,
+   "y": 2454,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 613,
+   "y": 2416,
+   "flags": "",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Device finders",
+   "rid": "title",
+   "x": 355,
+   "y": 2437,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Add a Google Account",
+   "rid": "summary",
+   "x": 371,
+   "y": 2473,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  }
+ ],
+ "unparsed": [],
+ "fingerprint": "fe62e3f350fb",
+ "title": "Security & privacy",
+ "selected": [],
+ "visible_texts": [
+  "Navigate up",
+  "Security & privacy",
+  "Device may be at risk",
+  "Security and privacy status. Device may be at risk. Checking device settings…",
+  "Checking device settings…",
+  "Device unlock",
+  "Dismiss",
+  "Set a screen lock",
+  "For added security, set a PIN, pattern, or password for this device.",
+  "Set screen lock",
+  "More alerts / 3",
+  "More alerts",
+  "3",
+  "Security",
+  "App security",
+  "App security / No info yet",
+  "No info yet",
+  "Device unlock / None",
+  "None",
+  "Account security / Add a Google Account",
+  "Account security",
+  "Add a Google Account",
+  "Device finders / Add a Google Account",
+  "Device finders"
+ ],
+ "variants": {
+  "typesafe": {
+   "criteria": {
+    "n01": "Tap ImageButton \"Navigate up\"",
+    "n02": "Tap ImageButton \"Dismiss\" [#issue_card_dismiss_btn]",
+    "n03": "Tap Button \"Set screen lock\"",
+    "n04": "Tap FrameLayout \"More alerts / 3\"",
+    "n05": "Tap ViewGroup \"More alerts / 3\" [#more_issues_card]",
+    "n06": "Tap LinearLayout \"App security / No info yet\"",
+    "n07": "Tap LinearLayout \"Device unlock / None\"",
+    "n08": "Tap LinearLayout \"Account security / Add a Google Account\"",
+    "n09": "Tap LinearLayout \"Device finders / Add a Google Account\"",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 9
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Security & privacy",
+     "selected": [],
+     "visible_texts": [
+      "Navigate up",
+      "Security & privacy",
+      "Device may be at risk",
+      "Security and privacy status. Device may be at risk. Checking device settings…",
+      "Checking device settings…",
+      "Device unlock",
+      "Dismiss",
+      "Set a screen lock",
+      "For added security, set a PIN, pattern, or password for this device.",
+      "Set screen lock",
+      "More alerts / 3",
+      "More alerts",
+      "3",
+      "Security",
+      "App security",
+      "App security / No info yet",
+      "No info yet",
+      "Device unlock / None",
+      "None",
+      "Account security / Add a Google Account",
+      "Account security",
+      "Add a Google Account",
+      "Device finders / Add a Google Account",
+      "Device finders"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text, paying, or confirming a purchase. Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap ImageButton \"Navigate up\"",
+      "n02": "Tap ImageButton \"Dismiss\" [#issue_card_dismiss_btn]",
+      "n03": "Tap Button \"Set screen lock\"",
+      "n04": "Tap FrameLayout \"More alerts / 3\"",
+      "n05": "Tap ViewGroup \"More alerts / 3\" [#more_issues_card]",
+      "n06": "Tap LinearLayout \"App security / No info yet\"",
+      "n07": "Tap LinearLayout \"Device unlock / None\"",
+      "n08": "Tap LinearLayout \"Account security / Add a Google Account\"",
+      "n09": "Tap LinearLayout \"Device finders / Add a Google Account\"",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started."
+    }
+   }
+  },
+  "typesafe-risky": {
+   "criteria": {
+    "n01": "Tap ImageButton \"Navigate up\"",
+    "n02": "Tap ImageButton \"Dismiss\" [#issue_card_dismiss_btn]",
+    "n03": "Tap Button \"Set screen lock\"",
+    "n04": "Tap FrameLayout \"More alerts / 3\"",
+    "n05": "Tap ViewGroup \"More alerts / 3\" [#more_issues_card]",
+    "n06": "Tap LinearLayout \"App security / No info yet\"",
+    "n07": "Tap LinearLayout \"Device unlock / None\"",
+    "n08": "Tap LinearLayout \"Account security / Add a Google Account\"",
+    "n09": "Tap LinearLayout \"Device finders / Add a Google Account\"",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 9
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Security & privacy",
+     "selected": [],
+     "visible_texts": [
+      "Navigate up",
+      "Security & privacy",
+      "Device may be at risk",
+      "Security and privacy status. Device may be at risk. Checking device settings…",
+      "Checking device settings…",
+      "Device unlock",
+      "Dismiss",
+      "Set a screen lock",
+      "For added security, set a PIN, pattern, or password for this device.",
+      "Set screen lock",
+      "More alerts / 3",
+      "More alerts",
+      "3",
+      "Security",
+      "App security",
+      "App security / No info yet",
+      "No info yet",
+      "Device unlock / None",
+      "None",
+      "Account security / Add a Google Account",
+      "Account security",
+      "Add a Google Account",
+      "Device finders / Add a Google Account",
+      "Device finders"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text (paying or confirming a purchase IS allowed in this step: it is what the goal asks for). Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap ImageButton \"Navigate up\"",
+      "n02": "Tap ImageButton \"Dismiss\" [#issue_card_dismiss_btn]",
+      "n03": "Tap Button \"Set screen lock\"",
+      "n04": "Tap FrameLayout \"More alerts / 3\"",
+      "n05": "Tap ViewGroup \"More alerts / 3\" [#more_issues_card]",
+      "n06": "Tap LinearLayout \"App security / No info yet\"",
+      "n07": "Tap LinearLayout \"Device unlock / None\"",
+      "n08": "Tap LinearLayout \"Account security / Add a Google Account\"",
+      "n09": "Tap LinearLayout \"Device finders / Add a Google Account\"",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started."
+    }
+   }
+  },
+  "ollama": {
+   "criteria": {
+    "n01": "Tap ImageButton \"Navigate up\"",
+    "n02": "Tap ImageButton \"Dismiss\" [#issue_card_dismiss_btn]",
+    "n03": "Tap Button \"Set screen lock\"",
+    "n04": "Tap FrameLayout \"More alerts / 3\"",
+    "n05": "Tap ViewGroup \"More alerts / 3\" [#more_issues_card]",
+    "n06": "Tap LinearLayout \"App security / No info yet\"",
+    "n07": "Tap LinearLayout \"Device unlock / None\"",
+    "n08": "Tap LinearLayout \"Account security / Add a Google Account\"",
+    "n09": "Tap LinearLayout \"Device finders / Add a Google Account\"",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 9
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Security & privacy",
+     "selected": [],
+     "visible_texts": [
+      "Navigate up",
+      "Security & privacy",
+      "Device may be at risk",
+      "Security and privacy status. Device may be at risk. Checking device settings…",
+      "Checking device settings…",
+      "Device unlock",
+      "Dismiss",
+      "Set a screen lock",
+      "For added security, set a PIN, pattern, or password for this device.",
+      "Set screen lock",
+      "More alerts / 3",
+      "More alerts",
+      "3",
+      "Security",
+      "App security",
+      "App security / No info yet",
+      "No info yet",
+      "Device unlock / None",
+      "None",
+      "Account security / Add a Google Account",
+      "Account security",
+      "Add a Google Account",
+      "Device finders / Add a Google Account",
+      "Device finders"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text, paying, or confirming a purchase. Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap ImageButton \"Navigate up\"",
+      "n02": "Tap ImageButton \"Dismiss\" [#issue_card_dismiss_btn]",
+      "n03": "Tap Button \"Set screen lock\"",
+      "n04": "Tap FrameLayout \"More alerts / 3\"",
+      "n05": "Tap ViewGroup \"More alerts / 3\" [#more_issues_card]",
+      "n06": "Tap LinearLayout \"App security / No info yet\"",
+      "n07": "Tap LinearLayout \"Device unlock / None\"",
+      "n08": "Tap LinearLayout \"Account security / Add a Google Account\"",
+      "n09": "Tap LinearLayout \"Device finders / Add a Google Account\"",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started.",
+     "criteria": {
+      "false": "No - the goal is not accomplished yet on this screen",
+      "true": "Yes - the screen/section the goal asks for is already open"
+     }
+    }
+   }
+  }
+ }
+}

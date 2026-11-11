@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{APP}}: approvals</title>
+<style>
+  :root { --bg:#fbfbfd; --panel:#fff; --fg:#1d2228; --mut:#5f6b7a; --line:#d9dee5; --accent:#5b4bb7; --ok:#1f7a3a; --warn:#b26a00; --bad:#c62828; --code:#f2f4f7; color-scheme: light dark; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#0e1116; --panel:#161b22; --fg:#cdd9e5; --mut:#8b949e; --line:#2a313c; --accent:#b4a7ff; --ok:#3fb950; --warn:#d29922; --bad:#f85149; --code:#0b0e13; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.5 system-ui, -apple-system, Segoe UI, sans-serif; }
+  main { max-width: 900px; margin: 0 auto; padding: 24px 16px 80px; }
+  h1 { font-size: 24px; margin: 0 0 4px; } h2 { font-size: 17px; margin: 0 0 4px; }
+  .mut { color: var(--mut); font-size: 13px; } .ok { color: var(--ok); } .bad { color: var(--bad); } .warn { color: var(--warn); }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px; margin: 16px 0; scroll-margin-top: 12px; }
+  .toc { display: flex; gap: 6px; flex-wrap: wrap; margin: 12px 0; } .toc a { font-size: 13px; color: var(--mut); text-decoration: none; border: 1px solid var(--line); border-radius: 14px; padding: 2px 10px; }
+  .f { display: grid; grid-template-columns: 220px 1fr; gap: 6px 14px; align-items: center; margin: 10px 0; }
+  .f label { font-size: 14px; } .f .help { grid-column: 2; font-size: 12px; color: var(--mut); margin-top: -4px; }
+  input[type=text], input[type=password], input[type=number], select, textarea { font: inherit; font-size: 14px; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; width: 100%; }
+  textarea { min-height: 80px; font-family: ui-monospace, Menlo, monospace; font-size: 13px; }
+  textarea.big { min-height: 380px; }
+  input[type=checkbox] { width: 18px; height: 18px; }
+  button { font: inherit; font-size: 14px; color: var(--fg); background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; cursor: pointer; margin-right: 6px; }
+  button.primary { background: var(--accent); color: var(--panel); border-color: var(--accent); }
+  .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 10px; }
+  .todo { display: grid; grid-template-columns: 18px 1fr; gap: 2px 8px; padding: 4px 0; font-size: 14px; }
+  .note { font-size: 13px; background: var(--code); border-radius: 8px; padding: 8px 10px; margin-top: 8px; }
+  .res { font-size: 13px; margin-top: 8px; white-space: pre-wrap; }
+  @media (max-width: 640px) { .f { grid-template-columns: 1fr; } .f .help { grid-column: 1; } }
+  .ap { border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin: 12px 0; background: var(--panel); }
+  .ap h2 { margin: 0 0 6px; }
+  .ap pre { white-space: pre-wrap; word-break: break-word; background: var(--code); border-radius: 8px; padding: 10px; font: 13px/1.45 ui-monospace, Menlo, monospace; margin: 8px 0; max-height: 360px; overflow: auto; }
+  .old { font-size: 13px; padding: 3px 0; border-top: 1px solid var(--line); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Approvals</h1>
+  <div class="mut">Writes Claude asked for that wait for a yes: Jira comments and labels, uninstalls, CI builds. Read exactly what will be sent, then answer. Nobody answering in time counts as no. The terminal can answer too: <code>{{SLUG}} approve ID</code> / <code>{{SLUG}} deny ID</code>.</div>
+  <div id="msg" class="mut"></div>
+  <div id="pending"><div class="mut">Loading…</div></div>
+  <section class="card"><h2>Answered lately</h2><div id="resolved" class="mut">None yet.</div></section>
+</main>
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  async function api(method, path, body) {
+    const r = await fetch("/api/v1" + path, { method, credentials: "same-origin", headers: body ? { "content-type": "application/json" } : {}, body: body ? JSON.stringify(body) : undefined });
+    const b = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error((b.error && b.error.message) || "HTTP " + r.status);
+    return b;
+  }
+  const say = (t, bad) => { $("msg").textContent = t || ""; $("msg").className = bad ? "bad" : "ok"; };
+  let pending = [];
+  const left = (iso) => { const s = Math.max(0, Math.round((new Date(iso) - Date.now()) / 1000)); return s >= 60 ? `${Math.floor(s / 60)} min ${s % 60} s` : `${s} s`; };
+
+  function showPending() {
+    $("pending").innerHTML = pending.length ? pending.map(p => `<div class="ap" data-id="${esc(p.id)}">
+        <h2>${esc(p.action)}</h2>
+        <pre>${esc(p.detail)}</pre>
+        <div class="row"><button class="primary" data-yes="${esc(p.id)}">Approve</button><button data-no="${esc(p.id)}">Decline</button>
+          <span class="mut">answers itself as no in <span data-left="${esc(p.expires)}">${left(p.expires)}</span> · ${esc(p.id)}</span></div>
+      </div>`).join("") : '<section class="card"><span class="ok">Nothing waits for an answer.</span></section>';
+    document.querySelectorAll("[data-yes],[data-no]").forEach(b => b.onclick = () => answer(b.dataset.yes || b.dataset.no, !!b.dataset.yes));
+  }
+  async function load() {
+    try {
+      const a = await api("GET", "/approvals");
+      pending = a.pending;
+      showPending();
+      $("resolved").innerHTML = a.resolved.length ? a.resolved.map(r => `<div class="old"><span class="${r.approved ? "ok" : "bad"}">${r.approved ? "✓ approved" : "✗ declined"}</span> ${esc(r.action)} <span class="mut">· ${esc(r.by)} · ${new Date(r.at).toLocaleTimeString()}</span></div>`).join("") : "None yet.";
+    } catch (e) { say(e.message, true); }
+  }
+  async function answer(id, approve) {
+    try { await api("POST", "/approvals/" + encodeURIComponent(id), { approve, by: "page" }); say(approve ? "Approved" : "Declined"); }
+    catch (e) { say(e.message, true); }
+    load();
+  }
+  setInterval(() => document.querySelectorAll("[data-left]").forEach(el => el.textContent = left(el.dataset.left)), 1000);
+  // Live: the server says when the list changes; a slow poll covers a dropped stream.
+  try { const es = new EventSource("/api/v1/events"); es.addEventListener("approvals", load); } catch (e) {}
+  setInterval(load, 15000);
+  load();
+})();
+</script>
+</body>
+</html>

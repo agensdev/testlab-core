@@ -1,0 +1,20 @@
+tap  LinearLayout  #search_action_bar  540,243
+-    TextView      "Search Settings"  #search_bar_title  383,243
+-    TextView      "Google"  #title  293,457
+-    TextView      "Services & preferences"  #summary  399,518
+-    TextView      "Network & internet"  #title  428,705
+-    TextView      "Mobile, Wi‑Fi, hotspot"  #summary  385,766
+-    TextView      "Connected devices"  #title  433,911
+-    TextView      "Bluetooth, pairing"  #summary  353,972
+-    TextView      "Apps"  #title  271,1159
+-    TextView      "Assistant, recent apps, default apps"  #summary  502,1220
+-    TextView      "Notifications"  #title  360,1365
+-    TextView      "Notification history, conversations"  #summary  488,1426
+-    TextView      "Sound & vibration"  #title  416,1571
+-    TextView      "Volume and haptics"  #summary  372,1632
+-    TextView      "Modes"  #title  290,1777
+-    TextView      "Do Not Disturb, Bedtime"  #summary  406,1838
+-    TextView      "Display & touch"  #title  392,1983
+-    TextView      "Dark theme, font size, touch"  #summary  437,2044
+-    TextView      "Wallpaper & style"  #title  413,2189
+-    TextView      "Colors, themed icons, app grid"  #summary  458,2250

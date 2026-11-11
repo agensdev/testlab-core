@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="no.agens.testlab.fixture"
+    android:versionCode="@CODE@"
+    android:versionName="@NAME@">
+    <uses-sdk android:minSdkVersion="24" android:targetSdkVersion="36" />
+    <application android:label="Testlab fixture" android:hasCode="false">
+        <activity android:name=".Links" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https" android:host="www.example.com" />
+                <data android:scheme="exampleshop" android:host="open" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

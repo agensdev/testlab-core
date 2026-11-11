@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{APP}}: reports</title>
+<style>
+  :root { --bg:#fbfbfd; --panel:#fff; --fg:#1d2228; --mut:#5f6b7a; --line:#d9dee5; --accent:#5b4bb7; --bad:#c62828; color-scheme: light dark; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#0e1116; --panel:#161b22; --fg:#cdd9e5; --mut:#8b949e; --line:#2a313c; --accent:#b4a7ff; --bad:#f85149; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.5 system-ui, -apple-system, Segoe UI, sans-serif; }
+  main { max-width: 980px; margin: 0 auto; padding: 24px 16px 60px; }
+  h1 { font-size: 24px; margin: 0 0 4px; } .mut { color: var(--mut); font-size: 13px; } .bad { color: var(--bad); }
+  input[type=search] { font: inherit; font-size: 14px; color: var(--fg); background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; width: min(420px, 100%); margin: 14px 0; }
+  .r { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 4px 12px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); margin-bottom: 8px; text-decoration: none; color: inherit; }
+  .r:hover { border-color: var(--accent); }
+  .r b { font-size: 15px; } .tags { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; align-items: center; }
+  .tag { font-size: 12px; padding: 1px 8px; border-radius: 10px; border: 1px solid var(--line); color: var(--mut); white-space: nowrap; }
+  .tag.draft { border-color: var(--accent); color: var(--accent); }
+  .empty { padding: 40px 0; text-align: center; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Reports</h1>
+  <div class="mut">Devtests and Claude sessions: screenshots, notes and the screen recording, newest first.</div>
+  <input id="q" type="search" placeholder="Search title, ticket or date…">
+  <div id="list"></div>
+  <div id="msg" class="mut"></div>
+</main>
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  let all = [];
+  const when = (c) => (c || "").replace("T", " ").slice(0, 16);
+  function render() {
+    const q = $("q").value.toLowerCase().trim();
+    const rows = all.filter(r => !q || [r.title, r.ticket, r.id, r.created].some(v => String(v || "").toLowerCase().includes(q)));
+    $("list").innerHTML = rows.map(r => `
+      <a class="r" href="${r.written ? "/ui/report?id=" + encodeURIComponent(r.id) : "#"}" ${r.written ? "" : 'title="Not written yet: lab_report_write finishes it"'}>
+        <span><b>${esc(r.title || r.id)}</b><br><span class="mut">${esc(when(r.created))}${r.ticket ? " · " + esc(r.ticket) : ""}</span></span>
+        <span class="tags">${r.written ? "" : '<span class="tag draft">not written</span>'}${r.video ? '<span class="tag">▶ recording</span>' : ""}<span class="tag">${r.shots} screenshot${r.shots === 1 ? "" : "s"}</span></span>
+      </a>`).join("") || `<div class="empty mut">${all.length ? "Nothing matches." : "No reports yet. Ask Claude to record a session and write a report, or run a devtest."}</div>`;
+  }
+  $("q").addEventListener("input", render);
+  fetch("/api/v1/reports", { credentials: "same-origin" }).then(r => r.json().then(b => { if (!r.ok) throw new Error((b.error && b.error.message) || r.status); all = b.reports; render(); }))
+    .catch(e => { $("msg").textContent = e.message; $("msg").className = "bad"; });
+})();
+</script>
+</body>
+</html>

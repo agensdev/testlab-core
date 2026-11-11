@@ -1,0 +1,117 @@
+{
+  "id": "example-shop",
+  "name": "Example Shop",
+  "description": "a made-up shop app: copy this folder and change it to your project",
+  "app": {
+    "defaultPackage": "com.example.shop.debug",
+    "productionPackage": "com.example.shop",
+    "family": "com.example.shop",
+    "label": "the shop app"
+  },
+  "github": {
+    "repo": "example-org/shop-android"
+  },
+  "builds": [
+    {
+      "id": "feature",
+      "label": "Feature",
+      "workflowFile": "build_feature.yml",
+      "artifact": "app-feature-firebase\\.apk",
+      "packageName": "com.example.shop.debug",
+      "autoPrefixes": [
+        "feature/",
+        "fix/",
+        "bugfix/",
+        "hotfix/"
+      ],
+      "default": true,
+      "dispatchInputs": {
+        "environment": {
+          "default": "prod",
+          "choices": [
+            "prod",
+            "stage",
+            "int"
+          ],
+          "description": "Default environment"
+        }
+      }
+    }
+  ],
+  "releases": {
+    "buildId": "feature"
+  },
+  "tracker": {
+    "site": "example.atlassian.net",
+    "projects": [
+      "SHOP"
+    ],
+    "queueLabels": [
+      "devtest"
+    ],
+    "approvedLabel": "devtest-approved",
+    "onApproved": {
+      "addLabels": [
+        "devtest-approved"
+      ]
+    },
+    "onChanges": {
+      "handBack": true
+    }
+  },
+  "devtest": {
+    "environments": [
+      "staging",
+      "production"
+    ]
+  },
+  "navigation": {
+    "host": "https://www.example.com",
+    "destinations": {
+      "search": {
+        "path": "/search",
+        "group": "pages"
+      },
+      "product": {
+        "path": "/p",
+        "group": "pages",
+        "subpages": true
+      },
+      "cart": {
+        "path": "/cart",
+        "group": "pages"
+      },
+      "home": {
+        "tab": "nav_home",
+        "group": "tabs"
+      },
+      "account": {
+        "tab": "nav_account",
+        "group": "tabs"
+      }
+    },
+    "aliases": {
+      "start": "home"
+    }
+  },
+  "accounts": {
+    "defaults": [
+      "demo"
+    ],
+    "fields": [
+      {
+        "key": "username",
+        "label": "Username"
+      },
+      {
+        "key": "password",
+        "label": "Password"
+      }
+    ],
+    "loginPlan": "login",
+    "loginEnvironments": [
+      "staging"
+    ],
+    "loginDescription": "username and password on the staging backend"
+  }
+}

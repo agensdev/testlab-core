@@ -1,0 +1,19 @@
+-    FrameLayout  "Display & touch"  #collapsing_toolbar  540,363
+tap  ImageButton  "Navigate up"  73,201
+-    TextView     "Brightness"  #title  550,686
+-    TextView     "Brightness level"  #title  249,810
+-    TextView     "83%"  #summary  97,871
+-    TextView     "Lock display"  #title  550,1027
+-    TextView     "Lock screen"  #title  205,1151
+-    TextView     "Show all notification content"  #summary  295,1212
+-    TextView     "Screen timeout"  #title  240,1357
+-    TextView     "Not set"  #summary  122,1418
+-    TextView     "Appearance"  #title  550,1574
+-    TextView     "Dark theme"  #title  198,1698
+-    TextView     "Will turn on when Bedtime starts"  #summary  329,1759
+tap  Switch       "Dark theme"  #switchWidget  969,1724  [check]
+-    TextView     "Screen saver"  #title  214,1904
+-    TextView     "On / Clock"  #summary  148,1965
+-    TextView     "Display size and text"  #title  303,2110
+-    TextView     "Navigation mode"  #title  263,2265
+-    TextView     "Gesture navigation"  #summary  217,2319

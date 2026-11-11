@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{APP}}: report</title>
+<style>
+/*{{REPORT_CSS}}*/
+  :root[data-theme="dark"]{--bg:#0e1116;--panel:#161b22;--fg:#cdd9e5;--mut:#8b949e;--line:#2a313c;--accent:#3fb950;--link:#58a6ff;--code:#0b0e13;--cap:#13202e}
+  :root[data-theme="light"]{--bg:#fbfbfd;--panel:#ffffff;--fg:#1d2228;--mut:#5f6b7a;--line:#d9dee5;--accent:#1f7a3a;--link:#0b5cad;--code:#f2f4f7;--cap:#eef3fa}
+  main{padding:12px 16px 32px}
+  .bar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:13px;color:var(--mut);margin-bottom:6px}
+  .bar button{font:inherit;color:var(--fg);background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
+  .load{font-size:13px;color:var(--mut);margin:6px 0}
+  .err{color:#dc2626}
+  progress{width:220px;vertical-align:middle}
+  #report img{max-height:520px;width:auto}
+</style>
+</head>
+<body>
+<main>
+  <div class="bar"><span id="status">Loading the report…</span><span style="flex:1"></span><button id="full" hidden>Full screen</button></div>
+  <div id="report"></div>
+</main>
+<script>
+function runPlayer(){
+/*{{PLAYER_JS}}*/
+}
+(() => {
+  const PAGE = "lab_view_report", FILE = "lab_view_report_file";
+  const $ = (id) => document.getElementById(id);
+  let nextId = 1; const pending = new Map(); let reportId = "", loaded = false;
+
+  // In a browser tab (`testlab open`) a small host stands in for the MCP Apps host.
+  function send(m) { (window.__testlabHost || ((x) => window.parent.postMessage(x, "*")))(m); }
+  function request(method, params) {
+    const id = nextId++; send({ jsonrpc: "2.0", id, method, params });
+    return new Promise((res, rej) => { pending.set(id, { res, rej }); setTimeout(() => { if (pending.delete(id)) rej(new Error(method + " timed out")); }, 60000); });
+  }
+  const notify = (method, params) => send({ jsonrpc: "2.0", method, params: params || {} });
+  const callTool = async (name, args) => { const r = await request("tools/call", { name, arguments: args }); if (r.isError) throw new Error(textOf(r)); return r; };
+  const textOf = (r) => (r.content || []).filter(c => c.type === "text").map(c => c.text).join("\n");
+  const json = (s) => { try { return JSON.parse(s); } catch { return null; } };
+  const status = (t, bad) => { $("status").textContent = t; $("status").className = bad ? "err" : ""; };
+
+  window.addEventListener("message", (e) => {
+    const d = e.data; if (!d || d.jsonrpc !== "2.0") return;
+    if (d.id != null && !d.method && pending.has(d.id)) { const p = pending.get(d.id); pending.delete(d.id); d.error ? p.rej(new Error(d.error.message)) : p.res(d.result); return; }
+    if (d.method === "ui/notifications/tool-input") reportId = (d.params && d.params.arguments && d.params.arguments.report_id) || reportId;
+    else if (d.method === "ui/notifications/tool-result") {
+      if (d.params && d.params.isError) { status(textOf(d.params), true); return; }
+      const r = json(textOf(d.params || {})); if (r && r.id) reportId = r.id; load();
+    }
+    else if (d.method === "ui/notifications/host-context-changed" && d.params && d.params.theme) document.documentElement.dataset.theme = d.params.theme;
+    else if (d.id != null && d.method) send({ jsonrpc: "2.0", id: d.id, result: {} });
+  });
+
+  async function load() {
+    if (loaded) return; loaded = true;
+    try {
+      const page = json(textOf(await callTool(PAGE, { report_id: reportId })));
+      reportId = page.id;
+      const doc = new DOMParser().parseFromString(page.html, "text/html");
+      const main = doc.querySelector("main") || doc.body;
+      $("report").innerHTML = main.innerHTML;
+      $("report").querySelectorAll("a[href]").forEach(a => a.addEventListener("click", (e) => {
+        const href = a.getAttribute("href"); if (/^https?:/.test(href)) { e.preventDefault(); request("ui/open-link", { url: href }).catch(() => {}); } else e.preventDefault();
+      }));
+      // The report's own page has the title; the bar only says what is missing.
+      status(page.videos.length ? "" : "No recording");
+      notify("ui/notifications/size-changed", { height: document.documentElement.scrollHeight });
+      for (const v of page.videos) {
+        const els = [...$("report").querySelectorAll("video")].filter(el => el.getAttribute("src") === v.file);
+        if (!els.length) continue;
+        els.forEach(el => { el.removeAttribute("src"); el.insertAdjacentHTML("afterend", `<div class="load" data-for="${v.file}">Loading ${v.file} <progress max="${v.size}" value="0"></progress></div>`); });
+        const parts = []; let off = 0;
+        while (off < v.size) {
+          const c = json(textOf(await callTool(FILE, { report_id: reportId, file: v.file, offset: off })));
+          const bin = atob(c.data), bytes = new Uint8Array(bin.length);
+          for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+          parts.push(bytes); off += bytes.length;
+          $("report").querySelectorAll(`[data-for="${v.file}"] progress`).forEach(p => p.value = off);
+          if (!bytes.length) break;
+        }
+        const url = URL.createObjectURL(new Blob(parts, { type: "video/mp4" }));
+        els.forEach(el => {
+          el.src = url;
+          el.addEventListener("error", () => status("The video can't play here; open the report page instead.", true), { once: true });
+        });
+        $("report").querySelectorAll(`[data-for="${v.file}"]`).forEach(x => x.remove());
+      }
+      runPlayer();
+      notify("ui/notifications/size-changed", { height: document.documentElement.scrollHeight });
+    } catch (err) { status(err.message, true); }
+  }
+
+  new ResizeObserver(() => notify("ui/notifications/size-changed", { width: document.documentElement.scrollWidth, height: document.documentElement.scrollHeight })).observe(document.body);
+  $("full").onclick = () => request("ui/request-display-mode", { mode: "fullscreen" }).catch(() => {});
+  request("ui/initialize", { protocolVersion: "2025-06-18", appInfo: { name: "{{APP}} report", version: "1" }, appCapabilities: { availableDisplayModes: ["inline", "fullscreen"] } })
+    .then((r) => {
+      const ctx = (r && r.hostContext) || {};
+      if (ctx.theme) document.documentElement.dataset.theme = ctx.theme;
+      if ((ctx.availableDisplayModes || []).includes("fullscreen")) $("full").hidden = false;
+      notify("ui/notifications/initialized");
+      setTimeout(load, 1500);
+    }).catch((e) => { status("The host did not answer: " + e.message, true); });
+})();
+</script>
+</body>
+</html>

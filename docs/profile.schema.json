@@ -1,0 +1,609 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Testlab project profile",
+    "description": "profile.json of a Testlab profile; see docs/PROFILES.md. Unknown fields are ignored.",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string"
+        },
+        "description": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "platform": {
+            "type": "string",
+            "enum": [
+                "android",
+                "ios"
+            ]
+        },
+        "app": {
+            "type": "object",
+            "properties": {
+                "defaultPackage": {
+                    "type": "string"
+                },
+                "productionPackage": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "family": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "label": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            }
+        },
+        "github": {
+            "type": "object",
+            "properties": {
+                "apiUrl": {
+                    "type": "string"
+                },
+                "org": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "repo": {
+                    "type": "string"
+                }
+            }
+        },
+        "builds": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "label": {
+                        "type": "string"
+                    },
+                    "workflowFile": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "artifact": {
+                        "type": "string"
+                    },
+                    "packageName": {
+                        "type": "string"
+                    },
+                    "autoPrefixes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "dispatchInputs": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "object",
+                            "properties": {
+                                "default": {
+                                    "type": "string"
+                                },
+                                "choices": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "description": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "type": "boolean"
+                    },
+                    "target": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    }
+                },
+                "required": [
+                    "id",
+                    "label",
+                    "artifact"
+                ]
+            }
+        },
+        "releases": {
+            "type": "object",
+            "properties": {
+                "buildId": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            }
+        },
+        "tracker": {
+            "type": "object",
+            "properties": {
+                "site": {
+                    "type": "string"
+                },
+                "projects": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "queueLabels": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "requiredLabels": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "approvedLabel": {
+                    "type": "string"
+                },
+                "queueJql": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "onApproved": {
+                    "type": "object",
+                    "properties": {
+                        "addLabels": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "removeLabels": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "handBack": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "onChanges": {
+                    "type": "object",
+                    "properties": {
+                        "addLabels": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "removeLabels": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "handBack": {
+                            "type": "boolean"
+                        }
+                    }
+                }
+            }
+        },
+        "linking": {
+            "type": "object",
+            "properties": {
+                "branchPrefixes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "bareKeyBranches": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "report": {
+            "type": "object",
+            "properties": {
+                "template": {
+                    "type": "string"
+                },
+                "dateFormat": {
+                    "type": "string"
+                },
+                "unknown": {
+                    "type": "string"
+                },
+                "buildLine": {
+                    "type": "string"
+                },
+                "ciBuildWord": {
+                    "type": "string"
+                },
+                "releaseWord": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "language": {
+                    "type": "string"
+                }
+            }
+        },
+        "devtest": {
+            "type": "object",
+            "properties": {
+                "teamCommand": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "teamCommandPaths": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "environments": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "navigation": {
+            "type": "object",
+            "properties": {
+                "host": {
+                    "type": "string"
+                },
+                "destinations": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "object",
+                        "properties": {
+                            "path": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "tab": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "group": {
+                                "type": "string"
+                            },
+                            "subpages": {
+                                "type": "boolean"
+                            }
+                        }
+                    }
+                },
+                "subpages": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "aliases": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "jev": {
+            "type": "object",
+            "properties": {
+                "glossary": {
+                    "type": "string"
+                },
+                "pickExample": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "doneExample": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "labelLanguage": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "riskyWords": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "leaveWords": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "pickNote": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            }
+        },
+        "accounts": {
+            "type": "object",
+            "properties": {
+                "defaults": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "fields": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "key": {
+                                "type": "string"
+                            },
+                            "label": {
+                                "type": "string"
+                            },
+                            "secret": {
+                                "type": "boolean"
+                            }
+                        },
+                        "required": [
+                            "key",
+                            "label"
+                        ]
+                    }
+                },
+                "loginPlan": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "loginEnvironments": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "loginDescription": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "isolateDuringLogin": {
+                    "type": "boolean"
+                },
+                "pools": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "url": {
+                                "type": "string"
+                            },
+                            "method": {
+                                "type": "string"
+                            },
+                            "headers": {
+                                "type": "object",
+                                "additionalProperties": {
+                                    "type": "string"
+                                }
+                            },
+                            "fields": {
+                                "type": "object",
+                                "additionalProperties": {
+                                    "type": "string"
+                                }
+                            },
+                            "id": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "description": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "name",
+                            "url"
+                        ]
+                    }
+                },
+                "poolLoginPlan": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            }
+        },
+        "texts": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            }
+        },
+        "imports": {
+            "type": "object",
+            "properties": {
+                "keychain": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "testRepos": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "repo": {
+                        "type": "string"
+                    },
+                    "ref": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "kind": {
+                        "type": "string"
+                    },
+                    "skills": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "description": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    }
+                },
+                "required": [
+                    "id",
+                    "repo"
+                ]
+            }
+        },
+        "snapshotImages": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "crashlytics": {
+            "type": "object",
+            "properties": {
+                "apps": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "timeframe": {
+                    "type": "string"
+                }
+            }
+        },
+        "dismiss": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "when": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "tap": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "packages": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "required": [
+                    "name",
+                    "when",
+                    "tap"
+                ]
+            }
+        },
+        "platforms": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "object",
+                "description": "fields of this profile that differ on this platform, as at the top level"
+            }
+        }
+    },
+    "required": [
+        "id",
+        "name"
+    ]
+}

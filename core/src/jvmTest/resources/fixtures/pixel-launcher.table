@@ -1,0 +1,26 @@
+-    ViewPager                  "At a glance"  #smartspace_card_pager  720,346  [long scroll]
+tap  ViewGroup                  #base_template_card_with_date  720,346
+tap  TextView                   "Wed, Sep 30"  #date  262,346
+-    LauncherAppWidgetHostView  "Current weather"  380,1623
+tap  FrameLayout                #background  380,1623
+-    ImageView                  "Cloudy"  266,1737
+-    TextView                   "65°"  436,1545
+tap  TextView                   "Play Store"  210,2171  [long]
+tap  TextView                   "Gmail"  550,2171  [long]
+tap  TextView                   "Photos"  890,2171  [long]
+tap  TextView                   "YouTube"  1230,2171  [long]
+-    View                       "Home"  #accessibility_action_view  720,1590
+-    TextView                   "No recent items"  #empty_recents_content  719,1548
+tap  TextView                   "Phone"  210,2588  [long]
+tap  TextView                   "Messages"  550,2588  [long]
+tap  TextView                   "Chrome"  890,2588  [long]
+tap  TextView                   "Camera"  1230,2588  [long]
+-    OseWidgetView              "Google"  719,2862
+tap  ImageView                  "Google search"  #googleapp_search_widget_background  719,2862
+tap  ImageButton                "Google app"  #googleapp_search_widget_google_logo  187,2862
+tap  ImageButton                "Voice search"  #googleapp_search_widget_voice_btn  1084,2862
+tap  ImageButton                "Camera search"  #googleapp_search_widget_lens_btn  1252,2862
+tap  FrameLayout                #googleapp_search_widget_ghost_google_logo  215,2862
+tap  FrameLayout                #googleapp_search_widget_ghost_text_search  628,2862
+tap  FrameLayout                #googleapp_search_widget_ghost_voice_search  1042,2862
+tap  FrameLayout                #googleapp_search_widget_ghost_lens  1217,2862

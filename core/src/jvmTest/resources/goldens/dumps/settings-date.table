@@ -1,0 +1,21 @@
+-    FrameLayout  "Date & time"  #collapsing_toolbar  540,363
+tap  ImageButton  "Navigate up"  73,201
+-    TextView     "Automatic date and time"  #title  352,675
+-    TextView     "Set automatically using your network and wireless signals"  #summary  461,758
+-    Switch       #switchWidget  969,722  [check checked]
+-    TextView     "Date"  #title  117,924
+-    TextView     "October 2, 2026"  #summary  193,985
+-    TextView     "Time"  #title  122,1130
+-    TextView     "1:41 AM"  #summary  131,1191
+-    TextView     "Time zone"  #title  550,1347
+-    TextView     "Automatic time zone"  #title  306,1471
+-    TextView     "Set automatically based on mobile networks near you"  #summary  461,1554
+-    Switch       #switchWidget  969,1518  [check checked]
+-    TextView     "Use location for time zone"  #title  369,1720
+-    TextView     "If your device location is available, it may be used to set …"  #summary  461,1803
+-    Switch       #switchWidget  969,1767  [check]
+-    TextView     "Time zone"  #title  185,1969
+-    TextView     "GMT+00:00 Coordinated Universal Time"  #summary  391,2030
+-    TextView     "Time format"  #title  550,2186
+-    TextView     "Use 24-hour format"  #title  290,2306
+-    Switch       #switchWidget  969,2305  [check]

@@ -1,0 +1,23 @@
+[
+ {"note": "e2e: every plan step type against the stock Settings app (emulator, stub or real backend)"},
+ {"open": "com.android.settings"},
+ {"wait_for": "Network & internet", "timeout": 15},
+ {"screenshot": "Settings home"},
+ {"step": "Select Network & internet"},
+ {"wait_for": "Internet", "timeout": 10},
+ {"key": "back"},
+ {"wait_for": "Network & internet", "timeout": 10},
+ {"goal": "Open Network & internet", "max_steps": 4},
+ {"key": "back"},
+ {"wait_for": "#search_action_bar", "timeout": 10},
+ {"tap": "#search_action_bar"},
+ {"wait_for": "#open_search_view_edit_text", "timeout": 10},
+ {"type": "Blåbær syltetøy ÆØÅ "},
+ {"type": {"cred": "e2e.secret"}},
+ {"wait_for": "Blåbær syltetøy ÆØÅ 123", "timeout": 5},
+ {"hide_keyboard": true},
+ {"screenshot": "Search typed"},
+ {"key": "back"},
+ {"sleep": 1},
+ {"note": "done"}
+]

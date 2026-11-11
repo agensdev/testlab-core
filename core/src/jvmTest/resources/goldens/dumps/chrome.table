@@ -1,0 +1,5 @@
+-    TextView  "Make Chrome your own"  #title  540,981
+-    TextView  "Sign in to get your bookmarks, passwords, and more on all yo…"  #subtitle  540,1089
+tap  Button    "Add account to device"  #signin_fre_continue_button  540,1962
+tap  Button    "Use without an account"  #signin_fre_dismiss_button  540,2088
+-    TextView  "By continuing, you agree to the Terms of Service. To help im…"  #signin_fre_footer  540,2228  [long]

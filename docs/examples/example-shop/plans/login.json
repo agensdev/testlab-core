@@ -1,0 +1,14 @@
+[
+  {"note": "Log in with a test account on ${Env}: username + password, from a fresh install"},
+  {"open": "${package}"},
+  {"goal": "Open the login screen"},
+  {"wait_for": "#username", "timeout": 20},
+  {"tap": "#username"},
+  {"type": {"cred": "${account}.username"}},
+  {"tap": "#password"},
+  {"type": {"cred": "${account}.password"}},
+  {"hide_keyboard": true},
+  {"step": "Press Log in"},
+  {"goal": "Open the Account tab"},
+  {"screenshot": "logged in"}
+]

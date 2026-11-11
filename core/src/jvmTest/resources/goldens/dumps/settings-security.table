@@ -1,0 +1,19 @@
+-    FrameLayout   "Security & privacy"  #collapsing_toolbar  540,363
+tap  ImageButton   "Navigate up"  73,201
+-    LinearLayout  "Security and privacy status. Device may be at risk. Checking…"  #status_title_and_summary  603,736
+-    TextView      "Device may be at risk"  567,711
+-    TextView      "Checking device settings…"  511,775
+-    TextView      "Device unlock"  #issue_card_attribution_title  477,994
+tap  ImageButton   "Dismiss"  #issue_card_dismiss_btn  943,1004
+-    TextView      "Set a screen lock"  #issue_card_title  477,1088
+-    TextView      "For added security, set a PIN, pattern, or password for this…"  #issue_card_summary  540,1213
+tap  Button        "Set screen lock"  540,1391
+tap  ViewGroup     #more_issues_card  540,1648
+-    TextView      "More alerts"  #title  511,1648
+-    TextView      "3"  #widget_title  886,1648
+-    TextView      "Security"  #title  550,1831
+-    TextView      "App security"  #title  335,1955
+-    TextView      "No info yet"  #summary  278,2016
+-    TextView      "Device unlock"  #title  352,2161
+-    TextView      "None"  #summary  232,2222
+-    TextView      "Account security"  #title  386,2334

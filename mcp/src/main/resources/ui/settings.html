@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{APP}}: settings</title>
+<style>
+  :root { --bg:#fbfbfd; --panel:#fff; --fg:#1d2228; --mut:#5f6b7a; --line:#d9dee5; --accent:#5b4bb7; --ok:#1f7a3a; --warn:#b26a00; --bad:#c62828; --code:#f2f4f7; color-scheme: light dark; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#0e1116; --panel:#161b22; --fg:#cdd9e5; --mut:#8b949e; --line:#2a313c; --accent:#b4a7ff; --ok:#3fb950; --warn:#d29922; --bad:#f85149; --code:#0b0e13; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.5 system-ui, -apple-system, Segoe UI, sans-serif; }
+  main { max-width: 900px; margin: 0 auto; padding: 24px 16px 80px; }
+  h1 { font-size: 24px; margin: 0 0 4px; } h2 { font-size: 17px; margin: 0 0 4px; }
+  .mut { color: var(--mut); font-size: 13px; } .ok { color: var(--ok); } .bad { color: var(--bad); } .warn { color: var(--warn); }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px; margin: 16px 0; scroll-margin-top: 12px; }
+  .toc { display: flex; gap: 6px; flex-wrap: wrap; margin: 12px 0; } .toc a { font-size: 13px; color: var(--mut); text-decoration: none; border: 1px solid var(--line); border-radius: 14px; padding: 2px 10px; }
+  .f { display: grid; grid-template-columns: 220px 1fr; gap: 6px 14px; align-items: center; margin: 10px 0; }
+  .f label { font-size: 14px; } .f .help { grid-column: 2; font-size: 12px; color: var(--mut); margin-top: -4px; }
+  input[type=text], input[type=password], input[type=number], select, textarea { font: inherit; font-size: 14px; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; width: 100%; }
+  textarea { min-height: 80px; font-family: ui-monospace, Menlo, monospace; font-size: 13px; }
+  textarea.big { min-height: 380px; }
+  input[type=checkbox] { width: 18px; height: 18px; }
+  button { font: inherit; font-size: 14px; color: var(--fg); background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; cursor: pointer; margin-right: 6px; }
+  button.primary { background: var(--accent); color: var(--panel); border-color: var(--accent); }
+  .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 10px; }
+  .todo { display: grid; grid-template-columns: 18px 1fr; gap: 2px 8px; padding: 4px 0; font-size: 14px; }
+  .note { font-size: 13px; background: var(--code); border-radius: 8px; padding: 8px 10px; margin-top: 8px; }
+  .res { font-size: 13px; margin-top: 8px; white-space: pre-wrap; }
+  @media (max-width: 640px) { .f { grid-template-columns: 1fr; } .f .help { grid-column: 1; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>Settings</h1>
+  <div class="mut">Saved on this computer. Tokens and keys go to the vault and are never shown again.</div>
+  <div class="toc"><a href="#setup">What's missing</a><a href="#keys">Keys</a><a href="#proxyman">Proxyman</a><a href="#autopilot">Autopilot</a><a href="#server">Server and MCP</a><a href="#phones">Phones</a><a href="#app">App</a><a href="#advanced">All settings</a></div>
+  <div id="msg" class="mut"></div>
+
+  <section class="card" id="setup"><h2>What's missing</h2><div id="todo" class="mut">Checking…</div></section>
+
+  <section class="card" id="keys"><h2>Keys</h2>
+    <div class="f"><label>GitHub token</label><input id="k-github" type="password" autocomplete="off"><div class="help" id="k-github-h"></div></div>
+    <div class="f"><label>Jira e-mail</label><input id="k-jemail" type="text" autocomplete="off"><div class="help" id="k-jira-h"></div></div>
+    <div class="f"><label>Jira API token</label><input id="k-jtoken" type="password" autocomplete="off"><div class="help"><a href="https://id.atlassian.com/manage-profile/security/api-tokens" target="_blank" rel="noopener">Make one</a></div></div>
+    <div class="f"><label>TypeSafe API key</label><input id="k-typesafe" type="password" autocomplete="off"><div class="help" id="k-typesafe-h">For the autopilot's TypeSafe backend.</div></div>
+    <div class="f"><label>OpenAI API key</label><input id="k-openai" type="password" autocomplete="off"><div class="help" id="k-openai-h">For the autopilot's OpenAI backend (Decisions API).</div></div>
+    <div class="row"><button class="primary" id="saveKeys">Save keys</button></div>
+  </section>
+
+  <section class="card" id="proxyman"><h2>Proxyman</h2>
+    <div class="mut">Proxyman on this computer (or another) as the phones' HTTP proxy, so you and Claude can see their traffic. Its own MCP tools then show up as <code>proxyman_*</code>.</div>
+    <div class="f"><label>Use Proxyman</label><input type="checkbox" data-path="proxyman.enabled"></div>
+    <div class="f"><label>Host</label><input type="text" data-path="proxyman.host" data-type="opt" placeholder="127.0.0.1 (this computer)"><div class="help">Another computer's address when Proxyman runs there (it must accept connections from the network).</div></div>
+    <div class="f"><label>Port</label><input type="number" data-path="proxyman.port" data-type="int"></div>
+    <div class="f"><label>Proxyman's mcp-server</label><input type="text" data-path="proxyman.mcpServer" data-type="opt" id="pm-mcp"><div class="help" id="pm-mcp-h"></div></div>
+    <div class="f"><label>Mirror its tools to Claude</label><input type="checkbox" data-path="proxyman.mirrorTools"></div>
+    <div class="f"><label>Attach flows to reports</label><input type="checkbox" data-path="proxyman.attachFlows"></div>
+    <div class="f"><label>Remove the session's rules when a report is written</label><input type="checkbox" data-path="proxyman.cleanupOnReport"></div>
+    <div class="row"><button class="primary" data-save="proxyman">Save</button><button id="pmTest">Test the connection</button></div>
+    <div class="res" id="pmRes"></div>
+    <div class="note" id="pmCert"></div>
+    <div class="mut" style="margin-top:8px">Route a phone through it on the <a href="/ui/devices">Devices</a> page (or ask Claude: <code>handsets_proxy</code>).</div>
+  </section>
+
+  <section class="card" id="autopilot"><h2>Autopilot</h2>
+    <div class="mut">Picks what to tap toward a goal when Claude or a plan drives the phone.</div>
+    <div class="f"><label>Backend</label><select data-path="jev.backend"><option value="typesafe">TypeSafe (hosted, needs the key)</option><option value="ollama">Ollama (a local model)</option><option value="openai">OpenAI Decisions API (hosted, needs an OpenAI key)</option><option value="stub">Stub (first option, for tests)</option></select></div>
+    <div class="f"><label>Ollama endpoints</label><textarea data-path="jev.ollamaUrls" data-type="list" placeholder="http://localhost:11434/v1/systemone|nimble:9b"></textarea><div class="help">One per line: URL|model.</div></div>
+    <div class="f"><label>OpenAI model</label><input type="text" data-path="jev.openaiModel" placeholder="gpt-6-luna"><div class="help">For the OpenAI backend.</div></div>
+    <div class="f"><label>Minimum confidence</label><input type="number" step="0.05" min="0" max="1" data-path="jev.minConfidence" data-type="num"><div class="help">Below this the autopilot hands back to a person.</div></div>
+    <div class="row"><button class="primary" data-save="jev">Save</button></div>
+  </section>
+
+  <section class="card" id="server"><h2>Server and MCP</h2>
+    <div class="f"><label>Port</label><input type="number" data-path="mcp.port" data-type="int"><div class="help">Restart the server (or the background service) after changing the port or the address.</div></div>
+    <div class="f"><label>Listen on</label><input type="text" data-path="mcp.listen"><div class="help">127.0.0.1 = this computer only. A shared phone rig listens on its network address and lists the names clients use below.</div></div>
+    <div class="f"><label>Allowed host names</label><textarea data-path="mcp.allowedHosts" data-type="list"></textarea></div>
+    <div class="f"><label>Ask before writing to Jira and uninstalling</label><input type="checkbox" data-path="mcp.confirmWrites"></div>
+    <div class="f"><label>Approval timeout (s)</label><input type="number" data-path="mcp.approvalTimeoutSeconds" data-type="int"></div>
+    <div class="f"><label>Control API (these pages, host apps)</label><input type="checkbox" data-path="mcp.controlApi"><div class="help">Off also turns these pages off.</div></div>
+    <div class="row"><button class="primary" data-save="mcp">Save</button></div>
+  </section>
+
+  <section class="card" id="phones"><h2>Phones</h2>
+    <div class="f"><label>App package</label><input type="text" data-path="device.packageOverride" data-type="opt" id="pkg"><div class="help">Empty = the profile's.</div></div>
+    <div class="f"><label>Take over a phone another tool holds</label><input type="checkbox" data-path="device.takeOver"></div>
+    <div class="f"><label>Allow risky taps in the production app</label><input type="checkbox" data-path="device.allowRiskyOnProd"><div class="help">Purchase- and delete-worded buttons are refused there otherwise.</div></div>
+    <div class="row"><button class="primary" data-save="device">Save</button></div>
+  </section>
+
+  <section class="card" id="app"><h2>App</h2>
+    <div class="f"><label>Workspace folder</label><input type="text" data-path="workspace" data-type="opt" id="ws"><div class="help">Plans and reports. Keep it outside iCloud (Documents can be): files moved to iCloud have to download before they open.</div></div>
+    <div class="f"><label>Check for updates</label><input type="checkbox" data-path="checkUpdates"></div>
+    <div class="f"><label>Icon in the menu bar (macOS) or taskbar (Windows)</label><input type="checkbox" data-path="menuBarIcon"></div>
+    <div class="f"><label>Claude Code binary</label><input type="text" data-path="claude.binary" data-type="opt" placeholder="found on PATH"></div>
+    <div class="row"><button class="primary" data-save="app">Save</button></div>
+  </section>
+
+  <section class="card" id="advanced"><h2>All settings</h2>
+    <div class="mut">Everything, as JSON. Saving merges it; a wrong value is refused with what is wrong.</div>
+    <textarea class="big" id="all" spellcheck="false"></textarea>
+    <div class="row"><button class="primary" id="saveAll">Save</button></div>
+  </section>
+</main>
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  async function api(method, path, body) {
+    const r = await fetch("/api/v1" + path, { method, credentials: "same-origin", headers: body ? { "content-type": "application/json" } : {}, body: body ? JSON.stringify(body) : undefined });
+    const b = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error((b.error && b.error.message) || "HTTP " + r.status);
+    return b;
+  }
+  const say = (t, bad) => { $("msg").textContent = t || ""; $("msg").className = bad ? "bad" : "ok"; if (t) window.scrollTo({ top: 0, behavior: "smooth" }); };
+  let S = null;
+  const getPath = (o, p) => p.split(".").reduce((a, k) => a == null ? undefined : a[k], o);
+  const setPath = (o, p, v) => { const ks = p.split("."); let cur = o; ks.slice(0, -1).forEach(k => cur = cur[k] = cur[k] || {}); cur[ks.at(-1)] = v; return o; };
+
+  function fill(data) {
+    S = data;
+    document.querySelectorAll("[data-path]").forEach(el => {
+      const v = getPath(S.settings, el.dataset.path);
+      if (el.type === "checkbox") el.checked = !!v;
+      else if (el.dataset.type === "list") el.value = (v || []).join("\n");
+      else el.value = v ?? "";
+    });
+    $("all").value = JSON.stringify(S.settings, null, 2);
+    const k = S.keys;
+    $("k-github-h").innerHTML = k.github_token ? '<span class="ok">✓ saved</span>: type to replace it' : 'Not set. <a href="https://github.com/settings/tokens/new?scopes=repo&description={{APP}}" target="_blank" rel="noopener">Make one</a> (classic, «repo»).';
+    $("k-jira-h").innerHTML = k.jira_site ? (k.jira ? `<span class="ok">✓ saved</span> for ${esc(k.jira_site)}: type to replace` : `For ${esc(k.jira_site)} (the active profile's Jira).`) : "The active profile has no Jira site.";
+    $("k-typesafe-h").innerHTML = k.typesafe ? '<span class="ok">✓ saved</span>: type to replace it' : "For the autopilot's TypeSafe backend.";
+    $("k-openai-h").innerHTML = k.openai ? '<span class="ok">✓ saved</span>: type to replace it' : "For the autopilot's OpenAI backend (Decisions API).";
+    const pm = S.proxyman;
+    $("pm-mcp").placeholder = pm.mcp_server_found || "not found: Proxyman installed?";
+    $("pm-mcp-h").textContent = pm.mcp_server_found ? `Found ${pm.mcp_server_found}; empty uses it.` : "Looked in: " + pm.mcp_server_candidates.slice(0, 3).join(", ") + "…";
+    $("pmCert").textContent = pm.cert;
+    $("ws").placeholder = S.workspace_default;
+  }
+
+  function collect(section) {
+    const patch = {};
+    document.querySelectorAll(`#${section === "app" ? "app" : section === "jev" ? "autopilot" : section === "mcp" ? "server" : section === "device" ? "phones" : section} [data-path]`).forEach(el => {
+      let v;
+      if (el.type === "checkbox") v = el.checked;
+      else if (el.dataset.type === "int") v = parseInt(el.value, 10);
+      else if (el.dataset.type === "num") v = parseFloat(el.value);
+      else if (el.dataset.type === "list") v = el.value.split("\n").map(x => x.trim()).filter(Boolean);
+      else if (el.dataset.type === "opt") v = el.value.trim() || null;
+      else v = el.value.trim();
+      setPath(patch, el.dataset.path, v);
+    });
+    return patch;
+  }
+  document.querySelectorAll("[data-save]").forEach(b => b.onclick = async () => {
+    try { fill(await api("POST", "/settings", collect(b.dataset.save))); say("Saved"); loadTodo(); } catch (e) { say(e.message, true); }
+  });
+  $("saveAll").onclick = async () => {
+    let obj; try { obj = JSON.parse($("all").value); } catch (e) { return say("Not JSON: " + e.message, true); }
+    try { fill(await api("POST", "/settings", obj)); say("Saved"); loadTodo(); } catch (e) { say(e.message, true); }
+  };
+  $("saveKeys").onclick = async () => {
+    const site = S.keys.jira_site, saved = [];
+    try {
+      if ($("k-github").value.trim()) { await api("POST", "/secrets/github.token", { value: $("k-github").value.trim() }); saved.push("GitHub token"); }
+      if (site && $("k-jemail").value.trim()) { await api("POST", "/secrets/" + encodeURIComponent("jira.email@" + site), { value: $("k-jemail").value.trim() }); saved.push("Jira e-mail"); }
+      if (site && $("k-jtoken").value.trim()) { await api("POST", "/secrets/" + encodeURIComponent("jira.token@" + site), { value: $("k-jtoken").value.trim() }); saved.push("Jira token"); }
+      if ($("k-typesafe").value.trim()) { await api("POST", "/secrets/jev.key", { value: $("k-typesafe").value.trim() }); saved.push("TypeSafe key"); }
+      if ($("k-openai").value.trim()) { await api("POST", "/secrets/openai.key", { value: $("k-openai").value.trim() }); saved.push("OpenAI key"); }
+      ["k-github", "k-jtoken", "k-typesafe", "k-openai"].forEach(id => $(id).value = "");
+      say(saved.length ? "Saved: " + saved.join(", ") : "Nothing typed");
+      fill(await api("GET", "/settings")); loadTodo();
+    } catch (e) { say(e.message, true); }
+  };
+  $("pmTest").onclick = async () => {
+    $("pmRes").textContent = "Testing…"; $("pmRes").className = "res mut";
+    try {
+      const h = await api("POST", "/proxyman/test");
+      const lines = [
+        (h.proxy_reachable ? "✓ " : "✗ ") + "the proxy answers" + (h.proxy_reachable ? "" : ": is Proxyman running, on that host and port?"),
+        h.proxy_reachable ? ((h.via_proxy_status && h.via_proxy_status !== "000" ? "✓ " : "✗ ") + "a request through it: " + (h.via_proxy_status || "no answer") + (h.via_proxy_seconds != null ? ` in ${h.via_proxy_seconds.toFixed(1)} s` : "")) : "",
+        "· its MCP server: " + h.mcp,
+        ...h.devices.map(d => `· ${d.serial}: ${d.proxy ? "routed through " + d.proxy : "not routed"}`),
+      ].filter(Boolean);
+      $("pmRes").textContent = lines.join("\n"); $("pmRes").className = "res " + (h.healthy ? "ok" : "bad");
+    } catch (e) { $("pmRes").textContent = e.message; $("pmRes").className = "res bad"; }
+  };
+  async function loadTodo() {
+    try {
+      const items = (await api("GET", "/setup")).items.filter(i => i.state === "todo");
+      const where = { github: "keys", jira: "keys", autopilot: "keys", accounts: "keys", proxyman: "proxyman", phones: "phones", project: "", updates: "app", claude: "app", service: "server" };
+      $("todo").innerHTML = items.length ? items.map(i => `<div class="todo"><span class="${i.essential ? "bad" : "warn"}">${i.essential ? "✗" : "!"}</span>
+        <span><b>${esc(i.label)}</b>: ${esc(i.text)}${i.place === "project" ? ' — <a href="/ui/profiles">Profiles</a>' : i.place === "phones" ? ' — <a href="/ui/devices">Devices</a>' : where[i.place] ? ` — <a href="#${where[i.place]}">fix it</a>` : ""}${i.cli ? ` <span class="mut">(${esc(i.cli)})</span>` : ""}</span></div>`).join("")
+        : '<span class="ok">✓ Everything is set up.</span>';
+    } catch (e) { $("todo").textContent = e.message; }
+  }
+  api("GET", "/settings").then(fill).catch(e => say(e.message, true));
+  loadTodo();
+})();
+</script>
+</body>
+</html>

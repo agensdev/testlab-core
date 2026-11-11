@@ -1,0 +1,23 @@
+Testlab
+Copyright 2026 Testlab contributors
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+This product bundles or depends on third-party software:
+
+- handsets (on-device daemon hs.jar, and ports of its dump renderer, tap-by-text and selector
+  code), Copyright (c) Elliot Gao. MIT License; the full text is in
+  device/src/main/resources/handsets/LICENSE.
+- Kotlin, kotlinx.coroutines, kotlinx.serialization, Ktor, JetBrains s.r.o.
+  Apache-2.0.
+- MCP Kotlin SDK, Model Context Protocol contributors. MIT License.
+- dadb, mobile.dev. Apache-2.0.
+- java-keyring. BSD 3-Clause License.
+- JNA. Apache-2.0 / LGPL-2.1 (used under Apache-2.0).
+- mp4parser (isoparser, muxer). Apache-2.0.
+- apk-parser. BSD 2-Clause License.
+- commonmark-java. BSD 2-Clause License.
+- SLF4J. MIT License.
+
+Android, Android SDK Platform-Tools and adb are not bundled; the app can download Google's
+platform-tools after the user accepts Google's terms.

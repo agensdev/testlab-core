@@ -1,0 +1,18 @@
+{
+  "id": "example-shop",
+  "name": "Example Shop",
+  "description": "the Example Shop Android app (the e2e fakes and the fixture APK)",
+  "app": { "defaultPackage": "no.agens.testlab.fixture", "family": "no.agens.testlab", "label": "the fixture app" },
+  "github": { "repo": "example-org/shop-android" },
+  "builds": [
+    { "id": "feature", "label": "Feature", "workflowFile": "build_feature.yml", "artifact": "app-feature-firebase\\.apk",
+      "packageName": "no.agens.testlab.fixture", "autoPrefixes": ["feature/", "fix/", "bugfix/", "hotfix/"], "default": true,
+      "dispatchInputs": { "environment": { "default": "prod", "choices": ["prod", "stage", "int"], "description": "Default environment" } } }
+  ],
+  "releases": { "buildId": "feature" },
+  "tracker": { "site": "example.atlassian.net", "projects": ["SHOP"], "queueLabels": ["devtest"], "approvedLabel": "devtest-approved",
+    "onApproved": { "addLabels": ["devtest-approved"] }, "onChanges": { "handBack": true } },
+  "devtest": { "environments": ["INT", "STAGE"] },
+  "navigation": { "host": "https://www.example.com", "destinations": { "settings": { "path": "/settings", "group": "pages" } } },
+  "accounts": { "defaults": ["demo"], "fields": [ { "key": "username", "label": "Username" }, { "key": "password", "label": "Password" } ] }
+}

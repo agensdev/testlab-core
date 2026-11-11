@@ -1,0 +1,137 @@
+name: build
+
+# The CLI packages (Java bundled), one job per OS: macOS (arm64) and Linux (x64) always, Windows
+# with `all-platforms: true`. Called by release.yml (tags) and package.yml (manual); each job
+# uploads `dist-<os>` with the files named for a release. There is no app any more: the CLI, the
+# background service and the local web pages are the whole product.
+on:
+  workflow_call:
+    inputs:
+      version:
+        description: 'MAJOR.MINOR.PATCH to stamp; empty = gradle.properties'
+        type: string
+        default: ''
+      retention-days:
+        type: number
+        default: 7
+      all-platforms:
+        description: 'Also build Windows'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  # Tests run once, on Linux; the expensive macOS (×10) and Windows (×2) minutes are only spent
+  # once they pass, and those jobs package what Linux tested.
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v6
+      - name: Scrub audit
+        env:
+          SCRUB_EXTRA_PATTERN: ${{ secrets.SCRUB_EXTRA_PATTERN }}
+        run: bash scripts/scrub-audit.sh
+      - name: Test
+        shell: bash
+        run: |
+          v="${{ inputs.version }}"
+          ./gradlew check --stacktrace ${v:+-Ptestlab.version=$v}
+
+  linux:
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v6
+      - name: Identity
+        run: bash scripts/ci-identity.sh "${{ inputs.version }}"
+      - name: Package the CLI
+        run: ./gradlew :cli:packageCli -Ptestlab.version=$VERSION --stacktrace
+      - name: Self-test the CLI (unpacked, on its bundled runtime)
+        run: bash scripts/smoke-cli.sh
+      - name: Collect
+        run: |
+          set -euo pipefail
+          out="$RUNNER_TEMP/dist"; mkdir -p "$out"
+          cp cli/build/cli-package/* "$out/"
+          ls -la "$out"
+      - uses: actions/upload-artifact@v7
+        with:
+          name: dist-linux
+          path: ${{ runner.temp }}/dist/*
+          retention-days: ${{ inputs.retention-days }}
+
+  macos:
+    needs: test
+    runs-on: macos-latest   # Apple silicon: the CLI is arm64
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v6
+      - name: Identity
+        run: bash scripts/ci-identity.sh "${{ inputs.version }}"
+      - name: Package the CLI
+        run: ./gradlew :cli:packageCli -Ptestlab.version=$VERSION --stacktrace
+      - name: Self-test the CLI (unpacked, on its bundled runtime)
+        run: bash scripts/smoke-cli.sh
+      - name: Collect
+        run: |
+          set -euo pipefail
+          out="$RUNNER_TEMP/dist"; mkdir -p "$out"
+          cp cli/build/cli-package/* "$out/"
+          ls -la "$out"
+      - uses: actions/upload-artifact@v7
+        with:
+          name: dist-macos
+          path: ${{ runner.temp }}/dist/*
+          retention-days: ${{ inputs.retention-days }}
+
+  windows:
+    needs: test
+    if: inputs.all-platforms
+    runs-on: windows-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: gradle/actions/setup-gradle@v6
+      - name: Identity
+        run: bash scripts/ci-identity.sh "${{ inputs.version }}"
+      - name: Package the CLI
+        run: ./gradlew :cli:packageCli -Ptestlab.version=$VERSION --stacktrace
+      - name: Self-test the CLI (unpacked, on its bundled runtime)
+        run: bash scripts/smoke-cli.sh
+      - name: Collect
+        run: |
+          set -euo pipefail
+          out="$RUNNER_TEMP/dist"; mkdir -p "$out"
+          cp cli/build/cli-package/* "$out/"
+          ls -la "$out"
+      - uses: actions/upload-artifact@v7
+        with:
+          name: dist-windows
+          path: ${{ runner.temp }}/dist/*
+          retention-days: ${{ inputs.retention-days }}

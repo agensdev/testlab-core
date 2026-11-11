@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{APP}}: profiles</title>
+<style>
+  :root { --bg:#fbfbfd; --panel:#fff; --fg:#1d2228; --mut:#5f6b7a; --line:#d9dee5; --accent:#5b4bb7; --ok:#1f7a3a; --bad:#c62828; --code:#f2f4f7; color-scheme: light dark; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#0e1116; --panel:#161b22; --fg:#cdd9e5; --mut:#8b949e; --line:#2a313c; --accent:#b4a7ff; --ok:#3fb950; --bad:#f85149; --code:#0b0e13; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.5 system-ui, -apple-system, Segoe UI, sans-serif; }
+  main { max-width: 980px; margin: 0 auto; padding: 24px 16px 80px; }
+  h1 { font-size: 24px; margin: 0 0 4px; } h2 { font-size: 18px; margin: 0 0 10px; } h3 { font-size: 15px; margin: 18px 0 6px; }
+  .mut { color: var(--mut); font-size: 13px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px; margin: 16px 0; }
+  .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .prof { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: center; padding: 10px 0; border-top: 1px solid var(--line); }
+  .prof:first-child { border-top: 0; }
+  .badge { font-size: 12px; padding: 1px 8px; border-radius: 10px; background: var(--accent); color: var(--panel); margin-left: 6px; }
+  button, .btn { font: inherit; font-size: 14px; color: var(--fg); background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; cursor: pointer; text-decoration: none; display: inline-block; }
+  button.primary { background: var(--accent); color: var(--panel); border-color: var(--accent); }
+  button:disabled { opacity: .5; cursor: default; }
+  input[type=text], input[type=password], input[type=search], textarea, select { font: inherit; font-size: 14px; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; }
+  input[type=text], input[type=password], input[type=search] { min-width: 280px; }
+  textarea { width: 100%; min-height: 360px; font-family: ui-monospace, Menlo, monospace; font-size: 13px; }
+  label.field { display: block; margin: 10px 0 4px; font-size: 13px; color: var(--mut); }
+  .list { max-height: 260px; overflow: auto; border: 1px solid var(--line); border-radius: 8px; }
+  .item { padding: 6px 10px; cursor: pointer; display: flex; justify-content: space-between; gap: 10px; }
+  .item:hover { background: var(--code); } .item.on { background: var(--accent); color: var(--panel); }
+  .item .mut { color: inherit; opacity: .75; }
+  .cand { display: flex; gap: 8px; align-items: flex-start; padding: 6px 0; }
+  .chips { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+  .chip { font-size: 13px; padding: 2px 10px; border: 1px solid var(--line); border-radius: 12px; cursor: pointer; user-select: none; }
+  .chip.on { background: var(--accent); color: var(--panel); border-color: var(--accent); }
+  .ok { color: var(--ok); } .bad { color: var(--bad); }
+  .step { display: none; } .step.on { display: block; }
+  .num { display: inline-block; width: 22px; height: 22px; border-radius: 11px; background: var(--accent); color: var(--panel); text-align: center; font-size: 13px; line-height: 22px; margin-right: 6px; }
+  ul.problems { margin: 6px 0; padding-left: 20px; color: var(--bad); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Profiles</h1>
+  <div class="mut">A profile is one project: the app, its GitHub repo and builds, Jira, deeplinks and test-account fields. Secrets never go in it, so a team can share one.</div>
+  <div id="msg" class="mut" style="margin-top:8px"></div>
+
+  <section class="card">
+    <div class="row" style="justify-content:space-between"><h2>Your profiles</h2>
+      <div class="row"><button id="newBtn" class="primary">+ New from a repo</button><label class="btn">Import .zip<input id="importFile" type="file" accept=".zip" hidden></label></div></div>
+    <div id="profiles"></div>
+  </section>
+
+  <!-- New from a repo -->
+  <section class="card" id="wizard" hidden>
+    <h2>New profile from a repo</h2>
+
+    <div class="step on" id="s-token">
+      <h3><span class="num">1</span>GitHub</h3>
+      <div id="tokenState" class="mut"></div>
+      <div id="tokenForm" hidden>
+        <label class="field">A classic token with the «repo» scope (<a id="tokenLink" target="_blank" rel="noopener">make one</a>; authorize it for your organisation's SSO if it uses one)</label>
+        <div class="row"><input id="ghToken" type="password" autocomplete="off" placeholder="ghp_…"><button id="saveToken">Save</button></div>
+      </div>
+    </div>
+
+    <div class="step" id="s-repo">
+      <h3><span class="num">2</span>Repository</h3>
+      <div class="mut">The app's repo: Testlab reads its pull requests, diffs and CI builds, and never writes to it. An app with Android and iOS in separate repos gets one profile each. Repos that look like an app are listed first.</div>
+      <div class="row"><select id="repoOwner"><option value="">Every account and organisation</option></select>
+      <input id="repoSearch" type="search" placeholder="Type to narrow the list…"></div>
+      <div class="list" id="repos" style="margin-top:8px"></div>
+      <div class="mut" id="ssoNote"></div>
+    </div>
+
+    <div class="step" id="s-builds">
+      <h3><span class="num">3</span>Build types <span class="mut" id="scanState"></span></h3>
+      <div id="cands"></div>
+      <label class="row mut"><input type="checkbox" id="readPkg"> Read the package name and deeplink hosts from the newest APK (downloads it)</label>
+      <ul class="problems" id="scanProblems"></ul>
+    </div>
+
+    <div class="step" id="s-jira">
+      <h3><span class="num">4</span>Jira <span class="mut">(optional: for devtests)</span></h3>
+      <div class="row"><input id="site" type="text" placeholder="yourteam.atlassian.net"><button id="loadJira">Load projects and labels</button></div>
+      <div id="jiraCreds" hidden>
+        <label class="field">Your Jira e-mail and an <a href="https://id.atlassian.com/manage-profile/security/api-tokens" target="_blank" rel="noopener">API token</a> for this site</label>
+        <div class="row"><input id="jEmail" type="text" placeholder="you@company.com"><input id="jToken" type="password" autocomplete="off" placeholder="API token"><button id="saveJira">Save and load</button></div>
+      </div>
+      <div id="jiraOut" hidden>
+        <label class="field">Project(s)</label><div class="chips" id="projects"></div>
+        <label class="field">Queue labels: a ticket with one of these waits for a devtest</label><div class="chips" id="queueLabels"></div>
+        <label class="field">Also required (optional): a ticket must have one of these too, e.g. a review passed or skipped</label><div class="chips" id="requiredLabels"></div>
+        <label class="field">Approved label: set when a devtest passes</label><select id="approvedLabel"></select>
+        <label class="field">Add a label that isn't listed</label><div class="row"><input id="extraLabel" type="text" placeholder="label"><button id="addLabel">Add</button></div>
+      </div>
+    </div>
+
+    <div class="step" id="s-name">
+      <h3><span class="num">5</span>Name</h3>
+      <div class="row"><input id="pName" type="text" placeholder="Shop Android"><span class="mut">id: <code id="pId"></code></span></div>
+      <div class="row" style="margin-top:12px"><button id="preview" class="primary">Preview the profile</button></div>
+    </div>
+
+    <div class="step" id="s-preview">
+      <h3><span class="num">6</span>Check and save</h3>
+      <div class="mut">Edit anything here; destinations, the devtest comment and the login are described in docs/PROFILES.md.</div>
+      <textarea id="draft" spellcheck="false"></textarea>
+      <ul class="problems" id="draftProblems"></ul>
+      <div class="row"><button id="saveNew" class="primary">Save and use</button><button id="cancelNew">Cancel</button></div>
+    </div>
+  </section>
+
+  <!-- Edit -->
+  <section class="card" id="editor" hidden>
+    <div class="row" style="justify-content:space-between"><h2 id="editTitle">Edit</h2><span class="mut" id="editDir"></span></div>
+    <textarea id="editJson" spellcheck="false"></textarea>
+    <ul class="problems" id="editProblems"></ul>
+    <div class="row"><button id="saveEdit" class="primary">Save</button><button id="saveEditUse">Save and use</button><button id="closeEdit">Close</button></div>
+  </section>
+</main>
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  async function api(method, path, body) {
+    const r = await fetch("/api/v1" + path, { method, credentials: "same-origin", headers: body !== undefined ? { "content-type": "application/json" } : {}, body: body !== undefined ? JSON.stringify(body) : undefined });
+    const b = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error((b.error && b.error.message) || ("HTTP " + r.status + (r.status === 401 ? ": open the page again with `{{APP}} open profiles`" : "")));
+    return b;
+  }
+  const say = (t, bad) => { $("msg").textContent = t || ""; $("msg").className = bad ? "bad" : "mut"; };
+  const show = (id, on = true) => $(id).classList.toggle("on", on);
+
+  // --- the list ---
+  async function loadProfiles() {
+    const d = await api("GET", "/profiles");
+    $("profiles").innerHTML = d.profiles.map(p => `
+      <div class="prof"><div><b>${esc(p.name)}</b>${p.id === d.active ? '<span class="badge">active</span>' : ""}<div class="mut">${esc(p.id)}${p.bundled ? " · built in" : ""}</div></div>
+        <div class="row">${p.id === d.active ? "" : `<button data-use="${esc(p.id)}">Use</button>`}<button data-edit="${esc(p.id)}">Edit</button>
+          <a class="btn" href="/api/v1/profiles/${encodeURIComponent(p.id)}/export">Export</a>${p.bundled ? "" : `<button data-del="${esc(p.id)}">Delete</button>`}</div></div>`).join("");
+  }
+  $("profiles").addEventListener("click", async (e) => {
+    const b = e.target.closest("button"); if (!b) return;
+    try {
+      if (b.dataset.use) { await api("POST", `/profiles/${encodeURIComponent(b.dataset.use)}/activate`); say("Now using " + b.dataset.use); }
+      if (b.dataset.edit) return openEditor(b.dataset.edit);
+      if (b.dataset.del && confirm(`Delete the profile ${b.dataset.del}? Its folder is removed; secrets stay in the vault.`)) { await api("DELETE", `/profiles/${encodeURIComponent(b.dataset.del)}`); say("Deleted " + b.dataset.del); }
+      await loadProfiles();
+    } catch (err) { say(err.message, true); }
+  });
+  $("importFile").addEventListener("change", async (e) => {
+    const f = e.target.files[0]; if (!f) return;
+    try {
+      const r = await fetch("/api/v1/profiles/import", { method: "POST", credentials: "same-origin", headers: { "content-type": "application/octet-stream" }, body: f });
+      const b = await r.json(); if (!r.ok) throw new Error(b.error && b.error.message);
+      say(`Imported and using ${b.name} (${b.id})`); await loadProfiles();
+    } catch (err) { say("Import failed: " + err.message, true); }
+    e.target.value = "";
+  });
+
+  // --- edit ---
+  let editing = null;
+  async function openEditor(id) {
+    const d = await api("GET", `/profiles/${encodeURIComponent(id)}/json`);
+    editing = id; $("editor").hidden = false; $("editTitle").textContent = "Edit " + id + (d.bundled ? " (built in: saving makes your own copy)" : "");
+    $("editDir").textContent = d.dir; $("editJson").value = d.json; $("editProblems").innerHTML = "";
+    $("editor").scrollIntoView({ behavior: "smooth" });
+  }
+  async function saveEdit(use) {
+    try {
+      const r = await api("PUT", `/profiles/${encodeURIComponent(editing)}/json`, { json: $("editJson").value, activate: use ? "true" : "false" });
+      if (!r.saved) { $("editProblems").innerHTML = r.problems.map(p => `<li>${esc(p)}</li>`).join(""); return say("Not saved: fix the problems below", true); }
+      $("editProblems").innerHTML = ""; say("Saved " + r.id + (use ? " and using it" : "")); await loadProfiles();
+    } catch (err) { say(err.message, true); }
+  }
+  $("saveEdit").onclick = () => saveEdit(false);
+  $("saveEditUse").onclick = () => saveEdit(true);
+  $("closeEdit").onclick = () => { $("editor").hidden = true; editing = null; };
+
+  // --- new from a repo ---
+  let repos = [], repo = null, scan = null, jira = null;
+  const sel = { projects: new Set(), queue: new Set(), required: new Set() };
+  $("newBtn").onclick = async () => { $("wizard").hidden = false; $("editor").hidden = true; $("wizard").scrollIntoView({ behavior: "smooth" }); await tokenStep(); };
+  $("cancelNew").onclick = () => { $("wizard").hidden = true; };
+  $("tokenLink").href = "https://github.com/settings/tokens/new?scopes=repo&description={{APP}}";
+
+  async function tokenStep() {
+    const s = await api("GET", "/secrets/status");
+    $("tokenForm").hidden = s.github_token;
+    $("tokenState").innerHTML = s.github_token ? '<span class="ok">✓ a GitHub token is saved</span> <a href="#" id="replaceToken">replace</a>' : "No GitHub token yet.";
+    const rt = document.getElementById("replaceToken"); if (rt) rt.onclick = (e) => { e.preventDefault(); $("tokenForm").hidden = false; };
+    if (s.github_token) await repoStep();
+  }
+  $("saveToken").onclick = async () => {
+    const v = $("ghToken").value.trim(); if (!v) return;
+    try { await api("POST", "/secrets/github.token", { value: v }); $("ghToken").value = ""; await tokenStep(); } catch (err) { say(err.message, true); }
+  };
+
+  async function repoStep() {
+    show("s-repo"); $("repos").innerHTML = '<div class="item mut">Loading your repositories…</div>';
+    try {
+      const d = await api("GET", "/setup/repos"); repos = d.repos;
+      const owners = [...new Set(repos.map(r => r.name.split("/")[0]))];
+      $("repoOwner").innerHTML = '<option value="">Every account and organisation</option>' + owners.map(o => `<option>${esc(o)}</option>`).join("");
+      $("ssoNote").textContent = d.sso_hidden ? `${d.sso_hidden} organisation(s) hide their repos until the token is authorized for their SSO (github.com/settings/tokens → Configure SSO).` : "";
+      renderRepos();
+    } catch (err) { $("repos").innerHTML = `<div class="item bad">${esc(err.message)}</div>`; }
+  }
+  function renderRepos() {
+    const q = $("repoSearch").value.toLowerCase();
+    const owner = $("repoOwner").value;
+    $("repos").innerHTML = repos.filter(r => (!q || r.name.toLowerCase().includes(q)) && (!owner || r.name.startsWith(owner + "/"))).slice(0, 200).map(r =>
+      `<div class="item${repo === r.name ? " on" : ""}" data-repo="${esc(r.name)}"><span>${esc(r.name)}${r.hint ? ` <b>${esc(r.hint)}</b>` : ""}</span><span class="mut">${[r.private ? "private" : "public", r.language, r.pushed].filter(Boolean).map(esc).join(" · ")}</span></div>`).join("") || '<div class="item mut">Nothing matches</div>';
+  }
+  $("repoSearch").addEventListener("input", renderRepos);
+  $("repoOwner").addEventListener("change", renderRepos);
+  $("repos").addEventListener("click", async (e) => {
+    const it = e.target.closest("[data-repo]"); if (!it) return;
+    repo = it.dataset.repo; renderRepos();
+    $("pName").value = repo.split("/")[1].replace(/[-_]+/g, " ").replace(/\b\w/g, c => c.toUpperCase()); updateId();
+    await scanRepo();
+  });
+  async function scanRepo() {
+    show("s-builds"); $("cands").innerHTML = ""; $("scanState").textContent = "reading the repo's workflows and builds…"; $("scanProblems").innerHTML = "";
+    try {
+      scan = await api("POST", "/setup/scan", { repo, read_packages: $("readPkg").checked ? "true" : "false" });
+      $("scanState").textContent = scan.candidates.length ? "" : "none found: the profile can still be saved and the builds added later";
+      $("cands").innerHTML = scan.candidates.map(c => `<label class="cand"><input type="checkbox" data-c="${c.index}" ${c.default || scan.candidates.length === 1 ? "checked" : ""}>
+        <span><b>${esc(c.label)}</b> <span class="mut">${esc(c.workflow_file)} · ${esc(c.artifact)} · on ${esc(c.event)}${c.package ? " · " + esc(c.package) : ""}</span></span></label>`).join("");
+      $("scanProblems").innerHTML = scan.problems.map(p => `<li>${esc(p)}</li>`).join("");
+      show("s-jira"); show("s-name");
+    } catch (err) { $("scanState").innerHTML = `<span class="bad">${esc(err.message)}</span>`; }
+  }
+  $("readPkg").addEventListener("change", () => repo && scanRepo());
+
+  function chips(id, items, set) {
+    $(id).innerHTML = items.map(v => `<span class="chip${set.has(v) ? " on" : ""}" data-v="${esc(v)}">${esc(v)}</span>`).join("") || '<span class="mut">none</span>';
+    $(id).onclick = (e) => { const c = e.target.closest(".chip"); if (!c) return; const v = c.dataset.v; set.has(v) ? set.delete(v) : set.add(v); c.classList.toggle("on"); };
+  }
+  async function loadJira() {
+    const site = $("site").value.trim().replace(/^https?:\/\//, "").replace(/\/$/, ""); if (!site) return;
+    try {
+      jira = await api("POST", "/setup/jira", { site });
+      $("jiraCreds").hidden = true; $("jiraOut").hidden = false;
+      sel.projects = new Set(jira.projects.length === 1 ? [jira.projects[0].key] : []);
+      sel.queue = new Set(jira.queue_labels);
+      $("projects").innerHTML = ""; chips("projects", jira.projects.map(p => p.key), sel.projects);
+      [...$("projects").children].forEach((c, i) => c.title = jira.projects[i] ? jira.projects[i].name : "");
+      renderLabels();
+    } catch (err) {
+      if (/401|e-mail|token|credentials|Unauthor/i.test(err.message)) { $("jiraCreds").hidden = false; say("Jira needs your e-mail and an API token for " + site); }
+      else say("Jira: " + err.message, true);
+    }
+  }
+  function renderLabels() {
+    const all = [...new Set([...(jira ? jira.labels : []), ...sel.queue, ...sel.required])];
+    chips("queueLabels", all, sel.queue); chips("requiredLabels", all, sel.required);
+    const approved = $("approvedLabel").value || (jira && jira.approved_label) || "";
+    $("approvedLabel").innerHTML = ['<option value="">(new: devtest-approved)</option>', ...all.map(l => `<option ${l === approved ? "selected" : ""}>${esc(l)}</option>`)].join("");
+  }
+  $("loadJira").onclick = loadJira;
+  $("saveJira").onclick = async () => {
+    const site = $("site").value.trim().replace(/^https?:\/\//, "").replace(/\/$/, "");
+    try {
+      await api("POST", "/secrets/" + encodeURIComponent("jira.email@" + site), { value: $("jEmail").value.trim() });
+      await api("POST", "/secrets/" + encodeURIComponent("jira.token@" + site), { value: $("jToken").value.trim() });
+      $("jToken").value = ""; await loadJira();
+    } catch (err) { say(err.message, true); }
+  };
+  $("addLabel").onclick = () => { const v = $("extraLabel").value.trim(); if (!v) return; if (!jira) jira = { labels: [], projects: [], queue_labels: [] }; jira.labels.push(v); $("extraLabel").value = ""; $("jiraOut").hidden = false; renderLabels(); };
+
+  const updateId = () => $("pId").textContent = $("pName").value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  $("pName").addEventListener("input", updateId);
+
+  $("preview").onclick = async () => {
+    const builds = [...$("cands").querySelectorAll("input[data-c]:checked")].map(i => +i.dataset.c);
+    const site = $("site").value.trim().replace(/^https?:\/\//, "").replace(/\/$/, "");
+    try {
+      const d = await api("POST", "/setup/draft", {
+        repo, builds, name: $("pName").value.trim() || undefined, id: $("pId").textContent || undefined,
+        site: site || undefined, projects: [...sel.projects], queue_labels: [...sel.queue], required_labels: [...sel.required],
+        approved_label: $("approvedLabel").value || undefined,
+      });
+      $("draft").value = d.json; $("draftProblems").innerHTML = d.problems.map(p => `<li>${esc(p)}</li>`).join("");
+      show("s-preview"); $("s-preview").scrollIntoView({ behavior: "smooth" });
+    } catch (err) { say(err.message, true); }
+  };
+  $("saveNew").onclick = async () => {
+    try {
+      const id = JSON.parse($("draft").value).id;
+      const r = await api("PUT", `/profiles/${encodeURIComponent(id)}/json`, { json: $("draft").value, activate: "true" });
+      if (!r.saved) { $("draftProblems").innerHTML = r.problems.map(p => `<li>${esc(p)}</li>`).join(""); return say("Not saved: fix the problems below", true); }
+      say(`Saved ${r.id} and using it.`); $("wizard").hidden = true; await loadProfiles();
+    } catch (err) { say(err.message, true); }
+  };
+
+  loadProfiles().catch(err => say(err.message, true));
+  if (new URLSearchParams(location.search).get("id")) openEditor(new URLSearchParams(location.search).get("id")).catch(err => say(err.message, true));
+})();
+</script>
+</body>
+</html>

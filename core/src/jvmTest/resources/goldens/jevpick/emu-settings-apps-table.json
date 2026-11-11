@@ -1,0 +1,528 @@
+{
+ "dump": "-  TextView  \"Android Auto\"  347,668\n-  TextView  \"295 kB\"  245,725\n-  TextView  \"Android System WebView\"  499,867\n-  TextView  \"127 MB\"  251,924\n-  TextView  \"Calendar\"  297,1066\n-  TextView  \"65.54 kB\"  260,1123\n-  TextView  \"Camera\"  283,1265\n-  TextView  \"119 kB\"  245,1322\n-  TextView  \"Chrome\"  284,1464\n-  TextView  \"74.48 MB\"  267,1521\n-  TextView  \"Clock\"  257,1663\n-  TextView  \"65.54 kB\"  260,1720\n-  TextView  \"Contacts\"  298,1862\n-  TextView  \"1.65 MB\"  257,1919\n-  TextView  \"Digital Wellbeing\"  391,2061\n-  TextView  \"2.30 MB\"  257,2118\n-  TextView  \"Drive\"  250,2260\n-  TextView  \"65.54 kB\"  260,2317\n-  View      \"Navigate up\"  74,201\n-  Button      74,201\n-  View      \"Search\"  880,201\n-  Button      880,201\n-  View      \"More options\"  1006,201\n-  Button      1006,201\n-  TextView  \"All apps\"  232,484\n",
+ "nodes": [
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Android Auto",
+   "rid": "",
+   "x": 347,
+   "y": 668,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "295 kB",
+   "rid": "",
+   "x": 245,
+   "y": 725,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Android System WebView",
+   "rid": "",
+   "x": 499,
+   "y": 867,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "127 MB",
+   "rid": "",
+   "x": 251,
+   "y": 924,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Calendar",
+   "rid": "",
+   "x": 297,
+   "y": 1066,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "65.54 kB",
+   "rid": "",
+   "x": 260,
+   "y": 1123,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Camera",
+   "rid": "",
+   "x": 283,
+   "y": 1265,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "119 kB",
+   "rid": "",
+   "x": 245,
+   "y": 1322,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Chrome",
+   "rid": "",
+   "x": 284,
+   "y": 1464,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "74.48 MB",
+   "rid": "",
+   "x": 267,
+   "y": 1521,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Clock",
+   "rid": "",
+   "x": 257,
+   "y": 1663,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "65.54 kB",
+   "rid": "",
+   "x": 260,
+   "y": 1720,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Contacts",
+   "rid": "",
+   "x": 298,
+   "y": 1862,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "1.65 MB",
+   "rid": "",
+   "x": 257,
+   "y": 1919,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Digital Wellbeing",
+   "rid": "",
+   "x": 391,
+   "y": 2061,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "2.30 MB",
+   "rid": "",
+   "x": 257,
+   "y": 2118,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Drive",
+   "rid": "",
+   "x": 250,
+   "y": 2260,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "65.54 kB",
+   "rid": "",
+   "x": 260,
+   "y": 2317,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "View",
+   "text": "Navigate up",
+   "rid": "",
+   "x": 74,
+   "y": 201,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "Button",
+   "text": "",
+   "rid": "",
+   "x": 74,
+   "y": 201,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "View",
+   "text": "Search",
+   "rid": "",
+   "x": 880,
+   "y": 201,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "Button",
+   "text": "",
+   "rid": "",
+   "x": 880,
+   "y": 201,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "View",
+   "text": "More options",
+   "rid": "",
+   "x": 1006,
+   "y": 201,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "Button",
+   "text": "",
+   "rid": "",
+   "x": 1006,
+   "y": 201,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "All apps",
+   "rid": "",
+   "x": 232,
+   "y": 484,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  }
+ ],
+ "unparsed": [],
+ "fingerprint": "caf77e57bad8",
+ "title": "Navigate up",
+ "selected": [],
+ "visible_texts": [
+  "Navigate up",
+  "Search",
+  "More options",
+  "All apps",
+  "Android Auto",
+  "295 kB",
+  "Android System WebView",
+  "127 MB",
+  "Calendar",
+  "65.54 kB",
+  "Camera",
+  "119 kB",
+  "Chrome",
+  "74.48 MB",
+  "Clock",
+  "Contacts",
+  "1.65 MB",
+  "Digital Wellbeing",
+  "2.30 MB",
+  "Drive"
+ ],
+ "variants": {
+  "typesafe": {
+   "criteria": {
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 0
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Navigate up",
+     "selected": [],
+     "visible_texts": [
+      "Navigate up",
+      "Search",
+      "More options",
+      "All apps",
+      "Android Auto",
+      "295 kB",
+      "Android System WebView",
+      "127 MB",
+      "Calendar",
+      "65.54 kB",
+      "Camera",
+      "119 kB",
+      "Chrome",
+      "74.48 MB",
+      "Clock",
+      "Contacts",
+      "1.65 MB",
+      "Digital Wellbeing",
+      "2.30 MB",
+      "Drive"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text, paying, or confirming a purchase. Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started."
+    }
+   }
+  },
+  "typesafe-risky": {
+   "criteria": {
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 0
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Navigate up",
+     "selected": [],
+     "visible_texts": [
+      "Navigate up",
+      "Search",
+      "More options",
+      "All apps",
+      "Android Auto",
+      "295 kB",
+      "Android System WebView",
+      "127 MB",
+      "Calendar",
+      "65.54 kB",
+      "Camera",
+      "119 kB",
+      "Chrome",
+      "74.48 MB",
+      "Clock",
+      "Contacts",
+      "1.65 MB",
+      "Digital Wellbeing",
+      "2.30 MB",
+      "Drive"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text (paying or confirming a purchase IS allowed in this step: it is what the goal asks for). Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started."
+    }
+   }
+  },
+  "ollama": {
+   "criteria": {
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 0
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Navigate up",
+     "selected": [],
+     "visible_texts": [
+      "Navigate up",
+      "Search",
+      "More options",
+      "All apps",
+      "Android Auto",
+      "295 kB",
+      "Android System WebView",
+      "127 MB",
+      "Calendar",
+      "65.54 kB",
+      "Camera",
+      "119 kB",
+      "Chrome",
+      "74.48 MB",
+      "Clock",
+      "Contacts",
+      "1.65 MB",
+      "Digital Wellbeing",
+      "2.30 MB",
+      "Drive"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text, paying, or confirming a purchase. Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started.",
+     "criteria": {
+      "false": "No - the goal is not accomplished yet on this screen",
+      "true": "Yes - the screen/section the goal asks for is already open"
+     }
+    }
+   }
+  }
+ }
+}

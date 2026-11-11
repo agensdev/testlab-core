@@ -1,0 +1,1203 @@
+{
+ "dump": "FrameLayout  @(540,1200)\n  ViewGroup #decor_content_parent  @(540,1200)\n    FrameLayout #content  @(540,1200)\n      ScrollView #content_parent  [scroll]  @(540,1232)\n        LinearLayout #app_bar  @(540,363)\n          FrameLayout #collapsing_toolbar  desc=\"Accessibility\"  @(540,363)\n            ViewGroup #action_bar  @(540,201)\n              ImageButton  desc=\"Navigate up\"  [click,focusable]  @(73,201)\n              View  @(634,201)\n              TextView  \"Accessibility\"  @(189,201)\n              LinearLayout  @(1080,201)\n        FrameLayout #content_frame  @(540,1467)\n          LinearLayout  @(540,1467)\n            FrameLayout #main_content  @(540,1467)\n              LinearLayout #container_material  @(540,1467)\n                FrameLayout #list_container  @(540,1467)\n                  RecyclerView #recycler_view  [scroll,focusable,focused]  @(540,1467)\n                    LinearLayout  @(540,686)\n                      RelativeLayout  @(550,686)\n                        TextView #title  \"Screen reader\"  @(550,686)\n                    LinearLayout  [click,focusable]  @(540,836)\n                      LinearLayout #icon_frame  @(126,836)\n                        ImageView #icon  @(105,836)\n                      RelativeLayout  @(613,836)\n                        TextView #title  \"TalkBack\"  @(297,810)\n                        TextView #summary  \"Off / Speak items on screen\"  @(417,871)\n                    LinearLayout  @(540,1027)\n                      RelativeLayout  @(550,1027)\n                        TextView #title  \"Display\"  @(550,1027)\n                    LinearLayout  [click,focusable]  @(540,1151)\n                      LinearLayout #icon_frame  @(126,1151)\n                        ImageView #icon  @(105,1151)\n                      RelativeLayout  @(613,1151)\n                        TextView #title  \"Display size and text\"  @(429,1151)\n                    LinearLayout  [click,focusable]  @(540,1306)\n                      LinearLayout #icon_frame  @(126,1306)\n                        ImageView #icon  @(105,1306)\n                      RelativeLayout  @(613,1306)\n                        TextView #title  \"Color and motion\"  @(391,1306)\n                    LinearLayout  [click,focusable]  @(540,1487)\n                      LinearLayout #icon_frame  @(126,1487)\n                        ImageView #icon  @(105,1487)\n                      RelativeLayout  @(613,1487)\n                        TextView #title  \"Magnification\"  @(350,1461)\n                        TextView #summary  \"Off / Zoom in on the screen\"  @(413,1522)\n                    LinearLayout  [click,focusable]  @(540,1693)\n                      LinearLayout #icon_frame  @(126,1693)\n                        ImageView #icon  @(105,1693)\n                      RelativeLayout  @(613,1693)\n                        TextView #title  \"Select to Speak\"  @(370,1667)\n                        TextView #summary  \"Off / Hear selected text\"  @(380,1728)\n                    LinearLayout  @(540,1884)\n                      RelativeLayout  @(550,1884)\n                        TextView #title  \"Interaction controls\"  @(550,1884)\n                    LinearLayout  [click,focusable]  @(540,2034)\n                      LinearLayout #icon_frame  @(126,2034)\n                        ImageView #icon  @(105,2034)\n                      RelativeLayout  @(613,2034)\n                        TextView #title  \"Accessibility Menu\"  @(410,2008)\n                        TextView #summary  \"Off / Control device via large menu\"  @(473,2069)\n                    LinearLayout  [click,focusable]  @(540,2237)\n                      LinearLayout #icon_frame  @(126,2240)\n                        ImageView #icon  @(105,2240)\n                      RelativeLayout  @(613,2237)\n                        TextView #title  \"Voice Access\"  @(348,2214)\n                        TextView #summary  \"Off / Control device with voice\"  @(436,2275)\n                    LinearLayout  [click,focusable]  @(540,2340)\n                      LinearLayout #icon_frame  @(126,2365)\n                        ImageView #icon  @(105,2370)\n                      RelativeLayout  @(613,2340)\n                        TextView #title  \"Vibration & haptics\"  @(411,2361)\n                        TextView #summary  \"On\"  @(211,2396)\n                    LinearLayout  [click,focusable]  @(540,2443)\n                      LinearLayout #icon_frame  @(126,2468)\n                        ImageView #icon  @(105,2473)\n                      RelativeLayout  @(613,2443)\n                        TextView #title  \"Switch Access\"  @(361,2464)\n                        TextView #summary  \"Off / Control device with switches or front camera\"  @(597,2499)\n",
+ "nodes": [
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1200,
+   "flags": "",
+   "desc": "",
+   "depth": 0
+  },
+  {
+   "verb": "-",
+   "widget": "ViewGroup",
+   "text": "",
+   "rid": "decor_content_parent",
+   "x": 540,
+   "y": 1200,
+   "flags": "",
+   "desc": "",
+   "depth": 2
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "content",
+   "x": 540,
+   "y": 1200,
+   "flags": "",
+   "desc": "",
+   "depth": 4
+  },
+  {
+   "verb": "-",
+   "widget": "ScrollView",
+   "text": "",
+   "rid": "content_parent",
+   "x": 540,
+   "y": 1232,
+   "flags": "scroll",
+   "desc": "",
+   "depth": 6
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "app_bar",
+   "x": 540,
+   "y": 363,
+   "flags": "",
+   "desc": "",
+   "depth": 8
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "collapsing_toolbar",
+   "x": 540,
+   "y": 363,
+   "flags": "",
+   "desc": "Accessibility",
+   "depth": 10
+  },
+  {
+   "verb": "-",
+   "widget": "ViewGroup",
+   "text": "",
+   "rid": "action_bar",
+   "x": 540,
+   "y": 201,
+   "flags": "",
+   "desc": "",
+   "depth": 12
+  },
+  {
+   "verb": "tap",
+   "widget": "ImageButton",
+   "text": "Navigate up",
+   "rid": "",
+   "x": 73,
+   "y": 201,
+   "flags": "click focusable",
+   "desc": "Navigate up",
+   "depth": 14
+  },
+  {
+   "verb": "-",
+   "widget": "View",
+   "text": "",
+   "rid": "",
+   "x": 634,
+   "y": 201,
+   "flags": "",
+   "desc": "",
+   "depth": 14
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Accessibility",
+   "rid": "",
+   "x": 189,
+   "y": 201,
+   "flags": "",
+   "desc": "",
+   "depth": 14
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 1080,
+   "y": 201,
+   "flags": "",
+   "desc": "",
+   "depth": 14
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "content_frame",
+   "x": 540,
+   "y": 1467,
+   "flags": "",
+   "desc": "",
+   "depth": 8
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1467,
+   "flags": "",
+   "desc": "",
+   "depth": 10
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "main_content",
+   "x": 540,
+   "y": 1467,
+   "flags": "",
+   "desc": "",
+   "depth": 12
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "container_material",
+   "x": 540,
+   "y": 1467,
+   "flags": "",
+   "desc": "",
+   "depth": 14
+  },
+  {
+   "verb": "-",
+   "widget": "FrameLayout",
+   "text": "",
+   "rid": "list_container",
+   "x": 540,
+   "y": 1467,
+   "flags": "",
+   "desc": "",
+   "depth": 16
+  },
+  {
+   "verb": "-",
+   "widget": "RecyclerView",
+   "text": "",
+   "rid": "recycler_view",
+   "x": 540,
+   "y": 1467,
+   "flags": "scroll focusable focused",
+   "desc": "",
+   "depth": 18
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 686,
+   "flags": "",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 550,
+   "y": 686,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Screen reader",
+   "rid": "title",
+   "x": 550,
+   "y": 686,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "tap",
+   "widget": "LinearLayout",
+   "text": "TalkBack / Off / Speak items on screen",
+   "rid": "",
+   "x": 540,
+   "y": 836,
+   "flags": "click focusable",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "icon_frame",
+   "x": 126,
+   "y": 836,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "ImageView",
+   "text": "",
+   "rid": "icon",
+   "x": 105,
+   "y": 836,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 613,
+   "y": 836,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "TalkBack",
+   "rid": "title",
+   "x": 297,
+   "y": 810,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Off / Speak items on screen",
+   "rid": "summary",
+   "x": 417,
+   "y": 871,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1027,
+   "flags": "",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 550,
+   "y": 1027,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Display",
+   "rid": "title",
+   "x": 550,
+   "y": 1027,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "tap",
+   "widget": "LinearLayout",
+   "text": "Display size and text",
+   "rid": "",
+   "x": 540,
+   "y": 1151,
+   "flags": "click focusable",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "icon_frame",
+   "x": 126,
+   "y": 1151,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "ImageView",
+   "text": "",
+   "rid": "icon",
+   "x": 105,
+   "y": 1151,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 613,
+   "y": 1151,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Display size and text",
+   "rid": "title",
+   "x": 429,
+   "y": 1151,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "tap",
+   "widget": "LinearLayout",
+   "text": "Color and motion",
+   "rid": "",
+   "x": 540,
+   "y": 1306,
+   "flags": "click focusable",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "icon_frame",
+   "x": 126,
+   "y": 1306,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "ImageView",
+   "text": "",
+   "rid": "icon",
+   "x": 105,
+   "y": 1306,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 613,
+   "y": 1306,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Color and motion",
+   "rid": "title",
+   "x": 391,
+   "y": 1306,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "tap",
+   "widget": "LinearLayout",
+   "text": "Magnification / Off / Zoom in on the screen",
+   "rid": "",
+   "x": 540,
+   "y": 1487,
+   "flags": "click focusable",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "icon_frame",
+   "x": 126,
+   "y": 1487,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "ImageView",
+   "text": "",
+   "rid": "icon",
+   "x": 105,
+   "y": 1487,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 613,
+   "y": 1487,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Magnification",
+   "rid": "title",
+   "x": 350,
+   "y": 1461,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Off / Zoom in on the screen",
+   "rid": "summary",
+   "x": 413,
+   "y": 1522,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "tap",
+   "widget": "LinearLayout",
+   "text": "Select to Speak / Off / Hear selected text",
+   "rid": "",
+   "x": 540,
+   "y": 1693,
+   "flags": "click focusable",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "icon_frame",
+   "x": 126,
+   "y": 1693,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "ImageView",
+   "text": "",
+   "rid": "icon",
+   "x": 105,
+   "y": 1693,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 613,
+   "y": 1693,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Select to Speak",
+   "rid": "title",
+   "x": 370,
+   "y": 1667,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Off / Hear selected text",
+   "rid": "summary",
+   "x": 380,
+   "y": 1728,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "",
+   "x": 540,
+   "y": 1884,
+   "flags": "",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 550,
+   "y": 1884,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Interaction controls",
+   "rid": "title",
+   "x": 550,
+   "y": 1884,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "tap",
+   "widget": "LinearLayout",
+   "text": "Accessibility Menu / Off / Control device via large menu",
+   "rid": "",
+   "x": 540,
+   "y": 2034,
+   "flags": "click focusable",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "icon_frame",
+   "x": 126,
+   "y": 2034,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "ImageView",
+   "text": "",
+   "rid": "icon",
+   "x": 105,
+   "y": 2034,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 613,
+   "y": 2034,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Accessibility Menu",
+   "rid": "title",
+   "x": 410,
+   "y": 2008,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Off / Control device via large menu",
+   "rid": "summary",
+   "x": 473,
+   "y": 2069,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "tap",
+   "widget": "LinearLayout",
+   "text": "Voice Access / Off / Control device with voice",
+   "rid": "",
+   "x": 540,
+   "y": 2237,
+   "flags": "click focusable",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "icon_frame",
+   "x": 126,
+   "y": 2240,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "ImageView",
+   "text": "",
+   "rid": "icon",
+   "x": 105,
+   "y": 2240,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 613,
+   "y": 2237,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Voice Access",
+   "rid": "title",
+   "x": 348,
+   "y": 2214,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Off / Control device with voice",
+   "rid": "summary",
+   "x": 436,
+   "y": 2275,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "tap",
+   "widget": "LinearLayout",
+   "text": "Vibration & haptics / On",
+   "rid": "",
+   "x": 540,
+   "y": 2340,
+   "flags": "click focusable",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "icon_frame",
+   "x": 126,
+   "y": 2365,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "ImageView",
+   "text": "",
+   "rid": "icon",
+   "x": 105,
+   "y": 2370,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 613,
+   "y": 2340,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Vibration & haptics",
+   "rid": "title",
+   "x": 411,
+   "y": 2361,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "On",
+   "rid": "summary",
+   "x": 211,
+   "y": 2396,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "tap",
+   "widget": "LinearLayout",
+   "text": "Switch Access / Off / Control device with switches or front camera",
+   "rid": "",
+   "x": 540,
+   "y": 2443,
+   "flags": "click focusable",
+   "desc": "",
+   "depth": 20
+  },
+  {
+   "verb": "-",
+   "widget": "LinearLayout",
+   "text": "",
+   "rid": "icon_frame",
+   "x": 126,
+   "y": 2468,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "ImageView",
+   "text": "",
+   "rid": "icon",
+   "x": 105,
+   "y": 2473,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "RelativeLayout",
+   "text": "",
+   "rid": "",
+   "x": 613,
+   "y": 2443,
+   "flags": "",
+   "desc": "",
+   "depth": 22
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Switch Access",
+   "rid": "title",
+   "x": 361,
+   "y": 2464,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  },
+  {
+   "verb": "-",
+   "widget": "TextView",
+   "text": "Off / Control device with switches or front camera",
+   "rid": "summary",
+   "x": 597,
+   "y": 2499,
+   "flags": "",
+   "desc": "",
+   "depth": 24
+  }
+ ],
+ "unparsed": [],
+ "fingerprint": "bb53dedc530f",
+ "title": "Accessibility",
+ "selected": [],
+ "visible_texts": [
+  "Navigate up",
+  "Accessibility",
+  "Screen reader",
+  "TalkBack",
+  "TalkBack / Off / Speak items on screen",
+  "Off / Speak items on screen",
+  "Display",
+  "Display size and text",
+  "Color and motion",
+  "Magnification",
+  "Magnification / Off / Zoom in on the screen",
+  "Off / Zoom in on the screen",
+  "Select to Speak",
+  "Select to Speak / Off / Hear selected text",
+  "Off / Hear selected text",
+  "Interaction controls",
+  "Accessibility Menu",
+  "Accessibility Menu / Off / Control device via large menu",
+  "Off / Control device via large menu",
+  "Voice Access",
+  "Voice Access / Off / Control device with voice",
+  "Off / Control device with voice",
+  "Vibration & haptics / On",
+  "Vibration & haptics",
+  "On",
+  "Switch Access / Off / Control device with switches or front camera",
+  "Switch Access",
+  "Off / Control device with switches or front camera"
+ ],
+ "variants": {
+  "typesafe": {
+   "criteria": {
+    "n01": "Tap ImageButton \"Navigate up\"",
+    "n02": "Tap LinearLayout \"TalkBack / Off / Speak items on screen\"",
+    "n03": "Tap LinearLayout \"Display size and text\"",
+    "n04": "Tap LinearLayout \"Color and motion\"",
+    "n05": "Tap LinearLayout \"Magnification / Off / Zoom in on the screen\"",
+    "n06": "Tap LinearLayout \"Select to Speak / Off / Hear selected text\"",
+    "n07": "Tap LinearLayout \"Accessibility Menu / Off / Control device via large menu\"",
+    "n08": "Tap LinearLayout \"Voice Access / Off / Control device with voice\"",
+    "n09": "Tap LinearLayout \"Vibration & haptics / On\"",
+    "n10": "Tap LinearLayout \"Switch Access / Off / Control device with switches or front \"",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 10
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Accessibility",
+     "selected": [],
+     "visible_texts": [
+      "Navigate up",
+      "Accessibility",
+      "Screen reader",
+      "TalkBack",
+      "TalkBack / Off / Speak items on screen",
+      "Off / Speak items on screen",
+      "Display",
+      "Display size and text",
+      "Color and motion",
+      "Magnification",
+      "Magnification / Off / Zoom in on the screen",
+      "Off / Zoom in on the screen",
+      "Select to Speak",
+      "Select to Speak / Off / Hear selected text",
+      "Off / Hear selected text",
+      "Interaction controls",
+      "Accessibility Menu",
+      "Accessibility Menu / Off / Control device via large menu",
+      "Off / Control device via large menu",
+      "Voice Access",
+      "Voice Access / Off / Control device with voice",
+      "Off / Control device with voice",
+      "Vibration & haptics / On",
+      "Vibration & haptics",
+      "On",
+      "Switch Access / Off / Control device with switches or front camera",
+      "Switch Access",
+      "Off / Control device with switches or front camera"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text, paying, or confirming a purchase. Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap ImageButton \"Navigate up\"",
+      "n02": "Tap LinearLayout \"TalkBack / Off / Speak items on screen\"",
+      "n03": "Tap LinearLayout \"Display size and text\"",
+      "n04": "Tap LinearLayout \"Color and motion\"",
+      "n05": "Tap LinearLayout \"Magnification / Off / Zoom in on the screen\"",
+      "n06": "Tap LinearLayout \"Select to Speak / Off / Hear selected text\"",
+      "n07": "Tap LinearLayout \"Accessibility Menu / Off / Control device via large menu\"",
+      "n08": "Tap LinearLayout \"Voice Access / Off / Control device with voice\"",
+      "n09": "Tap LinearLayout \"Vibration & haptics / On\"",
+      "n10": "Tap LinearLayout \"Switch Access / Off / Control device with switches or front \"",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started."
+    }
+   }
+  },
+  "typesafe-risky": {
+   "criteria": {
+    "n01": "Tap ImageButton \"Navigate up\"",
+    "n02": "Tap LinearLayout \"TalkBack / Off / Speak items on screen\"",
+    "n03": "Tap LinearLayout \"Display size and text\"",
+    "n04": "Tap LinearLayout \"Color and motion\"",
+    "n05": "Tap LinearLayout \"Magnification / Off / Zoom in on the screen\"",
+    "n06": "Tap LinearLayout \"Select to Speak / Off / Hear selected text\"",
+    "n07": "Tap LinearLayout \"Accessibility Menu / Off / Control device via large menu\"",
+    "n08": "Tap LinearLayout \"Voice Access / Off / Control device with voice\"",
+    "n09": "Tap LinearLayout \"Vibration & haptics / On\"",
+    "n10": "Tap LinearLayout \"Switch Access / Off / Control device with switches or front \"",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 10
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Accessibility",
+     "selected": [],
+     "visible_texts": [
+      "Navigate up",
+      "Accessibility",
+      "Screen reader",
+      "TalkBack",
+      "TalkBack / Off / Speak items on screen",
+      "Off / Speak items on screen",
+      "Display",
+      "Display size and text",
+      "Color and motion",
+      "Magnification",
+      "Magnification / Off / Zoom in on the screen",
+      "Off / Zoom in on the screen",
+      "Select to Speak",
+      "Select to Speak / Off / Hear selected text",
+      "Off / Hear selected text",
+      "Interaction controls",
+      "Accessibility Menu",
+      "Accessibility Menu / Off / Control device via large menu",
+      "Off / Control device via large menu",
+      "Voice Access",
+      "Voice Access / Off / Control device with voice",
+      "Off / Control device with voice",
+      "Vibration & haptics / On",
+      "Vibration & haptics",
+      "On",
+      "Switch Access / Off / Control device with switches or front camera",
+      "Switch Access",
+      "Off / Control device with switches or front camera"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text (paying or confirming a purchase IS allowed in this step: it is what the goal asks for). Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap ImageButton \"Navigate up\"",
+      "n02": "Tap LinearLayout \"TalkBack / Off / Speak items on screen\"",
+      "n03": "Tap LinearLayout \"Display size and text\"",
+      "n04": "Tap LinearLayout \"Color and motion\"",
+      "n05": "Tap LinearLayout \"Magnification / Off / Zoom in on the screen\"",
+      "n06": "Tap LinearLayout \"Select to Speak / Off / Hear selected text\"",
+      "n07": "Tap LinearLayout \"Accessibility Menu / Off / Control device via large menu\"",
+      "n08": "Tap LinearLayout \"Voice Access / Off / Control device with voice\"",
+      "n09": "Tap LinearLayout \"Vibration & haptics / On\"",
+      "n10": "Tap LinearLayout \"Switch Access / Off / Control device with switches or front \"",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started."
+    }
+   }
+  },
+  "ollama": {
+   "criteria": {
+    "n01": "Tap ImageButton \"Navigate up\"",
+    "n02": "Tap LinearLayout \"TalkBack / Off / Speak items on screen\"",
+    "n03": "Tap LinearLayout \"Display size and text\"",
+    "n04": "Tap LinearLayout \"Color and motion\"",
+    "n05": "Tap LinearLayout \"Magnification / Off / Zoom in on the screen\"",
+    "n06": "Tap LinearLayout \"Select to Speak / Off / Hear selected text\"",
+    "n07": "Tap LinearLayout \"Accessibility Menu / Off / Control device via large menu\"",
+    "n08": "Tap LinearLayout \"Voice Access / Off / Control device with voice\"",
+    "n09": "Tap LinearLayout \"Vibration & haptics / On\"",
+    "n10": "Tap LinearLayout \"Switch Access / Off / Control device with switches or front \"",
+    "scroll_down": "Scroll the screen down to reveal content further below",
+    "scroll_up": "Scroll the screen up to reveal content further above",
+    "back": "Press the Android back button (leave this screen / close a dialog)",
+    "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+    "blocked": "None of the listed elements would lead toward the goal from this screen"
+   },
+   "risky": [],
+   "stats": {
+    "dropped_risky": [],
+    "dropped_unlabeled": 0,
+    "dropped_excluded": 0,
+    "truncated": false,
+    "n_actionable": 10
+   },
+   "state": {
+    "goal": "Open the Sport tab",
+    "screen": {
+     "activity": "com.example.shop/.Main",
+     "title": "Accessibility",
+     "selected": [],
+     "visible_texts": [
+      "Navigate up",
+      "Accessibility",
+      "Screen reader",
+      "TalkBack",
+      "TalkBack / Off / Speak items on screen",
+      "Off / Speak items on screen",
+      "Display",
+      "Display size and text",
+      "Color and motion",
+      "Magnification",
+      "Magnification / Off / Zoom in on the screen",
+      "Off / Zoom in on the screen",
+      "Select to Speak",
+      "Select to Speak / Off / Hear selected text",
+      "Off / Hear selected text",
+      "Interaction controls",
+      "Accessibility Menu",
+      "Accessibility Menu / Off / Control device via large menu",
+      "Off / Control device via large menu",
+      "Voice Access",
+      "Voice Access / Off / Control device with voice",
+      "Off / Control device with voice",
+      "Vibration & haptics / On",
+      "Vibration & haptics",
+      "On",
+      "Switch Access / Off / Control device with switches or front camera",
+      "Switch Access",
+      "Off / Control device with switches or front camera"
+     ]
+    },
+    "step": {
+     "index": 2,
+     "max": 5
+    },
+    "history": [
+     "1: Tap View \"Shop\" [#fragment_games] -> no change",
+     "2: Tap Button \"Books\" -> screen changed"
+    ]
+   },
+   "question": {
+    "next": {
+     "type": "choice",
+     "instructions": "Choose the single next action on an Android phone so that `goal` is accomplished. Each option is either one tappable element currently on screen (its label is quoted) or a meta action. Pick the element most likely to lead toward the goal. Do NOT require a literal word match: section names, tabs, tiles and synonyms count (e.g. the goal 'Open Settings' is served by a 'More' tab when no 'Settings' element is visible). Pick the option stating the goal is ALREADY achieved when `screen.selected` / `screen.visible_texts` show that - do not act again. Pick the option stating that none of the elements lead toward the goal when nothing can plausibly advance it, or when progress would require typing text, paying, or confirming a purchase. Pick a scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. `screen.selected` names the currently selected tab; a tab label being visible in the bottom bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and reversible.",
+     "criteria": {
+      "n01": "Tap ImageButton \"Navigate up\"",
+      "n02": "Tap LinearLayout \"TalkBack / Off / Speak items on screen\"",
+      "n03": "Tap LinearLayout \"Display size and text\"",
+      "n04": "Tap LinearLayout \"Color and motion\"",
+      "n05": "Tap LinearLayout \"Magnification / Off / Zoom in on the screen\"",
+      "n06": "Tap LinearLayout \"Select to Speak / Off / Hear selected text\"",
+      "n07": "Tap LinearLayout \"Accessibility Menu / Off / Control device via large menu\"",
+      "n08": "Tap LinearLayout \"Voice Access / Off / Control device with voice\"",
+      "n09": "Tap LinearLayout \"Vibration & haptics / On\"",
+      "n10": "Tap LinearLayout \"Switch Access / Off / Control device with switches or front \"",
+      "scroll_down": "Scroll the screen down to reveal content further below",
+      "scroll_up": "Scroll the screen up to reveal content further above",
+      "back": "Press the Android back button (leave this screen / close a dialog)",
+      "goal_done": "The goal is ALREADY achieved: the screen/section the goal asks for is the one currently open",
+      "blocked": "None of the listed elements would lead toward the goal from this screen"
+     }
+    },
+    "done": {
+     "type": "noul",
+     "instructions": "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) and `history` (the last action). A tab or section label merely being visible in a navigation bar or menu does NOT mean it is open. Tab names must match exactly. Answer no if the screen is still where the goal started.",
+     "criteria": {
+      "false": "No - the goal is not accomplished yet on this screen",
+      "true": "Yes - the screen/section the goal asks for is already open"
+     }
+    }
+   }
+  }
+ }
+}
