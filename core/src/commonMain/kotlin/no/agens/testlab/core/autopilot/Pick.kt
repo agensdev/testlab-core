@@ -1,4 +1,4 @@
-package no.agens.testlab.core.jev
+package no.agens.testlab.core.autopilot
 
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonNull
@@ -19,7 +19,7 @@ internal fun pickDict(decision: Decision, cands: List<Candidate>, stats: Candida
         put("done_prob", decision.done?.let { JsonPrimitive(pyRound(it, 3)) } ?: JsonNull)
         if (chosen != null && chosen.kind != CandidateKind.TERMINAL) {
             putJsonObject("action") {
-                put("hs", JsonArray(JevEngine.toHsArgs(chosen).map(::JsonPrimitive)))
+                put("hs", JsonArray(AutopilotEngine.toHsArgs(chosen).map(::JsonPrimitive)))
                 put("desc", chosen.desc)
             }
         } else put("action", JsonNull)
@@ -41,7 +41,7 @@ internal fun pickDict(decision: Decision, cands: List<Candidate>, stats: Candida
 }
 
 /** Ask which node advances the goal. No device action. */
-suspend fun JevEngine.pick(goal: String, runHs: HsRunner, serial: String = "", opts: DecideOptions = DecideOptions(), traces: TraceFactory? = null): JsonObject {
+suspend fun AutopilotEngine.pick(goal: String, runHs: HsRunner, serial: String = "", opts: DecideOptions = DecideOptions(), traces: TraceFactory? = null): JsonObject {
     val trace = traces?.open(serial, "pick")
     val screen = readScreen(runHs)
     val d = decide(goal, screen.dump, screen.activity, emptyList(), opts)

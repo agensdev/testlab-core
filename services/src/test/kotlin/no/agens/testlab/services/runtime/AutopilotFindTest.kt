@@ -4,8 +4,8 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
-import no.agens.testlab.core.jev.HttpPost
-import no.agens.testlab.core.jev.HttpReply
+import no.agens.testlab.core.autopilot.HttpPost
+import no.agens.testlab.core.autopilot.HttpReply
 import java.awt.image.BufferedImage
 import java.io.ByteArrayOutputStream
 import javax.imageio.ImageIO
@@ -15,7 +15,7 @@ import kotlin.test.assertFailsWith
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-class JevFindTest {
+class AutopilotFindTest {
     private fun jpeg(w: Int, h: Int) = ByteArrayOutputStream().also { ImageIO.write(BufferedImage(w, h, BufferedImage.TYPE_INT_RGB), "jpg", it) }.toByteArray()
 
     private class Fake(val status: Int = 200, val answer: String) : HttpPost {
@@ -30,7 +30,7 @@ class JevFindTest {
     @Test
     fun theRequestAndTheTapPoint() = runBlocking {
         val http = Fake(answer = FOUND)
-        val r = JevFind(http, { "k-secret" }).find("the back arrow", jpeg(1440, 3120), 1440, 3120)
+        val r = AutopilotFind(http, { "k-secret" }).find("the back arrow", jpeg(1440, 3120), 1440, 3120)
         assertEquals(mapOf("Content-Type" to "application/json", "Authorization" to "Bearer k-secret", "TypeSafe-Danger-Zone-Images" to "true"), http.headers)
         val body = Json.parseToJsonElement(http.body) as JsonObject
         val s1 = ((body["assets"] as JsonObject)["s1"] as JsonObject)
@@ -47,13 +47,13 @@ class JevFindTest {
     @Test
     fun notThereLandscapeAndErrors() = runBlocking {
         val absent = FOUND.replace("0.97", "0.12")
-        val r = JevFind(Fake(answer = absent), { "k" }).find("x", jpeg(2400, 1080), 1080, 2400)
+        val r = AutopilotFind(Fake(answer = absent), { "k" }).find("x", jpeg(2400, 1080), 1080, 2400)
         assertFalse(r.found, "Box always draws a box: the noul decides")
         // A landscape picture with a portrait size: the size is turned to match.
         assertEquals(2040 to 162, r.x to r.y)
-        val e = assertFailsWith<IllegalStateException> { JevFind(Fake(400, """{"error":"image too small"}"""), { "k" }).find("x", jpeg(600, 1200), 600, 1200) }
+        val e = assertFailsWith<IllegalStateException> { AutopilotFind(Fake(400, """{"error":"image too small"}"""), { "k" }).find("x", jpeg(600, 1200), 600, 1200) }
         assertTrue("280–1568" in e.message!! && "image too small" in e.message!!, e.message)
-        assertTrue("typesafe_api_key" in assertFailsWith<IllegalStateException> { JevFind(Fake(answer = FOUND), { null }).find("x", jpeg(600, 1200), 1, 1) }.message!!)
-        assertTrue("at least 280" in assertFailsWith<IllegalStateException> { JevFind.fit(jpeg(200, 900)) }.message!!)
+        assertTrue("typesafe_api_key" in assertFailsWith<IllegalStateException> { AutopilotFind(Fake(answer = FOUND), { null }).find("x", jpeg(600, 1200), 1, 1) }.message!!)
+        assertTrue("at least 280" in assertFailsWith<IllegalStateException> { AutopilotFind.fit(jpeg(200, 900)) }.message!!)
     }
 }

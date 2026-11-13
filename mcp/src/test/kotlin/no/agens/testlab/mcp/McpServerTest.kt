@@ -123,7 +123,7 @@ class McpServerTest {
         }
         // Required parameters are exactly those without a default.
         assertEquals(listOf("selector_or_text"), tools.getValue("handsets_tap").inputSchema.required)
-        assertEquals(listOf("plan"), tools.getValue("handsets_jev_plan").inputSchema.required)
+        assertEquals(listOf("plan"), tools.getValue("handsets_autopilot_plan").inputSchema.required)
         c.close()
     }
 
@@ -234,7 +234,7 @@ class McpServerTest {
         outputs += c.call("lab_list_credentials").text
         outputs += c.call("lab_status").text
         val plan = """[{"tap":"Neste"},{"type":{"cred":"demo.nnin"}},{"type":"$PASSWORD"},{"wait_for":"Velkommen","timeout":2},{"screenshot":"after"}]"""
-        val run = c.call("handsets_jev_plan", "plan" to plan, "backend" to "stub")
+        val run = c.call("handsets_autopilot_plan", "plan" to plan, "backend" to "stub")
         outputs += run.text
         assertEquals("completed", Json.parseToJsonElement(run.text).jsonObject["status"]!!.jsonPrimitive.content, run.text)
         outputs.forEachIndexed { i, o -> assertNoSecrets("result $i", o) }
@@ -251,16 +251,16 @@ class McpServerTest {
     }
 
     @Test
-    fun jevToolsWithTheStub() = runBlocking {
+    fun autopilotToolsWithTheStub() = runBlocking {
         val c = client()
-        val pick = Json.parseToJsonElement(c.call("handsets_jev_pick", "goal" to "Press Neste", "backend" to "stub").text).jsonObject
+        val pick = Json.parseToJsonElement(c.call("handsets_autopilot_pick", "goal" to "Press Neste", "backend" to "stub").text).jsonObject
         assertEquals(0.8, pick["confidence"]!!.jsonPrimitive.content.toDouble())
         assertNotNull(pick["action"])
-        val step = c.call("handsets_jev_step", "goal" to "Press Neste", "backend" to "stub")
+        val step = c.call("handsets_autopilot_step", "goal" to "Press Neste", "backend" to "stub")
         assertFalse(step.isError == true, step.text)
         // Without a key the hosted backend refuses with a clear message instead of guessing.
         rt.secrets.delete("jev.key")
-        val noKey = c.call("handsets_jev_pick", "goal" to "Press Neste")
+        val noKey = c.call("handsets_autopilot_pick", "goal" to "Press Neste")
         assertEquals(true, noKey.isError)
         assertTrue("TypeSafe API key not set" in noKey.text, noKey.text)
         c.close()
@@ -270,15 +270,15 @@ class McpServerTest {
     fun riskyIsRefusedOnTheProductionApp() = runBlocking {
         val c = client()
         phone.top = "com.example.shop/com.example.shop.MainActivity"
-        val r = c.call("handsets_jev_step", "goal" to "Press Betal", "allow_risky" to true, "backend" to "stub")
+        val r = c.call("handsets_autopilot_step", "goal" to "Press Betal", "allow_risky" to true, "backend" to "stub")
         assertEquals(true, r.isError)
         assertTrue("production app" in r.text, r.text)
         val plan = """[{"open":"com.example.shop"},{"step":"Betal","allow_risky":true}]"""
         phone.top = "com.example.app/.MainActivity"
-        assertTrue("production app" in c.call("handsets_jev_plan", "plan" to plan, "backend" to "stub").text)
+        assertTrue("production app" in c.call("handsets_autopilot_plan", "plan" to plan, "backend" to "stub").text)
         settings.update { it.copy(device = it.device.copy(allowRiskyOnProd = true)) }
         phone.top = "com.example.shop/com.example.shop.MainActivity"
-        assertFalse(c.call("handsets_jev_pick", "goal" to "Press Neste", "allow_risky" to true, "backend" to "stub").isError == true)
+        assertFalse(c.call("handsets_autopilot_pick", "goal" to "Press Neste", "allow_risky" to true, "backend" to "stub").isError == true)
         c.close()
     }
 
@@ -305,7 +305,7 @@ class McpServerTest {
         assertTrue(saved.text.startsWith("saved demo") && "other.pin" in saved.text, saved.text)
         assertTrue("\"name\":\"demo\"" in c.call("lab_list_plans").text)
         assertTrue("Neste" in c.call("lab_read_plan", "name" to "demo").text)
-        assertTrue("other.pin" in c.call("handsets_jev_plan_file", "name" to "demo", "backend" to "stub").text, "a missing credential is refused before the run")
+        assertTrue("other.pin" in c.call("handsets_autopilot_plan_file", "name" to "demo", "backend" to "stub").text, "a missing credential is refused before the run")
         assertEquals(true, c.call("lab_read_plan", "name" to "../secrets").isError)
 
         val skills = c.call("lab_list_skills").text
@@ -377,13 +377,13 @@ class McpServerTest {
             "handsets_unlock_device", "handsets_go", "handsets_open_url", "handsets_talkback",
             "handsets_talkback_touch", "handsets_talkback_activate", "handsets_talkback_swipe", "handsets_key", "handsets_font_scale",
             "handsets_show_screen", "handsets_view_frame", "handsets_view_activity", "lab_show_report", "lab_view_report", "lab_view_report_file", "lab_view_report_frame",
-            "handsets_jev_pick", "handsets_jev_find", "handsets_drag", "handsets_orientation", "handsets_home", "handsets_jev_step", "handsets_jev_do", "handsets_jev_plan", "handsets_jev_plan_file", "handsets_login",
+            "handsets_autopilot_pick", "handsets_autopilot_find", "handsets_drag", "handsets_orientation", "handsets_home", "handsets_autopilot_step", "handsets_autopilot_do", "handsets_autopilot_plan", "handsets_autopilot_plan_file", "handsets_login",
             "handsets_list_branch_builds", "handsets_install_branch_build", "handsets_list_builds", "handsets_install_build",
             "handsets_installed_builds", "handsets_start_branch_build",
             "lab_session_start", "lab_session_status", "lab_session_discard", "lab_session_note",
             "lab_report_start", "lab_report_screenshot", "lab_report_write", "lab_report_annotate", "lab_list_reports", "lab_compare_backends",
             "lab_list_plans", "lab_read_plan", "lab_save_plan", "lab_list_credentials", "lab_status", "lab_list_skills",
-            "lab_read_skill", "lab_jev_stats", "lab_list_profiles", "lab_use_profile",
+            "lab_read_skill", "lab_autopilot_stats", "lab_list_profiles", "lab_use_profile",
             "jira_get_issue", "jira_search", "jira_devtest_queue", "jira_devtest_next", "jira_linked_prs", "jira_add_comment", "jira_attach",
             "jira_update_labels", "jira_assign", "jira_post_devtest_report",
             "github_find_prs", "github_get_pr", "github_pr_files", "github_pr_diff", "github_read_file", "github_list_runs",
@@ -418,10 +418,10 @@ class McpServerTest {
             "handsets_unlock_device" to setOf("pin", "serial"),
             "handsets_go" to setOf("destination", "serial"),
             "handsets_open_url" to setOf("url", "serial"),
-            "handsets_jev_pick" to setOf("goal", "serial", "max_candidates", "allow_risky", "backend"),
-            "handsets_jev_step" to setOf("goal", "serial", "min_confidence", "allow_risky", "backend"),
-            "handsets_jev_do" to setOf("goal", "serial", "max_steps", "min_confidence", "allow_risky", "backend"),
-            "handsets_jev_plan" to setOf("plan", "serial", "start", "min_confidence", "report_id", "backend"),
+            "handsets_autopilot_pick" to setOf("goal", "serial", "max_candidates", "allow_risky", "backend"),
+            "handsets_autopilot_step" to setOf("goal", "serial", "min_confidence", "allow_risky", "backend"),
+            "handsets_autopilot_do" to setOf("goal", "serial", "max_steps", "min_confidence", "allow_risky", "backend"),
+            "handsets_autopilot_plan" to setOf("plan", "serial", "start", "min_confidence", "report_id", "backend"),
             "handsets_login" to setOf("env", "account", "serial"),
             "handsets_list_branch_builds" to setOf("branch_or_pr"),
             "handsets_install_branch_build" to setOf("branch_or_pr", "serial"),
@@ -437,7 +437,7 @@ class McpServerTest {
             "lab_report_write" to setOf("report_id", "markdown"),
             "lab_report_annotate" to setOf("report_id", "timeline"),
             "lab_read_skill" to setOf("name"),
-            "lab_jev_stats" to setOf("since_minutes"),
+            "lab_autopilot_stats" to setOf("since_minutes"),
         )
     }
 }

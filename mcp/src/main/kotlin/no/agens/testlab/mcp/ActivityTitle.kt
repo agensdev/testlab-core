@@ -46,16 +46,16 @@ object ActivityTitle {
             "handsets_ui_dump" -> "Read the screen"
             "handsets_login" -> "Log in" + (s("account")?.let { " as $it" } ?: "")
             "handsets_unlock_device" -> "Unlock the phone"
-            "handsets_jev_pick" -> "Autopilot looks for ${q(s("goal"))}" + (chose?.let { ": would ${it.replaceFirstChar(Char::lowercase)}${pct("confidence")}" } ?: "")
-            "handsets_jev_step" -> "Autopilot ${q(s("goal"))}: " + when (j("status")) {
+            "handsets_autopilot_pick" -> "Autopilot looks for ${q(s("goal"))}" + (chose?.let { ": would ${it.replaceFirstChar(Char::lowercase)}${pct("confidence")}" } ?: "")
+            "handsets_autopilot_step" -> "Autopilot ${q(s("goal"))}: " + when (j("status")) {
                 "goal_done" -> "already there"
                 "acted" -> (chose?.replaceFirstChar(Char::lowercase) ?: "acted") + pct("confidence")
                 "needs_decision" -> "not sure, asks"
                 "blocked" -> "blocked"
                 else -> j("status") ?: "…"
             }
-            "handsets_jev_do" -> "Autopilot ${q(s("goal"))}: " + ((json?.get("steps") as? JsonArray)?.size?.let { "$it step(s), " } ?: "") + (j("status")?.replace('_', ' ') ?: "…")
-            "handsets_jev_plan", "handsets_jev_plan_file" -> "Plan" + (s("name")?.let { " ${q(it)}" } ?: "") + ": " + (j("status")?.replace('_', ' ') ?: "…")
+            "handsets_autopilot_do" -> "Autopilot ${q(s("goal"))}: " + ((json?.get("steps") as? JsonArray)?.size?.let { "$it step(s), " } ?: "") + (j("status")?.replace('_', ' ') ?: "…")
+            "handsets_autopilot_plan", "handsets_autopilot_plan_file" -> "Plan" + (s("name")?.let { " ${q(it)}" } ?: "") + ": " + (j("status")?.replace('_', ' ') ?: "…")
             "handsets_talkback" -> "TalkBack ${s("action") ?: "status"}"
             "handsets_talkback_touch" -> "TalkBack: touch ${q(s("selector_or_text")) ?: "${s("x")},${s("y")}"}"
             "handsets_talkback_activate" -> "TalkBack: double-tap the focused element"

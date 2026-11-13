@@ -81,7 +81,7 @@ class CredentialResolver(private val store: SecretStore, private val serial: () 
         source?.value(ref, forSerial)?.let { return it }
         val key = keyFor(ref)
         val v = if (ref == "device_pin") forSerial?.let { store.get(SecretStore.devicePin(it)) } ?: store.get(key) else store.get(key)
-        return v?.takeIf { it.isNotEmpty() } ?: throw no.agens.testlab.core.jev.JevError("credential '$ref' is not set — add it on the setup page (`testlab open setup`)")
+        return v?.takeIf { it.isNotEmpty() } ?: throw no.agens.testlab.core.autopilot.AutopilotError("credential '$ref' is not set — add it on the setup page (`testlab open setup`)")
     }
 
     /** Which references a plan may use, for listing and validation (names only). */

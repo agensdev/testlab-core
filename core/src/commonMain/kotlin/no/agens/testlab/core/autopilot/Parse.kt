@@ -1,7 +1,7 @@
-package no.agens.testlab.core.jev
+package no.agens.testlab.core.autopilot
 
-import no.agens.testlab.core.jev.PyText.NS
-import no.agens.testlab.core.jev.PyText.S
+import no.agens.testlab.core.autopilot.PyText.NS
+import no.agens.testlab.core.autopilot.PyText.S
 
 /**
  * Parsers for `hs ui` text, ported from jevpick.py. The device side renders dump_active JSON
@@ -126,7 +126,7 @@ object DumpParser {
         val p = if (f == Form.TREE) parseTree(dump) else parseTable(dump)
         val total = p.nodes.size + p.unparsed.size
         if (total > 0 && p.unparsed.size > total / 2.0) {
-            throw JevError(
+            throw AutopilotError(
                 "ui table format not recognised (>50% unparsed lines) - check hs version; " +
                     "first unparsed: '${PyText.take(p.unparsed[0], 120)}'",
             )

@@ -1,16 +1,16 @@
-package no.agens.testlab.core.jev
+package no.agens.testlab.core.autopilot
 
 import kotlinx.serialization.json.JsonObject
 
 /** Configuration / API / parse problems on the decision side (not device errors). */
-class JevError(message: String, cause: Throwable? = null) : RuntimeException(message, cause)
+class AutopilotError(message: String, cause: Throwable? = null) : RuntimeException(message, cause)
 
 enum class Backend(val id: String) {
     TYPESAFE("typesafe"), OLLAMA("ollama"), OPENAI("openai");
 
     companion object {
         fun parse(s: String): Backend = entries.firstOrNull { it.id == s }
-            ?: throw JevError("unknown backend '$s' (typesafe|ollama|openai)")
+            ?: throw AutopilotError("unknown backend '$s' (typesafe|ollama|openai)")
     }
 }
 
@@ -18,7 +18,7 @@ enum class Backend(val id: String) {
  * Every knob of jevpick.py with the same defaults, except where a local install needs another
  * one: Ollama defaults to this machine instead of the lab's LAN hosts.
  */
-data class JevConfig(
+data class AutopilotConfig(
     val backend: Backend = Backend.TYPESAFE,
     val typesafeUrl: String = "https://api.typesafe.ai/v1/systemone",
     val model: String = "jev-latest",
@@ -87,7 +87,7 @@ val TERMINAL: Map<String, String> = linkedMapOf(
     "blocked" to "None of the listed elements would lead toward the goal from this screen",
 )
 
-fun doneInstructions(c: JevConfig): String =
+fun doneInstructions(c: AutopilotConfig): String =
     "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently " +
         "open? Judge from `screen.title` (the page heading - if it names what the goal asks to open, the " +
         "goal is accomplished), `screen.selected` (the selected tab), `screen.visible_texts` (its content) " +
@@ -95,7 +95,7 @@ fun doneInstructions(c: JevConfig): String =
         "bar or menu does NOT mean it is open. Tab names must match exactly" + (c.doneExample?.let { ": $it" } ?: "") +
         ". Answer no if the screen is still where the goal started."
 
-fun questionInstructions(c: JevConfig): String =
+fun questionInstructions(c: AutopilotConfig): String =
     "Choose the single next action on ${c.device} so that `goal` is accomplished. " +
         "Each option is either one tappable element currently on screen (its label is quoted" +
         (c.labelLanguage?.let { "; labels are mostly $it, the goal may be English" } ?: "") + ") or a meta action. Pick the element most likely " +

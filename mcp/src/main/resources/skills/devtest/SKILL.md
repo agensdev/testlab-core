@@ -16,7 +16,7 @@ diff alone doesn't reveal. Never devtest a PR the user wrote (call it self-verif
 ask anyway). The loop: understand → reproduce (control) → verify (fix) → report → clean up.
 
 The steps below lean on these playbooks (`lab_read_skill(name)`): `test-plan`, `ab-control`,
-`proxy-forcing`, `lifecycle-and-config`, `accessibility`, `jev-usage`, `evidence-and-media`,
+`proxy-forcing`, `lifecycle-and-config`, `accessibility`, `autopilot-usage`, `evidence-and-media`,
 `rig-health`, `rig-cleanup` and `report-honesty`.
 
 ## 1. The ticket
@@ -56,7 +56,7 @@ it or a part.
 3. `lab_report_start("Devtest <key>", ticket="<key>")`, then `lab_report_items(report_id, items)`
    with the plan's numbered items: the report then has to account for each one.
 4. Log in when needed: `handsets_login`.
-5. For each plan item: navigate (`handsets_go`, `handsets_jev_do`, or a `handsets_jev_plan` for a
+5. For each plan item: navigate (`handsets_go`, `handsets_autopilot_do`, or a `handsets_autopilot_plan` for a
    repeated flow), check what the screen shows with `handsets_ui_dump`, and capture evidence with
    `lab_report_screenshot(report_id, "<item>: <what it shows>", item=<id>)`, then
    `lab_report_item(report_id, id, status, result|note)`. `lab_session_note` marks moments in the

@@ -9,9 +9,9 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.serialization.json.JsonObject
-import no.agens.testlab.core.jev.DecisionClient
-import no.agens.testlab.core.jev.Geometry
-import no.agens.testlab.core.jev.JevEngine
+import no.agens.testlab.core.autopilot.DecisionClient
+import no.agens.testlab.core.autopilot.Geometry
+import no.agens.testlab.core.autopilot.AutopilotEngine
 import no.agens.testlab.device.ToolLocator
 import no.agens.testlab.device.adb.AdbCli
 import no.agens.testlab.device.adb.AdbDevice
@@ -104,7 +104,7 @@ class LabRuntime(
     val traces = FileTraces(dirs.traces) { redactor.apply(it) }
 
     /** Jev on a picture of the screen (Box): the TypeSafe key is read on every request, like the engine's. */
-    var jevFind: JevFind = JevFind(no.agens.testlab.services.http.KtorHttpPost(), apiKey = { secrets.get(SecretStore.JEV_KEY) ?: System.getenv("TYPESAFE_API_KEY") })
+    var autopilotFind: AutopilotFind = AutopilotFind(no.agens.testlab.services.http.KtorHttpPost(), apiKey = { secrets.get(SecretStore.JEV_KEY) ?: System.getenv("TYPESAFE_API_KEY") })
 
     private val activeSerial = MutableStateFlow<String?>(null)
     val active: StateFlow<String?> = activeSerial.asStateFlow()
@@ -384,21 +384,21 @@ class LabRuntime(
 
     // --- the decision engine ---
 
-    private val engines = HashMap<no.agens.testlab.core.Platform, Pair<Pair<Settings.Jev, no.agens.testlab.core.profile.Profile.Jev>, JevEngine>>()
+    private val engines = HashMap<no.agens.testlab.core.Platform, Pair<Pair<Settings.Autopilot, no.agens.testlab.core.profile.Profile.Autopilot>, AutopilotEngine>>()
 
     /** Rebuilt when the decision settings change; the API key is read on every request. One per platform: they may run at once. */
     @Synchronized
-    fun engine(): JevEngine {
-        val jev = settings.current.jev to profile.jev
+    fun engine(): AutopilotEngine {
+        val ap = settings.current.autopilot to profile.autopilot
         val platform = profiles.platform
         val ios = platform == no.agens.testlab.core.Platform.IOS
-        engines[platform]?.takeIf { it.first == jev }?.let { return it.second }
-        val config = jev.first.toConfig(jev.second).let { if (ios) it.copy(device = "an iPhone (iOS)", backAction = no.agens.testlab.core.jev.META_BACK_IOS) else it }
+        engines[platform]?.takeIf { it.first == ap }?.let { return it.second }
+        val config = ap.first.toConfig(ap.second).let { if (ios) it.copy(device = "an iPhone (iOS)", backAction = no.agens.testlab.core.autopilot.META_BACK_IOS) else it }
         val client = DecisionClient(
             config, KtorHttpPost(), apiKey = { secrets.get(SecretStore.JEV_KEY) }, nowMs = System::currentTimeMillis,
             openaiKey = { secrets.get(SecretStore.OPENAI_KEY) ?: System.getenv("OPENAI_API_KEY") },
         )
-        return JevEngine(config, client).also { engines[platform] = jev to it }
+        return AutopilotEngine(config, client).also { engines[platform] = ap to it }
     }
 
     fun close() {

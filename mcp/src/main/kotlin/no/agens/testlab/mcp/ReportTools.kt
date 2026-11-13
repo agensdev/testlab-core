@@ -77,7 +77,7 @@ internal fun ToolBox.reportTools(rt: LabRuntime) {
         "lab_report_start",
         """
         Begin a saved report. Returns a report_id. Then lab_report_screenshot(report_id, caption) at
-        each notable step (and handsets_jev_plan(..., report_id=…) puts its screenshot steps there),
+        each notable step (and handsets_autopilot_plan(..., report_id=…) puts its screenshot steps there),
         and finally lab_report_write(report_id, markdown). Only start one when the user wants a report.
         """,
         str("title", "the report's title"),

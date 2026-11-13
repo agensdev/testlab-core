@@ -1,4 +1,4 @@
-package no.agens.testlab.core.jev
+package no.agens.testlab.core.autopilot
 
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.Json
@@ -94,8 +94,8 @@ class JevpickPortTest {
             put("usage", buildJsonObject { put("input_tokens", usage.first); put("output_tokens", usage.second) })
         }.toString()
 
-    private fun engine(post: HttpPost = FakePost(emptyList()), config: JevConfig = JevConfig(), key: String? = "k", clock: VClock = VClock()) =
-        JevEngine(config, DecisionClient(config, post, { key }, clock::nowMs, { clock.sleep(it) }))
+    private fun engine(post: HttpPost = FakePost(emptyList()), config: AutopilotConfig = AutopilotConfig(), key: String? = "k", clock: VClock = VClock()) =
+        AutopilotEngine(config, DecisionClient(config, post, { key }, clock::nowMs, { clock.sleep(it) }))
 
     private val STUB = StepOptions(decide = DecideOptions(stub = true))
     private fun JsonObject.str(k: String) = (this[k] as JsonPrimitive).content
@@ -195,8 +195,8 @@ class JevpickPortTest {
     fun test_parse_dump_rejects_unknown_format() {
         try {
             DumpParser.parse("garbage\nmore garbage\ntap  X  \"y\"  1,2")
-            fail("expected JevError")
-        } catch (e: JevError) {
+            fail("expected AutopilotError")
+        } catch (e: AutopilotError) {
             assertTrue("not recognised" in e.message!!)
         }
     }
@@ -273,7 +273,7 @@ class JevpickPortTest {
                 put("criteria", buildJsonObject { put("n01", "a"); put("n02", "b") })
             })
         }
-        fun client(post: HttpPost, key: String? = "k") = DecisionClient(JevConfig(), post, { key }, { 0L }, { })
+        fun client(post: HttpPost, key: String? = "k") = DecisionClient(AutopilotConfig(), post, { key }, { 0L }, { })
         val post = FakePost(listOf(200 to answer("n02", mapOf("n01" to 0.2, "n02" to 0.8))))
         var d = client(post).ask(state, q)
         assertTrue(d.choice == "n02" && d.confidence == 0.8 && d.probabilities["n01"] == 0.2)
@@ -289,7 +289,7 @@ class JevpickPortTest {
             try {
                 client(FakePost(listOf(status to "{\"error\":\"bad\"}"))).ask(state, q)
                 fail("$status")
-            } catch (e: JevError) {
+            } catch (e: AutopilotError) {
                 assertTrue(needle in e.message!!, e.message)
             }
         }
@@ -301,14 +301,14 @@ class JevpickPortTest {
         try {
             client(FakePost(List(6) { 529 to "" })).ask(state, q)
             fail("expected 529 error")
-        } catch (e: JevError) {
+        } catch (e: AutopilotError) {
             assertTrue("529" in e.message!!)
         }
         // no key (the message names Settings instead of the lab's env file: see PARITY.md)
         try {
             client(p2, key = "").ask(state, q)
             fail("expected key error")
-        } catch (e: JevError) {
+        } catch (e: AutopilotError) {
             assertTrue("API key" in e.message!!)
         }
     }
@@ -334,13 +334,13 @@ class JevpickPortTest {
         val nodes = DumpParser.parseTable(HOME).nodes
         val (cands, _) = Candidates.build(nodes)
         val sport = cands.first { it.node?.text == "Sport" }
-        assertEquals(listOf("tap", "540", "2896"), JevEngine.toHsArgs(sport))
+        assertEquals(listOf("tap", "540", "2896"), AutopilotEngine.toHsArgs(sport))
         val by = cands.associateBy { it.key }
-        assertEquals(listOf("swipe", "up"), JevEngine.toHsArgs(by.getValue("scroll_down")))
-        assertEquals(listOf("swipe", "down"), JevEngine.toHsArgs(by.getValue("scroll_up")))
-        assertEquals(listOf("go", "back"), JevEngine.toHsArgs(by.getValue("back")))
-        assertTrue(JevEngine.toHsArgs(by.getValue("goal_done")).isEmpty() && JevEngine.toHsArgs(by.getValue("blocked")).isEmpty())
-        assertEquals(listOf("tap", "#ok_btn"), JevEngine.toHsArgs(Candidate("n99", CandidateKind.TAP, "d", Node("tap", "B", "", "ok_btn", 0, 0))))
+        assertEquals(listOf("swipe", "up"), AutopilotEngine.toHsArgs(by.getValue("scroll_down")))
+        assertEquals(listOf("swipe", "down"), AutopilotEngine.toHsArgs(by.getValue("scroll_up")))
+        assertEquals(listOf("go", "back"), AutopilotEngine.toHsArgs(by.getValue("back")))
+        assertTrue(AutopilotEngine.toHsArgs(by.getValue("goal_done")).isEmpty() && AutopilotEngine.toHsArgs(by.getValue("blocked")).isEmpty())
+        assertEquals(listOf("tap", "#ok_btn"), AutopilotEngine.toHsArgs(Candidate("n99", CandidateKind.TAP, "d", Node("tap", "B", "", "ok_btn", 0, 0))))
     }
 
     @Test
@@ -387,7 +387,7 @@ class JevpickPortTest {
         assertTrue(out.str("status") == "blocked" && out.arr("steps").size == 2)
         // a weak answer hands back and nothing is tapped
         r = FakeRunner(listOf(HOME to "", SPORT to ""))
-        out = engine(config = JevConfig(stubConfidence = 0.2)).doGoal("Open the Sport tab", r, 3, STUB, null, VClock())
+        out = engine(config = AutopilotConfig(stubConfidence = 0.2)).doGoal("Open the Sport tab", r, 3, STUB, null, VClock())
         assertTrue(out.str("status") == "needs_decision" && out.arr("candidates").size == 5)
         assertFalse(r.calls.any { it[0] == "tap" })
         out = engine().doGoal("anything", FakeRunner(listOf(EMPTY to "")), 12, STUB, null, VClock())
@@ -549,7 +549,7 @@ class JevpickPortTest {
         assertEquals("error", engine().runPlan(plan("""[{"open":"x","fresh":true}]"""), Dev(listOf(HOME to "")), PlanContext(), clock = VClock()).str("status"))
         assertTrue(PlanValidator.validate(plan("""[{"open":"x","fresh":true}]""")).isEmpty())
         // a hand-back pauses the plan with a resume hint
-        out = engine(config = JevConfig(stubConfidence = 0.2)).runPlan(
+        out = engine(config = AutopilotConfig(stubConfidence = 0.2)).runPlan(
             plan("""[{"goal":"Open the Sport tab"},{"note":"never"}]"""), Dev(listOf(HOME to "", SPORT to "")), ctx,
             decide = DecideOptions(stub = true), clock = VClock(),
         )
@@ -567,20 +567,20 @@ class JevpickPortTest {
         out = engine().runPlan(plan("""[{"wait_for":"never-there","timeout":0.0}]"""), Dev(listOf(HOME to "")), decide = DecideOptions(stub = true), clock = VClock())
         assertTrue(out.str("status") == "error" && "wait_for" in out["hand_back"]!!.jsonObject.str("error"))
         // if_present: a step for a screen that isn't there (an age gate accepted earlier) is skipped
-        out = engine(config = JevConfig(stubConfidence = 0.2)).runPlan(
+        out = engine(config = AutopilotConfig(stubConfidence = 0.2)).runPlan(
             plan("""[{"step":"Accept the cookie banner","if_present":"Godta cookies"},{"note":"after"}]"""), Dev(listOf(HOME to "")),
             decide = DecideOptions(stub = true), clock = VClock(),
         )
         assertEquals("completed", out.str("status"), out.toString())
         assertEquals("skipped", out.arr("steps")[0].jsonObject.str("status"))
         // …and runs when it is there (HOME has «Jeg er over 18 år»)
-        out = engine(config = JevConfig(stubConfidence = 0.2)).runPlan(
+        out = engine(config = AutopilotConfig(stubConfidence = 0.2)).runPlan(
             plan("""[{"step":"Accept the age gate","if_present":"over 18"}]"""), Dev(listOf(HOME to "")),
             decide = DecideOptions(stub = true), clock = VClock(),
         )
         assertEquals("needs_decision", out.arr("steps")[0].jsonObject.str("status"))
         // optional: a hand-back on that step is a skip, not a pause
-        out = engine(config = JevConfig(stubConfidence = 0.2)).runPlan(
+        out = engine(config = AutopilotConfig(stubConfidence = 0.2)).runPlan(
             plan("""[{"goal":"Open the Sport tab","optional":true},{"note":"after"}]"""), Dev(listOf(HOME to "", SPORT to "")),
             decide = DecideOptions(stub = true), clock = VClock(),
         )
@@ -634,7 +634,7 @@ class JevpickPortTest {
         assertFalse("criteria" in Questions.build(cands, Backend.TYPESAFE)["done"]!!.jsonObject)
         assertTrue(Candidates.maxOptionsFor(Backend.OLLAMA, 60) == 21 && Candidates.maxOptionsFor(Backend.TYPESAFE, 60) == 60)
         // no Authorization header, ollama url/model, model name from the response
-        val cfg = JevConfig(ollamaUrls = listOf("http://ollama-b:11434/v1/systemone"), ollamaModel = "nimble:9b-q4_K_M")
+        val cfg = AutopilotConfig(ollamaUrls = listOf("http://ollama-b:11434/v1/systemone"), ollamaModel = "nimble:9b-q4_K_M")
         val good = """{"model":"nimble","answers":{"next":{"type":"choice","choice":"n02","probabilities":{"n01":0.3,"n02":0.7},"confidence":0.6},"done":{"type":"noul","noul":0.2}},"usage":{"input_tokens":500,"output_tokens":0}}"""
         val post = FakePost(listOf(200 to good))
         val client = DecisionClient(cfg, post, { null }, { 0L }, { })
@@ -648,7 +648,7 @@ class JevpickPortTest {
         try {
             client.ask(buildJsonObject { put("goal", "g") }, big, Backend.OLLAMA, url = "http://x")
             fail("expected cap error")
-        } catch (e: JevError) {
+        } catch (e: AutopilotError) {
             assertTrue("26" in e.message!!)
         }
         // decide() caps the candidate set for ollama (80 tap rows → 21 + 5)
@@ -665,7 +665,7 @@ class JevpickPortTest {
         try {
             Backend.parse("nope")
             fail()
-        } catch (e: JevError) {
+        } catch (e: AutopilotError) {
             assertTrue("unknown" in e.message!!)
         }
     }
@@ -682,7 +682,7 @@ class JevpickPortTest {
         }
         var clock = 1000_000L
         val urls = listOf("http://ollama-a/v1/systemone", "http://ollama-b/v1/systemone")
-        val client = DecisionClient(JevConfig(ollamaUrls = urls), post, { null }, { clock }, { })
+        val client = DecisionClient(AutopilotConfig(ollamaUrls = urls), post, { null }, { clock }, { })
         var d = client.ask(g, q, Backend.OLLAMA)
         assertTrue(d.choice == "n01" && d.raw.str("_url") == "http://ollama-b/v1/systemone" && calls == urls)
         // the 404 host is skipped for the backoff
@@ -696,21 +696,21 @@ class JevpickPortTest {
         // connection errors fail over too; all down → clear error
         val dead = HttpPost { _, _, _, _, _ -> throw java.io.IOException("connect refused") }
         try {
-            DecisionClient(JevConfig(ollamaUrls = listOf("http://a/v1/systemone", "http://b/v1/systemone")), dead, { null }, { 5_000_000L }, { }).ask(g, q, Backend.OLLAMA)
+            DecisionClient(AutopilotConfig(ollamaUrls = listOf("http://a/v1/systemone", "http://b/v1/systemone")), dead, { null }, { 5_000_000L }, { }).ask(g, q, Backend.OLLAMA)
             fail()
-        } catch (e: JevError) {
+        } catch (e: AutopilotError) {
             assertTrue("no System One backend reachable" in e.message!!)
         }
         // per-entry model: "url|model" wins over the default; an explicit model wins over both
         val bodies = mutableListOf<String>()
         val post2 = HttpPost { _, _, body, _, _ -> bodies += Json.parseToJsonElement(body).jsonObject.str("model"); HttpReply(200, good) }
-        d = DecisionClient(JevConfig(ollamaUrls = listOf("http://ollama-a/v1/systemone|nimble:9b", "http://ollama-b/v1/systemone|nimble:9b-q4_K_M")), post2, { null }, { 0L }, { }).ask(g, q, Backend.OLLAMA)
+        d = DecisionClient(AutopilotConfig(ollamaUrls = listOf("http://ollama-a/v1/systemone|nimble:9b", "http://ollama-b/v1/systemone|nimble:9b-q4_K_M")), post2, { null }, { 0L }, { }).ask(g, q, Backend.OLLAMA)
         assertTrue(bodies == listOf("nimble:9b") && d.raw.str("_url") == "http://ollama-a/v1/systemone")
         bodies.clear()
-        DecisionClient(JevConfig(ollamaUrls = listOf("http://ollama-b/v1/systemone"), ollamaModel = "nimble:9b-q4_K_M"), post2, { null }, { 0L }, { }).ask(g, q, Backend.OLLAMA)
+        DecisionClient(AutopilotConfig(ollamaUrls = listOf("http://ollama-b/v1/systemone"), ollamaModel = "nimble:9b-q4_K_M"), post2, { null }, { 0L }, { }).ask(g, q, Backend.OLLAMA)
         assertEquals(listOf("nimble:9b-q4_K_M"), bodies)
         bodies.clear()
-        DecisionClient(JevConfig(ollamaUrls = listOf("http://ollama-b/v1/systemone|nimble:9b")), post2, { null }, { 0L }, { }).ask(g, q, Backend.OLLAMA, model = "tev1")
+        DecisionClient(AutopilotConfig(ollamaUrls = listOf("http://ollama-b/v1/systemone|nimble:9b")), post2, { null }, { 0L }, { }).ask(g, q, Backend.OLLAMA, model = "tev1")
         assertEquals(listOf("tev1"), bodies)
     }
 
@@ -741,8 +741,8 @@ class JevpickPortTest {
         assertTrue(n.x == 123 && n.y == 456)
         try {
             PlanSteps.findNode(nodes, "Not on this screen")
-            fail("expected JevError")
-        } catch (e: JevError) {
+            fail("expected AutopilotError")
+        } catch (e: AutopilotError) {
             assertTrue("no such element" in e.message!!)
         }
         val r = Dev(listOf(HOME to "a/.Main", SPORT to "a/.Sport"))

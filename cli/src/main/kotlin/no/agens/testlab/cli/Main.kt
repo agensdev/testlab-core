@@ -8,16 +8,16 @@ import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 import no.agens.testlab.AppIdentity
-import no.agens.testlab.core.jev.Backend
-import no.agens.testlab.core.jev.DecideOptions
-import no.agens.testlab.core.jev.DecisionClient
-import no.agens.testlab.core.jev.Geometry
-import no.agens.testlab.core.jev.HsRunner
-import no.agens.testlab.core.jev.JevEngine
-import no.agens.testlab.core.jev.PlanContext
-import no.agens.testlab.core.jev.PlanValidator
-import no.agens.testlab.core.jev.pick
-import no.agens.testlab.core.jev.runPlan
+import no.agens.testlab.core.autopilot.Backend
+import no.agens.testlab.core.autopilot.DecideOptions
+import no.agens.testlab.core.autopilot.DecisionClient
+import no.agens.testlab.core.autopilot.Geometry
+import no.agens.testlab.core.autopilot.HsRunner
+import no.agens.testlab.core.autopilot.AutopilotEngine
+import no.agens.testlab.core.autopilot.PlanContext
+import no.agens.testlab.core.autopilot.PlanValidator
+import no.agens.testlab.core.autopilot.pick
+import no.agens.testlab.core.autopilot.runPlan
 import no.agens.testlab.core.versionLine
 import no.agens.testlab.device.ToolLocator
 import no.agens.testlab.device.hs.HsDevice
@@ -299,7 +299,7 @@ fun run(argv: Array<String>): Int {
     } catch (e: no.agens.testlab.device.hs.HsError) {
         System.err.println(listOf(e.tag, e.detail).filter { it.isNotEmpty() }.joinToString(": "))
         1
-    } catch (e: no.agens.testlab.core.jev.JevError) {
+    } catch (e: no.agens.testlab.core.autopilot.AutopilotError) {
         System.err.println("decision error: ${e.message}")
         1
     } catch (e: no.agens.testlab.services.runtime.NoAdb) {
@@ -426,16 +426,16 @@ private fun pick(opts: Opts): Int = runBlocking {
 }
 
 /** The configured engine, or one built from the command-line overrides; TYPESAFE_API_KEY / OPENAI_API_KEY beat the vault. */
-private fun engineFor(opts: Opts): JevEngine {
+private fun engineFor(opts: Opts): AutopilotEngine {
     val backendFlag = opts.value("backend")?.let(Backend::parse)
     val ollama = opts.value("ollama")?.split(',')?.map { it.trim() }?.filter { it.isNotEmpty() }
     val envKey = System.getenv("TYPESAFE_API_KEY")
     if (backendFlag == null && ollama == null && envKey == null && opts.value("dump") == null) return runtime.engine()
-    val base = if (opts.value("dump") == null) runtime.settings.current.jev.toConfig() else no.agens.testlab.core.jev.JevConfig()
+    val base = if (opts.value("dump") == null) runtime.settings.current.autopilot.toConfig() else no.agens.testlab.core.autopilot.AutopilotConfig()
     val config = base.let { c -> backendFlag?.let { c.copy(backend = it) } ?: c }.let { c -> ollama?.let { c.copy(ollamaUrls = it) } ?: c }
     val key: () -> String? = { envKey ?: if (opts.value("dump") == null) runtime.secrets.get(SecretStore.JEV_KEY) else null }
     val openaiKey: () -> String? = { System.getenv("OPENAI_API_KEY") ?: if (opts.value("dump") == null) runtime.secrets.get(SecretStore.OPENAI_KEY) else null }
-    return JevEngine(config, DecisionClient(config, KtorHttpPost(), apiKey = key, nowMs = System::currentTimeMillis, openaiKey = openaiKey))
+    return AutopilotEngine(config, DecisionClient(config, KtorHttpPost(), apiKey = key, nowMs = System::currentTimeMillis, openaiKey = openaiKey))
 }
 
 /** `acct.field` → env `TESTLAB_CRED_ACCT_FIELD`, for CI and the dev container's e2e runs; the vault is the normal source. */
@@ -452,7 +452,7 @@ private fun plan(opts: Opts): Int = runBlocking {
     val engine = engineFor(opts)
     val dev = runtime.use(opts.value("serial"), opts.flag("take-over"))
     try {
-        val shots = File(opts.value("shots") ?: File(runtime.dirs.reports, "_jev_shots").path)
+        val shots = File(opts.value("shots") ?: File(runtime.dirs.reports, "_autopilot_shots").path)
         val out = engine.runPlan(
             plan as JsonArray, dev.asHsRunner(),
             PlanContext(
@@ -461,7 +461,7 @@ private fun plan(opts: Opts): Int = runBlocking {
                 shots = DirShotStore(shots),
             ),
             start = opts.value("start")?.toInt() ?: 0,
-            minConfidence = opts.value("min-confidence")?.toDouble() ?: runtime.settings.current.jev.minConfidence,
+            minConfidence = opts.value("min-confidence")?.toDouble() ?: runtime.settings.current.autopilot.minConfidence,
             decide = DecideOptions(stub = opts.flag("stub"), geometry = runtime.geometry(dev.serial)),
             trace = runtime.traces.open(dev.serial, "plan"),
         )

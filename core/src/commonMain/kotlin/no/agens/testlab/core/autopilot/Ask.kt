@@ -1,4 +1,4 @@
-package no.agens.testlab.core.jev
+package no.agens.testlab.core.autopilot
 
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.sync.Mutex
@@ -29,7 +29,7 @@ data class HttpReply(val status: Int, val text: String)
  * `_ask_ollama_failover`. One instance per app: it remembers which Ollama hosts are down.
  */
 class DecisionClient(
-    private val config: JevConfig,
+    private val config: AutopilotConfig,
     private val http: HttpPost,
     /** TypeSafe key, read when needed so a changed key applies without a restart. */
     private val apiKey: () -> String?,
@@ -59,7 +59,7 @@ class DecisionClient(
         when (backend) {
             Backend.OLLAMA -> {
                 if (nOpts > OLLAMA_MAX_OPTIONS) {
-                    throw JevError("ollama backend allows at most $OLLAMA_MAX_OPTIONS options per question, got $nOpts")
+                    throw AutopilotError("ollama backend allows at most $OLLAMA_MAX_OPTIONS options per question, got $nOpts")
                 }
                 if (url == null) return askOllamaFailover(state, question, model)
                 reqUrl = url
@@ -74,7 +74,7 @@ class DecisionClient(
                 timeoutS = config.timeoutS
                 key = apiKey().orEmpty()
                 if (key.isEmpty()) {
-                    throw JevError("TypeSafe API key not set - add it in Settings (or run with the offline stub)")
+                    throw AutopilotError("TypeSafe API key not set - add it in Settings (or run with the offline stub)")
                 }
             }
         }
@@ -108,14 +108,14 @@ class DecisionClient(
                 raw = raw,
                 done = done,
             )
-        } catch (e: JevError) {
+        } catch (e: AutopilotError) {
             throw e
         } catch (e: Exception) {
-            throw JevError("Jev response not understood: ${e.message}: ${PyText.take(text, 300)}", e)
+            throw AutopilotError("Decision response not understood: ${e.message}: ${PyText.take(text, 300)}", e)
         }
     }
 
-    /** POST with the 429/529 backoff; returns (body, latency) of a 200, else throws a [JevError] naming the status. */
+    /** POST with the 429/529 backoff; returns (body, latency) of a 200, else throws a [AutopilotError] naming the status. */
     private suspend fun postRetrying(
         url: String,
         headers: Map<String, String>,
@@ -136,23 +136,23 @@ class DecisionClient(
                 text = r.text
             } catch (e: Exception) {
                 if (e is kotlinx.coroutines.CancellationException) throw e
-                if (attempt == BACKOFF_S.size) throw JevError("Jev request failed: ${e.message ?: e::class.simpleName}", e)
+                if (attempt == BACKOFF_S.size) throw AutopilotError("Decision request failed: ${e.message ?: e::class.simpleName}", e)
                 continue
             }
             if (status == 429 || status == 529) continue
             break
         }
         val latency = nowMs() - t0
-        if (status == 429 || status == 529) throw JevError("Jev $status after ${BACKOFF_S.size + 1} attempts (rate limit / overloaded)")
-        if (status == 401) throw JevError("Jev 401: $unauthorized")
-        if (status != 200) throw JevError("Jev HTTP $status: ${PyText.take(text, 300)}")
+        if (status == 429 || status == 529) throw AutopilotError("Decision API $status after ${BACKOFF_S.size + 1} attempts (rate limit / overloaded)")
+        if (status == 401) throw AutopilotError("Decision API 401: $unauthorized")
+        if (status != 200) throw AutopilotError("Decision API HTTP $status: ${PyText.take(text, 300)}")
         return text to latency
     }
 
     /** The two questions as one OpenAI Decisions request; the answer comes back in System One's shape. */
     private suspend fun askOpenAI(state: JsonObject, question: JsonObject, model: String?, url: String?): Decision {
         val key = openaiKey().orEmpty()
-        if (key.isEmpty()) throw JevError("OpenAI API key not set - add it in Settings (or set OPENAI_API_KEY)")
+        if (key.isEmpty()) throw AutopilotError("OpenAI API key not set - add it in Settings (or set OPENAI_API_KEY)")
         val reqModel = model ?: config.openaiModel
         val body = json.encodeToString(JsonObject.serializer(), OpenAIDecisions.request(state, question, reqModel))
         val headers = mapOf("Content-Type" to "application/json", "Authorization" to "Bearer $key")
@@ -176,7 +176,7 @@ class DecisionClient(
                     d.choice, d.confidence, d.probabilities, d.model, d.usage, d.latencyMs,
                     JsonObject(d.raw + ("_url" to JsonPrimitive(u))), d.done,
                 )
-            } catch (e: JevError) {
+            } catch (e: AutopilotError) {
                 val msg = e.message.orEmpty()
                 val transient = "request failed" in msg || "HTTP 404" in msg || ("after" in msg && "attempts" in msg)
                 errors += "$u: ${PyText.take(msg, 120)}"
@@ -184,7 +184,7 @@ class DecisionClient(
                 else throw e
             }
         }
-        throw JevError("no System One backend reachable: " + errors.joinToString(" | "))
+        throw AutopilotError("no System One backend reachable: " + errors.joinToString(" | "))
     }
 
     companion object {
@@ -240,7 +240,7 @@ object OpenAIDecisions {
                     }))
                 }
                 "noul" -> buildJsonObject { put("type", "predicate"); put("name", name); put("instructions", instructions) }
-                else -> throw JevError("question '$name': type '$type' has no OpenAI Decisions equivalent")
+                else -> throw AutopilotError("question '$name': type '$type' has no OpenAI Decisions equivalent")
             }
         }))
     }
@@ -250,12 +250,12 @@ object OpenAIDecisions {
         val keyOf = (question["next"]?.jsonObject?.get("criteria") as? JsonObject)?.let { c -> choiceValues(c).entries.associate { (k, v) -> v to k } }.orEmpty()
         fun key(v: String) = keyOf[v] ?: v
         val data = try { Json.parseToJsonElement(text).jsonObject } catch (e: Exception) {
-            throw JevError("OpenAI response not understood: ${PyText.take(text, 300)}", e)
+            throw AutopilotError("OpenAI response not understood: ${PyText.take(text, 300)}", e)
         }
         try {
             val byName = (data["answers"] as JsonArray).associate { a -> a.jsonObject["name"]!!.jsonPrimitive.content to a.jsonObject }
-            val next = byName["next"] ?: throw JevError("OpenAI answered no 'next' question: ${PyText.take(text, 300)}")
-            if (next["type"]?.jsonPrimitive?.content == "refusal") throw JevError("OpenAI refused to decide (refusal answer)")
+            val next = byName["next"] ?: throw AutopilotError("OpenAI answered no 'next' question: ${PyText.take(text, 300)}")
+            if (next["type"]?.jsonPrimitive?.content == "refusal") throw AutopilotError("OpenAI refused to decide (refusal answer)")
             val probs = LinkedHashMap<String, Double>()
             (next["probabilities"] as? JsonArray)?.forEach { p ->
                 probs[key(p.jsonObject["value"]!!.jsonPrimitive.content)] = p.jsonObject["probability"]!!.jsonPrimitive.number()
@@ -280,10 +280,10 @@ object OpenAIDecisions {
                 put("_openai", data["answers"]!!)
             }
             return Decision(choice, conf, probs, respModel, usage, latencyMs, raw, done)
-        } catch (e: JevError) {
+        } catch (e: AutopilotError) {
             throw e
         } catch (e: Exception) {
-            throw JevError("OpenAI response not understood: ${e.message}: ${PyText.take(text, 300)}", e)
+            throw AutopilotError("OpenAI response not understood: ${e.message}: ${PyText.take(text, 300)}", e)
         }
     }
 }

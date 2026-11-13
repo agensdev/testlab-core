@@ -1,4 +1,4 @@
-package no.agens.testlab.core.jev
+package no.agens.testlab.core.autopilot
 
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.Json
@@ -34,7 +34,7 @@ class OpenAIDecisionsTest {
         {"type":"predicate","name":"done","probability":0.12}],"usage":{"input_tokens":640}}"""
 
     private fun client(post: HttpPost, key: String? = "sk-test") =
-        DecisionClient(JevConfig(backend = Backend.OPENAI), post, { "typesafe-key" }, { 0L }, { }, openaiKey = { key })
+        DecisionClient(AutopilotConfig(backend = Backend.OPENAI), post, { "typesafe-key" }, { 0L }, { }, openaiKey = { key })
 
     @Test
     fun request_maps_choice_and_noul() {
@@ -92,7 +92,7 @@ class OpenAIDecisionsTest {
     @Test
     fun errors() = runTest {
         suspend fun expect(needle: String, block: suspend () -> Unit) {
-            try { block(); fail("expected '$needle'") } catch (e: JevError) { assertTrue(needle in e.message!!, e.message) }
+            try { block(); fail("expected '$needle'") } catch (e: AutopilotError) { assertTrue(needle in e.message!!, e.message) }
         }
         expect("OpenAI API key not set") { client(Post(listOf(200 to answer)), key = null).ask(state, question) }
         expect("OpenAI API key missing or invalid") { client(Post(listOf(401 to "{}"))).ask(state, question) }

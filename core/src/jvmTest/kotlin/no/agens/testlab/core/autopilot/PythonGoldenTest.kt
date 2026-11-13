@@ -1,4 +1,4 @@
-package no.agens.testlab.core.jev
+package no.agens.testlab.core.autopilot
 
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.Json
@@ -128,7 +128,7 @@ class PythonGoldenTest {
                 })
                 put("usage", buildJsonObject { put("input_tokens", 100); put("output_tokens", 0) })
             }.toString()
-            val engine = JevEngine(JevConfig(), DecisionClient(JevConfig(), { _, _, _, _, _ -> HttpReply(200, body) }, { "k" }, { 0L }, { }))
+            val engine = AutopilotEngine(AutopilotConfig(), DecisionClient(AutopilotConfig(), { _, _, _, _, _ -> HttpReply(200, body) }, { "k" }, { 0L }, { }))
             val r = Runner(listOf(before, after))
             val clock = JevpickPortTest.VClock()
             val out = engine.step(case.getValue("goal").s(), r, StepOptions(decide = DecideOptions(allowRisky = true)), clock = clock).json

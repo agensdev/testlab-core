@@ -149,7 +149,7 @@ class ControlApiTest {
     @Test
     fun aPausedPlanWaitsForAPersonAndGoesOnFromTheBrowser() = runBlocking {
         val tools = TestlabMcp(rt).tools
-        val r = tools.call("handsets_jev_plan", buildJsonObject { put("plan", """[{"tap":"No such button"},{"note":"after"}]"""); put("backend", "stub") })
+        val r = tools.call("handsets_autopilot_plan", buildJsonObject { put("plan", """[{"tap":"No such button"},{"note":"after"}]"""); put("backend", "stub") })
         val text = (r.content.first() as io.modelcontextprotocol.kotlin.sdk.types.TextContent).text
         assertTrue("\"paused_at\":0" in text.replace(" ", "") && "open handback" in text, text.take(400))
         val list = get("/handbacks").json()["handbacks"]!!.jsonArray

@@ -8,7 +8,7 @@ import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonNull
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
-import no.agens.testlab.core.jev.JevError
+import no.agens.testlab.core.autopilot.AutopilotError
 import no.agens.testlab.core.profile.Profile
 import no.agens.testlab.services.secrets.CredentialResolver
 import no.agens.testlab.services.secrets.SecretStore
@@ -100,8 +100,8 @@ class TestPools(
         val pool = pool(name) ?: return null
         val field = ref.substringAfter('.')
         val user = serial?.let { users[it] }?.takeIf { it.pool == name }
-            ?: throw JevError("no '$name' user on this device yet: log in with handsets_login(account=\"$name\"), which takes one from the pool")
-        return user.values[field] ?: throw JevError("the '$name' user has no '$field' (the pool gives ${user.values.keys.joinToString()})")
+            ?: throw AutopilotError("no '$name' user on this device yet: log in with handsets_login(account=\"$name\"), which takes one from the pool")
+        return user.values[field] ?: throw AutopilotError("the '$name' user has no '$field' (the pool gives ${user.values.keys.joinToString()})")
     }
 
     override fun refs(): Set<String> = pools().flatMap { p -> p.fields.keys.map { "${p.name}.$it" } }.toSet()

@@ -61,7 +61,7 @@ tap  FrameLayout  "Search"  #tab_search  432,2896
   for games and canvases (draw, brush, steer, drag-and-drop, sliders). Points are `[[x,y],…]` in
   `handsets_tap_xy` pixels; `duration_ms` is one pass along the path; `hold_ms` ~500 for
   long-press-then-drag; `repeat` scrubs back and forth. Find the points in the dump, or with
-  `handsets_jev_find` when there is no tree.
+  `handsets_autopilot_find` when there is no tree.
 - **`handsets_orientation(get|portrait|landscape|landscape-right)`**: read or turn the screen.
   Coordinates follow the screen as it is turned: read the screen again after turning. An app that
   fixes its own orientation (many games) stays as it is, and the result says so; `portrait` turns
@@ -79,20 +79,20 @@ tap  FrameLayout  "Search"  #tab_search  432,2896
 `handsets_go("<name>", subpage="<subpage>")`. Any other page: `handsets_open_url(path-or-url)`.
 Tap through the UI only where no deeplink exists.
 
-## Jev autopilot — let a decision model pick the button
+## Autopilot — let a decision model pick the button
 
-For short in-app navigation with **no deeplink**, Jev (TypeSafe AI's System One model, or a local
-Ollama model) gets the tappable nodes as numbered options and answers with one pick plus probabilities.
+For short in-app navigation with **no deeplink**, a decision model (TypeSafe's Jev, a local
+Ollama model, or OpenAI's Decisions API) gets the tappable nodes as numbered options and answers with one pick plus probabilities.
 
-- **`handsets_jev_do("Open the Sport tab")`**: read → pick → tap → verify the screen changed →
+- **`handsets_autopilot_do("Open the Sport tab")`**: read → pick → tap → verify the screen changed →
   repeat until `goal_done`. `max_steps` default 12, 90 s deadline.
-- **`handsets_jev_pick(goal)`**: one decision, *no action*: `action.hs` (the exact tap), `top`
+- **`handsets_autopilot_pick(goal)`**: one decision, *no action*: `action.hs` (the exact tap), `top`
   (five best with probabilities) and `dropped_risky`. Then `handsets_tap_xy`.
-- **`handsets_jev_step(goal)`**: pick + one action + verification.
-- **`handsets_jev_plan(plan)`**: a whole flow in one call, returning only on a hand-back. See
-  the **write-plan** skill. Saved plans run by name with `handsets_jev_plan_file`.
-- **Phrase goals right**: *state* goals for `goal`/`jev_do` ("Open Search", "Open the Profile tab"),
-  *action* goals for `step`/`jev_step` ("Press Next", "Choose the Tirsdag 50 kr quickpick"). Name
+- **`handsets_autopilot_step(goal)`**: pick + one action + verification.
+- **`handsets_autopilot_plan(plan)`**: a whole flow in one call, returning only on a hand-back. See
+  the **write-plan** skill. Saved plans run by name with `handsets_autopilot_plan_file`.
+- **Phrase goals right**: *state* goals for `goal`/`autopilot_do` ("Open Search", "Open the Profile tab"),
+  *action* goals for `step`/`autopilot_step` ("Press Next", "Choose the Tirsdag 50 kr quickpick"). Name
   the element the way the screen labels it.
 
 | status | meaning | you do |
@@ -103,7 +103,7 @@ Ollama model) gets the tappable nodes as numbered options and answers with one p
 | `stuck` | two actions changed nothing, or the same screen 3× | `handsets_screenshot`, then drive manually |
 | `error` | empty dump (FLAG_SECURE screen), daemon down (`handsets_use_device`), or a key/API problem | fix the cause |
 
-Limits by design: Jev only sees nodes on the current screen plus scroll/back: no typing, no app
+Limits by design: the autopilot only sees nodes on the current screen plus scroll/back: no typing, no app
 launches. Nodes worded *kjøp/betal/bekreft/slett/delete/pay/buy* are **filtered out** unless
 `allow_risky=true`, and that is refused on the profile's production app.
 

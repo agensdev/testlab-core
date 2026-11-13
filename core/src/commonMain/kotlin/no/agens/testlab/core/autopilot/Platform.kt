@@ -1,4 +1,4 @@
-package no.agens.testlab.core.jev
+package no.agens.testlab.core.autopilot
 
 /** SHA-1 of the UTF-8 bytes, lowercase hex (Python `hashlib.sha1(s.encode()).hexdigest()`). */
 internal expect fun sha1Hex(s: String): String

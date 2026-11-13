@@ -9,7 +9,7 @@ import kotlinx.serialization.json.longOrNull
 /**
  * Renders the daemon's `dump_active` / `dump` JSON exactly like the handsets CLI does
  * (`handsets-cli/src/ui_dump.rs`, v0.1.38): [renderTable] is `hs ui`, [renderTree] is
- * `hs ui --tree`. The Jev engine was tuned on that text, so the output must stay
+ * `hs ui --tree`. The autopilot engine was tuned on that text, so the output must stay
  * byte-identical; goldens captured from the real CLI guard it.
  *
  * Rust details reproduced on purpose:

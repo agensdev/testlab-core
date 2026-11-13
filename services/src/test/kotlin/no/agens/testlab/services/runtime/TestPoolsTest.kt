@@ -1,7 +1,7 @@
 package no.agens.testlab.services.runtime
 
 import kotlinx.coroutines.runBlocking
-import no.agens.testlab.core.jev.JevError
+import no.agens.testlab.core.autopilot.AutopilotError
 import no.agens.testlab.core.profile.Profile
 import no.agens.testlab.services.secrets.CredentialResolver
 import no.agens.testlab.services.secrets.MemorySecretStore
@@ -47,7 +47,7 @@ class TestPoolsTest {
         assertEquals(1, calls.size)
         assertEquals("9", p.value("testpool.user_id", "phone1"))
         assertEquals("123", p.value("testpool.user_id", "phone2"))
-        assertTrue("handsets_login" in assertFailsWith<JevError> { p.value("testpool.user_id", "phone3") }.message!!)
+        assertTrue("handsets_login" in assertFailsWith<AutopilotError> { p.value("testpool.user_id", "phone3") }.message!!)
         assertEquals(null, p.value("demo.password", "phone1")) // not a pool: the vault answers
     }
 

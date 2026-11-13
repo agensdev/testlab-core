@@ -33,7 +33,7 @@ class TestlabMcp(
     val tools = ToolBox(rt).apply {
         deviceTools(rt)
         viewTools(rt)
-        jevTools(rt)
+        autopilotTools(rt)
         buildTools(rt)
         reportTools(rt)
         jiraTools(rt)
@@ -123,7 +123,7 @@ class TestlabMcp(
             user(skill("drive-device") + "\n\n---\n\n" + (task?.let { "Task: $it\n\nStart with handsets_use_device, then follow the loop above." } ?: "Start with handsets_use_device, then ask what to do on the device."), "drive the device")
         }
         server.addPrompt(
-            "write-plan", "Write, validate and save a Jev plan for a device flow, then run it.",
+            "write-plan", "Write, validate and save an autopilot plan for a device flow, then run it.",
             listOf(PromptArgument("flow", "the flow to automate, from which starting state", required = true), PromptArgument("name", "name to save it under", required = false)),
         ) { req ->
             val flow = req.params.arguments?.get("flow").orEmpty()
@@ -131,7 +131,7 @@ class TestlabMcp(
             user(
                 skill("write-plan") + "\n\n---\n\nWrite a plan for this flow: $flow\n\n" +
                     "Check the credential references with lab_list_credentials, look at the screens you are unsure of with handsets_ui_dump, " +
-                    "save it with lab_save_plan(name=\"$name\") and fix every reported mistake, then run it with handsets_jev_plan_file(\"$name\") " +
+                    "save it with lab_save_plan(name=\"$name\") and fix every reported mistake, then run it with handsets_autopilot_plan_file(\"$name\") " +
                     "and resume from any hand-back.",
                 "write a plan",
             )
@@ -175,7 +175,7 @@ class TestlabMcp(
                 ReadResourceResult(listOf(TextResourceContents(PlanLibrary(rt).read(p.name).let { it.encode() }, req.params.uri, "application/json")))
             }
         }
-        server.addResource("testlab://schema/plan", "plan schema", "JSON Schema of a Jev plan (the step forms handsets_jev_plan runs)", "application/schema+json") { req ->
+        server.addResource("testlab://schema/plan", "plan schema", "JSON Schema of an autopilot plan (the step forms handsets_autopilot_plan runs)", "application/schema+json") { req ->
             ReadResourceResult(listOf(TextResourceContents(PLAN_SCHEMA, req.params.uri, "application/schema+json")))
         }
     }
@@ -189,7 +189,7 @@ class TestlabMcp(
             val build = p.defaultBuild
             return listOfNotNull(
                 "${AppIdentity.NAME}: drive an Android phone or emulator attached to this computer" + (p.description?.let { " ($it)" } ?: "") +
-                    ". Active project profile: «${p.name}». Tools by prefix: handsets_* (the device and the Jev autopilot), lab_* (plans, reports, playbooks, credentials, status), jira_* (the user's Jira), github_* (the repo's PRs, read-only).",
+                    ". Active project profile: «${p.name}». Tools by prefix: handsets_* (the device and the autopilot), lab_* (plans, reports, playbooks, credentials, status), jira_* (the user's Jira), github_* (the repo's PRs, read-only).",
                 "DEVICES: whatever adb can reach from this computer: USB, Wi-Fi (Android 11+ wireless debugging), an IP address (adb connect host:port) or an emulator. There is no fixed device list. handsets_connect_device(address, pairing_code?) connects a phone over the network; handsets_list_adb_devices also shows phones advertising wireless debugging nearby. handsets_list_adb_devices shows serials and which one is active. Call handsets_use_device once per session (pass serial when several are attached). Every handsets_* tool takes an optional serial; omitted = the active device.",
                 "NARRATE: every tool that acts on the phone takes an optional `why`: one short sentence of what you are doing and why (\"open the cart to check the item count\"). A tester watching the phone sees it next to each action, so pass it on the actions of a test flow.",
                 "VISUALS: when the user asks to see / show / look at the app or screen, call handsets_screenshot (a JPEG) and include it in your reply. handsets_ui_dump is text, for locating tappable elements. To let the user watch a whole flow (and tap themselves), call handsets_show_screen once: where the host supports MCP Apps (Claude Desktop) it shows the screen live in the conversation.",
@@ -197,13 +197,13 @@ class TestlabMcp(
                 "ACCESSIBILITY: TalkBack does not block these tools: taps, swipes and typing are injected past its touch handling, so never ask the user to turn it off to let you drive. handsets_talkback(status|on|off) is for testing with TalkBack (off/on restore it exactly); handsets_info shows whether it runs. A PIN or code screen with its own number pad usually takes typed digits: try handsets_type_secret(ref) (or handsets_type_text) before tapping the pad.",
                 if (nav.destinations.isNotEmpty()) "NAVIGATION: prefer handsets_go(destination) (deeplinks, robust) over tapping through menus: ${nav.destinations.keys.joinToString(", ")} (handsets_go('list') enumerates); handsets_open_url for any other " + (if (nav.host.isNotBlank()) "page under ${nav.host}." else "URL.")
                 else "NAVIGATION: handsets_open_url(url) opens a deeplink in the app; the profile names no handsets_go destinations.",
-                "JEV AUTOPILOT: for a short navigation goal with no deeplink, handsets_jev_do(goal) reads the screen as numbered candidates, picks and taps the element that advances the goal, verifies the screen changed and repeats (about 1–3 s a step). It never types, pays or launches apps; purchase-worded nodes are filtered. Statuses: goal_done | blocked | needs_decision (nothing executed: pick from the candidates with handsets_tap_xy) | stuck | error. Preview one decision with handsets_jev_pick(goal), take one step with handsets_jev_step. FASTEST: handsets_jev_plan(plan) runs a whole flow in ONE call (goals, scripted taps, typed credentials by reference, waits, screenshots) and returns only on a hand-back; on paused, act on hand_back and resume with start=paused_at+1. Save plans with lab_save_plan and run them by name with handsets_jev_plan_file; lab_read_skill('write-plan') explains the step forms. lab_jev_stats summarises the decisions afterwards.",
+                "AUTOPILOT: for a short navigation goal with no deeplink, handsets_autopilot_do(goal) reads the screen as numbered candidates, picks and taps the element that advances the goal, verifies the screen changed and repeats (about 1–3 s a step). It never types, pays or launches apps; purchase-worded nodes are filtered. Statuses: goal_done | blocked | needs_decision (nothing executed: pick from the candidates with handsets_tap_xy) | stuck | error. Preview one decision with handsets_autopilot_pick(goal), take one step with handsets_autopilot_step. FASTEST: handsets_autopilot_plan(plan) runs a whole flow in ONE call (goals, scripted taps, typed credentials by reference, waits, screenshots) and returns only on a hand-back; on paused, act on hand_back and resume with start=paused_at+1. Save plans with lab_save_plan and run them by name with handsets_autopilot_plan_file; lab_read_skill('write-plan') explains the step forms. lab_autopilot_stats summarises the decisions afterwards.",
                 "CREDENTIALS: secrets live in ${AppIdentity.NAME}'s vault on this computer and are used by reference only: {\"type\": {\"cred\": \"$acct.$field\"}} in a plan, handsets_type_secret(ref), handsets_fill(selector, cred=ref). lab_list_credentials shows which references are set. Values are never returned and are masked in every result. Never ask the user to paste a password, national ID or token into the chat: they enter it in ${AppIdentity.NAME} → Settings.",
                 (if (p.accounts.loginPlan != null) "LOGIN: handsets_login(account, env) runs the profile's login" + (p.accounts.loginDescription?.let { " ($it)" } ?: "") + " (playbook: device-login). " + (if (p.accounts.pools.isNotEmpty()) "Test-user pools (a fresh user per login, handsets_login(account=<pool>), no saved credentials): " + p.accounts.pools.joinToString { it.name + (it.description?.let { d -> " ($d)" } ?: "") } + ". " else "") else "LOGIN: the profile has no login plan; log in step by step or with a saved plan. ") + "If the phone is locked, handsets_unlock_device.",
                 if (build != null) "BUILDS: handsets_install_branch_build(branch or PR number) installs the CI-built PR-head APK of «${build.label}» (login survives); other build types: ${p.builds.joinToString(", ") { it.id }} (type=…). handsets_list_branch_builds shows whether one exists and whether it is from the newest commit; releases are handsets_list_builds / handsets_install_build. handsets_installed_builds says which build is on the phone (for the build line of a report). A branch the workflow skips can be built with handsets_start_branch_build (asks the user first: ${p.text("builds.startCost", "it takes a CI runner for several minutes")})."
                 else "BUILDS: the profile names no CI builds; handsets_install_build installs GitHub releases when a repo is set.",
                 "SESSION RECORDING: when a session USES THE DEVICE, call lab_session_start at the start (device-prep does). It records the whole session and is attached AUTOMATICALLY by lab_report_write. Don't record analysis-only work. If the user declines a report (or there is nothing to save), call lab_session_discard. lab_session_note(report_id, text) adds a caption at that moment, so the video explains itself.",
-                "REPORTS: when the user wants a saved report: lab_report_start(title) → lab_report_screenshot(report_id, caption) at each notable step (and pass report_id to handsets_jev_plan so its screenshot steps land there) → lab_report_write(report_id, markdown) covering what was done, what was found and the evidence, with the screenshot lines next to the text they belong to. Screenshots on consecutive lines render side by side. Every report states the app version and build under test (handsets_installed_builds). The report opens offline; report-standalone.html plus session.mp4 can be attached to Jira.",
+                "REPORTS: when the user wants a saved report: lab_report_start(title) → lab_report_screenshot(report_id, caption) at each notable step (and pass report_id to handsets_autopilot_plan so its screenshot steps land there) → lab_report_write(report_id, markdown) covering what was done, what was found and the evidence, with the screenshot lines next to the text they belong to. Screenshots on consecutive lines render side by side. Every report states the app version and build under test (handsets_installed_builds). The report opens offline; report-standalone.html plus session.mp4 can be attached to Jira.",
                 if (p.tracker.site.isNotBlank()) "DEVTEST: " + (p.devtest.teamCommand?.let { "with the team's own `${it.substringBefore(' ')}` command (in the app's checkout), use these tools to run the plan items on the device and collect evidence; follow that command's report and approval rules. Without it, " } ?: "") +
                     "lab_read_skill('devtest') is the whole flow: jira_get_issue → jira_linked_prs (several candidates: ask, never guess) → github_get_pr / github_pr_diff → plan → handsets_install_branch_build → lab_report_start(title, ticket=key) with evidence → jira_post_devtest_report (preview=true first; the build line is filled from the installed build; write the items in ${p.report.language}). jira_devtest_queue lists tickets waiting for a devtest."
                 else null,
@@ -219,8 +219,8 @@ class TestlabMcp(
         val PLAN_SCHEMA = """
             {
               "${'$'}schema": "https://json-schema.org/draft/2020-12/schema",
-              "title": "${AppIdentity.NAME} Jev plan",
-              "description": "Steps run in order by handsets_jev_plan. On a hand-back the run pauses; resume with start=paused_at+1.",
+              "title": "${AppIdentity.NAME} autopilot plan",
+              "description": "Steps run in order by handsets_autopilot_plan. On a hand-back the run pauses; resume with start=paused_at+1.",
               "type": "array",
               "items": {
                 "type": "object",

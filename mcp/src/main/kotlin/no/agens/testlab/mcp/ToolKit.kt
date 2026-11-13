@@ -268,7 +268,7 @@ object ToolErrors {
             else -> listOf(e.tag, e.detail).filter { it.isNotEmpty() }.joinToString(": ").ifEmpty { e.raw }
         }
         is no.agens.testlab.device.hs.HsDisconnected -> "${e.message} -> call handsets_use_device(serial) first (starts the daemon on the device)"
-        is no.agens.testlab.core.jev.JevError -> no.agens.testlab.core.jev.hint(e.message ?: "decision error")
+        is no.agens.testlab.core.autopilot.AutopilotError -> no.agens.testlab.core.autopilot.hint(e.message ?: "decision error")
         is no.agens.testlab.services.jira.JiraError -> e.message + (e.fixUrl?.let { " ($it)" } ?: "")
         is no.agens.testlab.services.github.GitHubError -> e.message + (e.fixUrl?.let { " ($it)" } ?: "")
         is BadArgument, is IllegalArgumentException, is IllegalStateException -> e.message ?: e::class.simpleName!!

@@ -101,19 +101,19 @@ internal fun setup(opts: Opts): Int = runBlocking {
     }
 
     // The autopilot.
-    if (rt.settings.current.jev.backend == "typesafe") {
+    if (rt.settings.current.autopilot.backend == "typesafe") {
         io.step("Autopilot", "picks what to tap toward a goal (TypeSafe's Jev; or a local Ollama model, or OpenAI's Decisions API)")
         if (rt.secrets.has(SecretStore.JEV_KEY) || System.getenv("TYPESAFE_API_KEY") != null) io.ok("TypeSafe key set")
         else {
             val k = io.secret("TypeSafe API key (Enter: skip; type «ollama» for a local model, «openai» for OpenAI)")
             when {
                 k == null -> io.skipped()
-                k.equals("ollama", ignoreCase = true) -> { rt.settings.update { it.copy(jev = it.jev.copy(backend = "ollama")) }; io.ok("using Ollama (${rt.settings.current.jev.ollamaUrls.firstOrNull() ?: "set jev.ollamaUrls"})") }
-                k.equals("openai", ignoreCase = true) -> { rt.settings.update { it.copy(jev = it.jev.copy(backend = "openai")) }; ensureOpenaiKey(io) }
+                k.equals("ollama", ignoreCase = true) -> { rt.settings.update { it.copy(autopilot = it.autopilot.copy(backend = "ollama")) }; io.ok("using Ollama (${rt.settings.current.autopilot.ollamaUrls.firstOrNull() ?: "set jev.ollamaUrls"})") }
+                k.equals("openai", ignoreCase = true) -> { rt.settings.update { it.copy(autopilot = it.autopilot.copy(backend = "openai")) }; ensureOpenaiKey(io) }
                 else -> { rt.secrets.put(SecretStore.JEV_KEY, k); io.ok("saved") }
             }
         }
-    } else if (rt.settings.current.jev.backend == "openai") {
+    } else if (rt.settings.current.autopilot.backend == "openai") {
         io.step("Autopilot", "picks what to tap toward a goal (OpenAI's Decisions API)")
         ensureOpenaiKey(io)
     }
@@ -296,14 +296,14 @@ private fun setupEmulator(io: Prompter) {
 /** The OpenAI key for the `openai` autopilot backend: asked for once when neither the vault nor OPENAI_API_KEY has it. */
 private fun ensureOpenaiKey(io: Prompter) {
     val rt = runtime
-    if (rt.secrets.has(SecretStore.OPENAI_KEY) || System.getenv("OPENAI_API_KEY") != null) { io.ok("OpenAI key set (${rt.settings.current.jev.openaiModel})"); return }
+    if (rt.secrets.has(SecretStore.OPENAI_KEY) || System.getenv("OPENAI_API_KEY") != null) { io.ok("OpenAI key set (${rt.settings.current.autopilot.openaiModel})"); return }
     println("    Make one at ${Diagnostics.OPENAI_KEY_PAGE}: sign in, pick the project, «Create new secret key», and copy it")
     println("    (OpenAI shows it once). The API is paid per use, billed apart from ChatGPT: the account needs API credit.")
     val k = io.secret("OpenAI API key (Enter: skip)")
     if (k == null) { io.skipped(); return }
     rt.secrets.put(SecretStore.OPENAI_KEY, k)
     when (val c = runBlocking { Diagnostics.create().openai(k) }) {
-        is Check.Ok -> io.ok("saved and checked; using OpenAI's Decisions API (${rt.settings.current.jev.openaiModel})")
+        is Check.Ok -> io.ok("saved and checked; using OpenAI's Decisions API (${rt.settings.current.autopilot.openaiModel})")
         is Check.Problem -> println("    saved, but: ${c.message}" + (c.fixUrl?.let { " ($it)" } ?: ""))
         else -> println("    saved; not checked: ${c.message}")
     }

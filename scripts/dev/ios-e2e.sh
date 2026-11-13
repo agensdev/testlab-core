@@ -210,7 +210,7 @@ call("handsets_navigate", target="back")
 call("handsets_wait_for", selector_or_text="Remember me", timeout_s=15)
 call("handsets_open_url", url="testshop://cart")
 call("handsets_wait_for", selector_or_text="Your cart is empty", timeout_s=15)
-plan, _ = call("handsets_jev_plan", plan='[{"tap":"Home"},{"wait_for":"Remember me"}]', backend="stub")
+plan, _ = call("handsets_autopilot_plan", plan='[{"tap":"Home"},{"wait_for":"Remember me"}]', backend="stub")
 expect('"completed"' in plan, "a plan runs on the simulator")
 _, imgs = call("handsets_screenshot")
 expect(len(imgs) == 1, "a screenshot comes back as an image")
@@ -246,8 +246,8 @@ steps = {
     "screenshot": lambda: m.timed("handsets_screenshot"),
     "current_focus": lambda: m.timed("handsets_current_focus"),
     "tap (by text)": lambda: m.timed("handsets_tap", selector_or_text="Remember me"),
-    "plan, 4 taps": lambda: m.timed("handsets_jev_plan", plan='[{"tap":"Remember me"},{"tap":"Remember me"},{"tap":"Remember me"},{"tap":"Remember me"}]', backend="stub"),
-    "plan, 4 tab switches": lambda: m.timed("handsets_jev_plan", plan='[{"tap":"Cart"},{"tap":"Home"},{"tap":"Cart"},{"tap":"Home"}]', backend="stub"),
+    "plan, 4 taps": lambda: m.timed("handsets_autopilot_plan", plan='[{"tap":"Remember me"},{"tap":"Remember me"},{"tap":"Remember me"},{"tap":"Remember me"}]', backend="stub"),
+    "plan, 4 tab switches": lambda: m.timed("handsets_autopilot_plan", plan='[{"tap":"Cart"},{"tap":"Home"},{"tap":"Cart"},{"tap":"Home"}]', backend="stub"),
 }
 out = {}
 for name, f in steps.items():

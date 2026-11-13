@@ -68,7 +68,7 @@ background service.
 |---|---|---|
 | GitHub token | <https://github.com/settings/tokens/new?scopes=repo>: a **classic** token with `repo`. If your organisation uses SSO, also **Configure SSO → Authorize** it | PR builds, devtests, upgrades |
 | Jira e-mail + API token | <https://id.atlassian.com/manage-profile/security/api-tokens> → **Create API token** (not «with scopes»), with your work e-mail | Devtests |
-| TypeSafe Jev key | from the Jev account owner | The Jev autopilot (or choose a local Ollama model, or OpenAI's Decisions API, instead) |
+| TypeSafe Jev key | from the Jev account owner | The autopilot (or choose a local Ollama model, or OpenAI's Decisions API, instead) |
 | OpenAI API key (optional) | <https://platform.openai.com/api-keys> («Create new secret key», copy it at once: it is shown once; the API needs credit on the account, billed apart from ChatGPT): `testlab secrets set openai.key`, or `OPENAI_API_KEY` | The autopilot on OpenAI's [Decisions API](https://developers.openai.com/api/docs/guides/decisions) (`jev.backend = openai`, model `jev.openaiModel`, default `gpt-6-luna`) |
 | Test accounts | the test users your team uses, with the fields the profile names | Logging in, plans that log in |
 | Device PIN | your phone's lock PIN: `testlab secrets set device_pin` | Unlocking the phone |
@@ -138,7 +138,7 @@ Then ask, for example, "install the build of PR 1234 and open search". The playb
 | Prompt | Does |
 |---|---|
 | `/mcp__testlab__drive-device` | The loop for driving the phone |
-| `/mcp__testlab__write-plan` | Writes, checks and saves a Jev plan, then runs it |
+| `/mcp__testlab__write-plan` | Writes, checks and saves an autopilot plan, then runs it |
 | `/mcp__testlab__device-login` | Logs in with a stored test account |
 | `/mcp__testlab__devtest PROJ-123` | A whole devtest |
 

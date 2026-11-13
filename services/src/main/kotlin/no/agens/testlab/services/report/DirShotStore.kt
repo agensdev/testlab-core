@@ -10,8 +10,8 @@ import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.put
-import no.agens.testlab.core.jev.ShotSlot
-import no.agens.testlab.core.jev.ShotStore
+import no.agens.testlab.core.autopilot.ShotSlot
+import no.agens.testlab.core.autopilot.ShotStore
 import java.io.File
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter

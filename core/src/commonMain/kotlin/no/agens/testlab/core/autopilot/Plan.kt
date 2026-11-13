@@ -1,4 +1,4 @@
-package no.agens.testlab.core.jev
+package no.agens.testlab.core.autopilot
 
 import kotlinx.coroutines.CancellationException
 import kotlinx.serialization.json.JsonArray
@@ -69,7 +69,7 @@ object PlanSteps {
                 .ifEmpty { nodes.filter { it.actionable && (low in it.text.lowercase() || low in it.desc.lowercase()) } }
         }
         if (hits.size <= nth) {
-            throw JevError("tap ${pyRepr(selector)}: no such element on screen" + if (hits.isNotEmpty()) " (nth=$nth, ${hits.size} hits)" else "")
+            throw AutopilotError("tap ${pyRepr(selector)}: no such element on screen" + if (hits.isNotEmpty()) " (nth=$nth, ${hits.size} hits)" else "")
         }
         return hits[nth]
     }
@@ -94,14 +94,14 @@ object PlanSteps {
 }
 
 /** Poll the tree until some node's text, desc or `#rid` contains [needle] (case-insensitive). */
-suspend fun JevEngine.waitForText(runHs: HsRunner, needle: String, timeoutS: Double, clock: EngineClock): Double {
+suspend fun AutopilotEngine.waitForText(runHs: HsRunner, needle: String, timeoutS: Double, clock: EngineClock): Double {
     val t0 = clock.nowMs()
     val n = needle.lowercase()
     while (true) {
-        val nodes = try { readScreen(runHs).nodes } catch (e: JevError) { emptyList() }
+        val nodes = try { readScreen(runHs).nodes } catch (e: AutopilotError) { emptyList() }
         if (nodes.any { n in (it.text + " " + it.desc + " #" + it.rid).lowercase() }) return pyRound((clock.nowMs() - t0) / 1000.0, 1)
         if (clock.nowMs() - t0 > (timeoutS * 1000).toLong()) {
-            throw JevError("wait_for ${PlanSteps.pyRepr(needle)}: not on screen after ${kotlin.math.round(timeoutS).toLong()}s")
+            throw AutopilotError("wait_for ${PlanSteps.pyRepr(needle)}: not on screen after ${kotlin.math.round(timeoutS).toLong()}s")
         }
         clock.sleep(500)
     }
@@ -111,7 +111,7 @@ suspend fun JevEngine.waitForText(runHs: HsRunner, needle: String, timeoutS: Dou
  * Runs a JSON plan (jevpick `run_plan`): returns only when it completes or a step hands back
  * (needs_decision / blocked / stuck / error); resume with `start = paused_at + 1`.
  */
-suspend fun JevEngine.runPlan(
+suspend fun AutopilotEngine.runPlan(
     plan: JsonArray,
     runHs: HsRunner,
     ctx: PlanContext = PlanContext(),
@@ -185,7 +185,7 @@ suspend fun JevEngine.runPlan(
                     val v = st["type"]
                     val text: String
                     if (v is JsonObject && "cred" in v) {
-                        val lookup = ctx.cred ?: throw JevError("plan uses a credential but no credential lookup is available")
+                        val lookup = ctx.cred ?: throw AutopilotError("plan uses a credential but no credential lookup is available")
                         val ref = (v["cred"] as JsonPrimitive).content
                         text = lookup(ref)
                         rec["step"] = buildJsonObject { putJsonObject("type") { put("cred", ref) } } // never echo the value
@@ -201,7 +201,7 @@ suspend fun JevEngine.runPlan(
                 pyTruthy(st["hide_keyboard"]) -> {
                     val hide = ctx.hideKeyboard
                     if (hide != null) hide() else {
-                        val adb = ctx.runAdb ?: throw JevError("hide_keyboard needs an adb runner")
+                        val adb = ctx.runAdb ?: throw AutopilotError("hide_keyboard needs an adb runner")
                         val g = decide.geometry
                         adb(listOf("shell", "input", "tap", g.sx(195).toString(), g.sy(2990).toString()))
                     }
@@ -218,12 +218,12 @@ suspend fun JevEngine.runPlan(
                 "open" in st -> {
                     // Launch arguments (iOS): strings, or {"cred": "acct.field"} from the vault, never echoed.
                     val args = (st["args"] as? kotlinx.serialization.json.JsonArray).orEmpty().map { v ->
-                        if (v is JsonObject && "cred" in v) (ctx.cred ?: throw JevError("plan uses a credential but no credential lookup is available"))((v["cred"] as JsonPrimitive).content)
+                        if (v is JsonObject && "cred" in v) (ctx.cred ?: throw AutopilotError("plan uses a credential but no credential lookup is available"))((v["cred"] as JsonPrimitive).content)
                         else (v as? JsonPrimitive)?.content ?: v.toString()
                     }
                     val target = (st["open"] as JsonPrimitive).content
                     if (pyTruthy(st["fresh"])) {
-                        val clear = ctx.clearData ?: throw JevError("'fresh' (clear the app's data first) is not available here")
+                        val clear = ctx.clearData ?: throw AutopilotError("'fresh' (clear the app's data first) is not available here")
                         clear(target.substringBefore('/'))
                         rec["cleared"] = JsonPrimitive(true)
                     }
@@ -241,7 +241,7 @@ suspend fun JevEngine.runPlan(
                 }
                 "screenshot" in st -> {
                     val caption = (st["screenshot"] as JsonPrimitive).content
-                    val store = ctx.shots ?: throw JevError("screenshot needs a place to save it (no report or trace folder)")
+                    val store = ctx.shots ?: throw AutopilotError("screenshot needs a place to save it (no report or trace folder)")
                     val slot = store.allocate(caption, PlanSteps.slug(caption))
                     runHs(listOf("see", slot.path, "--size", "1080"))
                     store.commit(slot, caption)
@@ -277,11 +277,11 @@ suspend fun JevEngine.runPlan(
                     rec["timing"] = timingJson(tmm)
                 }
                 "note" in st -> rec["status"] = JsonPrimitive("ok")
-                else -> throw JevError("unknown plan step: $st")
+                else -> throw AutopilotError("unknown plan step: $st")
             }
         } catch (e: CancellationException) {
             throw e
-        } catch (e: JevError) {
+        } catch (e: AutopilotError) {
             rec["status"] = JsonPrimitive("error"); rec["error"] = JsonPrimitive(errorText(e))
             status = "error"; pausedAt = i; handBack = buildJsonObject { put("error", errorText(e)) }
         } catch (e: Exception) { // device errors

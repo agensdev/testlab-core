@@ -14,13 +14,13 @@ import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.longOrNull
 import kotlinx.serialization.json.put
 import kotlinx.serialization.json.putJsonObject
-import no.agens.testlab.core.jev.Backend
-import no.agens.testlab.core.jev.DecideOptions
-import no.agens.testlab.core.jev.PlanContext
-import no.agens.testlab.core.jev.PlanProgress
-import no.agens.testlab.core.jev.ShotStore
-import no.agens.testlab.core.jev.TIMING_KEYS
-import no.agens.testlab.core.jev.runPlan
+import no.agens.testlab.core.autopilot.Backend
+import no.agens.testlab.core.autopilot.DecideOptions
+import no.agens.testlab.core.autopilot.PlanContext
+import no.agens.testlab.core.autopilot.PlanProgress
+import no.agens.testlab.core.autopilot.ShotStore
+import no.agens.testlab.core.autopilot.TIMING_KEYS
+import no.agens.testlab.core.autopilot.runPlan
 import no.agens.testlab.services.report.DirShotStore
 import no.agens.testlab.services.runtime.LabRuntime
 import no.agens.testlab.services.secrets.SecretStore
@@ -89,12 +89,12 @@ class PlanRuns(private val rt: LabRuntime) {
     private fun engineFor(backend: BackendChoice) = when {
         backend.id.startsWith("ollama|") -> {
             val entry = backend.id.removePrefix("ollama|")
-            val cfg = rt.settings.current.jev.toConfig().copy(backend = Backend.OLLAMA, ollamaUrls = listOf(entry))
-            no.agens.testlab.core.jev.JevEngine(cfg, no.agens.testlab.core.jev.DecisionClient(cfg, no.agens.testlab.services.http.KtorHttpPost(), apiKey = { null }, nowMs = System::currentTimeMillis))
+            val cfg = rt.settings.current.autopilot.toConfig().copy(backend = Backend.OLLAMA, ollamaUrls = listOf(entry))
+            no.agens.testlab.core.autopilot.AutopilotEngine(cfg, no.agens.testlab.core.autopilot.DecisionClient(cfg, no.agens.testlab.services.http.KtorHttpPost(), apiKey = { null }, nowMs = System::currentTimeMillis))
         }
         backend.id.startsWith("openai|") -> {
-            val cfg = rt.settings.current.jev.toConfig().copy(backend = Backend.OPENAI, openaiModel = backend.id.substringAfter('|'))
-            no.agens.testlab.core.jev.JevEngine(cfg, no.agens.testlab.core.jev.DecisionClient(
+            val cfg = rt.settings.current.autopilot.toConfig().copy(backend = Backend.OPENAI, openaiModel = backend.id.substringAfter('|'))
+            no.agens.testlab.core.autopilot.AutopilotEngine(cfg, no.agens.testlab.core.autopilot.DecisionClient(
                 cfg, no.agens.testlab.services.http.KtorHttpPost(), apiKey = { null }, nowMs = System::currentTimeMillis,
                 openaiKey = { rt.secrets.get(no.agens.testlab.services.secrets.SecretStore.OPENAI_KEY) ?: System.getenv("OPENAI_API_KEY") },
             ))
@@ -124,7 +124,7 @@ class PlanRuns(private val rt: LabRuntime) {
         runFlow.update { (it + PlanRun(id, name, serial, backend.label, plan, PlanRun.State.RUNNING)).takeLast(30) }
         val dev = rt.device(serial)
         val (engine, be) = engineFor(backend)
-        val ctx = PlanContext(cred = { ref -> credential(ref, serial) }, hideKeyboard = { dev.hideKeyboard() }, shots = shots ?: DirShotStore(File(rt.reportsDir(), "_jev_shots")), clearData = { pkg -> rt.ops(serial).clearData(serial, pkg) })
+        val ctx = PlanContext(cred = { ref -> credential(ref, serial) }, hideKeyboard = { dev.hideKeyboard() }, shots = shots ?: DirShotStore(File(rt.reportsDir(), "_autopilot_shots")), clearData = { pkg -> rt.ops(serial).clearData(serial, pkg) })
         val progress = object : PlanProgress {
             override fun started(index: Int, step: JsonElement) = update(id) { it.copy(current = index) }
             override fun finished(index: Int, record: JsonObject) = update(id) { it.copy(steps = it.steps + (index to record)) }
@@ -136,7 +136,7 @@ class PlanRuns(private val rt: LabRuntime) {
         var state = PlanRun.State.COMPLETED
         while (true) {
             val r = engine.runPlan(
-                plan, dev.asHsRunner(), ctx, from, rt.settings.current.jev.minConfidence,
+                plan, dev.asHsRunner(), ctx, from, rt.settings.current.autopilot.minConfidence,
                 DecideOptions(backend = be, stub = backend.id == "stub", geometry = rt.geometry(serial)), trace, progress = progress,
             )
             segments += r
@@ -170,7 +170,7 @@ class PlanRuns(private val rt: LabRuntime) {
     }
 
     companion object {
-        /** TypeSafe's price per million input tokens (lab_jev_stats uses the same). */
+        /** TypeSafe's price per million input tokens (lab_autopilot_stats uses the same). */
         const val USD_PER_M_INPUT = 0.042
 
         /** One result for a run that paused and went on: all steps, summed timing and usage, operator time apart. */

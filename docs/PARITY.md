@@ -23,4 +23,4 @@ Regenerate the goldens after changing the Python copy or the core's vocabulary w
 | `_TREE_FLAGS` `\w` | Python Unicode word class | Java `(?U)\w`, which also counts combining marks | Flags are ASCII words, so no output differs |
 | Typing | `hs type` sends key events from the virtual keymap, so æøå and emoji fail | Keymap text as keys; anything else pasted through the clipboard, edge spaces as SPACE keys | Test data in other languages (æøå) |
 | UI dump source | `hs ui --tree` text from the CLI | The daemon's `dump_active` JSON rendered by `UiDumpRender` to the same bytes | Byte-identical on 17 captured screens (`UiDumpRenderGoldenTest`) |
-| Vocabulary | Norwegian risky/leave words, an app glossary and app-specific examples built in | English base words; the profile's `jev` section adds the app's language, glossary and examples | One core for every app |
+| Vocabulary | Norwegian risky/leave words, an app glossary and app-specific examples built in | English base words; the profile's `autopilot` section adds the app's language, glossary and examples | One core for every app |

@@ -50,7 +50,7 @@ private fun Profile.oneProblems(): List<String> = buildList {
     }
     if (navigation.destinations.values.any { it.path != null && it.path.startsWith("/") } && navigation.host.isBlank()) add("navigation.host is needed for paths that start with /")
     for (alias in navigation.aliases) if (alias.value !in navigation.destinations) add("navigation.aliases.${alias.key} → '${alias.value}' is not a destination")
-    (jev.riskyWords + jev.leaveWords).forEach { w -> runCatching { Regex(w) }.onFailure { add("jev: '$w' is not a valid regex") } }
+    (autopilot.riskyWords + autopilot.leaveWords).forEach { w -> runCatching { Regex(w) }.onFailure { add("autopilot: '$w' is not a valid regex") } }
     accounts.fields.map { it.key }.filterNot { Regex("^[a-z0-9_]+$").matches(it) }.forEach { add("accounts.fields: key '$it' must be lower-case letters, digits and _") }
     accounts.defaults.filterNot { Regex("^[A-Za-z0-9_-]+$").matches(it) }.forEach { add("accounts.defaults: '$it' must be letters, digits, _ and -") }
     runCatching { Template.render(report.template, emptyMap(), emptyMap()) }.onFailure { add("report.template: ${it.message}") }

@@ -12,7 +12,7 @@ import javax.xml.parsers.DocumentBuilderFactory
 
 /**
  * WebDriverAgent's `/source` XML as the daemon's dump JSON (`{root: {cls, pkg, rid, text, desc,
- * hint, flags, bounds, children}}`), so the dump table, selectors, tap/fill/wait_for and Jev read
+ * hint, flags, bounds, children}}`), so the dump table, selectors, tap/fill/wait_for and the autopilot read
  * an iOS screen as they read an Android one.
  *
  * - XCUI types become the Android widget names those are tuned on: Button, EditText (with `p` for
@@ -66,7 +66,7 @@ object XcuiTree {
         val accessible = e.a("accessible") == "true"
         val text = when {
             input -> value
-            // Its name is the screen's title: what `state top` and Jev's screen.title read.
+            // Its name is the screen's title: what `state top` and the autopilot's screen.title read.
             type == "NavigationBar" -> name.ifEmpty { label }
             container && !accessible -> ""
             label.isNotEmpty() -> label

@@ -1,6 +1,6 @@
 package no.agens.testlab.core.profile
 
-import no.agens.testlab.core.jev.JevConfig
+import no.agens.testlab.core.autopilot.AutopilotConfig
 import no.agens.testlab.core.nav.Destinations
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -51,14 +51,22 @@ class ProfileTest {
     }
 
     @Test
-    fun jevWordingFollowsTheProfile() {
-        val generic = JevConfig()
+    fun autopilotWordingFollowsTheProfile() {
+        val generic = AutopilotConfig()
         assertTrue("Glossary" !in generic.questionInstructions && "'More' tab" in generic.questionInstructions)
-        val c = JevConfig(glossary = "Hjem=Home", labelLanguage = "Norwegian", pickNote = "mind the bets", doneExample = "`A` is not `B`", riskyWords = listOf("kjøp"), leaveWords = listOf("tilbake"))
+        val c = AutopilotConfig(glossary = "Hjem=Home", labelLanguage = "Norwegian", pickNote = "mind the bets", doneExample = "`A` is not `B`", riskyWords = listOf("kjøp"), leaveWords = listOf("tilbake"))
         assertTrue(c.questionInstructions.endsWith("reversible; mind the bets. Glossary: Hjem=Home"), c.questionInstructions)
         assertTrue("labels are mostly Norwegian" in c.questionInstructions)
         assertTrue("Tab names must match exactly: `A` is not `B`." in c.doneInstructions)
         assertTrue(c.riskyRe.containsMatchIn("KJØP NÅ") && !generic.riskyRe.containsMatchIn("KJØP NÅ") && generic.riskyRe.containsMatchIn("Buy now"))
         assertTrue(c.leaveRe.matches("Tilbake") && !generic.leaveRe.matches("Tilbake"))
+    }
+
+    @Test
+    fun aProfileFromBeforeTheRenameStillLoads() {
+        val json = kotlinx.serialization.json.Json { ignoreUnknownKeys = true }
+        val old = json.decodeFromString(Profile.serializer(), """{"id":"a","name":"A","jev":{"glossary":"Hjem=Home"}}""")
+        assertEquals("Hjem=Home", old.autopilot.glossary)
+        assertEquals(old, json.decodeFromString(Profile.serializer(), """{"id":"a","name":"A","autopilot":{"glossary":"Hjem=Home"}}"""))
     }
 }

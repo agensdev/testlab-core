@@ -248,7 +248,7 @@ internal fun ToolBox.deviceTools(rt: LabRuntime) {
         press (long-press-then-drag needs ~500); duration_ms = one pass along the whole path, split
         over its legs by length; repeat = passes, every other one back along the path (scrubbing).
         Android: a smooth finger (a MOVE every ~16 ms, timed on the phone). iOS: WebDriverAgent touch
-        actions. Find the points with handsets_ui_dump, or handsets_jev_find on screens without a tree.
+        actions. Find the points with handsets_ui_dump, or handsets_autopilot_find on screens without a tree.
         """,
         Param("points", "plan", "[[x,y],[x,y],…] in handsets_tap_xy pixels, at least two"),
         int("duration_ms", "one pass along the path", 800),

@@ -31,4 +31,15 @@ class SharedSettingsTest {
         // A screen collecting the flow sees the other process's change without asking.
         withTimeout(6_000) { window.settings.first { it.mcp.port == 8400 } }
     }
+
+    @Test
+    fun settingsFromBeforeTheRenameKeepTheBackend() {
+        file.writeText("""{"jev":{"backend":"ollama","minConfidence":0.7}}""")
+        val store = SettingsStore(file)
+        assertEquals("ollama", store.current.autopilot.backend)
+        store.update { it.copy(mcp = it.mcp.copy(port = 8400)) }
+        val saved = file.readText()
+        assertEquals(true, "\"autopilot\"" in saved && "\"jev\"" !in saved, saved)
+        assertEquals(0.7, SettingsStore(file).current.autopilot.minConfidence)
+    }
 }

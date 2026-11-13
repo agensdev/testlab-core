@@ -35,7 +35,7 @@ call handsets_open_app '{"package":"com.android.settings"}' handsets_wait_for '{
      lab_report_screenshot "{\"report_id\":\"$rid\",\"caption\":\"Settings\"}" lab_session_note "{\"report_id\":\"$rid\",\"text\":\"Opening the network page\"}" \
      handsets_tap '{"selector_or_text":"Network & internet"}' sleep 3 lab_report_screenshot "{\"report_id\":\"$rid\",\"caption\":\"Network\"}" \
      handsets_navigate '{"target":"back"}' sleep 4 > /dev/null
-call handsets_jev_plan "{\"plan\":\"[{\\\"tap\\\":\\\"#search_action_bar\\\"},{\\\"sleep\\\":2},{\\\"screenshot\\\":\\\"Search\\\"},{\\\"key\\\":\\\"back\\\"}]\",\"report_id\":\"$rid\",\"backend\":\"stub\"}" > /dev/null
+call handsets_autopilot_plan "{\"plan\":\"[{\\\"tap\\\":\\\"#search_action_bar\\\"},{\\\"sleep\\\":2},{\\\"screenshot\\\":\\\"Search\\\"},{\\\"key\\\":\\\"back\\\"}]\",\"report_id\":\"$rid\",\"backend\":\"stub\"}" > /dev/null
 sleep 3
 t1=$(date +%s.%N)
 w=$(call lab_report_write "{\"report_id\":\"$rid\",\"markdown\":\"## Resultat\\n\\nOK.\\n\\n![Settings](01-settings.jpg)\\n![Network](02-network.jpg)\"}")

@@ -80,7 +80,7 @@ is a complete one. Unknown fields are ignored, so a profile written for a newer 
     },
     "aliases": { "start": "home" }
   },
-  "jev": {
+  "autopilot": {
     "glossary": "Hjem=Home tab; Kurv=Cart",
     "labelLanguage": "Norwegian",
     "riskyWords": ["kjøp", "betal"],
@@ -111,7 +111,7 @@ is a complete one. Unknown fields are ignored, so a profile written for a newer 
 | `report` | The devtest comment: a Markdown `template` (below), the `dateFormat`, the words for a CI build / release in the build line, the comment's `title` and the `language` Claude writes the items in. |
 | `devtest` | The team's own Claude Code command for a devtest (`/devtest {key}`) and the paths that show a checkout has it; the environments offered for the comment. |
 | `navigation` | `handsets_go` destinations: deeplink paths under `host` (or full URLs) and tabs reached by tapping a resource id; `subpages` for destinations that take one; aliases. |
-| `jev` | The autopilot's vocabulary: a `glossary` sent with every question, the language labels are in, example sentences (`pickExample`, `doneExample`), a `pickNote`, and extra risky / leave-the-screen words (regex alternatives) on top of the core's English ones. |
+| `autopilot` | The autopilot's vocabulary: a `glossary` sent with every question, the language labels are in, example sentences (`pickExample`, `doneExample`), a `pickNote`, and extra risky / leave-the-screen words (regex alternatives) on top of the core's English ones. |
 | `accounts` | The test-account fields (the setup page shows one field per entry; plans use them as `{"cred": "<account>.<key>"}`), default account names, and the login plan `handsets_login` runs (`${account}`, `${package}`, `${env}`, `${Env}` are filled in). Any number of accounts can be added (the setup page, or `testlab accounts add NAME --note "what it is for"`); an account can log in on a platform when it has every `${account}.<field>` that platform's login plan types. `pools` are test-user pools: an account that is fetched fresh from a test service on every login instead of being saved by hand (below). |
 | `texts` | Free texts: `builds.startCost` (what starting a build costs), `proxyman.cert`, `mcp.instructions` (extra notes for Claude, appended to the server instructions). |
 | `testRepos` | Helper repos the team tests with, such as test management guides or an E2E test suite: `[{"id": "guides", "repo": "example-org/qa-guides"}, {"id": "e2e", "repo": "example-org/maestro-tests", "kind": "maestro"}]`. Testlab keeps a read-only copy of each (the branch's newest commit, `ref` for another branch or tag, fetched with the user's own GitHub token and checked at most hourly), adds their skills to the playbooks as `<id>:<name>` (from `skills`, default `.claude/skills` and a top `SKILL.md`), and gives Claude tools to list, read and search them; a `maestro` repo's flows are indexed with their test-case ids (`properties.testinyId`). Nobody has to work from inside those repos. `testlab test-repos` shows them. |

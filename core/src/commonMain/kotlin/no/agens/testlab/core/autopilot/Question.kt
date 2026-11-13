@@ -1,4 +1,4 @@
-package no.agens.testlab.core.jev
+package no.agens.testlab.core.autopilot
 
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonObject
@@ -161,7 +161,7 @@ object ScreenState {
         history: List<String>,
         stepIndex: Int = 1,
         maxSteps: Int = 1,
-        config: JevConfig = JevConfig(),
+        config: AutopilotConfig = AutopilotConfig(),
         geometry: Geometry = Geometry.REFERENCE,
     ): JsonObject = buildJsonObject {
         put("goal", goal)
@@ -187,7 +187,7 @@ object Questions {
      * Two questions per call (fan-out is free): the action choice and a yes/no "already done?".
      * Ollama's noul wants explicit false/true criteria; TypeSafe's takes none.
      */
-    fun build(candidates: List<Candidate>, backend: Backend, config: JevConfig = JevConfig(), allowRisky: Boolean = false): JsonObject = buildJsonObject {
+    fun build(candidates: List<Candidate>, backend: Backend, config: AutopilotConfig = AutopilotConfig(), allowRisky: Boolean = false): JsonObject = buildJsonObject {
         putJsonObject("next") {
             put("type", "choice")
             put("instructions", if (allowRisky) riskyAllowedInstructions(config.questionInstructions) else config.questionInstructions)

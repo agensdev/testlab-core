@@ -251,9 +251,9 @@ class McpToolCoverageTest {
         assertTrue("via" in ok("handsets_go", "destination" to "profil"))
 
         phone.screen = McpServerTest.SCREEN
-        assertTrue("\"choice\"" in ok("handsets_jev_pick", "goal" to "Press Neste", "backend" to "stub"))
-        ok("handsets_jev_step", "goal" to "Press Neste", "backend" to "stub")
-        fails("handsets_jev_find", "goal" to "the back arrow").let { assertTrue("TypeSafe" in it || "image" in it, it) }
+        assertTrue("\"choice\"" in ok("handsets_autopilot_pick", "goal" to "Press Neste", "backend" to "stub"))
+        ok("handsets_autopilot_step", "goal" to "Press Neste", "backend" to "stub")
+        fails("handsets_autopilot_find", "goal" to "the back arrow").let { assertTrue("TypeSafe" in it || "image" in it, it) }
         // The fake phone can't run the touch injector: the drag falls back to input motionevent, and says so.
         assertTrue("input motionevent" in ok("handsets_drag", "points" to "[[100,200],[300,400],[500,400]]", "duration_ms" to 300, "outside_app" to true))
         assertTrue(calls.any { "app_process" in it && "'100,200;300,400;500,400' 300 150 1" in it }, calls.takeLast(5).toString())
@@ -261,12 +261,12 @@ class McpToolCoverageTest {
         assertTrue("at least two" in fails("handsets_drag", "points" to "[[1,2]]"))
         assertTrue("display 0" in fails("handsets_orientation"), "the fake phone has no window dump")
         assertTrue(ok("handsets_home", "close_apps" to false) == "ok: home" && calls.any { "input keyevent KEYCODE_HOME" in it })
-        assertTrue("\"status\"" in ok("handsets_jev_do", "goal" to "Open Neste", "backend" to "stub", "max_steps" to 2))
-        assertTrue("\"completed\"" in ok("handsets_jev_plan", "plan" to """[{"tap":"Neste"},{"sleep":0}]""", "backend" to "stub"))
+        assertTrue("\"status\"" in ok("handsets_autopilot_do", "goal" to "Open Neste", "backend" to "stub", "max_steps" to 2))
+        assertTrue("\"completed\"" in ok("handsets_autopilot_plan", "plan" to """[{"tap":"Neste"},{"sleep":0}]""", "backend" to "stub"))
         assertTrue(ok("lab_save_plan", "name" to "cover", "plan" to """[{"note":"coverage"},{"tap":"Neste"}]""").startsWith("saved cover"))
         assertTrue("cover" in ok("lab_list_plans"))
         assertTrue("coverage" in ok("lab_read_plan", "name" to "cover"))
-        assertTrue("\"completed\"" in ok("handsets_jev_plan_file", "name" to "cover", "backend" to "stub"))
+        assertTrue("\"completed\"" in ok("handsets_autopilot_plan_file", "name" to "cover", "backend" to "stub"))
         val login = fails("handsets_login", "backend" to "stub")
         assertTrue("demo.login_password" in login && "not set" in login, "missing Login fields are refused before the run: $login")
         assertTrue(calls.none { "pm disable-user" in it }, "nothing was disabled for a login that never started")
@@ -307,7 +307,7 @@ class McpToolCoverageTest {
         assertTrue("neither tested nor marked" in fails("lab_report_write", "report_id" to rid, "markdown" to "x"), "an unaccounted item stops the report")
         assertTrue("0 item(s) left" in ok("lab_report_item", "report_id" to rid, "item" to "2", "status" to "not_tested", "note" to "needs a second device"))
         assertTrue("noted" in ok("lab_session_note", "report_id" to rid, "text" to "Why", "kind" to "chapter"))
-        assertTrue("\"completed\"" in ok("handsets_jev_plan", "plan" to """[{"screenshot":"From the plan"}]""", "report_id" to rid, "backend" to "stub"), "plan screenshots land in the report")
+        assertTrue("\"completed\"" in ok("handsets_autopilot_plan", "plan" to """[{"screenshot":"From the plan"}]""", "report_id" to rid, "backend" to "stub"), "plan screenshots land in the report")
         Thread.sleep(300)
         val written = ok("lab_report_write", "report_id" to rid, "markdown" to "Alt ok.\n\n![Start](01-start.jpg)")
         assertTrue("Report written: file:" in written && "recording: session.mp4" in written, written)
@@ -423,7 +423,7 @@ class McpToolCoverageTest {
         assertTrue("default)" in ok("lab_use_profile", "id" to "example-shop") && rt.profile.id == "example-shop")
         assertTrue("drive-device" in ok("lab_list_skills"))
         assertTrue(ok("lab_read_skill", "name" to "write-plan").contains("# Write a plan"))
-        assertTrue("\"decisions\"" in ok("lab_jev_stats", "since_minutes" to 5))
+        assertTrue("\"decisions\"" in ok("lab_autopilot_stats", "since_minutes" to 5))
         assertEquals("ok", ok("handsets_drop_device"))
 
         assertEquals(McpServerTest.EXPECTED_TOOLS.toSet(), called, "tools not covered: ${McpServerTest.EXPECTED_TOOLS - called}")

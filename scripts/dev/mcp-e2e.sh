@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # mcp-e2e.sh — the MCP server end to end on the dev emulator: `testlab serve` with a throwaway
 # passphrase vault, then a stdlib-Python MCP client (Streamable HTTP, JSON responses) drives the
-# stock Settings app through the tools, runs the every-step plan through handsets_jev_plan (stub
+# stock Settings app through the tools, runs the every-step plan through handsets_autopilot_plan (stub
 # backend) and checks that no stored secret comes back. Sequenced like e2e.sh: build first, stop
 # Gradle, then the emulator.
 #   scripts/dev/mcp-e2e.sh [--keep]
@@ -96,18 +96,18 @@ r, t = call("handsets_navigate", target="back")
 r, t = call("handsets_current_focus"); expect("/" in t, "current_focus")
 r, t = call("handsets_info"); expect("Android" in t, "info")
 r, t = call("handsets_tap", selector_or_text="No such label here"); expect(r.get("isError"), "tap of a missing label errors")
-r, t = call("handsets_jev_pick", goal="Open Network & internet", backend="stub"); expect('"choice"' in t, "jev_pick")
+r, t = call("handsets_autopilot_pick", goal="Open Network & internet", backend="stub"); expect('"choice"' in t, "autopilot_pick")
 # The stored secret is typed by reference; the wait checks a prefix of it, so the plan never holds the whole value.
 plan = open(sys.argv[1]).read().replace("Blåbær syltetøy ÆØÅ 123", "Blåbær syltetøy ÆØÅ 7Xq")
-r, t = call("handsets_jev_plan", plan=plan, backend="stub")
+r, t = call("handsets_autopilot_plan", plan=plan, backend="stub")
 res = json.loads(t)
-expect(res["status"] in ("completed", "paused"), "jev_plan ran")
+expect(res["status"] in ("completed", "paused"), "autopilot_plan ran")
 print(f"  plan: {res['status']} in {res.get('elapsed_s')} s, {res.get('decisions')} decisions" + (f", paused at {res.get('paused_at')}: {res.get('hand_back')}" if res["status"] != "completed" else ""))
 r, t = call("lab_save_plan", name="settings-every-step", plan=open(sys.argv[1]).read(), overwrite=True); expect(t.startswith("saved"), "save_plan")
 r, t = call("lab_list_plans"); expect("settings-every-step" in t, "list_plans")
 r, t = call("lab_list_credentials"); expect('"e2e.secret":"set"' in t, "list_credentials")
 r, t = call("lab_status"); expect('"active":"emulator-' in t, "status")
-r, t = call("lab_jev_stats", since_minutes=10); expect('"decisions"' in t, "jev_stats")
+r, t = call("lab_autopilot_stats", since_minutes=10); expect('"decisions"' in t, "autopilot_stats")
 print("problems:", fails or "none")
 sys.exit(1 if fails else 0)
 PY

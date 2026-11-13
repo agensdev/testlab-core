@@ -10,8 +10,8 @@ import io.ktor.client.request.setBody
 import io.ktor.client.statement.bodyAsText
 import io.ktor.http.ContentType
 import io.ktor.http.contentType
-import no.agens.testlab.core.jev.HttpPost
-import no.agens.testlab.core.jev.HttpReply
+import no.agens.testlab.core.autopilot.HttpPost
+import no.agens.testlab.core.autopilot.HttpReply
 
 /** The decision client's POST over Ktor (CIO engine, no extra native libraries). */
 class KtorHttpPost(private val client: HttpClient = defaultClient()) : HttpPost {

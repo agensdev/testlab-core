@@ -3,8 +3,8 @@ package no.agens.testlab.services.trace
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
-import no.agens.testlab.core.jev.TraceFactory
-import no.agens.testlab.core.jev.TraceSink
+import no.agens.testlab.core.autopilot.TraceFactory
+import no.agens.testlab.core.autopilot.TraceSink
 import java.io.File
 import java.nio.file.Files
 import java.nio.file.attribute.PosixFilePermissions

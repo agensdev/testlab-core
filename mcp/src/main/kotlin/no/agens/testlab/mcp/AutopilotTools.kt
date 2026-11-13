@@ -8,17 +8,17 @@ import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.jsonPrimitive
 import kotlinx.serialization.json.put
-import no.agens.testlab.core.jev.Backend
-import no.agens.testlab.core.jev.DecideOptions
-import no.agens.testlab.core.jev.PlanContext
-import no.agens.testlab.core.jev.PlanValidator
-import no.agens.testlab.core.jev.ShotStore
-import no.agens.testlab.core.jev.StepOptions
-import no.agens.testlab.core.jev.doGoal
-import no.agens.testlab.core.jev.pick
-import no.agens.testlab.core.jev.pyTruthy
-import no.agens.testlab.core.jev.runPlan
-import no.agens.testlab.core.jev.step
+import no.agens.testlab.core.autopilot.Backend
+import no.agens.testlab.core.autopilot.DecideOptions
+import no.agens.testlab.core.autopilot.PlanContext
+import no.agens.testlab.core.autopilot.PlanValidator
+import no.agens.testlab.core.autopilot.ShotStore
+import no.agens.testlab.core.autopilot.StepOptions
+import no.agens.testlab.core.autopilot.doGoal
+import no.agens.testlab.core.autopilot.pick
+import no.agens.testlab.core.autopilot.pyTruthy
+import no.agens.testlab.core.autopilot.runPlan
+import no.agens.testlab.core.autopilot.step
 import no.agens.testlab.device.hs.HsDevice
 import no.agens.testlab.mcp.Param.Companion.SERIAL
 import no.agens.testlab.mcp.Param.Companion.bool
@@ -47,7 +47,7 @@ private fun decideOptions(rt: LabRuntime, a: Args, serial: String, maxCandidates
     )
 }
 
-private fun minConfidence(rt: LabRuntime, a: Args): Double = if (a.has("min_confidence")) a.double("min_confidence") else rt.settings.current.jev.minConfidence
+private fun minConfidence(rt: LabRuntime, a: Args): Double = if (a.has("min_confidence")) a.double("min_confidence") else rt.settings.current.autopilot.minConfidence
 
 /** The package of the activity in front (`pkg/.Activity`). */
 private suspend fun frontPackage(dev: HsDevice): String = dev.topActivity().substringBefore('/').trim()
@@ -81,7 +81,7 @@ internal fun checkPlan(rt: LabRuntime, plan: JsonArray): List<String> {
 
 /** Screenshots of a run: into a report when one is open, else a scratch folder in the workspace. */
 private fun shotsFor(rt: LabRuntime, reportId: String?, serial: String? = null): ShotStore {
-    if (reportId == null) return DirShotStore(File(rt.reportsDir(), "_jev_shots"), serial = serial)
+    if (reportId == null) return DirShotStore(File(rt.reportsDir(), "_autopilot_shots"), serial = serial)
     if ('/' in reportId || '\\' in reportId || ".." in reportId || !File(rt.reportsDir(), "$reportId/manifest.json").isFile) {
         throw BadArgument("unknown report_id '$reportId' (call lab_report_start first)")
     }
@@ -136,18 +136,18 @@ internal suspend fun runPlanOn(rt: LabRuntime, dev: HsDevice, plan: JsonArray, a
     return if (warnings.isEmpty()) out else JsonObject(out + ("warnings" to JsonArray(warnings.map(::JsonPrimitive))))
 }
 
-internal fun ToolBox.jevTools(rt: LabRuntime) {
+internal fun ToolBox.autopilotTools(rt: LabRuntime) {
     tool(
-        "handsets_jev_pick",
+        "handsets_autopilot_pick",
         """
-        Ask Jev which on-screen element advances `goal`. Reads the screen, does NOT act.
+        Ask the decision model which on-screen element advances `goal`. Reads the screen, does NOT act.
 
         Returns JSON: choice, confidence, action {hs, desc} (the exact tap, or null for
         goal_done/blocked), top (5 × [key, probability, desc]), n_candidates, dropped_risky
         (purchase/delete-worded nodes filtered out unless allow_risky), truncated, usage, trace.
         Use it instead of reading a long ui_dump for "which button is it?", then act with
-        handsets_tap_xy(action.hs[1], action.hs[2]), or let handsets_jev_step/jev_do act.
-        Navigation goals only: Jev cannot type. Prefer handsets_go when a deeplink exists.
+        handsets_tap_xy(action.hs[1], action.hs[2]), or let handsets_autopilot_step/autopilot_do act.
+        Navigation goals only: the autopilot cannot type. Prefer handsets_go when a deeplink exists.
         """,
         str("goal", "what to achieve, in the screen's words"),
         SERIAL,
@@ -162,11 +162,11 @@ internal fun ToolBox.jevTools(rt: LabRuntime) {
     }
 
     tool(
-        "handsets_jev_find",
+        "handsets_autopilot_find",
         """
         Jev looks at a picture of the screen (TypeSafe Box on the screenshot) and says where `goal`
         is: for screens without an accessibility tree (games, canvas, Unity, maps, video), where
-        handsets_jev_pick and the ui_dump are blind. Prefer the tree tools when the dump shows the
+        handsets_autopilot_pick and the ui_dump are blind. Prefer the tree tools when the dump shows the
         target: they are exact and cheaper.
 
         Returns JSON: found (Jev's «is it there» ≥ 0.5: Box always draws a box, so trust `found`,
@@ -181,16 +181,16 @@ internal fun ToolBox.jevTools(rt: LabRuntime) {
     ) { a ->
         val dev = rt.device(a.serial)
         val goal = a.str("goal")
-        val shot = dev.screenshot(no.agens.testlab.services.runtime.JevFind.LONG_SIDE, quality = 85)
+        val shot = dev.screenshot(no.agens.testlab.services.runtime.AutopilotFind.LONG_SIDE, quality = 85)
         val (w, h) = dev.screenSize()
-        val r = rt.jevFind.find(goal, shot, w, h)
+        val r = rt.autopilotFind.find(goal, shot, w, h)
         val out = r.json().let { o -> buildJsonObject {
             o.forEach { (k, v) -> put(k, v) }
             put("latency_ms", r.latencyMs)
             if (!r.found) put("note", "Jev doesn't see it on this screen (present ${"%.2f".format(r.present)}): the box is only its best guess, don't tap it")
         } }
         runCatching {
-            rt.traces.open(dev.serial, "jev_find")?.write(buildJsonObject {
+            rt.traces.open(dev.serial, "autopilot_find")?.write(buildJsonObject {
                 put("goal", goal); put("backend", "typesafe"); put("primitive", "box+noul"); put("image", "${r.image.first}x${r.image.second}")
                 put("result", out); r.usage?.let { put("usage", it) }
             })
@@ -199,11 +199,11 @@ internal fun ToolBox.jevTools(rt: LabRuntime) {
     }
 
     tool(
-        "handsets_jev_step",
+        "handsets_autopilot_step",
         """
-        One Jev-driven step: read screen → Jev picks → tap/scroll/back → verify the screen changed.
+        One autopilot step: read screen → the model picks → tap/scroll/back → verify the screen changed.
 
-        JSON adds to jev_pick: status (acted | goal_done | blocked | needs_decision), executed,
+        JSON adds to autopilot_pick: status (acted | goal_done | blocked | needs_decision), executed,
         changed, diff {added, removed, jaccard}, after_activity. needs_decision = confidence below
         min_confidence: nothing was executed; pick yourself from `top` (handsets_tap_xy). Never
         types, never pays.
@@ -221,9 +221,9 @@ internal fun ToolBox.jevTools(rt: LabRuntime) {
     }
 
     tool(
-        "handsets_jev_do",
+        "handsets_autopilot_do",
         """
-        Autopilot: repeat jev_step until the goal is reached.
+        Autopilot: repeat autopilot_step until the goal is reached.
 
         For short in-app navigation with no deeplink ("Open the Library tab", "Go to Orders", "Open
         Mine spill"). Stops with status goal_done | blocked | needs_decision (+candidates; nothing
@@ -247,7 +247,7 @@ internal fun ToolBox.jevTools(rt: LabRuntime) {
     }
 
     tool(
-        "handsets_jev_plan",
+        "handsets_autopilot_plan",
         """
         Run a whole device flow in one call; returns only when done or on a hand-back.
 
@@ -269,7 +269,7 @@ internal fun ToolBox.jevTools(rt: LabRuntime) {
         with start=paused_at+1) | error; per-step results with timing, usage_total, trace path.
         With `report_id` every screenshot step lands in that report, numbered. Purchase/delete-worded
         taps still need allow_risky on the step and confidence ≥ 0.5; never on the production app.
-        Save reusable plans with lab_save_plan and run them by name with handsets_jev_plan_file.
+        Save reusable plans with lab_save_plan and run them by name with handsets_autopilot_plan_file.
         """,
         Param.plan("plan", "JSON list of steps (a JSON string or the array itself)"),
         SERIAL,
@@ -281,12 +281,12 @@ internal fun ToolBox.jevTools(rt: LabRuntime) {
     ) { a ->
         val dev = rt.device(a.serial)
         val plan = parsePlan(a.json("plan"))
-        text(isolated(rt, dev.serial, plan, a.bool("isolate")) { runPlanOn(rt, dev, plan, a, "handsets_jev_plan") }.encode())
+        text(isolated(rt, dev.serial, plan, a.bool("isolate")) { runPlanOn(rt, dev, plan, a, "handsets_autopilot_plan") }.encode())
     }
 
     tool(
-        "handsets_jev_plan_file",
-        "Run a saved plan by name (see lab_list_plans); same options and result as handsets_jev_plan.",
+        "handsets_autopilot_plan_file",
+        "Run a saved plan by name (see lab_list_plans); same options and result as handsets_autopilot_plan.",
         str("name", "plan name from lab_list_plans"),
         SERIAL,
         int("start", "step index to start at", 0),
@@ -297,7 +297,7 @@ internal fun ToolBox.jevTools(rt: LabRuntime) {
     ) { a ->
         val dev = rt.device(a.serial)
         val plan = PlanLibrary(rt).read(a.str("name"))
-        text(isolated(rt, dev.serial, plan, a.bool("isolate")) { runPlanOn(rt, dev, plan, a, "handsets_jev_plan_file") }.encode())
+        text(isolated(rt, dev.serial, plan, a.bool("isolate")) { runPlanOn(rt, dev, plan, a, "handsets_autopilot_plan_file") }.encode())
     }
 
     tool(
@@ -307,7 +307,7 @@ internal fun ToolBox.jevTools(rt: LabRuntime) {
         server instructions say what it does). Credentials come from the vault by reference
         (the setup page: <account>.<field>, lab_list_credentials). Written for a fresh
         install; on another state it hands back at the first step that doesn't fit: continue with
-        handsets_jev_plan or by hand. Returns the plan result. With isolate (when the profile asks
+        handsets_autopilot_plan or by hand. Returns the plan result. With isolate (when the profile asks
         for it), the app's sibling builds are disabled during the login, because each of them
         claims the same return link, and enabled again after, also after a crash.
         A pool account (the profile's accounts.pools, e.g. a test-user pool service) takes a fresh
@@ -325,7 +325,7 @@ internal fun ToolBox.jevTools(rt: LabRuntime) {
     ) { a ->
         val p = rt.profile
         val poolPlan = a.strOrNull("account")?.let(rt.pools::pool)?.let { p.accounts.poolLoginPlan ?: p.accounts.loginPlan }
-        val planName = poolPlan ?: p.accounts.loginPlan ?: throw BadArgument("the profile «${p.name}» has no login plan (accounts.loginPlan): log in step by step, or save a plan and run it with handsets_jev_plan_file")
+        val planName = poolPlan ?: p.accounts.loginPlan ?: throw BadArgument("the profile «${p.name}» has no login plan (accounts.loginPlan): log in step by step, or save a plan and run it with handsets_autopilot_plan_file")
         a.serial?.takeIf { rt.installOnly(it) }?.let { serial -> return@tool text(launchLogin(rt, serial, planName, a).encode()) }
         val dev = rt.device(a.serial)
         val pkg = a.strOrNull("package") ?: requirePackage(rt)

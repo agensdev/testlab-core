@@ -1,4 +1,4 @@
-package no.agens.testlab.core.jev
+package no.agens.testlab.core.autopilot
 
 import kotlinx.coroutines.CancellationException
 import kotlinx.serialization.json.JsonArray
@@ -54,7 +54,7 @@ internal fun timingJson(tm: Map<String, Long>): JsonObject = buildJsonObject { t
 
 private fun JsonObject.usage(): JsonObject? = this["usage"] as? JsonObject
 
-/** Policy knobs per call; the others come from [JevConfig]. */
+/** Policy knobs per call; the others come from [AutopilotConfig]. */
 data class StepOptions(
     val minConfidence: Double = 0.5,
     val decide: DecideOptions = DecideOptions(),
@@ -64,7 +64,7 @@ data class StepOptions(
  * Pick + execute one action + verify the screen changed (jevpick `step`). The policy decides
  * whether the model's answer is acted on, accepted as "done" or handed back to the caller.
  */
-suspend fun JevEngine.step(
+suspend fun AutopilotEngine.step(
     goal: String,
     runHs: HsRunner,
     opts: StepOptions = StepOptions(),
@@ -114,7 +114,7 @@ suspend fun JevEngine.step(
         chosen = c
         out["choice"] = JsonPrimitive(c.key)
         out["fallback_from"] = JsonPrimitive(why)
-        out["action"] = buildJsonObject { put("hs", JsonArray(JevEngine.toHsArgs(c).map(::JsonPrimitive))); put("desc", c.desc) }
+        out["action"] = buildJsonObject { put("hs", JsonArray(AutopilotEngine.toHsArgs(c).map(::JsonPrimitive))); put("desc", c.desc) }
     }
 
     val action = isActionGoal(goal) // "Tap X" / "Press X": the done-question is meaningless, never gate on it
@@ -153,7 +153,7 @@ suspend fun JevEngine.step(
     }
     var afterNodes: List<Node>? = null
     if ("status" !in out) {
-        var args = JevEngine.toHsArgs(chosen)
+        var args = AutopilotEngine.toHsArgs(chosen)
         t = clock.nowMs()
         try {
             runHs(args)
@@ -209,7 +209,7 @@ internal class Verified(val change: ScreenDiff.Change, val after: List<Node>, va
  * (a switch flipping or a line of text appearing counts, not only a new screen), [windowMs] at
  * most. A tap that changes nothing costs the whole window, one that does costs about one read.
  */
-internal suspend fun JevEngine.verify(
+internal suspend fun AutopilotEngine.verify(
     runHs: HsRunner, before: List<Node>, beforeAct: String, clock: EngineClock,
     firstMs: Long = 150, pollMs: Long = 200, windowMs: Long = 1_500,
 ): Verified {
@@ -223,7 +223,7 @@ internal suspend fun JevEngine.verify(
             val s = readScreen(runHs)
             afterAct = s.activity
             s.nodes
-        } catch (e: JevError) {
+        } catch (e: AutopilotError) {
             emptyList()
         }
         change = ScreenDiff.changed(before, after, beforeAct, afterAct)
@@ -234,7 +234,7 @@ internal suspend fun JevEngine.verify(
 }
 
 /** Loop [step] until goal_done / blocked / needs_decision / stuck / max_steps / deadline / error (jevpick `do`). */
-suspend fun JevEngine.doGoal(
+suspend fun AutopilotEngine.doGoal(
     goal: String,
     runHs: HsRunner,
     maxSteps: Int = 12,
@@ -263,7 +263,7 @@ suspend fun JevEngine.doGoal(
             fp = ScreenDiff.fingerprint(probe)
         } catch (e: CancellationException) {
             throw e
-        } catch (e: JevError) {
+        } catch (e: AutopilotError) {
             status = "error"; extra["error"] = JsonPrimitive(errorText(e)); break
         } catch (e: Exception) {
             status = "error"; extra["error"] = JsonPrimitive(hint(errorText(e))); break
@@ -279,7 +279,7 @@ suspend fun JevEngine.doGoal(
             )
         } catch (e: CancellationException) {
             throw e
-        } catch (e: JevError) {
+        } catch (e: AutopilotError) {
             status = "error"; extra["error"] = JsonPrimitive(errorText(e)); break
         } catch (e: Exception) {
             status = "error"; extra["error"] = JsonPrimitive(hint(errorText(e))); break

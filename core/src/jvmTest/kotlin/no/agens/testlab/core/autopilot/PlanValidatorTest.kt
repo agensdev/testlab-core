@@ -1,4 +1,4 @@
-package no.agens.testlab.core.jev
+package no.agens.testlab.core.autopilot
 
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonArray

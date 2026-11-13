@@ -7,14 +7,14 @@ import kotlinx.coroutines.launch
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
-import no.agens.testlab.core.jev.Candidates
-import no.agens.testlab.core.jev.DumpParser
+import no.agens.testlab.core.autopilot.Candidates
+import no.agens.testlab.core.autopilot.DumpParser
 import no.agens.testlab.services.runtime.LabEvent
 import no.agens.testlab.services.runtime.LabRuntime
 import java.util.concurrent.ConcurrentHashMap
 
 /**
- * The plans waiting for a person, wherever they ran: one Claude ran (handsets_jev_plan paused, the
+ * The plans waiting for a person, wherever they ran: one Claude ran (handsets_autopilot_plan paused, the
  * rest of its plan kept here) and the runs [PlanRuns] holds paused. A person resolves one from
  * the browser (`testlab open handback`): tap what the autopilot couldn't pick, or say it was done
  * by hand, retry the step, or stop.
@@ -85,7 +85,7 @@ class HandBacks(private val rt: LabRuntime) {
         if (r == Resolution.Stop) return "stopped: Claude's plan won't go on"
         val from = if (r == Resolution.Retry) paused else paused + 1
         if (from >= plan.size) return "done: that was the plan's last step"
-        scope.launch { runCatching { rt.planRuns.run(plan, "Claude's plan (resumed)", serial, BackendChoice(rt.settings.current.jev.backend), from) } }
+        scope.launch { runCatching { rt.planRuns.run(plan, "Claude's plan (resumed)", serial, BackendChoice(rt.settings.current.autopilot.backend), from) } }
         return "the rest of the plan runs from step $from"
     }
 

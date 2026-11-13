@@ -83,7 +83,7 @@ description: How to test an Android app's accessibility. Covers TalkBack with re
 - After activating a control, focus stays where the user expects (on it, or on what it opened).
 - The system's "accessibility enabled" flag can be wrong for some UI toolkits: judge by
   behaviour, not by the flag.
-- Elements Jev and the tools can't see are invisible to screen-reader users too: note every place
+- Elements the autopilot and the tools can't see are invisible to screen-reader users too: note every place
   you needed a coordinate tap.
 
 ## Phone state

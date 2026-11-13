@@ -34,7 +34,7 @@ The foundation most other skills build on.
    button; the result says so. **Never sign in** to such a service on a test device. For a clean
    start, `handsets_home()` first stops the app and the profile's other builds. **Chrome** on a phone where it was never opened shows its
    own first-run screens (welcome, the EU search-engine choice, sign-in) when a link opens in the
-   browser; `handsets_open_url` says so. Go through them once by hand or with `handsets_jev_do`
+   browser; `handsets_open_url` says so. Go through them once by hand or with `handsets_autopilot_do`
    before a test that leaves the app for the browser.
 6. **Show it**: `handsets_screenshot` so the user sees the ready state.
 

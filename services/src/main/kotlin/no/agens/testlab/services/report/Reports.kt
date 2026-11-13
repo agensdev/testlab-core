@@ -14,7 +14,7 @@ import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.doubleOrNull
 import kotlinx.serialization.json.longOrNull
 import kotlinx.serialization.json.put
-import no.agens.testlab.core.jev.PlanSteps
+import no.agens.testlab.core.autopilot.PlanSteps
 import no.agens.testlab.device.ToolLocator
 import no.agens.testlab.device.rec.Recording
 import no.agens.testlab.services.report.DirShotStore

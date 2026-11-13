@@ -8,7 +8,7 @@ import kotlinx.coroutines.withContext
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonElement
 import no.agens.testlab.core.dump.UiDumpRender
-import no.agens.testlab.core.jev.HsRunner
+import no.agens.testlab.core.autopilot.HsRunner
 import no.agens.testlab.core.sel.NodeQuery
 import no.agens.testlab.core.sel.TapHit
 import java.io.File
@@ -433,7 +433,7 @@ class HsDevice(
     fun asHsRunner(): HsRunner = HsRunner { args ->
         when (args.firstOrNull()) {
             "ui" -> if (noise.isEmpty()) { if ("--tree" in args) tree().trim() else table().trim() } else {
-                // A noise dialog (the profile's dismiss list) goes before Jev reads the screen: not a step.
+                // A noise dialog (the profile's dismiss list) goes before the autopilot reads the screen: not a step.
                 var d = dumpJson()
                 repeat(2) { if (dismissNoise(d) != null) { delay(800); d = dumpJson() } }
                 (if ("--tree" in args) UiDumpRender.renderTree(d) else UiDumpRender.renderTable(d)).trim()

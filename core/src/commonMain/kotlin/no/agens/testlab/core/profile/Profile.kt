@@ -1,8 +1,10 @@
 package no.agens.testlab.core.profile
 
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
 import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonNames
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
@@ -20,6 +22,7 @@ import no.agens.testlab.core.Platform
  * differ (app, github, builds, tracker.projects, navigation…), merged over the shared ones. The
  * runtime only ever works with a [variant]: a plain one-platform profile.
  */
+@OptIn(ExperimentalSerializationApi::class)
 @Serializable
 data class Profile(
     /** Short id: letters, digits, `-` and `_`; the folder name under `<data>/profiles/`. */
@@ -37,7 +40,8 @@ data class Profile(
     val report: Report = Report(),
     val devtest: Devtest = Devtest(),
     val navigation: Navigation = Navigation(),
-    val jev: Jev = Jev(),
+    /** Was `jev` up to 0.3: files written then still load. */
+    @JsonNames("jev") val autopilot: Autopilot = Autopilot(),
     val accounts: Accounts = Accounts(),
     /** Free texts shown to the user, by key (e.g. `proxyman.cert`); missing keys use the core's text. */
     val texts: Map<String, String> = emptyMap(),
@@ -58,8 +62,8 @@ data class Profile(
     val crashlytics: Crashlytics = Crashlytics(),
     /**
      * Dialogs that are noise for testing (a test-build service asking to sign in, a rating prompt):
-     * handsets_open_app and Jev's screen reads dismiss them with the button named, never another,
-     * and Jev never sees them as a step.
+     * handsets_open_app and the autopilot's screen reads dismiss them with the button named, never another,
+     * and the autopilot never sees them as a step.
      */
     val dismiss: List<Dismiss> = emptyList(),
     /**
@@ -268,7 +272,7 @@ data class Profile(
     )
 
     @Serializable
-    data class Jev(
+    data class Autopilot(
         /** Translations and app vocabulary the model gets with every question: `Label=meaning; …`. */
         val glossary: String = "",
         /** One example sentence about picking by meaning rather than by literal words. */

@@ -101,7 +101,7 @@ with Browser(1200, 900) as b:
     print("ok    the reports list opens the report, its title once")
 PY
   # A plan that stops (no such button), resolved from the hand-back page.
-  NTL_TOKEN=$TOKEN python3 scripts/dev/mcp-call.py handsets_navigate '{"target":"home"}' handsets_jev_plan '{"plan":"[{\"tap\":\"No such button\"},{\"note\":\"after\"}]","backend":"stub"}' >/dev/null
+  NTL_TOKEN=$TOKEN python3 scripts/dev/mcp-call.py handsets_navigate '{"target":"home"}' handsets_autopilot_plan '{"plan":"[{\"tap\":\"No such button\"},{\"note\":\"after\"}]","backend":"stub"}' >/dev/null
   hurl=$("$B" open handback --print)
   python3 - "$hurl" <<'PY'
 import sys; sys.path.insert(0, "tools/e2e")

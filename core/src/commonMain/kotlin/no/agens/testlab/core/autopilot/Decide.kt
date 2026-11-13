@@ -1,4 +1,4 @@
-package no.agens.testlab.core.jev
+package no.agens.testlab.core.autopilot
 
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.jsonObject
@@ -31,11 +31,11 @@ data class Decided(val decision: Decision, val candidates: List<Candidate>, val 
 
 data class Screen(val dump: String, val activity: String, val nodes: List<Node>)
 
-class JevEngine(val config: JevConfig, val client: DecisionClient) {
+class AutopilotEngine(val config: AutopilotConfig, val client: DecisionClient) {
 
     suspend fun decide(goal: String, dump: String, activity: String, history: List<String>, opts: DecideOptions = DecideOptions()): Decided {
         val parsed = DumpParser.parse(dump)
-        if (parsed.nodes.isEmpty()) throw JevError("empty ui dump (FLAG_SECURE screen or app not loaded) - refusing to guess")
+        if (parsed.nodes.isEmpty()) throw AutopilotError("empty ui dump (FLAG_SECURE screen or app not loaded) - refusing to guess")
         val backend = opts.backend ?: config.backend
         val cap = Candidates.maxOptionsFor(backend, opts.maxCandidates)
         val (cands, stats0) = Candidates.build(parsed.nodes, cap, opts.allowRisky, opts.exclude, opts.geometry, config.riskyRe, config.meta)
@@ -44,7 +44,7 @@ class JevEngine(val config: JevConfig, val client: DecisionClient) {
         val question = Questions.build(cands, backend, config, opts.allowRisky)
         val decision = client.ask(state, question, backend, opts.stub, opts.model)
         val criteria = question["next"]!!.jsonObject["criteria"]!!.jsonObject
-        if (decision.choice !in criteria) throw JevError("Jev chose unknown key '${decision.choice}'")
+        if (decision.choice !in criteria) throw AutopilotError("The model chose unknown key '${decision.choice}'")
         return Decided(decision, cands, state, stats)
     }
 

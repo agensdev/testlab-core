@@ -294,7 +294,7 @@ class UiPages(private val rt: LabRuntime) {
         val covered = rt.profiles.activeAll().filterValues { it.profile.id !in Profile.GENERIC_IDS }
         val accounts = rt.testAccounts
         val oai = rt.secrets.get(SecretStore.OPENAI_KEY) ?: System.getenv("OPENAI_API_KEY")
-        val openai = if (rt.settings.current.jev.backend == "openai" && !oai.isNullOrBlank()) d.openai(oai) else null
+        val openai = if (rt.settings.current.autopilot.backend == "openai" && !oai.isNullOrBlank()) d.openai(oai) else null
         return buildJsonObject {
             putJsonArray("examples") { for (e in no.agens.testlab.services.diag.Examples.prompts(covered.values.map { it.profile })) addJsonObject { put("what", e.what); put("prompt", e.prompt) } }
             putJsonObject("github") { put("state", gh.first); put("text", gh.second) }
@@ -304,7 +304,7 @@ class UiPages(private val rt: LabRuntime) {
             }
             jira?.let { (st, text) -> putJsonObject("jira") { put("site", site); put("state", st); put("text", text) } }
             putJsonObject("autopilot") {
-                put("backend", rt.settings.current.jev.backend)
+                put("backend", rt.settings.current.autopilot.backend)
                 put("key", rt.secrets.has(SecretStore.JEV_KEY) || System.getenv("TYPESAFE_API_KEY") != null)
                 put("openai_key", rt.secrets.has(SecretStore.OPENAI_KEY) || System.getenv("OPENAI_API_KEY") != null)
                 // The OpenAI key checked against OpenAI, like GitHub and Jira: a wrong key or an account without API credit shows here, not in the first plan.

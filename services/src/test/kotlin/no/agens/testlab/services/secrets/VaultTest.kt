@@ -68,7 +68,7 @@ class VaultTest {
         assertEquals("01019912345", CredentialResolver(s).resolve("demo.nnin"))
         assertEquals("1111", CredentialResolver(s).resolve("device_pin"))
         assertEquals("2222", CredentialResolver(s) { "0349da42" }.resolve("device_pin"))
-        val e = assertFailsWith<no.agens.testlab.core.jev.JevError> { CredentialResolver(s).resolve("demo.login_password") }
+        val e = assertFailsWith<no.agens.testlab.core.autopilot.AutopilotError> { CredentialResolver(s).resolve("demo.login_password") }
         assertTrue("demo.login_password" in e.message!!)
         assertEquals(setOf("demo.nnin", "device_pin"), CredentialResolver(s).knownRefs())
     }

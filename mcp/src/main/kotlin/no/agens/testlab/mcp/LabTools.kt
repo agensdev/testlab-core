@@ -14,7 +14,7 @@ import kotlinx.serialization.json.put
 import kotlinx.serialization.json.putJsonArray
 import kotlinx.serialization.json.putJsonObject
 import no.agens.testlab.AppIdentity
-import no.agens.testlab.core.jev.PlanValidator
+import no.agens.testlab.core.autopilot.PlanValidator
 import no.agens.testlab.mcp.Param.Companion.int
 import no.agens.testlab.mcp.Param.Companion.str
 import no.agens.testlab.mcp.ToolBox.Companion.text
@@ -113,7 +113,7 @@ class Skills(private val rt: LabRuntime) {
     companion object {
         val BUNDLED = listOf(
             "device-prep", "drive-device", "write-plan", "device-login", "install-build", "devtest", "websocket-capture", "accessibility",
-            "test-plan", "ab-control", "proxy-forcing", "lifecycle-and-config", "report-honesty", "rig-cleanup", "jev-usage",
+            "test-plan", "ab-control", "proxy-forcing", "lifecycle-and-config", "report-honesty", "rig-cleanup", "autopilot-usage",
             "evidence-and-media", "rig-health",
         )
 
@@ -130,7 +130,7 @@ internal fun ToolBox.labTools(rt: LabRuntime, mcpUrl: () -> String) {
     val plans = PlanLibrary(rt)
     val skills = Skills(rt)
 
-    tool("lab_list_plans", "List the saved plans (name, steps, first note, credentials they use). Run one with handsets_jev_plan_file.", readOnly = true) {
+    tool("lab_list_plans", "List the saved plans (name, steps, first note, credentials they use). Run one with handsets_autopilot_plan_file.", readOnly = true) {
         val list = plans.list()
         if (list.isEmpty()) return@tool text("(no saved plans yet: write one with lab_save_plan; see lab_read_skill('write-plan'))")
         text(buildJsonObject {
@@ -217,12 +217,12 @@ internal fun ToolBox.labTools(rt: LabRuntime, mcpUrl: () -> String) {
             }
             put("active", rt.active.value ?: "")
             putJsonObject("decisions") {
-                put("backend", s.jev.backend)
+                put("backend", s.autopilot.backend)
                 put("typesafe_key", if (rt.secrets.has(SecretStore.JEV_KEY)) "set" else "not set")
                 put("openai_key", if (rt.secrets.has(SecretStore.OPENAI_KEY) || System.getenv("OPENAI_API_KEY") != null) "set" else "not set")
-                put("openai_model", s.jev.openaiModel)
-                putJsonArray("ollama") { s.jev.ollamaUrls.forEach { add(JsonPrimitive(it)) } }
-                put("min_confidence", s.jev.minConfidence)
+                put("openai_model", s.autopilot.openaiModel)
+                putJsonArray("ollama") { s.autopilot.ollamaUrls.forEach { add(JsonPrimitive(it)) } }
+                put("min_confidence", s.autopilot.minConfidence)
             }
             putJsonObject("profile") {
                 val p = rt.profile
@@ -280,19 +280,19 @@ internal fun ToolBox.labTools(rt: LabRuntime, mcpUrl: () -> String) {
     }
 
     tool(
-        "lab_jev_stats",
+        "lab_autopilot_stats",
         """
-        Summarise the Jev decisions from the traces of the last N minutes: calls per tool,
+        Summarise the autopilot decisions from the traces of the last N minutes: calls per tool,
         decisions, average/max latency, input tokens and cost, outcomes (acted / goal_done /
         needs_decision / blocked) and the hand-backs with their goals.
         """,
         int("since_minutes", "look back this many minutes", 60),
         readOnly = true,
-    ) { a -> text(jevStats(rt.dirs.traces, a.int("since_minutes")).encode()) }
+    ) { a -> text(autopilotStats(rt.dirs.traces, a.int("since_minutes")).encode()) }
 }
 
-/** The lab's `lab_jev_stats` over ${AppIdentity.NAME}'s trace folder (same JSON shape). */
-internal fun jevStats(dir: File, sinceMinutes: Int, nowMs: Long = System.currentTimeMillis()): JsonObject {
+/** The lab's `lab_autopilot_stats` over ${AppIdentity.NAME}'s trace folder (same JSON shape). */
+internal fun autopilotStats(dir: File, sinceMinutes: Int, nowMs: Long = System.currentTimeMillis()): JsonObject {
     val cutoff = nowMs - sinceMinutes * 60_000L
     var files = 0
     val calls = LinkedHashMap<String, Int>()

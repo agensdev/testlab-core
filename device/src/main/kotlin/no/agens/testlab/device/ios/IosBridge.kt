@@ -24,7 +24,7 @@ import javax.imageio.ImageWriteParam
 /**
  * The on-device daemon's wire protocol (HsWire) for an iOS Simulator or a real iPhone, served on this
  * computer: `HsDevice` connects to it like to the Android daemon through its adb forward, so the tools,
- * Jev, the live view and plans drive an iOS device without knowing.
+ * The autopilot, the live view and plans drive an iOS device without knowing.
  *
  * With [axe] (AXe installed), the screen, taps, swipes, text and keys go through AXe: one quick call
  * each, as on Android, with nothing to build or start. WebDriverAgent (`wda`: Appium's XCUITest

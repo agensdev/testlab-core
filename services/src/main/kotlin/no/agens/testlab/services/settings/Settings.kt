@@ -4,14 +4,17 @@ import no.agens.testlab.services.runtime.Approvals
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonNames
 import no.agens.testlab.AppIdentity
-import no.agens.testlab.core.jev.Backend
-import no.agens.testlab.core.jev.JevConfig
+import no.agens.testlab.core.autopilot.Backend
+import no.agens.testlab.core.autopilot.AutopilotConfig
 import java.io.File
 
 /** Everything that is not a secret. Secrets live in the vault (see SecretStore). */
+@OptIn(ExperimentalSerializationApi::class)
 @Serializable
 data class Settings(
     /** The active profile (see ProfileStore): the project's repo, builds, Jira, app and destinations. */
@@ -20,7 +23,8 @@ data class Settings(
     val platformProfiles: Map<String, String> = emptyMap(),
     /** Per-machine connection details that a profile can't know. */
     val connections: Connections = Connections(),
-    val jev: Jev = Jev(),
+    /** Was `jev` up to 0.3: files written then still load. */
+    @JsonNames("jev") val autopilot: Autopilot = Autopilot(),
     val mcp: Mcp = Mcp(),
     val device: Device = Device(),
     val proxyman: Proxyman = Proxyman(),
@@ -49,7 +53,7 @@ data class Settings(
     }
 
     @Serializable
-    data class Jev(
+    data class Autopilot(
         val backend: String = "typesafe",
         /** Ollama System One endpoints tried in order, `url|model`. */
         val ollamaUrls: List<String> = listOf("http://localhost:11434/v1/systemone|nimble:9b"),
@@ -58,7 +62,7 @@ data class Settings(
         val openaiModel: String = "gpt-6-luna",
     ) {
         /** The decision settings with the profile's vocabulary. */
-        fun toConfig(p: no.agens.testlab.core.profile.Profile.Jev = no.agens.testlab.core.profile.Profile.Jev()): JevConfig = JevConfig(
+        fun toConfig(p: no.agens.testlab.core.profile.Profile.Autopilot = no.agens.testlab.core.profile.Profile.Autopilot()): AutopilotConfig = AutopilotConfig(
             backend = Backend.parse(backend), ollamaUrls = ollamaUrls, openaiModel = openaiModel, glossary = p.glossary, pickExample = p.pickExample, doneExample = p.doneExample,
             labelLanguage = p.labelLanguage, pickNote = p.pickNote, riskyWords = p.riskyWords, leaveWords = p.leaveWords,
         )

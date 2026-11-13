@@ -1,4 +1,4 @@
-package no.agens.testlab.core.jev
+package no.agens.testlab.core.autopilot
 
 /**
  * Python string semantics that jevpick.py relies on, reproduced so the port behaves the same

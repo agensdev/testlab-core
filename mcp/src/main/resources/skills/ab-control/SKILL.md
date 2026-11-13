@@ -12,7 +12,7 @@ proven only once you have seen it fail without the fix.
 
 - Deterministic beats flaky. Force the state with a proxy rule, a deeplink or a direct screen
   start, or a device setting, rather than waiting for it to happen.
-- Script tight sequences instead of tapping by hand: a plan (`handsets_jev_plan` with scripted
+- Script tight sequences instead of tapping by hand: a plan (`handsets_autopilot_plan` with scripted
   `tap` steps) runs the same every time.
 - Reproduce with real data before trusting injected data. A mock built to show a difference can
   "prove" a fix for a bug that never occurs in practice: the real bug may be on another screen.

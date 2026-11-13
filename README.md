@@ -122,7 +122,7 @@ Safety rails:
 
 | Prefix | Covers |
 |---|---|
-| `handsets_*` | Drives the device (screen, tap, type, fill, swipe, wait, deeplinks, unlock, login), installs builds, and runs the Jev autopilot (`handsets_jev_pick`, `_step`, `_do`, `_plan`) |
+| `handsets_*` | Drives the device (screen, tap, type, fill, swipe, wait, deeplinks, unlock, login), installs builds, and runs the autopilot (`handsets_autopilot_pick`, `_step`, `_do`, `_plan`) |
 | `lab_*` | Plans, recordings, reports (with plan items each report must account for), playbooks, credentials and status; the rig's health from the phone (`lab_health`), the phone's settings across a session (`lab_device_state`), device logs and analytics events (`lab_logs_*`, `lab_analytics_events`), and Proxyman rules with a lifecycle (`lab_proxy_force`, `_rules`, `_cleanup`) |
 | `jira_*` | Reads, and after approval writes, your Jira |
 | `github_*` | Reads the repo's PRs, diffs and files |
@@ -193,7 +193,7 @@ the tools itself when none runs (and then asks for approvals in Claude's own dia
 
 | Module | What lives there |
 |---|---|
-| `core` | Pure logic shared by everything (Kotlin Multiplatform, no IO): the profile model, plans, the Jev engine, dump renderers and parsers, selectors |
+| `core` | Pure logic shared by everything (Kotlin Multiplatform, no IO): the profile model, plans, the autopilot engine, dump renderers and parsers, selectors |
 | `device` | adb, the handsets daemon client, tool discovery |
 | `services` | The runtime, profiles, decision backends, GitHub and Jira, recordings and reports, connection checks, the secret vault, settings |
 | `mcp` | The local MCP server: tools, playbooks, auth, the stdio bridge, the control API and the web pages |

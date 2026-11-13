@@ -27,7 +27,7 @@ handsets_login(account="<account>")          # env="<env>" when the profile list
 It runs the profile's login plan (`accounts.loginPlan` in its `plans/`), filled in with the
 account, environment and package. It is usually written for a **fresh install**; on another
 state it hands back at the first step that doesn't fit: continue with the remaining steps
-yourself or with `handsets_jev_plan`. Without a login plan the tool says so: log in by hand.
+yourself or with `handsets_autopilot_plan`. Without a login plan the tool says so: log in by hand.
 
 Credentials come from the vault by reference: `<account>.<field>` for the fields the profile
 names (Settings → Test accounts; `lab_list_credentials` shows which are set). Type them with

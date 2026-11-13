@@ -6,7 +6,7 @@ import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.put
 import kotlinx.serialization.json.putJsonObject
-import no.agens.testlab.core.jev.HttpPost
+import no.agens.testlab.core.autopilot.HttpPost
 import java.awt.RenderingHints
 import java.awt.image.BufferedImage
 import java.io.ByteArrayOutputStream
@@ -19,7 +19,7 @@ import javax.imageio.ImageIO
  * a Box (always answers with a box) and a noul «is it there at all», which decides found.
  * Images and Box are an early TypeSafe feature (the Danger-Zone header), so their errors are explained.
  */
-class JevFind(
+class AutopilotFind(
     private val http: HttpPost,
     private val apiKey: () -> String?,
     private val url: String = "https://api.typesafe.ai/v1/systemone",

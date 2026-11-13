@@ -1,13 +1,13 @@
 ---
 name: write-plan
-description: How to write a Jev plan — a JSON list of steps that handsets_jev_plan runs in one call (state goals, single actions, scripted taps, typed credentials by reference, waits, screenshots). Load this when a device flow has more than a few steps, will be repeated, or should be saved for colleagues.
+description: How to write an autopilot plan — a JSON list of steps that handsets_autopilot_plan runs in one call (state goals, single actions, scripted taps, typed credentials by reference, waits, screenshots). Load this when a device flow has more than a few steps, will be repeated, or should be saved for colleagues.
 ---
 
 # Write a plan
 
 A plan runs a whole device flow in **one tool call** and only comes back when it is done or a step
 needs you (a *hand-back*). A 55-step login + search + checkout flow takes about a minute
-with scripted taps and about 70 s with Jev deciding the buttons; driving it turn by turn takes minutes.
+with scripted taps and about 70 s with the autopilot deciding the buttons; driving it turn by turn takes minutes.
 
 ## Steps
 
@@ -29,8 +29,8 @@ with scripted taps and about 70 s with Jev deciding the buttons; driving it turn
 
 | step | does | use it for |
 |---|---|---|
-| `{"goal": …}` | Jev loops until the screen shows the goal (`max_steps` 5) | *state* goals: "Open Search", "Open the Profile tab" |
-| `{"step": …}` | one Jev action, done when the screen changed | *action* goals: "Press Next", "Tick the gift-wrap checkbox" |
+| `{"goal": …}` | the autopilot loops until the screen shows the goal (`max_steps` 5) | *state* goals: "Open Search", "Open the Profile tab" |
+| `{"step": …}` | one autopilot action, done when the screen changed | *action* goals: "Press Next", "Tick the gift-wrap checkbox" |
 | `{"tap": "#id" \| "Label" \| "x,y"}` | scripted tap, no model (`"nth": 1` = second match) | elements that are always the same; fastest |
 | `{"type": "text"}` / `{"type": {"cred": "acct.field"}}` | types into the focused field | credentials **always** by reference |
 | `{"hide_keyboard": true}` | hides the keyboard when it is up | before tapping a button the keyboard covers |
@@ -63,7 +63,7 @@ and are refused on the production app.
 ## Running, resuming, saving
 
 1. `lab_save_plan(name, plan)` validates and stores it (every mistake is listed at once).
-2. `handsets_jev_plan_file(name)` (or `handsets_jev_plan(plan)` inline) runs it.
+2. `handsets_autopilot_plan_file(name)` (or `handsets_autopilot_plan(plan)` inline) runs it.
 3. On `"status": "paused"`, read `hand_back` (candidates, top, reason), do that step yourself or fix
    its wording, then call again with `start = paused_at + 1`.
 4. Each step result has `timing` (read/decide/act/verify/wait ms) and the run has `timing_total`
