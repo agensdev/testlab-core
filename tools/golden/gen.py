@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
-"""Generate parity goldens from the pinned Python jevpick.py (tools/golden/jevpick.py).
+"""Generate parity goldens from the pinned Python autopilot.py (tools/golden/autopilot.py).
 
-The Kotlin engine is a port of jevpick.py; these goldens let a Kotlin test check that, for the
+The Kotlin engine is a port of autopilot.py; these goldens let a Kotlin test check that, for the
 same inputs, it produces the same parsed nodes, candidates, request state and question, screen
 fingerprints and step-policy outcomes. Inputs: the lab's 7 fixtures plus every tree/table dump
 captured from the emulator.
 
-    python3 tools/golden/gen.py            # writes core/src/jvmTest/resources/goldens/jevpick/
+    python3 tools/golden/gen.py            # writes core/src/jvmTest/resources/goldens/autopilot/
 
-Source: the original Python jevpick.py (2026-10-01), with the core's generic vocabulary,
-sha256 recorded in core/src/jvmTest/resources/goldens/jevpick/SOURCE.
+Source: the original Python autopilot.py (2026-10-01), with the core's generic vocabulary,
+sha256 recorded in core/src/jvmTest/resources/goldens/autopilot/SOURCE.
 """
 import hashlib
 import json
@@ -19,11 +19,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-os.environ["JEV_LOG_DIR"] = "/tmp/tl-golden-traces"
-import jevpick as J  # noqa: E402
+os.environ["AUTOPILOT_LOG_DIR"] = "/tmp/tl-golden-traces"
+import autopilot as J  # noqa: E402
 
 RES = ROOT / "core/src/jvmTest/resources"
-OUT = RES / "goldens/jevpick"
+OUT = RES / "goldens/autopilot"
 GOAL = "Open the Sport tab"
 HISTORY = ["1: Tap View \"Shop\" [#fragment_games] -> no change", "2: Tap Button \"Books\" -> screen changed"]
 
@@ -119,8 +119,8 @@ def run_case(case):
 
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
-    src = (Path(__file__).resolve().parent / "jevpick.py").read_bytes()
-    (OUT / "SOURCE").write_text(f"jevpick.py sha256 {hashlib.sha256(src).hexdigest()}\n")
+    src = (Path(__file__).resolve().parent / "autopilot.py").read_bytes()
+    (OUT / "SOURCE").write_text(f"autopilot.py sha256 {hashlib.sha256(src).hexdigest()}\n")
     n = 0
     for name, dump in inputs():
         (OUT / f"{name}.json").write_text(json.dumps({"dump": dump, **screen_golden(dump)}, ensure_ascii=False, indent=1))

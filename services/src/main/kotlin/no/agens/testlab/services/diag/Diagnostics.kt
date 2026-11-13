@@ -114,7 +114,7 @@ class Diagnostics(private val http: HttpClient) {
     }
 
     /** TypeSafe System One: a two-option question, so a working key costs a few hundred tokens. */
-    suspend fun jev(key: String, url: String = "https://api.typesafe.ai/v1/systemone"): Check {
+    suspend fun typesafe(key: String, url: String = "https://api.typesafe.ai/v1/systemone"): Check {
         if (key.isBlank()) return Check.Problem(tr("Add your TypeSafe API key (or use a local Ollama backend)"), "https://typesafe.ai")
         val r = try {
             http.post(url) {

@@ -3,9 +3,9 @@ package no.agens.testlab.core.autopilot
 import kotlinx.serialization.json.JsonObject
 
 /**
- * Decision traces: one JSON object per line, the same records jevpick.py writes
+ * Decision traces: one JSON object per line, the same records autopilot.py writes
  * (`tool`, `goal`, `state`, `criteria`, `response`, `action`, `verify`, `outcome`, `timing`,
- * and a final `summary`), so the lab's jev-replay.py and stats scripts read them unchanged.
+ * and a final `summary`), so the lab's autopilot-replay.py and stats scripts read them unchanged.
  * The JVM implementation adds the `ts` field and writes under the app's private traces folder.
  */
 interface TraceSink {

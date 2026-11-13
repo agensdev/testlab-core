@@ -47,7 +47,7 @@ class AutopilotFind(
      */
     suspend fun find(goal: String, jpeg: ByteArray, screenW: Int, screenH: Int): Result {
         val key = apiKey()?.takeIf { it.isNotBlank() }
-            ?: throw IllegalStateException("no TypeSafe API key: `testlab secrets set typesafe_api_key` (the same key Jev uses, jev.key)")
+            ?: throw IllegalStateException("no TypeSafe API key: `testlab secrets set typesafe_api_key` (the same key Jev uses, typesafe.key)")
         val (img, w, h) = fit(jpeg)
         val body = buildJsonObject {
             put("model", model)

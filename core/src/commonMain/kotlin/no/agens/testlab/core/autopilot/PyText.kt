@@ -1,7 +1,7 @@
 package no.agens.testlab.core.autopilot
 
 /**
- * Python string semantics that jevpick.py relies on, reproduced so the port behaves the same
+ * Python string semantics that autopilot.py relies on, reproduced so the port behaves the same
  * on every label: Unicode whitespace as `str.isspace()`, `str.splitlines()` boundaries, slicing
  * and `len()` by code point, and `[^\W_]` ("contains a letter or digit").
  *

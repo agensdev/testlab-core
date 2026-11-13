@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.asSharedFlow
  * The user's secrets: tokens, API keys, test-account credentials, device PINs. Values never leave
  * through MCP results, traces, logs or reports (see [Redactor]); plans refer to them by name.
  *
- * Key names: `github.token`, `jira.email`, `jira.token`, `jev.key`, `mcp.token`,
+ * Key names: `github.token`, `jira.email`, `jira.token`, `typesafe.key`, `mcp.token`,
  * `account.<name>.<field>` (e.g. `account.demo.password`), `device_pin`, `device_pin.<serial>`,
  * `pool.<name>.key` (a test-user pool's service key).
  */
@@ -27,7 +27,9 @@ interface SecretStore {
         const val GITHUB_TOKEN = "github.token"
         const val JIRA_EMAIL = "jira.email"
         const val JIRA_TOKEN = "jira.token"
-        const val JEV_KEY = "jev.key"
+        const val TYPESAFE_KEY = "typesafe.key"
+        /** What [TYPESAFE_KEY] was called up to 0.4.0: vaults written then still open, and the old name is still accepted. */
+        const val OLD_TYPESAFE_KEY = "jev.key"
         const val OPENAI_KEY = "openai.key"
         const val MCP_TOKEN = "mcp.token"
         const val DEVICE_PIN = "device_pin"
@@ -45,6 +47,9 @@ interface SecretStore {
             store.put(k, value)
             return k
         }
+
+        /** The current name of a key: the old `jev.key` and TypeSafe's own `typesafe_api_key` both mean [TYPESAFE_KEY]. */
+        fun canonical(key: String): String = if (key == OLD_TYPESAFE_KEY || key == "typesafe_api_key") TYPESAFE_KEY else key
 
         /** `key@scope` (a token for one GitHub owner or Jira site), else plain `key`. */
         fun scoped(store: SecretStore, key: String, scope: String?): String? =

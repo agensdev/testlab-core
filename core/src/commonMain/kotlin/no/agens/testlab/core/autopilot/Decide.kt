@@ -4,7 +4,7 @@ import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.jsonObject
 
 /**
- * The engine talks to a device the way jevpick.py talked to the `hs` CLI: a list of arguments
+ * The engine talks to a device the way autopilot.py talked to the `hs` CLI: a list of arguments
  * in, text out (`["ui","--tree"]`, `["show","top"]`, `["tap","540","960"]`, `["swipe","up"]`,
  * `["go","back"]`, `["type", text]`, `["open", pkg]`, `["see", path, "--size", "1080"]`).
  * The device module maps these onto the daemon's wire verbs; tests use a fake. Keeping the
@@ -14,7 +14,7 @@ fun interface HsRunner {
     suspend operator fun invoke(args: List<String>): String
 }
 
-/** Options for one decision; the defaults mirror jevpick's `decide()` keyword arguments. */
+/** Options for one decision; the defaults mirror autopilot.py's `decide()` keyword arguments. */
 data class DecideOptions(
     val maxCandidates: Int = 60,
     val allowRisky: Boolean = false,

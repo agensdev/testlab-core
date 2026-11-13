@@ -30,7 +30,7 @@ class SupportBundleTest {
                 val all = z.entries().toList().joinToString("\n") { e -> z.getInputStream(e).readBytes().decodeToString() }
                 assertTrue(token !in all && "kari@" !in all, "no token, no e-mail")
                 assertTrue("pin ‹redacted›, ticket SHOP-4711" in all, all)
-                assertTrue("github.token: set" in all && "jev.key: not set" in all)
+                assertTrue("github.token: set" in all && "typesafe.key: not set" in all)
                 assertTrue("R5CT123 device" in all)
             }
             assertEquals(r.files.size, ZipFile(r.zip).use { it.size() })

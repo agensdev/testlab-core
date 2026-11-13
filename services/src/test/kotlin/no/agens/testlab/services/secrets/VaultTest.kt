@@ -32,10 +32,10 @@ class VaultTest {
     fun wrongKeyOrTamperingIsLockedNotGarbage() {
         val dir = createTempDirectory().toFile()
         val f = File(dir, "secrets.vault")
-        VaultSecretStore(f, StaticKeyProvider(key)).put("jev.key", "apikey_123456")
+        VaultSecretStore(f, StaticKeyProvider(key)).put("typesafe.key", "apikey_123456")
         assertTrue(VaultSecretStore(f, StaticKeyProvider(ByteArray(32))).isLocked())
         f.writeText(f.readText().replace("\"ct\":\"", "\"ct\":\"AAAA"))
-        assertFailsWith<VaultLocked> { VaultSecretStore(f, StaticKeyProvider(key)).get("jev.key") }
+        assertFailsWith<VaultLocked> { VaultSecretStore(f, StaticKeyProvider(key)).get("typesafe.key") }
     }
 
     @Test
@@ -50,7 +50,7 @@ class VaultTest {
 
     @Test
     fun redactorMasksStoredValuesButNotShortOnesOrEmail() {
-        val s = MemorySecretStore(mapOf("jev.key" to "apikey_abcdef", "device_pin" to "1234", "x" to "abc", "jira.email" to "me@example.com"))
+        val s = MemorySecretStore(mapOf("typesafe.key" to "apikey_abcdef", "device_pin" to "1234", "x" to "abc", "jira.email" to "me@example.com"))
         val r = Redactor(s)
         assertEquals("key=‹redacted› pin=‹redacted› abc me@example.com", r.apply("key=apikey_abcdef pin=1234 abc me@example.com"))
         s.put("github.token", "ghp_newtoken99")
@@ -103,10 +103,23 @@ class VaultTest {
         VaultSecretStore(f, StaticKeyProvider(k)).put("account.demo.app_personal_code", "2468")
         assertEquals("2468", app.get("account.demo.app_personal_code"), "the running process sees the CLI's secret")
         assertTrue(setOf("account.demo.app_personal_code") in changed, "and tells its screens")
-        app.put("jev.key", "apikey_x")
+        app.put("typesafe.key", "apikey_x")
         val cli = VaultSecretStore(f, StaticKeyProvider(k))
         assertEquals("2468", cli.get("account.demo.app_personal_code"), "the app's next write keeps it")
-        assertEquals("apikey_x", cli.get("jev.key"))
+        assertEquals("apikey_x", cli.get("typesafe.key"))
         job.cancel()
+    }
+
+    @Test
+    fun aVaultFromBeforeTheRenameKeepsTheTypeSafeKey() {
+        val f = File(createTempDirectory("vault").toFile(), "vault.json")
+        val key = ByteArray(32) { 7 }
+        VaultSecretStore(f, StaticKeyProvider(key)).put(SecretStore.OLD_TYPESAFE_KEY, "apikey_old_123")
+        val s = VaultSecretStore(f, StaticKeyProvider(key))
+        assertEquals("apikey_old_123", s.get(SecretStore.TYPESAFE_KEY))
+        assertEquals(setOf(SecretStore.TYPESAFE_KEY), s.keys())
+        s.put("github.token", "t")
+        assertEquals(setOf(SecretStore.TYPESAFE_KEY, "github.token"), VaultSecretStore(f, StaticKeyProvider(key)).keys())
+        assertEquals(SecretStore.TYPESAFE_KEY, SecretStore.canonical("jev.key"))
     }
 }

@@ -195,8 +195,8 @@ class ControlApiTest {
             assertEquals(true, rt.settings.current.proxyman.mirrorTools, "a partial change keeps the rest")
             assertEquals(400, patch("""{"mcp":{"port":"not a number"}}""").status.value)
             assertEquals(AppIdentity.MCP_DEFAULT_PORT, rt.settings.current.mcp.port, "nothing saved from a refused change")
-            assertEquals(200, http.post("$base/secrets/jev.key") { header("Cookie", cookie); contentType(ContentType.Application.Json); setBody("""{"value":"ts-key-for-tests"}""") }.status.value)
-            assertEquals("ts-key-for-tests", rt.secrets.get("jev.key"))
+            assertEquals(200, http.post("$base/secrets/typesafe.key") { header("Cookie", cookie); contentType(ContentType.Application.Json); setBody("""{"value":"ts-key-for-tests"}""") }.status.value)
+            assertEquals("ts-key-for-tests", rt.secrets.get("typesafe.key"))
             val items = http.get("$base/setup") { header("Cookie", cookie) }.json()["items"]!!.jsonArray
             assertTrue(items.any { it.jsonObject["group"]!!.jsonPrimitive.content == "Proxyman" }, "Proxyman is checked once it is on")
             // The name doesn't let another site in.

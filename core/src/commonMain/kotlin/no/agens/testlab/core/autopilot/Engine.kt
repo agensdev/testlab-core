@@ -33,7 +33,7 @@ class StepOutcome(val json: JsonObject, val chosen: Candidate, val afterNodes: L
     val changed: Boolean? get() = (json["changed"] as? JsonPrimitive)?.let { if (it is JsonNull) null else it.content == "true" }
 }
 
-/** Appends " -> call use_device…" when the error means the daemon is not running (jevpick `_hint`). */
+/** Appends " -> call use_device…" when the error means the daemon is not running (autopilot.py `_hint`). */
 fun hint(msg: String): String =
     if ("no forwarded daemon" in msg || "no daemon on" in msg) "$msg -> call use_device(serial) first (starts the daemon on the device)" else msg
 
@@ -61,7 +61,7 @@ data class StepOptions(
 )
 
 /**
- * Pick + execute one action + verify the screen changed (jevpick `step`). The policy decides
+ * Pick + execute one action + verify the screen changed (autopilot.py `step`). The policy decides
  * whether the model's answer is acted on, accepted as "done" or handed back to the caller.
  */
 suspend fun AutopilotEngine.step(
@@ -203,7 +203,7 @@ internal fun ScreenDiff.Change.toDiffJson(): JsonObject = buildJsonObject {
 
 internal class Verified(val change: ScreenDiff.Change, val after: List<Node>, val afterActivity: String)
 
-/** Sleep 0.3 s, then poll up to 4 times 0.5 s apart until the screen changed (jevpick `_verify`). */
+/** Sleep 0.3 s, then poll up to 4 times 0.5 s apart until the screen changed (autopilot.py `_verify`). */
 /**
  * What a tap did: the screen is read every [pollMs] from [firstMs] after it until anything differs
  * (a switch flipping or a line of text appearing counts, not only a new screen), [windowMs] at
@@ -233,7 +233,7 @@ internal suspend fun AutopilotEngine.verify(
     return Verified(change, after, afterAct)
 }
 
-/** Loop [step] until goal_done / blocked / needs_decision / stuck / max_steps / deadline / error (jevpick `do`). */
+/** Loop [step] until goal_done / blocked / needs_decision / stuck / max_steps / deadline / error (autopilot.py `do`). */
 suspend fun AutopilotEngine.doGoal(
     goal: String,
     runHs: HsRunner,
@@ -319,7 +319,7 @@ suspend fun AutopilotEngine.doGoal(
 }
 
 /** For results built from Python-style truthiness (`bool(st.get("allow_risky"))`). */
-/** Python truthiness of a JSON value (plans written for jevpick.py rely on it). */
+/** Python truthiness of a JSON value (plans written for autopilot.py rely on it). */
 fun pyTruthy(e: JsonElement?): Boolean = when (e) {
     null, JsonNull -> false
     is JsonPrimitive -> if (e.isString) e.content.isNotEmpty() else (e.content != "false" && e.content != "0" && e.content != "0.0")

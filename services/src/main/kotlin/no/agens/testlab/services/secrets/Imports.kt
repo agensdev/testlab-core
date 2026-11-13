@@ -24,7 +24,7 @@ object Imports {
         "ATLASSIAN_EMAIL" to SecretStore.JIRA_EMAIL,
         "JIRA_API_TOKEN" to SecretStore.JIRA_TOKEN,
         "ATLASSIAN_API_TOKEN" to SecretStore.JIRA_TOKEN,
-        "TYPESAFE_API_KEY" to SecretStore.JEV_KEY,
+        "TYPESAFE_API_KEY" to SecretStore.TYPESAFE_KEY,
         "OPENAI_API_KEY" to SecretStore.OPENAI_KEY,
     )
 

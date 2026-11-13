@@ -87,9 +87,9 @@ class SetupStatus(private val rt: LabRuntime, private val diag: Diagnostics = Di
             }
         }
         val s = rt.settings.current
-        if (s.autopilot.backend == "typesafe") out += if (keys.contains(no.agens.testlab.services.secrets.SecretStore.JEV_KEY) || System.getenv("TYPESAFE_API_KEY") != null)
+        if (s.autopilot.backend == "typesafe") out += if (keys.contains(no.agens.testlab.services.secrets.SecretStore.TYPESAFE_KEY) || System.getenv("TYPESAFE_API_KEY") != null)
             Item(Group.KEYS, tr("autopilot"), State.OK, tr("TypeSafe key set"))
-        else Item(Group.KEYS, tr("autopilot"), State.TODO, tr("no TypeSafe key: the autopilot can't decide (or choose Ollama or OpenAI)"), "$slug secrets set jev.key", Place.AUTOPILOT, essential = false)
+        else Item(Group.KEYS, tr("autopilot"), State.TODO, tr("no TypeSafe key: the autopilot can't decide (or choose Ollama or OpenAI)"), "$slug secrets set typesafe.key", Place.AUTOPILOT, essential = false)
         if (s.autopilot.backend == "openai") out += if (keys.contains(no.agens.testlab.services.secrets.SecretStore.OPENAI_KEY) || System.getenv("OPENAI_API_KEY") != null)
             Item(Group.KEYS, tr("autopilot"), State.OK, tr("OpenAI key set (Decisions API, {0})", s.autopilot.openaiModel))
         else Item(Group.KEYS, tr("autopilot"), State.TODO, tr("no OpenAI key: the autopilot can't decide"), "$slug secrets set openai.key", Place.AUTOPILOT, no.agens.testlab.services.diag.Diagnostics.OPENAI_KEY_PAGE, essential = false)

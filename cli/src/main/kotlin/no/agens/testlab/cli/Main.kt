@@ -141,7 +141,7 @@ private val USAGE = """
     |  secrets list              which secrets are set (names only)
     |  secrets set KEY           read the value from stdin (no echo on a terminal); keys: github.token
     |                            (github.token@OWNER for one owner's repos, e.g. the Testlab repo for upgrades),
-    |                            jira.email, jira.token, jev.key, device_pin, device_pin.<serial>,
+    |                            jira.email, jira.token, typesafe.key, device_pin, device_pin.<serial>,
     |                            account.<name>.<field>
     |  secrets delete KEY
     |  secrets import-env FILE   GITHUB_TOKEN, JIRA_EMAIL/JIRA_API_TOKEN, TYPESAFE_API_KEY … from a .env file
@@ -433,7 +433,7 @@ private fun engineFor(opts: Opts): AutopilotEngine {
     if (backendFlag == null && ollama == null && envKey == null && opts.value("dump") == null) return runtime.engine()
     val base = if (opts.value("dump") == null) runtime.settings.current.autopilot.toConfig() else no.agens.testlab.core.autopilot.AutopilotConfig()
     val config = base.let { c -> backendFlag?.let { c.copy(backend = it) } ?: c }.let { c -> ollama?.let { c.copy(ollamaUrls = it) } ?: c }
-    val key: () -> String? = { envKey ?: if (opts.value("dump") == null) runtime.secrets.get(SecretStore.JEV_KEY) else null }
+    val key: () -> String? = { envKey ?: if (opts.value("dump") == null) runtime.secrets.get(SecretStore.TYPESAFE_KEY) else null }
     val openaiKey: () -> String? = { System.getenv("OPENAI_API_KEY") ?: if (opts.value("dump") == null) runtime.secrets.get(SecretStore.OPENAI_KEY) else null }
     return AutopilotEngine(config, DecisionClient(config, KtorHttpPost(), apiKey = key, nowMs = System::currentTimeMillis, openaiKey = openaiKey))
 }
@@ -669,7 +669,7 @@ private fun mcpStdio(opts: Opts): Int {
     return 0
 }
 
-private val SECRET_KEY = Regex("github\\.token(@[A-Za-z0-9_.-]+)?|jira\\.email(@[A-Za-z0-9_.-]+)?|jira\\.token(@[A-Za-z0-9_.-]+)?|jev\\.key|mcp\\.token|device_pin(\\.[A-Za-z0-9._:-]+)?|account\\.[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+|pool\\.[A-Za-z0-9_-]+\\.key")
+private val SECRET_KEY = Regex("github\\.token(@[A-Za-z0-9_.-]+)?|jira\\.email(@[A-Za-z0-9_.-]+)?|jira\\.token(@[A-Za-z0-9_.-]+)?|typesafe\\.key|mcp\\.token|device_pin(\\.[A-Za-z0-9._:-]+)?|account\\.[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+|pool\\.[A-Za-z0-9_-]+\\.key")
 
 private fun accounts(opts: Opts): Int {
     val pos = opts.positional()
@@ -701,13 +701,13 @@ private fun secrets(opts: Opts): Int {
     val store = runtime.secrets
     when (pos.firstOrNull()) {
         "list" -> {
-            val keys = (listOf(SecretStore.GITHUB_TOKEN, SecretStore.JIRA_EMAIL, SecretStore.JIRA_TOKEN, SecretStore.JEV_KEY, SecretStore.DEVICE_PIN) + store.keys().sorted()).distinct()
+            val keys = (listOf(SecretStore.GITHUB_TOKEN, SecretStore.JIRA_EMAIL, SecretStore.JIRA_TOKEN, SecretStore.TYPESAFE_KEY, SecretStore.DEVICE_PIN) + store.keys().sorted()).distinct()
             keys.filter { it != SecretStore.MCP_TOKEN }.forEach { println("${it.padEnd(40)} ${if (store.has(it)) "set" else "-"}") }
         }
         "set" -> {
-            // typesafe_api_key: the name TypeSafe's docs use; it is the key Jev uses (jev.key).
-            val key = (pos.getOrNull(1) ?: throw CliError("secrets set KEY (the value is read from stdin)")).let { if (it == "typesafe_api_key") SecretStore.JEV_KEY else it }
-            if (!SECRET_KEY.matches(key)) throw CliError("unknown key '$key': use github.token, jira.email, jira.token, jev.key (or typesafe_api_key), device_pin, device_pin.<serial>, account.<name>.<field> or pool.<name>.key")
+            // typesafe_api_key (the name TypeSafe's docs use) and the old jev.key both mean typesafe.key.
+            val key = (pos.getOrNull(1) ?: throw CliError("secrets set KEY (the value is read from stdin)")).let(SecretStore::canonical)
+            if (!SECRET_KEY.matches(key)) throw CliError("unknown key '$key': use github.token, jira.email, jira.token, typesafe.key (or typesafe_api_key), device_pin, device_pin.<serial>, account.<name>.<field> or pool.<name>.key")
             val console = System.console()
             val value = if (console != null && System.`in`.available() == 0) console.readPassword("$key: ")?.let(::String) else System.`in`.bufferedReader().readText().trimEnd('\n', '\r')
             if (value.isNullOrEmpty()) throw CliError("no value given")

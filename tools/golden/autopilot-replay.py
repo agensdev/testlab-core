@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-"""jev-replay.py — replay recorded Jev decisions (/var/log/jev traces) against another backend.
+"""autopilot-replay.py — replay recorded decisions (/var/log/autopilot traces) against another backend.
 
 Every trace record holds the exact `state` and `criteria` that produced a decision plus the
 answer it got. Re-asking a second backend the same questions gives a device-free comparison:
 agreement with the recorded choice, latency, confidence, and the done-question probability.
 
-    jev-replay.py --backend ollama [--model nimble] [--url http://host:11434/v1/systemone]
+    autopilot-replay.py --backend ollama [--model nimble] [--url http://host:11434/v1/systemone]
                   [--since-minutes N] [--limit N] [--max-options 26] [--json out.json]
-    jev-replay.py --backend typesafe            # re-run Jev itself (consistency check; needs the key)
+    autopilot-replay.py --backend typesafe            # re-run TypeSafe itself (consistency check; needs the key)
 
 Records with more options than --max-options are skipped (counted). Output: a summary table on
 stdout and, with --json, the per-record rows.
@@ -20,8 +20,8 @@ import sys
 import time
 from pathlib import Path
 
-sys.path.insert(0, os.environ.get("JEVPICK_DIR", "/opt/hs-mcp"))
-import jevpick as J  # noqa: E402
+sys.path.insert(0, os.environ.get("AUTOPILOT_DIR", "/opt/hs-mcp"))
+import autopilot as J  # noqa: E402
 
 
 def load_records(log_dir: Path, since_minutes: float | None):
@@ -44,7 +44,7 @@ def main() -> int:
     ap.add_argument("--backend", choices=["ollama", "typesafe"], required=True)
     ap.add_argument("--model", default=None)
     ap.add_argument("--url", default=None)
-    ap.add_argument("--log-dir", default=os.environ.get("JEV_LOG_DIR", "/var/log/jev"))
+    ap.add_argument("--log-dir", default=os.environ.get("AUTOPILOT_LOG_DIR", "/var/log/autopilot"))
     ap.add_argument("--since-minutes", type=float, default=None)
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--max-options", type=int, default=J.OLLAMA_MAX_OPTIONS)
@@ -70,8 +70,8 @@ def main() -> int:
             kw["url"] = a.url
         t0 = time.time()
         try:
-            d = J.ask_jev(r["state"], q, **kw)
-        except J.JevError as e:
+            d = J.ask_model(r["state"], q, **kw)
+        except J.AutopilotError as e:
             errors += 1
             rows.append({"file": r["_file"], "goal": r.get("goal"), "error": str(e)[:200]})
             print("ERR", r.get("goal", "")[:40], str(e)[:120], file=sys.stderr)
@@ -101,7 +101,7 @@ def main() -> int:
         print(f"backend={a.backend} model={ok[0]['model']} records={n} skipped(>{a.max_options} options)={skipped} errors={errors}")
         print(f"agreement with recorded choice: {agree}/{n} = {agree / n:.1%}   same kind (tap/meta/terminal): {agree_kind}/{n} = {agree_kind / n:.1%}")
         if accepted:
-            print(f"agreement on decisions Jev acted on / finished with: {agree_acc}/{len(accepted)} = {agree_acc / len(accepted):.1%}")
+            print(f"agreement on decisions the autopilot acted on / finished with: {agree_acc}/{len(accepted)} = {agree_acc / len(accepted):.1%}")
         print(f"latency ms: median {lat[n // 2]}  p90 {lat[int(n * 0.9)]}  max {lat[-1]}   mean replay conf {sum(x['replay_conf'] for x in ok) / n:.2f} vs recorded {sum(x['recorded_conf'] for x in ok) / n:.2f}")
         dis = [x for x in ok if not x["agree"]]
         if dis:

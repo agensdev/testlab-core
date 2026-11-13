@@ -103,14 +103,14 @@ internal fun setup(opts: Opts): Int = runBlocking {
     // The autopilot.
     if (rt.settings.current.autopilot.backend == "typesafe") {
         io.step("Autopilot", "picks what to tap toward a goal (TypeSafe's Jev; or a local Ollama model, or OpenAI's Decisions API)")
-        if (rt.secrets.has(SecretStore.JEV_KEY) || System.getenv("TYPESAFE_API_KEY") != null) io.ok("TypeSafe key set")
+        if (rt.secrets.has(SecretStore.TYPESAFE_KEY) || System.getenv("TYPESAFE_API_KEY") != null) io.ok("TypeSafe key set")
         else {
             val k = io.secret("TypeSafe API key (Enter: skip; type «ollama» for a local model, «openai» for OpenAI)")
             when {
                 k == null -> io.skipped()
                 k.equals("ollama", ignoreCase = true) -> { rt.settings.update { it.copy(autopilot = it.autopilot.copy(backend = "ollama")) }; io.ok("using Ollama (${rt.settings.current.autopilot.ollamaUrls.firstOrNull() ?: "set jev.ollamaUrls"})") }
                 k.equals("openai", ignoreCase = true) -> { rt.settings.update { it.copy(autopilot = it.autopilot.copy(backend = "openai")) }; ensureOpenaiKey(io) }
-                else -> { rt.secrets.put(SecretStore.JEV_KEY, k); io.ok("saved") }
+                else -> { rt.secrets.put(SecretStore.TYPESAFE_KEY, k); io.ok("saved") }
             }
         }
     } else if (rt.settings.current.autopilot.backend == "openai") {

@@ -9,7 +9,7 @@ import kotlinx.serialization.json.buildJsonObject
 import kotlinx.serialization.json.put
 import kotlinx.serialization.json.putJsonObject
 
-/** Shared result fields of pick/step (jevpick `_pick_dict`). */
+/** Shared result fields of pick/step (autopilot.py `_pick_dict`). */
 internal fun pickDict(decision: Decision, cands: List<Candidate>, stats: CandidateStats, activity: String, trace: TraceSink?, defaultBackend: Backend): JsonObject {
     val byKey = cands.associateBy { it.key }
     val chosen = byKey[decision.choice]

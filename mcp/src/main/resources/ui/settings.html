@@ -165,7 +165,7 @@
       if ($("k-github").value.trim()) { await api("POST", "/secrets/github.token", { value: $("k-github").value.trim() }); saved.push("GitHub token"); }
       if (site && $("k-jemail").value.trim()) { await api("POST", "/secrets/" + encodeURIComponent("jira.email@" + site), { value: $("k-jemail").value.trim() }); saved.push("Jira e-mail"); }
       if (site && $("k-jtoken").value.trim()) { await api("POST", "/secrets/" + encodeURIComponent("jira.token@" + site), { value: $("k-jtoken").value.trim() }); saved.push("Jira token"); }
-      if ($("k-typesafe").value.trim()) { await api("POST", "/secrets/jev.key", { value: $("k-typesafe").value.trim() }); saved.push("TypeSafe key"); }
+      if ($("k-typesafe").value.trim()) { await api("POST", "/secrets/typesafe.key", { value: $("k-typesafe").value.trim() }); saved.push("TypeSafe key"); }
       if ($("k-openai").value.trim()) { await api("POST", "/secrets/openai.key", { value: $("k-openai").value.trim() }); saved.push("OpenAI key"); }
       ["k-github", "k-jtoken", "k-typesafe", "k-openai"].forEach(id => $(id).value = "");
       say(saved.length ? "Saved: " + saved.join(", ") : "Nothing typed");

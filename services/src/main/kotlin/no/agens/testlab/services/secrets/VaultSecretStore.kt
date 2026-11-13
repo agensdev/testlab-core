@@ -106,7 +106,10 @@ class VaultSecretStore(private val file: File, private val keys: VaultKeyProvide
         } catch (ex: javax.crypto.AEADBadTagException) {
             throw VaultLocked("the vault could not be opened with the ${keys.label} key (wrong passphrase, or the key was replaced)")
         }
-        return LinkedHashMap(json.decodeFromString<Map<String, String>>(plain.decodeToString()))
+        val m = LinkedHashMap(json.decodeFromString<Map<String, String>>(plain.decodeToString()))
+        // A vault from 0.4.0 or older: the TypeSafe key moves to its new name (written back with the next change).
+        m.remove(SecretStore.OLD_TYPESAFE_KEY)?.let { m.putIfAbsent(SecretStore.TYPESAFE_KEY, it) }
+        return m
     }
 
     @Synchronized

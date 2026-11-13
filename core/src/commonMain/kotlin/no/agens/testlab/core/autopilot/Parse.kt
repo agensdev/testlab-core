@@ -4,7 +4,7 @@ import no.agens.testlab.core.autopilot.PyText.NS
 import no.agens.testlab.core.autopilot.PyText.S
 
 /**
- * Parsers for `hs ui` text, ported from jevpick.py. The device side renders dump_active JSON
+ * Parsers for `hs ui` text, ported from autopilot.py. The device side renders dump_active JSON
  * to the same text (see UiDumpRender), so lab dumps, saved fixtures and live screens all go
  * through one path.
  */

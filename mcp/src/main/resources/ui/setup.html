@@ -170,7 +170,7 @@
     await api("POST", "/secrets/" + encodeURIComponent("jira.email@" + site), { value: e });
     await api("POST", "/secrets/" + encodeURIComponent("jira.token@" + site), { value: t }); $("jtoken").value = "";
   });
-  act("saveTypesafe", async () => { const v = $("typesafe").value.trim(); if (!v) throw new Error("Paste the key first"); await api("POST", "/secrets/jev.key", { value: v }); await api("POST", "/settings", { autopilot: { backend: "typesafe" } }); $("typesafe").value = ""; });
+  act("saveTypesafe", async () => { const v = $("typesafe").value.trim(); if (!v) throw new Error("Paste the key first"); await api("POST", "/secrets/typesafe.key", { value: v }); await api("POST", "/settings", { autopilot: { backend: "typesafe" } }); $("typesafe").value = ""; });
   act("useOllama", async () => { await api("POST", "/settings", { autopilot: { backend: "ollama" } }); });
   act("saveOpenai", async () => { const v = $("openai").value.trim(); if (!v) throw new Error("Paste the key first"); await api("POST", "/secrets/openai.key", { value: v }); await api("POST", "/settings", { autopilot: { backend: "openai" } }); $("openai").value = ""; });
   act("saveAccount", async () => {

@@ -21,13 +21,13 @@ import kotlin.test.assertTrue
 import kotlin.test.fail
 
 /**
- * Parity with the Python engine itself. tools/golden/gen.py runs the pinned jevpick.py over the
+ * Parity with the Python engine itself. tools/golden/gen.py runs the pinned autopilot.py over the
  * lab fixtures and the emulator dumps and records its parsed nodes, candidates, request state and
  * question, fingerprints, and 400 step-policy outcomes; this test recomputes all of it in Kotlin.
  * JSON is compared with key order, because criteria order is model input.
  */
 class PythonGoldenTest {
-    private val dir = File("src/jvmTest/resources/goldens/jevpick")
+    private val dir = File("src/jvmTest/resources/goldens/autopilot")
     private val goal = "Open the Sport tab"
     private val history = listOf("1: Tap View \"Shop\" [#fragment_games] -> no change", "2: Tap Button \"Books\" -> screen changed")
 
@@ -130,7 +130,7 @@ class PythonGoldenTest {
             }.toString()
             val engine = AutopilotEngine(AutopilotConfig(), DecisionClient(AutopilotConfig(), { _, _, _, _, _ -> HttpReply(200, body) }, { "k" }, { 0L }, { }))
             val r = Runner(listOf(before, after))
-            val clock = JevpickPortTest.VClock()
+            val clock = PythonPortTest.VClock()
             val out = engine.step(case.getValue("goal").s(), r, StepOptions(decide = DecideOptions(allowRisky = true)), clock = clock).json
             val p = mutableListOf<String>()
             fun cmp(k: String, mine: JsonElement?, theirs: JsonElement?) {

@@ -108,7 +108,7 @@ suspend fun AutopilotEngine.waitForText(runHs: HsRunner, needle: String, timeout
 }
 
 /**
- * Runs a JSON plan (jevpick `run_plan`): returns only when it completes or a step hands back
+ * Runs a JSON plan (autopilot.py `run_plan`): returns only when it completes or a step hands back
  * (needs_decision / blocked / stuck / error); resume with `start = paused_at + 1`.
  */
 suspend fun AutopilotEngine.runPlan(

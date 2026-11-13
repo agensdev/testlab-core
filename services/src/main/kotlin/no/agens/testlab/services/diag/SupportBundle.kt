@@ -73,7 +73,7 @@ class SupportBundle(private val rt: LabRuntime) {
     private fun secrets(): String = runCatching {
         if ((rt.secrets as? no.agens.testlab.services.secrets.VaultSecretStore)?.isLocked() == true) return@runCatching "The vault is locked (no passphrase given): nothing could be read."
         val keys = rt.secrets.keys()
-        val wanted = listOf(SecretStore.GITHUB_TOKEN, SecretStore.JIRA_EMAIL, SecretStore.JIRA_TOKEN, SecretStore.JEV_KEY, SecretStore.OPENAI_KEY, SecretStore.MCP_TOKEN, SecretStore.DEVICE_PIN)
+        val wanted = listOf(SecretStore.GITHUB_TOKEN, SecretStore.JIRA_EMAIL, SecretStore.JIRA_TOKEN, SecretStore.TYPESAFE_KEY, SecretStore.OPENAI_KEY, SecretStore.MCP_TOKEN, SecretStore.DEVICE_PIN)
         (wanted.map { "$it: ${if (it in keys) "set" else "not set"}" } + (keys - wanted.toSet()).sorted().map { "$it: set" }).joinToString("\n")
     }.getOrElse { "could not read the vault: ${it.message}" }
 

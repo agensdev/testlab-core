@@ -266,8 +266,9 @@ class UiPages(private val rt: LabRuntime) {
         return buildJsonObject { put("saved", true); put("id", p.id); put("active", rt.profile.id) }
     }
 
-    private fun putSecret(key: String, b: JsonObject): JsonElement {
-        if (!WRITABLE.matches(key)) throw ApiError(HttpStatusCode.BadRequest, "only github.token, jira.email and jira.token (optionally @site or @owner), jev.key and openai.key are written here")
+    private fun putSecret(name: String, b: JsonObject): JsonElement {
+        val key = SecretStore.canonical(name)
+        if (!WRITABLE.matches(key)) throw ApiError(HttpStatusCode.BadRequest, "only github.token, jira.email and jira.token (optionally @site or @owner), typesafe.key and openai.key are written here")
         val v = b.s("value") ?: throw ApiError(HttpStatusCode.BadRequest, "value is required")
         rt.secrets.put(key, v)
         return buildJsonObject { put("saved", key) }
@@ -305,7 +306,7 @@ class UiPages(private val rt: LabRuntime) {
             jira?.let { (st, text) -> putJsonObject("jira") { put("site", site); put("state", st); put("text", text) } }
             putJsonObject("autopilot") {
                 put("backend", rt.settings.current.autopilot.backend)
-                put("key", rt.secrets.has(SecretStore.JEV_KEY) || System.getenv("TYPESAFE_API_KEY") != null)
+                put("key", rt.secrets.has(SecretStore.TYPESAFE_KEY) || System.getenv("TYPESAFE_API_KEY") != null)
                 put("openai_key", rt.secrets.has(SecretStore.OPENAI_KEY) || System.getenv("OPENAI_API_KEY") != null)
                 // The OpenAI key checked against OpenAI, like GitHub and Jira: a wrong key or an account without API credit shows here, not in the first plan.
                 openai?.let { c ->
@@ -345,7 +346,7 @@ class UiPages(private val rt: LabRuntime) {
     private fun secretStatus(): JsonElement = buildJsonObject {
         put("github_token", !rt.githubToken().isNullOrBlank())
         put("jira", !rt.jiraEmail().isNullOrBlank() && !rt.jiraToken().isNullOrBlank())
-        put("typesafe", rt.secrets.has(SecretStore.JEV_KEY))
+        put("typesafe", rt.secrets.has(SecretStore.TYPESAFE_KEY))
         put("openai", rt.secrets.has(SecretStore.OPENAI_KEY))
         put("jira_site", rt.profile.tracker.site)
     }
@@ -438,6 +439,6 @@ class UiPages(private val rt: LabRuntime) {
         /** Per space: two clients' pages in one browser never share a session. */
         val COOKIE get() = "testlab_ui" + no.agens.testlab.services.Spaces.suffix().replace('-', '_')
         val PAGES = setOf("devices", "screen", "reports", "report", "profiles", "handback", "settings", "setup", "approvals", "guide")
-        private val WRITABLE = Regex("(github\\.token|jira\\.email|jira\\.token)(@[A-Za-z0-9_.-]+)?|jev\\.key|openai\\.key")
+        private val WRITABLE = Regex("(github\\.token|jira\\.email|jira\\.token)(@[A-Za-z0-9_.-]+)?|typesafe\\.key|openai\\.key")
     }
 }

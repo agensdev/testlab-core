@@ -218,7 +218,7 @@ internal fun ToolBox.labTools(rt: LabRuntime, mcpUrl: () -> String) {
             put("active", rt.active.value ?: "")
             putJsonObject("decisions") {
                 put("backend", s.autopilot.backend)
-                put("typesafe_key", if (rt.secrets.has(SecretStore.JEV_KEY)) "set" else "not set")
+                put("typesafe_key", if (rt.secrets.has(SecretStore.TYPESAFE_KEY)) "set" else "not set")
                 put("openai_key", if (rt.secrets.has(SecretStore.OPENAI_KEY) || System.getenv("OPENAI_API_KEY") != null) "set" else "not set")
                 put("openai_model", s.autopilot.openaiModel)
                 putJsonArray("ollama") { s.autopilot.ollamaUrls.forEach { add(JsonPrimitive(it)) } }

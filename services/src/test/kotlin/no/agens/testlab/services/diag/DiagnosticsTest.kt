@@ -85,9 +85,9 @@ class DiagnosticsTest {
     }
 
     @Test
-    fun jevAndOllama() = runTest {
-        assertIs<Check.Ok>(diag { _, _ -> Triple(200, """{"model":"jev-1.13.0","answers":{}}""", emptyMap()) }.jev("k"))
-        assertTrue("401" in diag { _, _ -> Triple(401, "", emptyMap()) }.jev("k").message)
+    fun typesafeAndOllama() = runTest {
+        assertIs<Check.Ok>(diag { _, _ -> Triple(200, """{"model":"jev-1.13.0","answers":{}}""", emptyMap()) }.typesafe("k"))
+        assertTrue("401" in diag { _, _ -> Triple(401, "", emptyMap()) }.typesafe("k").message)
         assertTrue("0.35" in diag { _, _ -> Triple(404, "404 page not found", emptyMap()) }.ollama("http://h:11434/v1/systemone|nimble:9b").message)
         assertTrue("ollama pull" in diag { _, _ -> Triple(404, """{"error":"model 'nimble:9b' not found"}""", emptyMap()) }.ollama("http://h/v1/systemone|nimble:9b").message)
     }

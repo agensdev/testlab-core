@@ -23,11 +23,11 @@ import kotlin.test.assertTrue
 import kotlin.test.fail
 
 /**
- * The lab's opt/hs-mcp/tests/test_jevpick.py (27 tests), ported one-to-one with the same names
+ * The lab's opt/hs-mcp/tests/test_autopilot.py (27 tests), ported one-to-one with the same names
  * and the same fixtures. Where the port deliberately differs, the test says so and PARITY.md
  * explains why.
  */
-class JevpickPortTest {
+class PythonPortTest {
     companion object {
         val FX = File("src/jvmTest/resources/fixtures")
         val HOME = File(FX, "shop-home.table").readText()
@@ -265,7 +265,7 @@ class JevpickPortTest {
     }
 
     @Test
-    fun test_ask_jev_happy_and_errors() = runTest {
+    fun test_ask_model_happy_and_errors() = runTest {
         val state = buildJsonObject { put("goal", "g") }
         val q = buildJsonObject {
             put("next", buildJsonObject {

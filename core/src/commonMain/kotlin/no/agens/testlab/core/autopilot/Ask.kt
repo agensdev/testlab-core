@@ -25,7 +25,7 @@ data class HttpReply(val status: Int, val text: String)
 /**
  * The only network call of the engine: one System One request with both questions (or the same
  * two questions as one OpenAI Decisions request, see [OpenAIDecisions]).
- * Retries, error messages and Ollama failover follow jevpick.py `ask_jev` /
+ * Retries, error messages and Ollama failover follow autopilot.py `ask_model` /
  * `_ask_ollama_failover`. One instance per app: it remembers which Ollama hosts are down.
  */
 class DecisionClient(

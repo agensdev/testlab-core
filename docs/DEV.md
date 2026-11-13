@@ -1,9 +1,9 @@
 # Development
 
 Testlab grew out of a private Android test lab whose tools were Python scripts (an MCP server,
-`jevpick.py`, report and recording helpers). Comments that mention «the lab» refer to those
-scripts: the Kotlin code was ported from them, and the parity tests (`JevpickPortTest`,
-`PythonGoldenTest` with `tools/golden/jevpick.py`) keep the decision engine identical.
+`autopilot.py`, report and recording helpers). Comments that mention «the lab» refer to those
+scripts: the Kotlin code was ported from them, and the parity tests (`PythonPortTest`,
+`PythonGoldenTest` with `tools/golden/autopilot.py`) keep the decision engine identical.
 
 You need JDK 21 (Temurin), Python 3, `ffmpeg`, and for the end-to-end runs the Android SDK
 (platform-tools, emulator, one x86_64 Google APIs image) and KVM. `scripts/dev/setup-android-sdk.sh`

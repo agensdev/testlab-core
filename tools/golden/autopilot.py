@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""jevpick — let TypeSafe AI's Jev pick the next tap from the `hs ui` tree.
+"""autopilot — let a decision model (TypeSafe AI's Jev) pick the next tap from the `hs ui` tree.
 
 Jev is a "System One" decision model: it gets a `state` and a typed `choice`
 question with named options and answers with ONE option key plus calibrated
 probabilities, in ~100-500 ms. It cannot see images or generate text, so
 the loop here is the droidjev / agent-device pattern:
 
-    hs ui (accessibility table)  →  numbered candidates  →  Jev picks one
+    hs ui (accessibility table)  →  numbered candidates  →  the model picks one
         →  hs tap X Y  →  verify the screen changed  →  repeat
 
 Only nodes that really exist on screen are offered; the model can never
@@ -15,15 +15,15 @@ issue a raw command. Purchase/destructive words are filtered out unless
 
 Pure logic lives here (parse → candidates → state → request → decision →
 verify); the hs runner is injected so the MCP server, the CLI and the tests
-share it. `JEV_STUB=1` replaces the HTTP call with a deterministic
+share it. `AUTOPILOT_STUB=1` replaces the HTTP call with a deterministic
 word-overlap heuristic so the whole loop runs offline (no key, no network).
 
-Env: TYPESAFE_API_KEY (required unless JEV_STUB=1), TYPESAFE_URL, JEV_MODEL,
-JEV_TIMEOUT, JEV_STUB, JEV_STUB_CONFIDENCE, JEV_LOG_DIR, JEV_MAX_TEXTS,
-JEV_DEADLINE_S, JEV_STATE_CANDIDATES, JEV_DUMP_FORM.
+Env: TYPESAFE_API_KEY (required unless AUTOPILOT_STUB=1), TYPESAFE_URL, AUTOPILOT_MODEL,
+AUTOPILOT_TIMEOUT, AUTOPILOT_STUB, AUTOPILOT_STUB_CONFIDENCE, AUTOPILOT_LOG_DIR, AUTOPILOT_MAX_TEXTS,
+AUTOPILOT_DEADLINE_S, AUTOPILOT_STATE_CANDIDATES, AUTOPILOT_DUMP_FORM.
 
-CLI: python -m jevpick pick|step|do --goal "..." [--serial S | --dump FILE]
-     python -m jevpick selftest
+CLI: python -m autopilot pick|step|do --goal "..." [--serial S | --dump FILE]
+     python -m autopilot selftest
 """
 
 from __future__ import annotations
@@ -59,11 +59,11 @@ def _key_from_file() -> str:
 
 
 TYPESAFE_API_KEY = os.environ.get("TYPESAFE_API_KEY", "") or _key_from_file()
-JEV_MODEL = os.environ.get("JEV_MODEL", "jev-latest")
+AUTOPILOT_MODEL = os.environ.get("AUTOPILOT_MODEL", "jev-latest")
 # Backend: "typesafe" (hosted Jev) or "ollama" (Ollama >= 0.35 serves the same System One API locally at
 # /v1/systemone with decision models such as `nimble` (9B) / `tev1`). Ollama allows 2-26 options per
 # question and a 64 KiB body, so candidates are capped harder on that backend.
-JEV_BACKEND = os.environ.get("JEV_BACKEND", "typesafe")
+AUTOPILOT_BACKEND = os.environ.get("AUTOPILOT_BACKEND", "typesafe")
 OLLAMA_SYSTEMONE_URL = os.environ.get("OLLAMA_SYSTEMONE_URL", "http://localhost:11434/v1/systemone")
 # Failover: comma-separated list tried in order (e.g. a fast GPU node first, an always-on
 # fallback). A host that fails to connect, times out or 404s (Ollama < 0.35) is skipped for
@@ -78,23 +78,23 @@ def _split_entry(entry: str) -> tuple[str, str | None]:
 OLLAMA_CONNECT_TIMEOUT = float(os.environ.get("OLLAMA_CONNECT_TIMEOUT", "3"))
 OLLAMA_BACKOFF = float(os.environ.get("OLLAMA_BACKOFF", "60"))
 _ollama_down: dict[str, float] = {}  # url -> epoch until which it is skipped
-JEV_OLLAMA_MODEL = os.environ.get("JEV_OLLAMA_MODEL", "nimble:9b-q4_K_M")  # q4 fits the 2080 Ti ~83 % on GPU: 1.1 s vs 2.7 s, same agreement
-JEV_OLLAMA_TIMEOUT = float(os.environ.get("JEV_OLLAMA_TIMEOUT", "120"))
+AUTOPILOT_OLLAMA_MODEL = os.environ.get("AUTOPILOT_OLLAMA_MODEL", "nimble:9b-q4_K_M")  # q4 fits the 2080 Ti ~83 % on GPU: 1.1 s vs 2.7 s, same agreement
+AUTOPILOT_OLLAMA_TIMEOUT = float(os.environ.get("AUTOPILOT_OLLAMA_TIMEOUT", "120"))
 OLLAMA_MAX_OPTIONS = 26
-JEV_TIMEOUT = float(os.environ.get("JEV_TIMEOUT", "10"))
-JEV_STUB = os.environ.get("JEV_STUB", "") not in ("", "0", "false")
-JEV_STUB_CONFIDENCE = float(os.environ.get("JEV_STUB_CONFIDENCE", "0.8"))
-JEV_LOG_DIR = Path(os.environ.get("JEV_LOG_DIR", "/var/log/jev"))
-JEV_MAX_TEXTS = int(os.environ.get("JEV_MAX_TEXTS", "40"))
-JEV_DEADLINE_S = float(os.environ.get("JEV_DEADLINE_S", "90"))
-JEV_STATE_CANDIDATES = os.environ.get("JEV_STATE_CANDIDATES", "") not in ("", "0", "false")
-JEV_DONE_THRESHOLD = float(os.environ.get("JEV_DONE_THRESHOLD", "0.6"))  # noul "done" prob → goal_done
-JEV_DONE_VETO = float(os.environ.get("JEV_DONE_VETO", "0.25"))  # choice goal_done is vetoed when noul < this
-JEV_FALLBACK_MIN = float(os.environ.get("JEV_FALLBACK_MIN", "0.2"))  # act on best tap when goal_done was vetoed
-JEV_HARMLESS_MIN = float(os.environ.get("JEV_HARMLESS_MIN", "0.3"))  # non-risky tap acts on the argmax down to this
-JEV_KB_HIDE_XY = tuple(int(v) for v in os.environ.get("JEV_KB_HIDE_XY", "195,2990").split(","))  # IME chevron (Pixel 6 Pro)
+AUTOPILOT_TIMEOUT = float(os.environ.get("AUTOPILOT_TIMEOUT", "10"))
+AUTOPILOT_STUB = os.environ.get("AUTOPILOT_STUB", "") not in ("", "0", "false")
+AUTOPILOT_STUB_CONFIDENCE = float(os.environ.get("AUTOPILOT_STUB_CONFIDENCE", "0.8"))
+AUTOPILOT_LOG_DIR = Path(os.environ.get("AUTOPILOT_LOG_DIR", "/var/log/autopilot"))
+AUTOPILOT_MAX_TEXTS = int(os.environ.get("AUTOPILOT_MAX_TEXTS", "40"))
+AUTOPILOT_DEADLINE_S = float(os.environ.get("AUTOPILOT_DEADLINE_S", "90"))
+AUTOPILOT_STATE_CANDIDATES = os.environ.get("AUTOPILOT_STATE_CANDIDATES", "") not in ("", "0", "false")
+AUTOPILOT_DONE_THRESHOLD = float(os.environ.get("AUTOPILOT_DONE_THRESHOLD", "0.6"))  # noul "done" prob → goal_done
+AUTOPILOT_DONE_VETO = float(os.environ.get("AUTOPILOT_DONE_VETO", "0.25"))  # choice goal_done is vetoed when noul < this
+AUTOPILOT_FALLBACK_MIN = float(os.environ.get("AUTOPILOT_FALLBACK_MIN", "0.2"))  # act on best tap when goal_done was vetoed
+AUTOPILOT_HARMLESS_MIN = float(os.environ.get("AUTOPILOT_HARMLESS_MIN", "0.3"))  # non-risky tap acts on the argmax down to this
+AUTOPILOT_KB_HIDE_XY = tuple(int(v) for v in os.environ.get("AUTOPILOT_KB_HIDE_XY", "195,2990").split(","))  # IME chevron (Pixel 6 Pro)
 LABEL_DY = 450  # px: how far above an unlabelled input to look for its label
-JEV_DUMP_FORM = os.environ.get("JEV_DUMP_FORM", "tree")  # tree|table (json == table in hs 0.1.38)
+AUTOPILOT_DUMP_FORM = os.environ.get("AUTOPILOT_DUMP_FORM", "tree")  # tree|table (json == table in hs 0.1.38)
 
 # Generic core vocabulary (the Kotlin defaults with an empty profile): a project profile adds
 # its own risky/leave words, glossary and examples on top.
@@ -119,7 +119,7 @@ TERMINAL: dict[str, str] = {
 }
 
 # App-specific glossary sent with every question; empty in the generic core (a profile sets it).
-JEV_GLOSSARY = os.environ.get("JEV_GLOSSARY", "")
+AUTOPILOT_GLOSSARY = os.environ.get("AUTOPILOT_GLOSSARY", "")
 
 DONE_INSTRUCTIONS = (
     "Is `goal` ALREADY accomplished, i.e. is the screen/section the goal asks for the one currently "
@@ -140,7 +140,7 @@ QUESTION_INSTRUCTIONS = (
     "scroll option only if the needed element is probably off-screen. Never repeat an action that `history` says produced no change. "
     "`screen.selected` names the currently selected tab; a tab label being visible in the bottom "
     "bar does NOT mean that tab is open - tap it to open it. Tapping a tab or section is free and "
-    "reversible." + (" Glossary: " + JEV_GLOSSARY if JEV_GLOSSARY.strip() else "")
+    "reversible." + (" Glossary: " + AUTOPILOT_GLOSSARY if AUTOPILOT_GLOSSARY.strip() else "")
 )
 
 
@@ -154,8 +154,8 @@ def is_action_goal(goal: str) -> bool:
     return bool(ACTION_GOAL_RE.match(goal))
 
 
-class JevError(RuntimeError):
-    """Configuration / API / parse problems on the Jev side (not device errors)."""
+class AutopilotError(RuntimeError):
+    """Configuration / API / parse problems on the model side (not device errors)."""
 
 
 # ------------------------------------------------------------------- data --
@@ -324,11 +324,11 @@ def looks_like_tree(dump: str) -> bool:
 
 
 def parse_json_dump(dump: str) -> tuple[list[Node], list[str]]:
-    """Best-effort reader for `hs ui --json` (schema undocumented; kept behind JEV_DUMP_FORM=json)."""
+    """Best-effort reader for `hs ui --json` (schema undocumented; kept behind AUTOPILOT_DUMP_FORM=json)."""
     try:
         data = json.loads(dump)
     except json.JSONDecodeError as e:
-        raise JevError(f"hs ui --json did not return JSON: {e}") from e
+        raise AutopilotError(f"hs ui --json did not return JSON: {e}") from e
     items = data.get("result", data) if isinstance(data, dict) else data
     if isinstance(items, dict):
         items = items.get("nodes") or items.get("items") or []
@@ -361,7 +361,7 @@ def parse_dump(dump: str, form: str = "auto") -> tuple[list[Node], list[str]]:
         nodes, unparsed = parse_table(dump)
     total = len(nodes) + len(unparsed)
     if total and len(unparsed) > total / 2:
-        raise JevError("ui table format not recognised (>50% unparsed lines) - check hs version; "
+        raise AutopilotError("ui table format not recognised (>50% unparsed lines) - check hs version; "
                        f"first unparsed: {unparsed[0][:120]!r}")
     return nodes, unparsed
 
@@ -374,7 +374,7 @@ def is_blank_dump(nodes: list[Node]) -> bool:
 
 def build_candidates(nodes: list[Node], *, max_candidates: int = 60, allow_risky: bool = False,
                      exclude: set[tuple[str, str]] | frozenset = frozenset()) -> tuple[list[Candidate], dict]:
-    """Turn actionable nodes into Jev options (+ meta/terminal). Returns (candidates, stats)."""
+    """Turn actionable nodes into model options (+ meta/terminal). Returns (candidates, stats)."""
     stats = {"dropped_risky": [], "dropped_unlabeled": 0, "dropped_excluded": 0, "truncated": False,
              "n_actionable": 0}
     seen: set[tuple[str, str]] = set()
@@ -430,7 +430,7 @@ def build_candidates(nodes: list[Node], *, max_candidates: int = 60, allow_risky
         cands.append(Candidate(k, "meta", d))
     for k, d in TERMINAL.items():
         cands.append(Candidate(k, "terminal", d))
-    assert len(cands) <= MAX_CRITERIA, "too many criteria for a Jev choice"
+    assert len(cands) <= MAX_CRITERIA, "too many criteria for one choice"
     return cands, stats
 
 
@@ -452,7 +452,7 @@ def _nearby_label(n: Node, nodes: list[Node]) -> str:
     return best
 
 
-def visible_texts(nodes: list[Node], cap: int = JEV_MAX_TEXTS) -> list[str]:
+def visible_texts(nodes: list[Node], cap: int = AUTOPILOT_MAX_TEXTS) -> list[str]:
     out: list[str] = []
     seen: set[str] = set()
     for n in sorted(nodes, key=lambda n: (n.y, n.x)):
@@ -502,7 +502,7 @@ def build_state(goal: str, activity: str, nodes: list[Node], candidates: list[Ca
     }
     if history:
         state["history"] = history[-HISTORY_TAIL:]
-    if JEV_STATE_CANDIDATES:
+    if AUTOPILOT_STATE_CANDIDATES:
         state["candidates"] = {c.key: c.desc for c in candidates if c.kind == "tap"}
     return state
 
@@ -521,7 +521,7 @@ def build_question(candidates: list[Candidate], backend: str | None = None, allo
     q = {"next": {"type": "choice", "instructions": risky_allowed_instructions() if allow_risky else QUESTION_INSTRUCTIONS,
                   "criteria": {c.key: c.desc for c in candidates}},
          "done": {"type": "noul", "instructions": DONE_INSTRUCTIONS}}
-    if (backend or JEV_BACKEND) == "ollama":
+    if (backend or AUTOPILOT_BACKEND) == "ollama":
         q["done"]["criteria"] = {"false": "No - the goal is not accomplished yet on this screen",
                                  "true": "Yes - the screen/section the goal asks for is already open"}
     return q
@@ -529,7 +529,7 @@ def build_question(candidates: list[Candidate], backend: str | None = None, allo
 
 def max_options_for(backend: str | None, max_candidates: int) -> int:
     """Tap candidates that fit next to the meta/terminal options on this backend."""
-    if (backend or JEV_BACKEND) == "ollama":
+    if (backend or AUTOPILOT_BACKEND) == "ollama":
         return max(2, min(max_candidates, OLLAMA_MAX_OPTIONS - len(META) - len(TERMINAL)))
     return max_candidates
 
@@ -558,34 +558,34 @@ def _http_post(url: str, headers: dict, body: bytes, timeout: float, connect_tim
         return e.code, e.read().decode("utf-8", "replace")
 
 
-def ask_jev(state: dict, question: dict, *, api_key: str | None = None, model: str | None = None,
+def ask_model(state: dict, question: dict, *, api_key: str | None = None, model: str | None = None,
             timeout: float | None = None, url: str | None = None, post: HttpPost | None = None,
             stub: bool | None = None, sleep: Callable[[float], None] = time.sleep,
             backend: str | None = None) -> Decision:
-    """The ONLY network call. Returns a Decision; raises JevError on config/API problems.
+    """The ONLY network call. Returns a Decision; raises AutopilotError on config/API problems.
     backend "typesafe" (default) or "ollama" (local System One API, no key)."""
-    if stub if stub is not None else JEV_STUB:
+    if stub if stub is not None else AUTOPILOT_STUB:
         return _stub_decide(state, question)
-    backend = backend or JEV_BACKEND
+    backend = backend or AUTOPILOT_BACKEND
     n_opts = max(len(q.get("criteria") or {}) for q in question.values() if isinstance(q, dict))
     if backend == "ollama":
         if n_opts > OLLAMA_MAX_OPTIONS:
-            raise JevError(f"ollama backend allows at most {OLLAMA_MAX_OPTIONS} options per question, got {n_opts}")
+            raise AutopilotError(f"ollama backend allows at most {OLLAMA_MAX_OPTIONS} options per question, got {n_opts}")
         if url is None:
             return _ask_ollama_failover(state, question, model=model, timeout=timeout, post=post, sleep=sleep)
-        model = model or JEV_OLLAMA_MODEL
-        timeout = timeout if timeout is not None else JEV_OLLAMA_TIMEOUT
+        model = model or AUTOPILOT_OLLAMA_MODEL
+        timeout = timeout if timeout is not None else AUTOPILOT_OLLAMA_TIMEOUT
         key = ""
     elif backend == "typesafe":
         url = url or TYPESAFE_URL
-        model = model or JEV_MODEL
-        timeout = timeout if timeout is not None else JEV_TIMEOUT
+        model = model or AUTOPILOT_MODEL
+        timeout = timeout if timeout is not None else AUTOPILOT_TIMEOUT
         key = api_key if api_key is not None else TYPESAFE_API_KEY
     else:
-        raise JevError(f"unknown JEV_BACKEND {backend!r} (typesafe|ollama)")
+        raise AutopilotError(f"unknown AUTOPILOT_BACKEND {backend!r} (typesafe|ollama)")
     if backend == "typesafe" and not key:
-        raise JevError("TYPESAFE_API_KEY not set - set it in the environment or in the file named by "
-                       "TYPESAFE_ENV_FILE, or export JEV_STUB=1")
+        raise AutopilotError("TYPESAFE_API_KEY not set - set it in the environment or in the file named by "
+                       "TYPESAFE_ENV_FILE, or export AUTOPILOT_STUB=1")
     body = json.dumps({"state": state, "model": model, "questions": question}, ensure_ascii=False).encode()
     headers = {"Content-Type": "application/json"}
     if key:
@@ -601,18 +601,18 @@ def ask_jev(state: dict, question: dict, *, api_key: str | None = None, model: s
             status, text = post(url, headers, body, timeout)
         except Exception as e:  # connect/timeout errors from either client
             if attempt == len(BACKOFF_S):
-                raise JevError(f"Jev request failed: {e}") from e
+                raise AutopilotError(f"Decision request failed: {e}") from e
             continue
         if status in (429, 529):
             continue
         break
     latency = int((time.time() - t0) * 1000)
     if status in (429, 529):
-        raise JevError(f"Jev {status} after {len(BACKOFF_S) + 1} attempts (rate limit / overloaded)")
+        raise AutopilotError(f"Decision API {status} after {len(BACKOFF_S) + 1} attempts (rate limit / overloaded)")
     if status == 401:
-        raise JevError("Jev 401: TYPESAFE_API_KEY missing or invalid")
+        raise AutopilotError("Decision API 401: TYPESAFE_API_KEY missing or invalid")
     if status != 200:
-        raise JevError(f"Jev HTTP {status}: {text[:300]}")
+        raise AutopilotError(f"Decision API HTTP {status}: {text[:300]}")
     try:
         data = json.loads(text)
         ans = data["answers"]["next"]
@@ -623,7 +623,7 @@ def ask_jev(state: dict, question: dict, *, api_key: str | None = None, model: s
         return Decision(str(ans["choice"]), float(ans.get("confidence", max(probs.values(), default=0.0))),
                         probs, str(data.get("model", model)), data.get("usage", {}), latency, data, done)
     except (KeyError, ValueError, TypeError, json.JSONDecodeError) as e:
-        raise JevError(f"Jev response not understood: {e}: {text[:300]}") from e
+        raise AutopilotError(f"Decision response not understood: {e}: {text[:300]}") from e
 
 
 def _ask_ollama_failover(state: dict, question: dict, *, model=None, timeout=None, post=None, sleep=time.sleep,
@@ -637,11 +637,11 @@ def _ask_ollama_failover(state: dict, question: dict, *, model=None, timeout=Non
             errors.append(f"{u}: skipped (down until {int(_ollama_down[u] - now())}s)")
             continue
         try:
-            d = ask_jev(state, question, model=model or entry_model, timeout=timeout, url=u, post=post, sleep=sleep,
+            d = ask_model(state, question, model=model or entry_model, timeout=timeout, url=u, post=post, sleep=sleep,
                         backend="ollama", stub=False)
             d.raw["_url"] = u
             return d
-        except JevError as e:
+        except AutopilotError as e:
             msg = str(e)
             transient = ("request failed" in msg or "HTTP 404" in msg or "after" in msg and "attempts" in msg)
             errors.append(f"{u}: {msg[:120]}")
@@ -649,7 +649,7 @@ def _ask_ollama_failover(state: dict, question: dict, *, model=None, timeout=Non
                 _ollama_down[u] = now() + OLLAMA_BACKOFF
             else:
                 raise
-    raise JevError("no System One backend reachable: " + " | ".join(errors))
+    raise AutopilotError("no System One backend reachable: " + " | ".join(errors))
 
 
 _STOP = {"the", "a", "an", "to", "go", "open", "tab", "on", "in", "og", "til", "på", "en", "et",
@@ -666,7 +666,7 @@ def _stub_decide(state: dict, question: dict) -> Decision:
     crit: dict[str, str] = question["next"]["criteria"]
     goal_toks = _tokens(state.get("goal", ""))
     hist = state.get("history") or []
-    conf = JEV_STUB_CONFIDENCE
+    conf = AUTOPILOT_STUB_CONFIDENCE
 
     def overlap(desc: str) -> int:
         d = desc.lower()
@@ -693,17 +693,17 @@ def decide(goal: str, dump: str, activity: str, history: list[str], *, max_candi
            step_idx: int = 1, max_steps: int = 1, **ask_kw) -> tuple[Decision, list[Candidate], dict, dict]:
     nodes, unparsed = parse_dump(dump)
     if is_blank_dump(nodes):
-        raise JevError("empty ui dump (FLAG_SECURE screen or app not loaded) - refusing to guess")
-    backend = ask_kw.get("backend") or JEV_BACKEND
+        raise AutopilotError("empty ui dump (FLAG_SECURE screen or app not loaded) - refusing to guess")
+    backend = ask_kw.get("backend") or AUTOPILOT_BACKEND
     cap = max_options_for(backend, max_candidates)
     cands, stats = build_candidates(nodes, max_candidates=cap, allow_risky=allow_risky, exclude=exclude)
     stats["unparsed"] = len(unparsed)
     stats["backend"] = backend
     state = build_state(goal, activity, nodes, cands, history, step_idx, max_steps)
     question = build_question(cands, backend, allow_risky)
-    decision = ask_jev(state, question, **ask_kw)
+    decision = ask_model(state, question, **ask_kw)
     if decision.choice not in question["next"]["criteria"]:
-        raise JevError(f"Jev chose unknown key {decision.choice!r}")
+        raise AutopilotError(f"The model chose unknown key {decision.choice!r}")
     return decision, cands, state, stats
 
 
@@ -747,7 +747,7 @@ HsRunner = Callable[[list[str]], str]
 
 
 def read_screen(run_hs: HsRunner) -> tuple[str, str, list[Node]]:
-    flag = {"tree": ["--tree"], "json": ["--json"]}.get(JEV_DUMP_FORM, [])
+    flag = {"tree": ["--tree"], "json": ["--json"]}.get(AUTOPILOT_DUMP_FORM, [])
     dump = run_hs(["ui", *flag]) or ""
     try:
         activity = _norm(run_hs(["show", "top"]) or "")[:160]
@@ -764,7 +764,7 @@ def _verify(run_hs: HsRunner, before: list[Node], before_act: str, sleep=time.sl
     for i in range(polls):
         try:
             _, after_act, after = read_screen(run_hs)
-        except JevError:
+        except AutopilotError:
             after = []
         ch, diff = changed(before, after, before_act, after_act)
         if ch:
@@ -794,7 +794,7 @@ def _pick_dict(decision: Decision, cands: list[Candidate], stats: dict, activity
         "truncated": stats.get("truncated", False),
         "activity": activity,
         "model": decision.model,
-        "backend": decision.raw.get("_backend", "stub" if decision.raw.get("stub") else JEV_BACKEND),
+        "backend": decision.raw.get("_backend", "stub" if decision.raw.get("stub") else AUTOPILOT_BACKEND),
         "usage": decision.usage,
         "latency_ms": decision.latency_ms,
         "trace": str(trace.path) if trace else None,
@@ -803,7 +803,7 @@ def _pick_dict(decision: Decision, cands: list[Candidate], stats: dict, activity
 
 def pick(goal: str, run_hs: HsRunner, *, serial: str = "", max_candidates: int = 60,
          allow_risky: bool = False, trace: "Trace | None" = None, **ask_kw) -> dict:
-    """Ask Jev which node advances the goal. No device action."""
+    """Ask the model which node advances the goal. No device action."""
     trace = trace or new_trace(serial, "pick")
     dump, activity, _ = read_screen(run_hs)
     decision, cands, state, stats = decide(goal, dump, activity, [], max_candidates=max_candidates,
@@ -860,10 +860,10 @@ def step(goal: str, run_hs: HsRunner, *, serial: str = "", min_confidence: float
         out["action"] = {"hs": to_hs_args(c), "desc": c.desc}
 
     action = is_action_goal(goal)  # "Tap X" / "Press X": the done-question is meaningless, never gate on it
-    if done >= JEV_DONE_THRESHOLD and not action:
+    if done >= AUTOPILOT_DONE_THRESHOLD and not action:
         out["status"] = "goal_done"  # the fan-out yes/no question is the authority on completion
     elif chosen.key == "goal_done" and action:
-        alt = best_harmless(JEV_FALLBACK_MIN)  # an action step must act: take the best real candidate
+        alt = best_harmless(AUTOPILOT_FALLBACK_MIN)  # an action step must act: take the best real candidate
         if alt:
             switch_to(alt, "goal_done")
         else:
@@ -871,10 +871,10 @@ def step(goal: str, run_hs: HsRunner, *, serial: str = "", min_confidence: float
     elif chosen.key == "goal_done":
         # "which option is best" → judge by the option's probability (confidence only measures spread)
         p_done = max(conf, decision.probabilities.get("goal_done", 0.0))
-        if p_done >= min_confidence and (decision.done is None or done >= JEV_DONE_VETO):
+        if p_done >= min_confidence and (decision.done is None or done >= AUTOPILOT_DONE_VETO):
             out["status"] = "goal_done"
         else:  # the choice says done but the yes/no disagrees -> best real candidate, else hand back
-            alt = best_harmless(JEV_FALLBACK_MIN)
+            alt = best_harmless(AUTOPILOT_FALLBACK_MIN)
             if alt:
                 switch_to(alt, "goal_done")
             else:
@@ -883,7 +883,7 @@ def step(goal: str, run_hs: HsRunner, *, serial: str = "", min_confidence: float
         if conf >= min_confidence:
             out["status"] = "blocked"
         else:  # a weak "none of these" loses to a plausible harmless tap
-            alt = best_harmless(JEV_HARMLESS_MIN)
+            alt = best_harmless(AUTOPILOT_HARMLESS_MIN)
             if alt:
                 switch_to(alt, "blocked")
                 out["low_confidence_act"] = True
@@ -896,7 +896,7 @@ def step(goal: str, run_hs: HsRunner, *, serial: str = "", min_confidence: float
         if chosen.risky and conf < min_confidence:
             out["status"] = "needs_decision"  # payments/deletes never act below the threshold
         elif conf < min_confidence:
-            if conf >= JEV_HARMLESS_MIN and harmless(chosen):
+            if conf >= AUTOPILOT_HARMLESS_MIN and harmless(chosen):
                 out["low_confidence_act"] = True  # reversible tap on the argmax (TypeSafe: harmless preference)
             else:
                 out["status"] = "needs_decision"
@@ -923,7 +923,7 @@ def step(goal: str, run_hs: HsRunner, *, serial: str = "", min_confidence: float
 
 def do(goal: str, run_hs: HsRunner, *, serial: str = "", max_steps: int = 12, min_confidence: float = 0.5,
        max_candidates: int = 60, allow_risky: bool = False, trace: "Trace | None" = None,
-       sleep=time.sleep, deadline_s: float = JEV_DEADLINE_S, **ask_kw) -> dict:
+       sleep=time.sleep, deadline_s: float = AUTOPILOT_DEADLINE_S, **ask_kw) -> dict:
     """Loop step() until goal_done / blocked / needs_decision / stuck / max_steps / deadline / error."""
     trace = trace or new_trace(serial, "do")
     t0 = time.time()
@@ -944,7 +944,7 @@ def do(goal: str, run_hs: HsRunner, *, serial: str = "", max_steps: int = 12, mi
             t = time.time()
             fp_probe = read_screen(run_hs)[2]
             timing["read_ms"] += int((time.time() - t) * 1000)
-        except JevError as e:
+        except AutopilotError as e:
             status, extra = "error", {"error": str(e)}
             break
         except Exception as e:
@@ -959,7 +959,7 @@ def do(goal: str, run_hs: HsRunner, *, serial: str = "", max_steps: int = 12, mi
             r = step(goal, run_hs, serial=serial, min_confidence=min_confidence, max_candidates=max_candidates,
                      allow_risky=allow_risky, history=history, trace=trace, sleep=sleep, step_idx=i,
                      max_steps=max_steps, exclude=tried.get(fp, set()), **ask_kw)
-        except JevError as e:
+        except AutopilotError as e:
             status, extra = "error", {"error": str(e)}
             break
         except Exception as e:
@@ -1006,10 +1006,10 @@ def do(goal: str, run_hs: HsRunner, *, serial: str = "", max_steps: int = 12, mi
 #   {"goal": "Open Books"}                      state goal -> do();  {"allow_risky": true, "max_steps": 5} optional
 #   {"step": "Press Next"}                      single action -> step()
 #   {"type": "1234"} | {"type": {"cred": "demo.nnin"}}   keystrokes (credential resolved server-side)
-#   {"hide_keyboard": true}                     tap the IME chevron (JEV_KB_HIDE_XY)
+#   {"hide_keyboard": true}                     tap the IME chevron (AUTOPILOT_KB_HIDE_XY)
 #   {"wait_for": "Spillet er", "timeout": 20}   hs wait (text or selector)
 #   {"open": "com.example.shop.feature"} | {"key": "back"} | {"sleep": 3}
-#   {"screenshot": "caption"}                   hs see -> JEV_LOG_DIR/<ts>-<caption>.jpg (path in the result)
+#   {"screenshot": "caption"}                   hs see -> AUTOPILOT_LOG_DIR/<ts>-<caption>.jpg (path in the result)
 #   {"note": "..."}                             trace marker only
 #   {"tap": "#id" | "Exact label" | "x,y"}      scripted tap, no model: resolve against the tree (first match in
 #                                               reading order; "nth": 1 for the second), tap the centre, verify
@@ -1035,23 +1035,23 @@ def find_node(nodes: list[Node], selector: str, nth: int = 0) -> Node:
         hits = [n for n in nodes if n.actionable and exact(n)] or [n for n in nodes if exact(n)] \
             or [n for n in nodes if n.actionable and (low in n.text.lower() or low in n.desc.lower())]
     if len(hits) <= nth:
-        raise JevError(f"tap {selector!r}: no such element on screen" + (f" (nth={nth}, {len(hits)} hits)" if hits else ""))
+        raise AutopilotError(f"tap {selector!r}: no such element on screen" + (f" (nth={nth}, {len(hits)} hits)" if hits else ""))
     return hits[nth]
 
 
 def wait_for_text(run_hs: HsRunner, needle: str, timeout: float, sleep=time.sleep) -> float:
-    """Poll the tree until some node text/desc contains `needle` (case-insensitive). Raises JevError on timeout."""
+    """Poll the tree until some node text/desc contains `needle` (case-insensitive). Raises AutopilotError on timeout."""
     t0 = time.time()
     n = needle.lower()
     while True:
         try:
             _, _, nodes = read_screen(run_hs)
-        except JevError:
+        except AutopilotError:
             nodes = []
         if any(n in (x.text + " " + x.desc + " #" + x.rid).lower() for x in nodes):  # text, desc or #resource-id
             return round(time.time() - t0, 1)
         if time.time() - t0 > timeout:
-            raise JevError(f"wait_for {needle!r}: not on screen after {timeout:.0f}s")
+            raise AutopilotError(f"wait_for {needle!r}: not on screen after {timeout:.0f}s")
         sleep(0.5)
 
 
@@ -1096,7 +1096,7 @@ def run_plan(plan: list[dict], run_hs: HsRunner, *, run_adb: AdbRunner | None = 
                 v = st["type"]
                 if isinstance(v, dict) and "cred" in v:
                     if not cred:
-                        raise JevError("plan uses a credential but no credential lookup is available")
+                        raise AutopilotError("plan uses a credential but no credential lookup is available")
                     text = cred(v["cred"])
                     rec["step"] = {"type": {"cred": v["cred"]}}  # never echo the value
                 else:
@@ -1106,8 +1106,8 @@ def run_plan(plan: list[dict], run_hs: HsRunner, *, run_adb: AdbRunner | None = 
                 rec["timing"] = {"type_ms": int((time.time() - t) * 1000)}
             elif st.get("hide_keyboard"):
                 if not run_adb:
-                    raise JevError("hide_keyboard needs an adb runner")
-                x, y = JEV_KB_HIDE_XY
+                    raise AutopilotError("hide_keyboard needs an adb runner")
+                x, y = AUTOPILOT_KB_HIDE_XY
                 run_adb(["shell", "input", "tap", str(x), str(y)]); rec["status"] = "ok"
             elif "wait_for" in st:
                 t = time.time()
@@ -1124,7 +1124,7 @@ def run_plan(plan: list[dict], run_hs: HsRunner, *, run_adb: AdbRunner | None = 
             elif "screenshot" in st:
                 caption = str(st["screenshot"])
                 slug = re.sub(r"[^a-z0-9]+", "-", caption.lower()).strip("-")[:40]
-                d = shot_dir or JEV_LOG_DIR
+                d = shot_dir or AUTOPILOT_LOG_DIR
                 d.mkdir(parents=True, exist_ok=True)
                 man_path = d / "manifest.json"
                 if man_path.exists():  # a lab report dir: number the shot and register it (caption → chapter)
@@ -1159,8 +1159,8 @@ def run_plan(plan: list[dict], run_hs: HsRunner, *, run_adb: AdbRunner | None = 
             elif "note" in st:
                 rec["status"] = "ok"
             else:
-                raise JevError(f"unknown plan step: {st}")
-        except JevError as e:
+                raise AutopilotError(f"unknown plan step: {st}")
+        except AutopilotError as e:
             rec["status"], rec["error"] = "error", str(e)
             status, paused_at, hand_back = "error", i, {"error": str(e)}
         except Exception as e:  # device/hs errors
@@ -1198,11 +1198,11 @@ class Trace:
             with self.path.open("a", encoding="utf-8") as f:
                 f.write(json.dumps(rec, ensure_ascii=False, default=str) + "\n")
         except OSError as e:
-            print(f"[jevpick] trace write failed ({e}); {json.dumps(rec, default=str)[:400]}", file=sys.stderr)
+            print(f"[autopilot] trace write failed ({e}); {json.dumps(rec, default=str)[:400]}", file=sys.stderr)
 
 
 def new_trace(serial: str, tool: str, log_dir: Path | None = None) -> Trace | None:
-    d = log_dir or JEV_LOG_DIR
+    d = log_dir or AUTOPILOT_LOG_DIR
     try:
         d.mkdir(parents=True, exist_ok=True)
     except OSError:
@@ -1247,7 +1247,7 @@ def _cli_cred(ref: str) -> str:
 
 
 def main(argv: list[str] | None = None) -> int:
-    p = argparse.ArgumentParser(prog="jevpick", description=__doc__.split("\n\n")[0])
+    p = argparse.ArgumentParser(prog="autopilot", description=__doc__.split("\n\n")[0])
     sub = p.add_subparsers(dest="cmd", required=True)
     for name in ("pick", "step", "do"):
         s = sub.add_parser(name)
@@ -1255,7 +1255,7 @@ def main(argv: list[str] | None = None) -> int:
         s.add_argument("--serial", default=os.environ.get("ADB_SERIAL", ""))
         s.add_argument("--dump", help="offline: read the ui table from this file instead of a device")
         s.add_argument("--activity", default="", help="activity string to use with --dump")
-        s.add_argument("--stub", action="store_true", help="use the offline stub instead of the Jev API")
+        s.add_argument("--stub", action="store_true", help="use the offline stub instead of the decision API")
         s.add_argument("--max-candidates", type=int, default=60)
         s.add_argument("--allow-risky", action="store_true")
         s.add_argument("--min-confidence", type=float, default=0.5)
@@ -1279,8 +1279,8 @@ def main(argv: list[str] | None = None) -> int:
         return 0 if out["status"] == "completed" else 1
     if a.cmd == "selftest":
         sys.path.insert(0, str(Path(__file__).resolve().parent / "tests"))
-        import test_jevpick  # noqa: WPS433
-        return test_jevpick.run_all()
+        import test_autopilot  # noqa: WPS433
+        return test_autopilot.run_all()
     run = _dump_runner(a.dump, a.activity) if a.dump else _cli_runner(a.serial)
     kw = dict(serial=a.serial, max_candidates=a.max_candidates, allow_risky=a.allow_risky)
     if a.stub:

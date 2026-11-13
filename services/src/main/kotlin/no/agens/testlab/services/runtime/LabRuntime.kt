@@ -104,7 +104,7 @@ class LabRuntime(
     val traces = FileTraces(dirs.traces) { redactor.apply(it) }
 
     /** Jev on a picture of the screen (Box): the TypeSafe key is read on every request, like the engine's. */
-    var autopilotFind: AutopilotFind = AutopilotFind(no.agens.testlab.services.http.KtorHttpPost(), apiKey = { secrets.get(SecretStore.JEV_KEY) ?: System.getenv("TYPESAFE_API_KEY") })
+    var autopilotFind: AutopilotFind = AutopilotFind(no.agens.testlab.services.http.KtorHttpPost(), apiKey = { secrets.get(SecretStore.TYPESAFE_KEY) ?: System.getenv("TYPESAFE_API_KEY") })
 
     private val activeSerial = MutableStateFlow<String?>(null)
     val active: StateFlow<String?> = activeSerial.asStateFlow()
@@ -395,7 +395,7 @@ class LabRuntime(
         engines[platform]?.takeIf { it.first == ap }?.let { return it.second }
         val config = ap.first.toConfig(ap.second).let { if (ios) it.copy(device = "an iPhone (iOS)", backAction = no.agens.testlab.core.autopilot.META_BACK_IOS) else it }
         val client = DecisionClient(
-            config, KtorHttpPost(), apiKey = { secrets.get(SecretStore.JEV_KEY) }, nowMs = System::currentTimeMillis,
+            config, KtorHttpPost(), apiKey = { secrets.get(SecretStore.TYPESAFE_KEY) }, nowMs = System::currentTimeMillis,
             openaiKey = { secrets.get(SecretStore.OPENAI_KEY) ?: System.getenv("OPENAI_API_KEY") },
         )
         return AutopilotEngine(config, client).also { engines[platform] = ap to it }

@@ -15,7 +15,7 @@ enum class Backend(val id: String) {
 }
 
 /**
- * Every knob of jevpick.py with the same defaults, except where a local install needs another
+ * Every knob of autopilot.py with the same defaults, except where a local install needs another
  * one: Ollama defaults to this machine instead of the lab's LAN hosts.
  */
 data class AutopilotConfig(
@@ -181,7 +181,7 @@ class Decision(
     fun top(n: Int = 5): List<Pair<String, Double>> = probabilities.entries.sortedByDescending { it.value }.take(n).map { it.key to it.value }
 }
 
-/** Device size for scaling the pixel constants that jevpick tuned on a 1440×3120 Pixel. */
+/** Device size for scaling the pixel constants that autopilot.py tuned on a 1440×3120 Pixel. */
 data class Geometry(val width: Int = REF_WIDTH, val height: Int = REF_HEIGHT) {
     fun sx(px: Int): Int = px * width / REF_WIDTH
     fun sy(px: Int): Int = px * height / REF_HEIGHT

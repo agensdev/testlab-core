@@ -56,12 +56,12 @@ import kotlin.test.assertTrue
 class McpServerTest {
     private val tmp = Files.createTempDirectory("tl-mcp").toFile()
     private val dirs = AppDirs(File(tmp, "data"), File(tmp, "cache"), File(tmp, "work"))
-    private val secretValues = listOf(NNIN, PASSWORD, JEV_KEY, GH_TOKEN, TOKEN)
+    private val secretValues = listOf(NNIN, PASSWORD, TYPESAFE_KEY, GH_TOKEN, TOKEN)
     private val secrets = MemorySecretStore(
         mapOf(
             "account.demo.nnin" to NNIN,
             "account.demo.login_password" to PASSWORD,
-            "jev.key" to JEV_KEY,
+            "typesafe.key" to TYPESAFE_KEY,
             "github.token" to GH_TOKEN,
             "mcp.token" to TOKEN,
         ),
@@ -259,7 +259,7 @@ class McpServerTest {
         val step = c.call("handsets_autopilot_step", "goal" to "Press Neste", "backend" to "stub")
         assertFalse(step.isError == true, step.text)
         // Without a key the hosted backend refuses with a clear message instead of guessing.
-        rt.secrets.delete("jev.key")
+        rt.secrets.delete("typesafe.key")
         val noKey = c.call("handsets_autopilot_pick", "goal" to "Press Neste")
         assertEquals(true, noKey.isError)
         assertTrue("TypeSafe API key not set" in noKey.text, noKey.text)
@@ -359,7 +359,7 @@ class McpServerTest {
     companion object {
         const val NNIN = "01019912345"
         const val PASSWORD = "hunter2-secret"
-        const val JEV_KEY = "apikey_test_123456"
+        const val TYPESAFE_KEY = "apikey_test_123456"
         const val GH_TOKEN = "ghp_testtoken123456"
         const val TOKEN = "test-mcp-token-0123456789"
 
