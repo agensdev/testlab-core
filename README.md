@@ -214,7 +214,8 @@ A team's branded build (its own name, ids and bundled profiles) comes from the s
 
 ## Licence and credits
 
-Apache License 2.0, see [LICENSE](LICENSE) and [NOTICE](NOTICE).
+Apache License 2.0, see [LICENSE](LICENSE) and [NOTICE](NOTICE). The bundled libraries and their
+licences are in [THIRD-PARTY-LICENSES](THIRD-PARTY-LICENSES).
 
 Device control uses [handsets](https://github.com/elliotgao2/handsets) by Elliot Gao (MIT): the
 bundled on-device daemon, and ports of its dump renderer, tap-by-text and selector engine. Decisions use

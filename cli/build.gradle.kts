@@ -57,7 +57,7 @@ val cliDist by tasks.registering(Sync::class) {
     into(cliRoot)
     from(tasks.named("installDist").map { (it as Sync).destinationDir.resolve("lib") }) { into("lib") }
     from(layout.buildDirectory.dir("cli-runtime")) { into("runtime") }
-    from(rootProject.file("LICENSE")); from(rootProject.file("NOTICE"))
+    from(rootProject.file("LICENSE")); from(rootProject.file("NOTICE")); from(rootProject.file("THIRD-PARTY-LICENSES"))
     val jvm = "-Xmx1g -Dfile.encoding=UTF-8"
     val main = "no.agens.testlab.cli.MainKt"
     // Locals, not the script's vals: the configuration cache can't serialize the script object.

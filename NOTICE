@@ -1,23 +1,24 @@
 Testlab
-Copyright 2026 Testlab contributors
+Copyright 2026 Agens AS
 
 Licensed under the Apache License, Version 2.0 (see LICENSE).
 
-This product bundles or depends on third-party software:
+This product bundles third-party software. THIRD-PARTY-LICENSES lists every bundled library with
+its copyright holder and the full text of its licence:
 
 - handsets (on-device daemon hs.jar, and ports of its dump renderer, tap-by-text and selector
-  code), Copyright (c) Elliot Gao. MIT License; the full text is in
-  device/src/main/resources/handsets/LICENSE.
-- Kotlin, kotlinx.coroutines, kotlinx.serialization, Ktor, JetBrains s.r.o.
-  Apache-2.0.
-- MCP Kotlin SDK, Model Context Protocol contributors. MIT License.
-- dadb, mobile.dev. Apache-2.0.
-- java-keyring. BSD 3-Clause License.
+  code), Copyright (c) Elliot Gao. MIT License.
+- Kotlin, kotlinx.coroutines, kotlinx.serialization, kotlinx-io, kotlinx.collections.immutable,
+  JetBrains annotations, Ktor, JetBrains s.r.o. Apache-2.0.
+- MCP Kotlin SDK, Model Context Protocol a Series of LF Projects, LLC. Apache-2.0, parts MIT.
+- Config (Lightbend), kotlin-logging, HKDF. Apache-2.0.
 - JNA. Apache-2.0 / LGPL-2.1 (used under Apache-2.0).
-- mp4parser (isoparser, muxer). Apache-2.0.
-- apk-parser. BSD 2-Clause License.
-- commonmark-java. BSD 2-Clause License.
-- SLF4J. MIT License.
+- dbus-java, secret-service, SLF4J. MIT License.
+- java-keyring. BSD 3-Clause License.
+- jkeychain, commonmark-java. BSD 2-Clause License.
+
+The CLI packages also bundle a Java runtime (OpenJDK), under the GNU General Public License
+version 2 with the Classpath Exception; its licence texts are in runtime/legal/ in the package.
 
 Android, Android SDK Platform-Tools and adb are not bundled; the app can download Google's
 platform-tools after the user accepts Google's terms.
