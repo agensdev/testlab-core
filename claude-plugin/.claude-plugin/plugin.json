@@ -1,7 +1,7 @@
 {
   "name": "testlab",
   "displayName": "Testlab",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "The phone's screen live in a Claude Code pane (tap, keys, rewind through actions) and test reports inline",
   "author": { "name": "Agens" },
   "license": "Apache-2.0",
