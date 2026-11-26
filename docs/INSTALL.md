@@ -7,7 +7,8 @@ desktop app. Plan on 15 minutes the first time. [GUIDE.md](GUIDE.md) walks throu
 
 You need:
 
-- macOS 13+ on Apple silicon, or a 64-bit Linux (Windows: build from source, see [DEV.md](DEV.md))
+- macOS 13+ on Apple silicon, a 64-bit Linux, or 64-bit Windows (see [Windows](#windows) below:
+  no `install.sh` and no `testlab upgrade` there yet)
 - an Android phone or emulator, and a USB data cable or (Android 11+) the same Wi-Fi network;
   for iOS, a Mac with Xcode
 - a project profile from your team (a `.zip`), or the details to make one: the app's GitHub repo,
@@ -176,6 +177,21 @@ While a phone is routed, quitting Proxyman takes its network away. Disconnecting
 stopping Testlab restores the direct connection; after a crash it is restored at the next start.
 Claude reaches Proxyman's tools through Testlab as `proxyman_*`, so it needs no separate Proxyman
 MCP setup.
+
+## Windows
+
+There is a package for 64-bit Windows, `testlab-cli-<version>-windows-x64.zip`, with Java bundled.
+It is built and self-tested for every release, but it is the least used of the three: expect
+rough edges, and tell us about them.
+
+1. Unzip it where you want it, for example `%LOCALAPPDATA%\Programs\testlab`.
+2. Add its `bin` folder to your `PATH` (or run `bin\testlab.bat` with its full path).
+3. `testlab setup`, as on the other systems.
+
+What is different: Android only (iOS needs a Mac); no `install.sh`; `testlab upgrade` and
+automatic updates don't work yet, so to update, stop the service (`testlab service stop`), unzip
+the new package over the old one and start it again. The background service is a scheduled task
+at logon ([SERVICE.md](SERVICE.md)).
 
 ## Updating
 

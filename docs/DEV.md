@@ -116,10 +116,9 @@ Each packages the CLI (`:cli:packageCli`, Java bundled) and checks it with `scri
 | `test` | ubuntu | — (scrub audit, `./gradlew check`) |
 | `linux` | ubuntu | `testlab-cli-<v>-linux-x64.tar.gz` |
 | `macos` | macos (arm64) | `testlab-cli-<v>-macos-arm64.tar.gz` |
-| `windows` | windows, only with `all-platforms: true` | `testlab-cli-<v>-windows-x64.zip` |
+| `windows` | windows; always for a release, for `package` only with `all-platforms: true` | `testlab-cli-<v>-windows-x64.zip` |
 
-The OS jobs start once `test` passes (macOS minutes count ×10 and Windows ×2 on a private repo)
-and run in parallel. File names follow `testlab.name` / `testlab.slug`, so a branded build names
+The OS jobs start once `test` passes and run in parallel. File names follow `testlab.name` / `testlab.slug`, so a branded build names
 its files after itself.
 
 `release.yml` runs it on a pushed tag `vMAJOR.MINOR.PATCH`, checks the macOS and Linux packages

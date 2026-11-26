@@ -1,7 +1,8 @@
 name: build
 
 # The CLI packages (Java bundled), one job per OS: macOS (arm64) and Linux (x64) always, Windows
-# with `all-platforms: true`. Called by release.yml (tags) and package.yml (manual); each job
+# with `all-platforms: true` (a release always asks for it). Called by release.yml (tags) and
+# package.yml (manual); each job
 # uploads `dist-<os>` with the files named for a release. There is no app any more: the CLI, the
 # background service and the local web pages are the whole product.
 on:

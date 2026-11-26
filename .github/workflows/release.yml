@@ -3,7 +3,7 @@ name: release
 # A tag vMAJOR.MINOR.PATCH builds the CLI packages (build.yml: Linux tests, then one job per OS)
 # and publishes them on a GitHub Release with SHA256SUMS, marked as the latest release (so
 # releases/latest always leads to the newest one).
-# Budget on a private repo: about 150 of the 2,000 free minutes (macOS counts ×10, Windows ×2).
+# Every OS is built: macOS (arm64), Linux (x64) and Windows (x64).
 on:
   push:
     tags: ['v[0-9]+.[0-9]+.[0-9]+']
@@ -25,6 +25,7 @@ jobs:
     uses: ./.github/workflows/build.yml
     with:
       version: ${{ needs.version.outputs.version }}
+      all-platforms: true
     secrets: inherit
 
   publish:
@@ -43,8 +44,7 @@ jobs:
         run: |
           set -euo pipefail
           ls -la dist
-          # The CLI for macOS and Linux (Windows only with build.yml all-platforms).
-          for pat in '*-cli-*-macos-arm64.tar.gz' '*-cli-*-linux-x64.tar.gz'; do
+          for pat in '*-cli-*-macos-arm64.tar.gz' '*-cli-*-linux-x64.tar.gz' '*-cli-*-windows-x64.zip'; do
             compgen -G "dist/$pat" >/dev/null || { echo "missing $pat" >&2; exit 1; }
           done
       - name: Installer

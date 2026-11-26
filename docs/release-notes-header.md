@@ -1,7 +1,7 @@
 ## Get started
 
 Testlab lets Claude test your Android and iOS app on real phones, emulators and iOS Simulators,
-from your own computer. It runs on **macOS (Apple silicon)** and **Linux (x64)**, with Java bundled.
+from your own computer. It runs on **macOS (Apple silicon)**, **Linux (x64)** and **Windows (x64)**, with Java bundled.
 
 **1. Download two files** from the assets below into your Downloads folder:
 
@@ -34,8 +34,8 @@ the app starts», «Devtest PROJ-123». Setup ends with prompts that use your ow
 [INSTALL.md](https://github.com/agensdev/testlab-core/blob/main/docs/INSTALL.md).
 
 **Already installed?** `testlab upgrade` (it restarts the background service on the new version;
-`testlab upgrade --rollback` goes back). **Windows** isn't packaged for now: build from
-source ([DEV.md](https://github.com/agensdev/testlab-core/blob/main/docs/DEV.md)). Something wrong?
+`testlab upgrade --rollback` goes back). **Windows** (Android only): unzip `testlab-cli-…-windows-x64.zip`
+and follow [INSTALL.md → Windows](https://github.com/agensdev/testlab-core/blob/main/docs/INSTALL.md#windows). Something wrong?
 `testlab diag` writes a diagnostics zip to send along.
 
 ---
