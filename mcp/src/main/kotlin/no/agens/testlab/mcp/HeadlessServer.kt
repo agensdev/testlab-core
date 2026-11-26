@@ -29,11 +29,13 @@ object HeadlessServer {
 
     /** Starts the server and blocks until the process is stopped. */
     fun run(rt: LabRuntime, opts: Options, out: PrintStream = System.out, log: PrintStream = System.err): Nothing {
-        val h = start(rt, opts, out, log)
-        Runtime.getRuntime().addShutdownHook(Thread { h.stop() })
         // A service manager's stop (SIGTERM) is a clean exit, not a crash: exit 0, so systemd doesn't
         // record a failure and launchd's KeepAlive (restart unless it exited cleanly) leaves it stopped.
+        // Set before the start: a stop that arrives while the server is still coming up (the menu bar
+        // icon takes a moment on a Mac) must not count as a crash either.
         runCatching { sun.misc.Signal.handle(sun.misc.Signal("TERM")) { log.println("stopping (SIGTERM)"); kotlin.system.exitProcess(0) } }
+        val h = start(rt, opts, out, log)
+        Runtime.getRuntime().addShutdownHook(Thread { h.stop() })
         Thread.currentThread().join()
         throw IllegalStateException("unreachable")
     }
