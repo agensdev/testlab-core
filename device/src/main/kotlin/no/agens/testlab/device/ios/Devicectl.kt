@@ -28,6 +28,10 @@ class DevicectlCli(private val xcrun: XcrunCli) {
 
     fun devices(): List<PhysicalIos> = parseDevices(json("list", "devices", timeoutMs = 30_000))
 
+    /** The version of this Xcode's iPhone SDK ("18.2"): the newest iOS it builds for. Null when it can't be read. */
+    fun sdkVersion(): String? = runCatching { xcrun.run(listOf("--sdk", "iphoneos", "--show-sdk-version"), 15_000) }.getOrNull()
+        ?.takeIf { it.ok }?.stdout?.trim()?.takeIf { it.isNotEmpty() }
+
     fun install(udid: String, ipa: File) { json("device", "install", "app", "--device", udid, ipa.path, timeoutMs = 600_000) }
 
     fun uninstall(udid: String, bundleId: String) { json("device", "uninstall", "app", "--device", udid, bundleId) }

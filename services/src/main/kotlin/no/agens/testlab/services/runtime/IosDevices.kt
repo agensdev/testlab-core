@@ -59,8 +59,10 @@ class IosDeviceBackend(
         val driver = WebDriver(d.appium.ensureRunning().let { d.appium.url })
         val mjpeg = Appium.stablePort("$serial-mjpeg", 9100..9999)
         val wda = Appium.stablePort(serial, 8100..8999)
+        // A phone on a newer iOS than this Xcode's SDK: WebDriverAgent is built for the SDK's version instead.
+        val buildFor = Appium.buildableVersion(phone?.os, ctl.sdkVersion())
         try {
-            driver.newSession(Appium.realDeviceCapabilities(serial, wda, mjpeg, d.teamId, d.wdaBundleId), timeoutMs = 900_000)
+            driver.newSession(Appium.realDeviceCapabilities(serial, wda, mjpeg, d.teamId, d.wdaBundleId, buildFor), timeoutMs = 900_000)
         } catch (e: Exception) {
             val msg = (e.message ?: e.toString()).lineSequence().firstOrNull { it.isNotBlank() }.orEmpty().take(300)
             throw IllegalStateException("WebDriverAgent did not start on $name: ${Appium.realDeviceHint(e.message ?: "")}. (Appium: $msg)", e)

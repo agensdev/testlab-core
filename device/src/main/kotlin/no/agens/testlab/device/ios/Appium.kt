@@ -117,9 +117,12 @@ class Appium(private val home: File, val port: Int, private val log: File) {
          * phone takes. Xcode signs it with the Apple developer team [teamId] (an account signed in
          * under Xcode → Settings → Accounts; a free personal team works, its profile lasts 7 days),
          * under its own bundle id [wdaBundleId], and registers the phone with the team if needed.
+         * [platformVersion] (see [buildableVersion]) is the iOS version WebDriverAgent is built for when
+         * that can't be the phone's own; null leaves it to Appium, which asks the phone.
          */
-        fun realDeviceCapabilities(udid: String, wdaPort: Int, mjpegPort: Int, teamId: String, wdaBundleId: String): JsonObject = buildJsonObject {
+        fun realDeviceCapabilities(udid: String, wdaPort: Int, mjpegPort: Int, teamId: String, wdaBundleId: String, platformVersion: String? = null): JsonObject = buildJsonObject {
             capabilities(udid, wdaPort, mjpegPort).forEach { (k, v) -> put(k, v) }
+            platformVersion?.let { put("appium:platformVersion", it) }
             put("appium:xcodeOrgId", teamId)
             put("appium:xcodeSigningId", "Apple Development")
             put("appium:updatedWDABundleId", wdaBundleId)
@@ -127,6 +130,22 @@ class Appium(private val home: File, val port: Int, private val log: File) {
             // A phone takes longer than a simulator: the build, the install and the first start over the cable.
             put("appium:wdaLaunchTimeout", 480_000)
             put("appium:wdaConnectionTimeout", 480_000)
+        }
+
+        /**
+         * The iOS version to build WebDriverAgent for when the phone's iOS ([deviceOs]) is newer than
+         * this Xcode's iPhone SDK ([sdk]): the SDK's version, else null. Appium builds with the phone's
+         * version as the deployment target, and Xcode refuses a target above its SDK ("the range of
+         * supported deployment target versions is 15.0 to 27.1.x"), which stops every phone on a newer
+         * iOS point release or beta than the installed Xcode. Built for the SDK's version it still runs
+         * on the newer phone.
+         */
+        fun buildableVersion(deviceOs: String?, sdk: String?): String? {
+            fun parts(v: String?) = Regex("^(\\d+)(?:\\.(\\d+))?").find(v.orEmpty().trim())?.let { (it.groupValues[1].toInt()) to (it.groupValues[2].toIntOrNull() ?: 0) }
+            val phone = parts(deviceOs) ?: return null
+            val xcode = parts(sdk) ?: return null
+            val newer = phone.first > xcode.first || (phone.first == xcode.first && phone.second > xcode.second)
+            return if (newer) "${xcode.first}.${xcode.second}" else null
         }
 
         /** A team id as Apple gives it (10 letters and digits, as on developer.apple.com → Membership). */
@@ -142,8 +161,12 @@ class Appium(private val home: File, val port: Int, private val log: File) {
         fun realDeviceHint(message: String): String {
             val m = message.lowercase()
             return when {
-                "code 65" in m || "signing" in m || "provisioning" in m || "no account" in m || "certificate" in m ->
+                "deployment target" in m -> "this Xcode is older than the phone's iOS: update Xcode"
+                "signing" in m || "provisioning" in m || "no account" in m || "certificate" in m ->
                     "Xcode could not sign WebDriverAgent: sign in under Xcode → Settings → Accounts with an Apple ID in the team, and check the team id"
+                // Appium passes on only xcodebuild's exit code, which is the same for both of these.
+                "code 65" in m ->
+                    "Xcode could not build WebDriverAgent. Usually it could not sign it (sign in under Xcode → Settings → Accounts with an Apple ID in the team, and check the team id), or this Xcode is older than the phone's iOS (update Xcode)"
                 "developer mode" in m -> "turn on Settings → Privacy & Security → Developer Mode on the phone (it restarts)"
                 "ui automation" in m || ("automation" in m && "enable" in m) -> "turn on Settings → Developer → Enable UI Automation on the phone"
                 "untrusted" in m || "not trusted" in m || "trust" in m -> "trust the developer on the phone: Settings → General → VPN & Device Management"

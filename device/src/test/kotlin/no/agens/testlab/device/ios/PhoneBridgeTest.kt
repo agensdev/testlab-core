@@ -90,4 +90,33 @@ class PhoneBridgeTest {
         assertTrue("Xcode → Settings → Accounts" in Appium.realDeviceHint("xcodebuild failed with code 65: Signing for WebDriverAgentRunner requires a development team"))
         assertTrue("Enable UI Automation" in Appium.realDeviceHint("Timed out waiting for WebDriverAgent"))
     }
+
+    @Test
+    fun aPhoneNewerThanXcodeIsBuiltForTheSdksVersion() {
+        // iOS 27.2 on the phone, Xcode's SDK at 27.1: Xcode refuses a deployment target of 27.2.
+        assertEquals("27.1", Appium.buildableVersion("27.2", "27.1"))
+        assertEquals("18.2", Appium.buildableVersion("19.0", "18.2"))
+        assertEquals("26.0", Appium.buildableVersion("26.1.1", "26"))
+        // Same or older: Appium keeps the phone's own version.
+        assertEquals(null, Appium.buildableVersion("27.1", "27.1"))
+        assertEquals(null, Appium.buildableVersion("18.6", "27.1"))
+        assertEquals(null, Appium.buildableVersion("27.1.2", "27.1"), "a patch release needs no cap")
+        // Unknown on either side: nothing is forced.
+        assertEquals(null, Appium.buildableVersion(null, "27.1"))
+        assertEquals(null, Appium.buildableVersion("27.2", null))
+        assertEquals(null, Appium.buildableVersion("beta", "27.1"))
+
+        val capped = Appium.realDeviceCapabilities("00008110-AAA", 8101, 9101, "ABCDE12345", "com.example.wda.WebDriverAgentRunner", "27.1")
+        assertEquals("27.1", capped["appium:platformVersion"]!!.jsonPrimitive.content)
+        val plain = Appium.realDeviceCapabilities("00008110-AAA", 8101, 9101, "ABCDE12345", "com.example.wda.WebDriverAgentRunner")
+        assertTrue("appium:platformVersion" !in plain, "left to Appium when the phone's own version builds")
+    }
+
+    @Test
+    fun aFailedBuildNamesBothUsualCauses() {
+        // Appium passes on only the exit code: the hint must not claim signing when it can't know.
+        val bare = Appium.realDeviceHint("Unable to launch WebDriverAgent. Original error: xcodebuild failed with code 65.")
+        assertTrue("Xcode → Settings → Accounts" in bare && "update Xcode" in bare)
+        assertTrue(Appium.realDeviceHint("The iOS deployment target 'IPHONEOS_DEPLOYMENT_TARGET' is set to 27.2").startsWith("this Xcode is older"))
+    }
 }
