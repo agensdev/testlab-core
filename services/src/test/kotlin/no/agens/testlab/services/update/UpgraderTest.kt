@@ -92,6 +92,22 @@ class UpgraderTest {
     }
 
     @Test
+    fun aPublicReposReleaseNeedsNoTokenAndSurvivesARefusedOne(): Unit = runBlocking {
+        val releases = """[{"tag_name":"v0.9.5","name":"","prerelease":false,"assets":[${asset(4, "testlab-cli-0.9.5-linux-x64.tar.gz")}]}]"""
+        gh.on("GET $repo/releases?") { req ->
+            if (req.headers["Authorization"] != null) respond("""{"message":"Bad credentials"}""", HttpStatusCode.Unauthorized) else respond(releases, HttpStatusCode.OK)
+        }
+        gh.on("GET $repo/releases/assets/4") { respond("cli", HttpStatusCode.OK) }
+        // An expired token: asked again without it.
+        assertEquals("0.9.5", up.latestRelease("0.9.0")!!.version)
+        val none = LabRuntime(dirs, SettingsStore(File(dirs.data, "settings3.json")), MemorySecretStore(emptyMap()), adbOverride = FakeAdb().cli).also { it.githubHttp = gh.client }
+        gh.seen.clear()
+        assertEquals("cli", Upgrader(none, HostOs.LINUX).latestRelease("0.9.0")!!.cli.readText())
+        assertTrue(gh.seen.none { s -> s.headers.keys.any { it.equals("Authorization", ignoreCase = true) } }, "no token: none is sent, also for the download")
+        none.close()
+    }
+
+    @Test
     fun theNewCliUpdatesTheClaudeCodePluginAfterAnUpgrade() {
         // A stand-in launcher that records how it was run and answers like the real one.
         val home = File(tmp, "cli-home").apply { mkdirs() }

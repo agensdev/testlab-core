@@ -123,6 +123,8 @@ class GitHub(
     private val token: () -> String?,
     val repo: String,
     private val api: String = "https://api.github.com",
+    /** Without a token, ask without one instead of refusing: enough for what a public repo shows anyone. */
+    private val anonymous: Boolean = false,
 ) {
     @Volatile var rateRemaining: Int? = null
         private set
@@ -133,8 +135,8 @@ class GitHub(
 
     private fun HttpRequestBuilder.auth(accept: String = "application/vnd.github+json") {
         val t = token()?.trim().orEmpty()
-        if (t.isEmpty()) throw GitHubError(401, "No GitHub token: add one on the setup page (`testlab open setup`)", TOKEN_PAGE)
-        header(HttpHeaders.Authorization, "Bearer $t")
+        if (t.isEmpty() && !anonymous) throw GitHubError(401, "No GitHub token: add one on the setup page (`testlab open setup`)", TOKEN_PAGE)
+        if (t.isNotEmpty()) header(HttpHeaders.Authorization, "Bearer $t")
         header(HttpHeaders.Accept, accept)
         header("X-GitHub-Api-Version", "2022-11-28")
     }
@@ -156,7 +158,8 @@ class GitHub(
             s == 401 -> GitHubError(s, "GitHub rejected the token (invalid or expired): add a new one on the setup page (`testlab open setup`)", TOKEN_PAGE)
             s == 403 && sso != null -> GitHubError(s, "The token is not authorized for ${repo.substringBefore('/')}'s SSO: open the link and authorize it", sso)
             (s == 403 || s == 429) && (rateRemaining == 0 || "rate limit" in message.lowercase()) ->
-                GitHubError(s, "GitHub's API limit for this token is used up until ${resetClock()}")
+                GitHubError(s, if (token().isNullOrBlank()) "GitHub's limit for requests without a token is used up until ${resetClock()}: add a GitHub token on the setup page (`testlab open setup`), or try later"
+                    else "GitHub's API limit for this token is used up until ${resetClock()}")
             s == 403 && "Resource not accessible" in message ->
                 GitHubError(s, "The token may not $what: a fine-grained token needs Actions, Contents and Pull requests (read) on $repo", TOKEN_PAGE)
             s == 404 -> GitHubError(s, "Not found: $what (or the token can't see $repo)")

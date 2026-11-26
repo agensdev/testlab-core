@@ -66,7 +66,7 @@ background service.
 
 | What | Where to get it | Needed for |
 |---|---|---|
-| GitHub token | <https://github.com/settings/tokens/new?scopes=repo>: a **classic** token with `repo`. If your organisation uses SSO, also **Configure SSO → Authorize** it | PR builds, devtests, upgrades |
+| GitHub token | <https://github.com/settings/tokens/new?scopes=repo>: a **classic** token with `repo`. If your organisation uses SSO, also **Configure SSO → Authorize** it | PR builds, devtests |
 | Jira e-mail + API token | <https://id.atlassian.com/manage-profile/security/api-tokens> → **Create API token** (not «with scopes»), with your work e-mail | Devtests |
 | TypeSafe Jev key | from the Jev account owner | The autopilot (or choose a local Ollama model, or OpenAI's Decisions API, instead) |
 | OpenAI API key (optional) | <https://platform.openai.com/api-keys> («Create new secret key», copy it at once: it is shown once; the API needs credit on the account, billed apart from ChatGPT): `testlab secrets set openai.key`, or `OPENAI_API_KEY` | The autopilot on OpenAI's [Decisions API](https://developers.openai.com/api/docs/guides/decisions) (`jev.backend = openai`, model `jev.openaiModel`, default `gpt-6-luna`) |
@@ -179,16 +179,22 @@ MCP setup.
 
 ## Updating
 
-`testlab status` says when a newer release exists (the check runs once a day with your GitHub
-token). Settings, the vault, profiles, plans and reports are kept in every update.
+`testlab status` says when a newer release exists: the running server looks once a day and also
+tells you with a desktop notification. Settings, the vault, profiles, plans and reports are kept in
+every update.
 
 - `testlab upgrade`: the newest release. `testlab upgrade --ci`: the newest package build (Actions →
   package). `testlab upgrade --from ~/Downloads/dist-macos`: a downloaded artifact folder, its zip,
   or the CLI's tar.gz. The background service is stopped around the swap and started again, and the
   Claude Code plugin is updated with it.
 - Back to the previous version: `testlab upgrade --rollback`.
+- Automatic: turn on **Install updates automatically** on the settings page (`testlab open
+  settings`; `autoUpdate` in settings.json). The background service then installs a new release
+  itself once nothing has run on it for ten minutes, and restarts. A version you rolled back from
+  is not installed again. Not on Windows, and not for a server started by hand (`testlab serve`).
 
-Upgrades need a GitHub token that can read the Testlab repo. The paths stay the same, so the
+Reading releases needs no GitHub token when the Testlab repo is public; for a private copy of it,
+the token must be able to read that repo. The paths stay the same, so the
 background service, Claude Desktop's config and the `testlab` link in your PATH keep working. Start
 a new chat in Claude Desktop to get the new tools.
 

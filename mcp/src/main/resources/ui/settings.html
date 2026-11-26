@@ -91,6 +91,7 @@
   <section class="card" id="app"><h2>App</h2>
     <div class="f"><label>Workspace folder</label><input type="text" data-path="workspace" data-type="opt" id="ws"><div class="help">Plans and reports. Keep it outside iCloud (Documents can be): files moved to iCloud have to download before they open.</div></div>
     <div class="f"><label>Check for updates</label><input type="checkbox" data-path="checkUpdates"></div>
+    <div class="f"><label>Install updates automatically</label><input type="checkbox" data-path="autoUpdate"><div class="help">The background service installs a new release while nothing is running on it, then restarts. The old version is kept: <code>testlab upgrade --rollback</code>.</div></div>
     <div class="f"><label>Icon in the menu bar (macOS) or taskbar (Windows)</label><input type="checkbox" data-path="menuBarIcon"></div>
     <div class="f"><label>Claude Code binary</label><input type="text" data-path="claude.binary" data-type="opt" placeholder="found on PATH"></div>
     <div class="row"><button class="primary" data-save="app">Save</button></div>

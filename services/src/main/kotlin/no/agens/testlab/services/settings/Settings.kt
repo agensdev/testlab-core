@@ -35,8 +35,10 @@ data class Settings(
     val accountNotes: Map<String, String> = emptyMap(),
     /** Where plans and reports go; null = the per-OS default (AppDirs.workspace). */
     val workspace: String? = null,
-    /** Look for a newer release once a day (needs the GitHub token: the repo is private). */
+    /** Look for a newer release once a day, and say so when there is one. */
     val checkUpdates: Boolean = true,
+    /** With [checkUpdates]: the background service installs a newer release itself while idle, and restarts. */
+    val autoUpdate: Boolean = false,
     /** While the server runs: its icon in the macOS menu bar (on Windows the taskbar's notification area). */
     val menuBarIcon: Boolean = true,
 ) {

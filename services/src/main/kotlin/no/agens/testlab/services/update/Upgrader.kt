@@ -10,7 +10,7 @@ import java.util.zip.ZipInputStream
 
 /**
  * Installs a newer build over this one: the CLI download (`testlab-cli-<v>-<os>-<arch>.tar.gz`). A
- * build comes from the newest GitHub release, the newest `dist-<os>` artifact of a package/release
+ * build comes from the newest GitHub release (no token needed when the repo is public), the newest `dist-<os>` artifact of a package/release
  * run (`ci`), or files the person downloaded. It is unpacked next to the old one and run once
  * (`--version`) before it is swapped in; the old one is kept in `<data>/previous/` for [rollback]. Paths stay the same, so the
  * background service, Claude's MCP config and the PATH symlink keep working.
@@ -39,6 +39,22 @@ class Upgrader(private val rt: LabRuntime, private val os: HostOs = HostOs.curre
      */
     private fun github() = GitHub(rt.builds.httpClient, { updateToken(rt) }, AppIdentity.REPO, UPDATE_API)
 
+    /**
+     * Reads releases: with the token when there is one, and without when there is none or GitHub
+     * refuses it (expired, or an account that can't see the repo). A public repo's releases need no
+     * token; a private one's answer without it is the same "not found" the token got.
+     */
+    private suspend fun <T> releases(block: suspend (GitHub) -> T): T {
+        val open = GitHub(rt.builds.httpClient, { null }, AppIdentity.REPO, UPDATE_API, anonymous = true)
+        if (runCatching { updateToken(rt) }.getOrNull().isNullOrBlank()) return block(open)
+        return try {
+            block(github())
+        } catch (e: no.agens.testlab.services.github.GitHubError) {
+            if (e.status !in setOf(401, 403, 404, 429)) throw e
+            try { block(open) } catch (_: no.agens.testlab.services.github.GitHubError) { throw e }
+        }
+    }
+
     companion object {
         /** Releases and package builds live on github.com, whatever GitHub the profile's repo is on. */
         const val UPDATE_API = "https://api.github.com"
@@ -50,18 +66,17 @@ class Upgrader(private val rt: LabRuntime, private val os: HostOs = HostOs.curre
     // --- where a build comes from ---
 
     /** The newest release with this platform's files, when it is newer than [current]; null when there is none. */
-    suspend fun latestRelease(current: String = AppIdentity.VERSION, progress: (String) -> Unit = {}): Build? {
-        val gh = github()
+    suspend fun latestRelease(current: String = AppIdentity.VERSION, progress: (String) -> Unit = {}): Build? = releases { gh ->
         val r = gh.releases().filter { it.tag.removePrefix("v").matches(Regex("\\d+\\.\\d+\\.\\d+")) }
-            .reduceOrNull { a, b -> if (UpdateCheck.newer(b.tag, a.tag)) b else a } ?: return null
+            .reduceOrNull { a, b -> if (UpdateCheck.newer(b.tag, a.tag)) b else a } ?: return@releases null
         val v = r.tag.removePrefix("v")
-        if (!UpdateCheck.newer(v, current)) return null
+        if (!UpdateCheck.newer(v, current)) return@releases null
         val dir = fresh("release-$v")
         suspend fun pick(match: (String) -> Boolean) = r.assets.firstOrNull { match(it.name) }?.let { a ->
             File(dir, a.name).also { f -> gh.downloadAsset(a.apiUrl, f) { done, total -> progress(pct("${a.name}", done, total)) } }
         }
         val cli = pick { it.contains("-cli-") && it.contains(platform) } ?: throw Failed("release ${r.tag} has no CLI for $platform")
-        return Build("release ${r.tag}", v, cli)
+        Build("release ${r.tag}", v, cli)
     }
 
     /** The newest unexpired `dist-<os>` artifact of a package or release run. */

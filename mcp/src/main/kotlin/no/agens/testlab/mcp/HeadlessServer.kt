@@ -82,6 +82,15 @@ object HeadlessServer {
             log.println("Reachable from other machines as: ${(gateway.hosts - McpGateway.LOOPBACK_HOSTS).joinToString { ep.urlFor(it) }}")
             log.println("Plain HTTP with a bearer token: use it on a tailnet or a trusted LAN, or put TLS in front (docs/SERVICE.md).")
         }
+        // New releases: said once, or installed while idle (the autoUpdate setting).
+        val updates = no.agens.testlab.services.update.AutoUpdate(rt, log, restart = { kotlin.system.exitProcess(MenuBar.RESTART_EXIT) })
+        scope.launch {
+            kotlinx.coroutines.delay(2 * 60_000L)
+            while (true) {
+                runCatching { updates.tick() }.onFailure { if (it is kotlinx.coroutines.CancellationException) throw it }
+                kotlinx.coroutines.delay(30 * 60_000L)
+            }
+        }
         if (!rt.settings.current.mcp.confirmWrites) log.println("mcp.confirmWrites is off: writes go through without asking.")
         // Its menu opens the pages, which the control API serves.
         if (rt.settings.current.mcp.controlApi) MenuBar.start(rt, { mcp.pageUrl(it) }, log)

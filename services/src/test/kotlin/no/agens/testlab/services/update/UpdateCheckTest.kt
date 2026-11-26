@@ -1,5 +1,6 @@
 package no.agens.testlab.services.update
 
+import io.ktor.client.engine.mock.respond
 import kotlinx.coroutines.runBlocking
 import no.agens.testlab.services.builds.MockGitHub
 import java.io.File
@@ -48,10 +49,27 @@ class UpdateCheckTest {
     }
 
     @Test
-    fun noTokenOrNoAccessMeansNoAnswer() = runBlocking {
-        assertNull(check(token = null).check())
-        assertTrue(gh.seen.isEmpty())
+    fun noAccessMeansNoAnswer() = runBlocking {
+        // A private repo: not found with the token, and not found without.
         gh.json("GET /repos/example/testlab/releases?", """{"message":"Not Found"}""", 404)
         assertNull(check().check(force = true))
+        assertNull(check(token = null).check(force = true))
+    }
+
+    @Test
+    fun aPublicRepoNeedsNoToken() = runBlocking {
+        gh.json("GET /repos/example/testlab/releases?", """[{"tag_name":"v1.0.0","draft":false,"html_url":"u100"}]""")
+        assertEquals("1.0.0", check(token = null).check()?.version)
+        assertTrue(gh.seen.single().headers.keys.none { it.equals("Authorization", ignoreCase = true) }, "no token: none is sent")
+    }
+
+    @Test
+    fun aRefusedTokenDoesNotHideAPublicReposReleases() = runBlocking {
+        gh.on("GET /repos/example/testlab/releases?") { req ->
+            if (req.headers["Authorization"] != null) respond("""{"message":"Bad credentials"}""", io.ktor.http.HttpStatusCode.Unauthorized)
+            else respond("""[{"tag_name":"v1.0.0","draft":false,"html_url":"u100"}]""", io.ktor.http.HttpStatusCode.OK)
+        }
+        assertEquals("1.0.0", check(token = "ghp_expired").check()?.version)
+        assertEquals(2, gh.seen.size)
     }
 }

@@ -19,9 +19,9 @@ import java.time.Instant
 data class UpdateInfo(val version: String, val url: String, val checkedAt: String)
 
 /**
- * Asks GitHub's Releases for a newer version, at most once a day. The repo is private, so the
- * user's GitHub token is needed (collaborators' classic tokens can read it); without one, or
- * without access, there is simply no answer and Settings links to the releases page.
+ * Asks GitHub's Releases for a newer version, at most once a day: with the user's GitHub token when
+ * there is one, and without when there is none or GitHub refuses it (a public repo's releases need
+ * no token). While the repo is private and the token can't read it there is simply no answer.
  */
 class UpdateCheck(
     private val http: HttpClient,
@@ -46,13 +46,16 @@ class UpdateCheck(
         val s = state()
         if (!force && s != null && runCatching { Duration.between(Instant.parse(s.checkedAt), now()) < Duration.ofHours(20) }.getOrDefault(false)) return cached()
         val t = token()?.trim().orEmpty()
-        if (t.isEmpty()) return null
-        val r = runCatching {
+        suspend fun ask(bearer: String?) = runCatching {
             // The list, not releases/latest: that one skips pre-releases, and the 0.x pilot builds are those.
             http.get("${api().trimEnd('/')}/repos/$repo/releases?per_page=20") {
-                header("Authorization", "Bearer $t"); header("Accept", "application/vnd.github+json"); header("X-GitHub-Api-Version", "2022-11-28")
+                bearer?.let { header("Authorization", "Bearer $it") }
+                header("Accept", "application/vnd.github+json"); header("X-GitHub-Api-Version", "2022-11-28")
             }
-        }.getOrNull() ?: return cached()
+        }.getOrNull()
+        var r = ask(t.ifEmpty { null }) ?: return cached()
+        // A token GitHub refuses (expired, another account's) must not hide a public repo's releases.
+        if (r.status.value != 200 && t.isNotEmpty()) r = ask(null) ?: return cached()
         val stamp = now().toString()
         if (r.status.value != 200) { save(State(stamp)); return null }
         val list = runCatching { (json.parseToJsonElement(r.bodyAsText()) as JsonArray).map { it as JsonObject } }.getOrNull() ?: return null
