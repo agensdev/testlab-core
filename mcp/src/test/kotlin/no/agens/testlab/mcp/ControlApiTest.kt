@@ -102,6 +102,8 @@ class ControlApiTest {
         assertEquals("false", body["isError"]!!.jsonPrimitive.content)
         val frame = Json.parseToJsonElement(body["content"]!!.jsonArray.first().jsonObject["text"]!!.jsonPrimitive.content).jsonObject
         assertEquals("fake-1", frame["serial"]!!.jsonPrimitive.content)
+        // The live screen's own clicks: a tap must not be refused as "not a view tool".
+        assertEquals(200, post("/view/call", """{"tool":"handsets_tap_xy","args":{"x":5,"y":5}}""").status.value)
         assertEquals(403, post("/view/call", """{"tool":"handsets_type_secret","args":{"ref":"demo.password"}}""").status.value, "only the views' tools")
         assertEquals(403, post("/view/call", """{"tool":"jira_add_comment","args":{}}""").status.value)
         assertEquals(401, http.post("$base/view/call") { contentType(ContentType.Application.Json); setBody("""{"tool":"handsets_view_frame"}""") }.status.value)

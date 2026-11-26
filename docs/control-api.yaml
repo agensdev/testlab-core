@@ -228,10 +228,10 @@ paths:
     post: { summary: "Route a phone through Proxyman, or stop (`{on: false}`)", responses: { "200": { description: "`{serial, proxy, ours, cert}`" }, "409": { description: "Proxyman is off" } } }
   /view/call:
     post:
-      summary: A live view's own tool call (frames, activity, reports, the view's keys)
+      summary: A live view's own tool call (frames, activity, reports, the view's keys, swipes and taps)
       description: |
         Runs one of the views' tools as MCP would and returns its result: `handsets_view_frame`,
-        `handsets_view_activity`, `handsets_navigate`, `handsets_swipe`, `lab_view_report`,
+        `handsets_view_activity`, `handsets_navigate`, `handsets_swipe`, `handsets_tap_xy`, `lab_view_report`,
         `lab_view_report_frame`, `lab_view_report_file`. The Claude Code plugin's panes use it, so
         their polling is not Claude's tool calls (no permission prompt for each frame). Any other
         tool is refused.

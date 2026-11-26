@@ -288,8 +288,8 @@ class ControlApi(
          * `<data>/control.json` (0600): where a host app finds the API and its token. Written while
          * the server runs, removed when it stops.
          */
-        /** What `/view/call` runs: reading frames, activity and reports, and the panes' keys. */
-        val VIEW_TOOLS = setOf("handsets_show_screen", "lab_show_report", "handsets_view_frame", "handsets_view_activity", "handsets_navigate", "handsets_swipe", "lab_view_report", "lab_view_report_frame", "lab_view_report_file")
+        /** What `/view/call` runs: reading frames, activity and reports, and what a person does in the live screen (keys, swipes, taps). */
+        val VIEW_TOOLS = setOf("handsets_show_screen", "lab_show_report", "handsets_view_frame", "handsets_view_activity", "handsets_navigate", "handsets_swipe", "handsets_tap_xy", "lab_view_report", "lab_view_report_frame", "lab_view_report_file")
 
         fun writeDiscovery(file: File, url: String, token: String, mode: String = "service") {
             file.parentFile?.mkdirs()
