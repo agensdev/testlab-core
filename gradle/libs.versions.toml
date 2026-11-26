@@ -4,11 +4,8 @@ coroutines = "1.11.0"
 serialization = "1.11.0"
 ktor = "3.6.0"
 mcp = "0.15.0"
-dadb = "2.0.0"
 keyring = "1.0.4"
 jna = "5.19.1"
-mp4parser = "1.9.56"
-apkparser = "2.6.10"
 commonmark = "0.30.0"
 slf4j = "2.0.20"
 logback = "1.6.5"
@@ -31,12 +28,8 @@ ktor-server-cio = { module = "io.ktor:ktor-server-cio", version.ref = "ktor" }
 mcp-server = { module = "io.modelcontextprotocol:kotlin-sdk-server", version.ref = "mcp" }
 mcp-client = { module = "io.modelcontextprotocol:kotlin-sdk-client", version.ref = "mcp" }
 
-dadb = { module = "dev.mobile:dadb", version.ref = "dadb" }
 keyring = { module = "com.github.javakeyring:java-keyring", version.ref = "keyring" }
 jna-platform = { module = "net.java.dev.jna:jna-platform", version.ref = "jna" }
-mp4parser-isoparser = { module = "org.mp4parser:isoparser", version.ref = "mp4parser" }
-mp4parser-muxer = { module = "org.mp4parser:muxer", version.ref = "mp4parser" }
-apk-parser = { module = "net.dongliu:apk-parser", version.ref = "apkparser" }
 commonmark = { module = "org.commonmark:commonmark", version.ref = "commonmark" }
 commonmark-tables = { module = "org.commonmark:commonmark-ext-gfm-tables", version.ref = "commonmark" }
 
